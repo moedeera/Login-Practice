@@ -1,0 +1,17 @@
+{
+  "name": "login-practice",
+  "version": "1.0.0",
+  "description": "practice",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "author": "moe",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "mongocli": "0.0.1",
+    "mongoose": "^5.13.3"
+  }
+}

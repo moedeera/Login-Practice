@@ -1,0 +1,134 @@
+
+body {
+    min-height: 100%;
+
+    }
+    body, div, form, input, select, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    }
+    body {
+background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("pic0.jpg");
+    background-size: cover;
+    }
+    h1, h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    }
+    h2 {
+    margin: 0 0 0 8px;
+    }
+    .main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5); 
+    }
+    .left-part, form {
+    padding: 25px;
+    }
+    .left-part {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 5px;
+    margin:10px 10px;
+    height:500px;
+    border: none;
+    border: 1px solid #eee;
+    color: white;
+    }
+
+    a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none;
+color: white;
+
+}
+
+
+a:hover { text-decoration: none;
+color: teal; }
+
+
+a:active { text-decoration: none; }
+    .fa-graduation-cap {
+    font-size: 72px ;
+    }
+    form {
+    background: rgba(92, 84, 84, 0.5); 
+    }
+    .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    .info {
+    display: flex;
+    flex-direction: column;
+    }
+    input {
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+    }
+    input::placeholder {
+    color: #eee;
+    }
+    option:focus {
+    border: none;
+    }
+    option {
+    background: black; 
+    border: none;
+    }
+   
+    .btn-item, button {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px; 
+    border: none;
+    background: #26a9e0; 
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    }
+    .btn-item {
+    display: inline-block;
+    margin: 20px 5px 0;
+    }
+    button {
+    width: 100%;
+    }
+    button:hover, .btn-item:hover {
+    background: #85d6de;
+    }
+    @media (min-width: 568px) {
+    html, body {
+    height: 100%;
+    }
+    .main-block {
+    flex-direction: row;
+    height: calc(100% - 50px);
+    }
+    .left-part, form {
+    flex: 1;
+    height: auto;
+    }
+    }
+
+    h3{
+
+color: rgb(7, 151, 151);
+
+    }
