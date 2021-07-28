@@ -9,9 +9,8 @@ const mongoose = require ('mongoose')
 
 const db = require ('./config/keys').MongoURI;
 
-// Connnect to mongo
-
-mongoose.connect(db, { useUnifiedTopology: true})
+// Connect to mongo //
+mongoose.connect(db, { useUnifiedTopology:true, useNewUrlParser: true} )
 .then(()=> console.log('mongoDB connected'))
 .catch(err=> console.log(err));
 
