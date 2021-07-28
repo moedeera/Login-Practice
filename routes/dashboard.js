@@ -69,19 +69,17 @@ router.get(('/register'), (req, res)=> res.render('register.ejs'))
 router.post(('/register'), async (req, res)=> {
 
 try {
-console.log(Users)
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
 
- return await User.create({ name: req.body.name,
+const Users = await User.create({ name: req.body.name,
 
 email: req.body.email,
 password: hashedPassword
 
 }).save()
 
-
- console.log(Users)   
-res.redirect('./Login')
+console.log(Users)
+res.json(Users).redirect('./Login')
 } catch{
 res.redirect('/register')
 
