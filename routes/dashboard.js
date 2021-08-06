@@ -9,7 +9,7 @@ const User = require ('../models/Users.js')
 
 
 
-router.get(('/'), (req, res)=> res.render('index.ejs'))
+router.get(('/'), (req, res)=> res.render('welcome.ejs'))
 
 
                          // Login pages
