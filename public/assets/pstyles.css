@@ -1,8 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
   body {
     margin: 0;
     font-family: 'Archivo Narrow'; font-size: 18px;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('pic0.jpg');
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url('pic3.png');
         
 
 }
@@ -69,6 +69,8 @@ grid-gap: 2rem;
 grid-template-columns: 7fr 3fr;
 
 
+
+
 }
 
 
@@ -76,20 +78,20 @@ grid-template-columns: 7fr 3fr;
   /* showcase */
 
   .hero-image {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://www.sportsnet.ca/wp-content/uploads/2020/08/CP18573294-1.jpg);
-    
+    background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://cdn.pixabay.com/photo/2016/12/28/09/36/web-1935737_960_720.png);
     
     height: 300px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    transition: 0.5s ease-in-out;
   }
   
   .hero-text {
     text-align: center;
     position: absolute;
-    top: 75%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -113,7 +115,7 @@ grid-template-columns: 7fr 3fr;
 .hero-image:hover {
 
 opacity:0.7;
-transform: scale(1.01);
+transform: scale(0.98);
 background-blend-mode: darken; 
 
 }
@@ -134,13 +136,13 @@ grid-template-columns: 1fr;
 
 grid-gap: 2rem;
 justify-content: space-around;
-
+transition: 0.5s ease-in-out;
 }
 
 .slideshow-container:hover{
 
     opacity:0.7;
-    transform: scale(1.01); 
+    transform: scale(0.98); 
 }
 
 
@@ -168,25 +170,24 @@ height:100px;
 
 #story1 {
 
-  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://images.daznservices.com/di/library/GOAL/b2/1a/sergio-ramos-psg_1fjlt6bue3hey16yo8wy06lfsj.png?t=1002289850&quality=100);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://cdn.pixabay.com/photo/2017/01/29/13/21/mobile-devices-2017980_960_720.png);
   border-radius: 7px;
 }
 #story2 {
 
-  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://cdn.kickoff.com/cms2/image_manager/uploads/News/702295/7/Ronaldo.jpg); 
+  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://cdn.pixabay.com/photo/2016/09/08/04/12/programmer-1653351_960_720.png); 
   border-radius: 7px;
 }
 
 #story3 {
 
-  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://static01.nyt.com/images/2020/12/20/sports/20onsoccer1/merlin_181491138_64a5e591-2350-4662-8a75-20cc39e670a8-articleLarge.jpg?quality=75&auto=webp&disable=upscale); 
+  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg); 
 border-radius: 7px;
 }
 
 #story4 {
 
-  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(
-    https://editorial.uefa.com/resources/026a-1292dc7ef08a-10c373b90464-1000/manchester_city_v_chelsea_-_uefa_champions_league_final_previews.jpeg); 
+  background-image: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) ),url(https://cdn.pixabay.com/photo/2017/02/27/19/34/microphone-2104091_960_720.png); 
 border-radius: 7px;
 }
 
@@ -401,16 +402,22 @@ display: none;
     
         
         }
+
+
+        #story1 {
+          height: 300px;
+         
+           }
   
         #story2 {
-       height: 500px;
+       height: 300px;
   
         }
         #story3 {
-            height: 500px;
+            height: 300px;
                       }
                       #story4 {
-                        height: 500px;
+                        height: 300px;
                    
                          }
                          
