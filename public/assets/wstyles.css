@@ -14,7 +14,7 @@ padding:0;
 
 body{
 
-    background:rgb(13, 18, 20);
+    background:#0d1320;
     color:#fff;
     font-family: 'PT Sans', sans-serif;
     overflow-x: hidden;
@@ -201,11 +201,33 @@ background:url(pic3.png) no-repeat center center/cover;
     text-transform: uppercase;
     background-color:black;
     color:grey;
-    font-family: PT;
+    font-family: 'PT Sans';
 
 margin-top:auto;
  
 }
+/*About me */
+.about-me{
+
+margin:20px auto;    
+max-width: 650px;
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap:15px;
+font:'PT Sans', Sans-serif;
+}
+
+.picture{
+height:400px;
+width:100%;
+background:url(pic04.jpg) no-repeat center center/cover;
+}
+
+.picture:hover{
+
+    
+}
+
 
 .container > div{
 
