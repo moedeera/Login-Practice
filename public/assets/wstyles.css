@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
 
 *{
@@ -15,7 +16,8 @@ body{
 
     background:rgb(13, 18, 20);
     color:#fff;
-    font-family:'Roboto',sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -25,6 +27,180 @@ body{
     gap:10px;
 }
 
+
+/*Navbar */
+.upper-segments{
+position: relative;
+    
+}
+
+
+.navbar{
+    max-width: 650px;
+padding:5px 5px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+
+}
+.services{
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.services ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap:30px;
+    font-size: 18px;
+   
+    letter-spacing:3px;
+    transition:1s;
+}
+
+
+.services a:hover {
+
+    text-decoration: underline;
+}
+.login-modal{
+    background: black;
+    padding: 1px 5px ;
+  position: absolute;
+    width: 250px;
+    height:250px;
+    display: flex;
+    flex-direction: column;
+    gap:35px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+   top:-250px;
+    transition: 0.6s;
+    opacity: 0.9;
+          }
+
+ 
+
+    .services-sm ul{
+ 
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       list-style: none;
+       gap:30px;
+       font-size: 18px;
+       font-weight: 700;
+       letter-spacing:3px;
+       
+    }
+
+    .services-sm a:hover{
+         text-decoration: underline;
+    }
+      
+    .final{
+display:flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+
+    }
+     
+
+/****/
+
+/*Showcase-Segment**/
+.scg{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.showcase-segment{
+    max-width: 768px;
+margin: 20px auto;
+
+}
+.scp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+
+
+}
+
+.sm{
+  cursor: pointer;
+    min-height:200px;
+   width:100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   font-size: 18px;
+   transition:0.6s;
+   padding:5px
+}
+.sm:hover{
+    transform:scale(1.02)
+}
+
+
+.portfolio{
+
+background:url(pic3.png) no-repeat center center/cover;
+
+}
+.projects{
+
+    background:url(pic2.jpg) no-repeat center center/cover;
+    
+    }
+.about{
+
+        background:url(pic0.jpg) no-repeat center center/cover;
+        
+        }    
+.social-media {
+
+    background:none;
+    display: flex;
+    flex-direction:row;
+    gap:35px;
+}
+
+.fab{
+
+    line-height: 68px;
+   
+}
+.fab:hover{
+
+    border-bottom: 3px solid #1f67db;
+   }
+
+
+
+
+/****/
+.footer{
+
+    font-size:10px;
+    font-weight:700;
+    display: flex;
+    text-transform: uppercase;
+    background-color:black;
+    padding: 5px;
+    font-family: PT;
+    position: absolute;
+    bottom: 0;
+}
 
 .container > div{
 
@@ -160,5 +336,84 @@ a:visited{
 a{
     text-decoration: none;
  cursor: pointer;   
+
+}
+@media screen and (max-width: 768px) {
+    .services{
+
+        display: none;
+    }
+
+    #crow{
+
+        display: none;
+    }
+}
+@media screen and (min-width: 427px) {
+
+.showcase-segment{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+}
+
+
+    }
+
+
+
+@media screen and (min-width: 768px) {
+    .menu, .logo{
+
+        display: none;
+
+    }
+    .upper-segments{
+
+        display:flex;
+        justify-content:center;
+    }
+.navbar{
+    
+    display:flex;
+    justify-content: space-between;
+    gap:150px;
+}
+.login-modal{
+
+    display:none;
+}
+
+.services{
+
+    display:flex;
+    justify-content: flex-end;
+}
+.services ul{
+    display:flex;
+    justify-content:flex-end;
+}
+.showcase-segment{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+    grid-column-gap:25px;
+
+}
+
+.sm{
+
+    max-width:200px;
+    height:400px
+}
+.showcase-segment a{
+
+
+font-size: 10px;
+}
+
+h3:hover{ text-decoration: underline;
+}
+
 
 }
