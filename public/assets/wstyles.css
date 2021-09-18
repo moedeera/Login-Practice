@@ -14,7 +14,7 @@ padding:0;
 
 body{
 
-    background:#0d1320;
+    background:#121b2c;
     color:#fff;
     font-family: 'PT Sans', sans-serif;
     overflow-x: hidden;
@@ -446,4 +446,16 @@ h3:hover{ text-decoration: underline;
 }
 
 
+}
+
+@media  (max-width: 424px){
+
+    .sm{
+
+        width:100%
+    }
+    .showcase-segment{
+
+      width:100%;
+    }
 }
