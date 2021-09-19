@@ -22,7 +22,7 @@ body{
     height:100vh;
     display: flex;
     flex-direction:column;
-    min-width:fit-content;
+    
 }
 
 .container {
@@ -264,6 +264,8 @@ font-weight: 700;
 text-decoration: none;;
 
 }
+
+/*Form*/
 .form-control{
 
 max-width: 768px;
@@ -307,7 +309,21 @@ font-size:20px;
 color:#C55A11;
 
  }   
+/*Social*/
 
+.social{
+
+    min-height: 200px;
+    max-width:768px;
+    margin: 40px auto;
+   display: flex;
+   flex-direction:row;
+   justify-content: flex-end;
+   gap:20px;
+  
+
+
+}
 
 
 .container > div{
@@ -473,7 +489,16 @@ a{
         display: none;
     }
 }
-@media screen and (min-width: 427px) {
+@media screen and (max-width: 427px) {
+
+    input, textarea{
+
+     width:15rem;   
+    }
+}
+
+
+@media screen and (min-width: 500px) {
 
 .showcase-segment{
     display:grid;
