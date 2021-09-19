@@ -83,22 +83,24 @@ justify-content: space-between;
     align-items: center;
     align-content: center;
    top:-100vh;
-    transition: 0.6s;
+    transition: 0.85s;
     opacity: 0.85;
           }
 
  
 
     .services-sm ul{
- 
+       height: 60vh;
        display: flex;
        flex-direction: column;
+       justify-content: space-around;
        align-items: center;
        list-style: none;
-       gap:30px;
-       font-size: 18px;
+       gap:60px;
+       font-size: 28px;
        font-weight: 700;
        letter-spacing:3px;
+       
        
     }
 
