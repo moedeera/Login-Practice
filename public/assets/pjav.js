@@ -53,10 +53,10 @@ menu.addEventListener('click', (e)=>{
 
 e.preventDefault()
 if (click === 1){
-document.getElementById("form-modal").style.top ="40px"
+document.getElementById("form-modal").style.top ="0"
 click = 2;
 } else if (click === 2 ){
-  document.getElementById("form-modal").style.top ="-250px" 
+  document.getElementById("form-modal").style.top ="-100vh" 
   click = 1;
 }
 
@@ -64,7 +64,7 @@ click = 2;
 
 exitBtn.addEventListener('click', (e)=>{
   e.preventDefault()
-  document.getElementById("form-modal").style.top ="-250px" 
+  document.getElementById("form-modal").style.top ="-100vh" 
   click = 1;
 
 })
