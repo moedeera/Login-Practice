@@ -214,8 +214,7 @@ background:url(pic3.png) no-repeat center center/cover;
     font-weight:700;
     display: flex;
     text-transform: uppercase;
-    background-color:black;
-    color:grey;
+    background:#121b2c;
     font-family: 'PT Sans';
 
 margin-top:auto;
