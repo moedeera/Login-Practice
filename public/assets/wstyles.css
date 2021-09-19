@@ -17,11 +17,12 @@ body{
     background:#121b2c;
     color:#fff;
     font-family: 'PT Sans', sans-serif;
-    overflow-x: hidden;
+    overflow-x: none;
     margin:0;
     height:100vh;
     display: flex;
-    flex-direction:column
+    flex-direction:column;
+    min-width:fit-content;
 }
 
 .container {
@@ -234,8 +235,17 @@ font:'PT Sans', Sans-serif;
 .picture{
 height:400px;
 width:100%;
-background:url(main.jpg) no-repeat center center/cover;
+background:url(main1.jpg) no-repeat center center/cover;
 }
+
+.picture-sm{
+    
+   width:100px;
+   height:200px;
+    background:url(smalldeer.jpg) no-repeat center center/cover;
+    display:none;
+    }
+
 
 .bio{
 padding: 5px;
@@ -249,6 +259,55 @@ line-height: 1.9;
 font-weight: 700;
 
 }
+
+.bio h3:hover{ 
+text-decoration: none;;
+
+}
+.form-control{
+
+max-width: 768px;
+margin: 0 auto;
+height:400px;
+
+display: flex;
+flex-direction: column;
+gap:25px;
+
+}
+.Form{
+height:300px;
+display: flex;
+flex-direction: column;
+gap:20px;
+
+}
+
+
+
+.form-control h3:hover {
+
+    text-decoration:none;
+}
+
+input{
+    height:2rem;
+    width:20rem;
+}
+.picture2{
+ width:100%;
+    background:url(deeracontact2.jpg) no-repeat center center/cover;
+    }
+ .btn{
+border:none;
+width:10rem;
+padding:5px;
+font-family: 'PT Sans';
+font-size:20px;
+color:#C55A11;
+
+ }   
+
 
 
 .container > div{
@@ -388,9 +447,25 @@ a{
 
 }
 @media screen and (max-width: 768px) {
-    .services{
+    .services, .picture, .picture2{
 
         display: none;
+    }
+
+    .picture-sm{
+
+        display: inline-block;
+    }
+
+    .about-me{
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items: center;
+        align-content: center;
+        padding:5px;
+        
     }
 
     .main-logo{
@@ -455,8 +530,8 @@ a{
 
 .sm{
 
-    max-width:200px;
-    height:400px
+    max-width:270px;
+    min-height:550px
 }
 .showcase-segment a{
 
