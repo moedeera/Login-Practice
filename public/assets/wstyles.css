@@ -222,12 +222,20 @@ font:'PT Sans', Sans-serif;
 .picture{
 height:400px;
 width:100%;
-background:url(pic04.jpg) no-repeat center center/cover;
+background:url(main.jpg) no-repeat center center/cover;
 }
 
-.picture:hover{
-
+.bio{
+padding: 5px;
+letter-spacing: 3px;
+line-height: 1.9;
     
+}
+
+.bio p{
+
+font-weight: 700;
+
 }
 
 
@@ -382,7 +390,7 @@ a{
 
 .showcase-segment{
     display:grid;
-    grid-template-columns:2fr 1fr;
+    grid-template-columns:1fr 1fr;
     grid-row-gap: 5px;
     grid-column-gap:5px;
     
