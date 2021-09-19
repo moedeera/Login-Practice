@@ -30,7 +30,19 @@ body{
     grid-template-columns: repeat(auto-fit,(4,1fr));
     gap:10px;
 }
+.title{
 
+    display: flex;
+    
+    align-items: center;
+    gap:10px;
+    
+}
+
+.title h4{
+    margin-top:10px;
+
+}
 
 /*Navbar */
 .upper-segments{
@@ -381,7 +393,7 @@ a{
         display: none;
     }
 
-    #crow{
+    .main-logo{
 
         display: none;
     }
@@ -414,10 +426,10 @@ a{
         justify-content:center;
     }
 .navbar{
-    
+    max-width: 800px;
     display:flex;
     justify-content: space-between;
-    gap:150px;
+    gap:120px;
 }
 .login-modal{
 
