@@ -5,8 +5,6 @@ const mongoose = require ('mongoose')
 
 
 //DB config
-
-
 const db = require ('./config/keys').MongoURI;
 
 // Connect to mongo //

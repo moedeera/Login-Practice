@@ -65,8 +65,17 @@ justify-content: space-between;
 
     display: flex;
     justify-content: flex-end;
+    animation: serv-load 800ms ease-in-out;
 }
 
+
+
+.logo, .title{
+
+animation: serv-logo 800ms ease-in-out;
+
+
+}
 .services ul{
     display: flex;
     flex-direction: row;
@@ -77,7 +86,10 @@ justify-content: space-between;
     letter-spacing:3px;
     transition:1s;
 }
+.services a{
 
+    color:white;
+}
 
 .services a:hover {
 
@@ -164,7 +176,8 @@ margin: 20px auto;
    align-items: center;
    font-size: 28px;
    transition:0.6s;
-   padding:5px
+   padding:5px;
+   animation: serv-serv 1s ease-in-out;
 }
 .sm:hover{
     transform:scale(1.02)
@@ -461,6 +474,53 @@ a{
  cursor: pointer;   
 
 }
+
+@keyframes serv-load {
+
+0%{
+
+    transform: translateX(100%);
+}
+
+100% {
+
+    transform: translateY(0);
+}
+
+
+}
+@keyframes serv-logo {
+
+    0%{
+    
+        transform: translateY(-100%);
+    }
+    
+    100% {
+    
+        transform: translateY(0);
+    }
+    
+    
+    }
+@keyframes serv-serv {
+
+        0%{
+        
+            transform: translateX(-100%);
+        }
+        
+        100% {
+        
+            transform: translateX(0);
+        }
+        
+        
+        }
+            
+
+
+
 @media screen and (max-width: 768px) {
     .services, .picture, .picture2{
 
