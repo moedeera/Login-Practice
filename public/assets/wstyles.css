@@ -474,7 +474,9 @@ a{
 
      width:15rem;   
     }
-
+    .showbox{
+     display: none;
+        }
 
 }
 
