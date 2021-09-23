@@ -607,6 +607,8 @@ a{
     justify-content:flex-end;
 }
 .showcase-segment{
+    min-width:768px;
+    max-width: 1000px;
     display:grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
     grid-row-gap: 5px;
@@ -641,4 +643,15 @@ h3:hover{ text-decoration: underline;
 
       width:100%;
     }
+}
+
+@media screen and (min-width: 1078px) {
+
+.showcase-segment{
+width:900px;
+
+    
+}
+
+    
 }
