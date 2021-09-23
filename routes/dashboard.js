@@ -10,6 +10,8 @@ const User = require ('../models/Users.js')
 // welcome page
 
 router.get(('/'), (req, res)=> res.render('welcome.ejs'))
+// Portfolio Page
+router.get(('/Portfolio'), (req, res)=> res.render('Portfolio.ejs'))
 
 
                          // Login pages
