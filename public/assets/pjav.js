@@ -77,3 +77,7 @@ exitBtn.addEventListener('click', (e)=>{
 //   document.getElementById("form-modal").style.top ="-200px"
  
 // }
+
+function myFunction() {
+  location.replace("/Portfolio")
+}
