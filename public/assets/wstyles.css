@@ -716,9 +716,8 @@ a{
 }
 
 .sm{
-
-    max-width:270px;
-    min-height:550px
+height: 80vh;
+  
 }
 .showcase-segment a{
 
