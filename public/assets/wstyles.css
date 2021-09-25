@@ -376,6 +376,7 @@ gap:20px;
 min-width: 300px;
 
 background: rgba(0, 0, 0, 0.342);
+transition: 1s ease-in-out;
 }
 
 .showbox:hover{
@@ -384,7 +385,7 @@ opacity: 0.7;
 }
 
 #demo1{
-    background:url(demo1.jpg) no-repeat center center/cover;
+    background:url(demo01.jpg) no-repeat center center/cover;
     border:1px solid grey;
     
     }
@@ -403,6 +404,12 @@ opacity: 0.7;
                 border:1px solid grey;
                 
                 }
+#demo1:hover{
+
+    background:url(demo1.jpg) no-repeat center center/cover;
+    opacity: 1;
+}
+                
 
 .info{
     background-color: black;
