@@ -375,11 +375,23 @@ gap:20px;
     padding-bottom:20px;
 }
 .showbox{
+    cursor: pointer;
 
 min-width: 300px;
 
 background: rgba(0, 0, 0, 0.342);
 }
+
+.showbox:hover{
+opacity: 0.7;
+
+}
+
+#demo1{
+    background:url(demo1.jpg) no-repeat center center/cover;
+    border:1px solid grey;
+    
+    }
 
 
 
@@ -736,7 +748,7 @@ h3:hover{ text-decoration: underline;
 
 .showbox{
 
-    max-width: 300px;
+    max-width: 400px;
 }
 
 }
