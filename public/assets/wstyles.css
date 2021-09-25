@@ -202,7 +202,7 @@ letter-spacing: 2px;
 .about{
 
         background:url(port3.jpg) no-repeat center center/cover;
-        background: rgba(255, 255, 255, 0.849);
+    
         color:#121b2c;
         
         }    
@@ -219,10 +219,6 @@ letter-spacing: 2px;
     line-height: 68px;
    
 }
-.fab:hover{
-
-    border-bottom: 3px solid #1f67db;
-   }
 
 
 
@@ -392,8 +388,21 @@ opacity: 0.7;
     border:1px solid grey;
     
     }
-
-
+    #demo2{
+        background:url(demo2.jpg) no-repeat center center/cover;
+        border:1px solid grey;
+        
+        }
+        #demo3{
+            background:url(demo3.jpg) no-repeat center center/cover;
+            border:1px solid grey;
+            
+            } 
+             #demo4{
+                background:url(demo4.jpg) no-repeat center center/cover;
+                border:1px solid grey;
+                
+                }
 
 .info{
     background-color: black;
