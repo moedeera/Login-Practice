@@ -50,3 +50,131 @@ margin:150px auto;
     font-weight:700 ;
     cursor: pointer;
 }
+
+
+/*Projects*/
+
+.proj{
+    max-width: 670px;
+    margin:90px auto;
+    background: none;
+    height: 60vh;
+    cursor: pointer;
+      
+}
+
+
+
+.first {
+
+background-color:#d5f4e6 ;
+width: 100%;
+color:black;
+position: relative;
+display: flex;
+flex-direction: column;
+border-radius: 3px;
+animation: anim1 1s ease-in-out;
+
+
+}
+.deercoded{
+
+    padding:15px 20px;
+}
+.slides{
+padding: 10px;
+height: 400px;
+width: 100%;
+background: url(dc1.jpg) no-repeat center center/cover;
+}
+
+.slides:hover{
+    opacity: 0.8;
+}
+
+.synopsis{
+    background:#4040a1 ;
+    color:white;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap:40px;
+    padding:10px;
+}
+
+.syno-par{
+
+    display: none;
+    margin: 5px  0;
+}
+.side-synopsis{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.button{
+    cursor: pointer;
+color:black;
+width: 6rem;
+height: 2rem;
+font-size: 16px;
+font-family:  'PT Sans', sans-serif;;
+
+
+}
+
+.button a{
+
+    color:black;
+}
+
+@keyframes anim1{
+
+
+    0%{
+
+      transform: translate(100%);  
+    }
+    100%{
+        transform: translate(0%);
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    
+ 
+}
+@media screen and (max-width: 427px) {
+    .proj{
+       
+                }
+
+}
+@media screen and (min-width: 500px) {
+    .syno-par{
+
+        display: block;
+
+    }
+
+    }
+@media screen and (min-width: 768px) {
+    
+ 
+}
+
+@media  (max-width: 424px){
+   
+}
+
+@media screen and (min-width: 1078px) {
+
+}
