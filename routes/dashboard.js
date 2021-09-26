@@ -12,6 +12,8 @@ const User = require ('../models/Users.js')
 router.get(('/'), (req, res)=> res.render('welcome.ejs'))
 // Portfolio Page
 router.get(('/Portfolio'), (req, res)=> res.render('Portfolio.ejs'))
+// Portfolio Page
+router.get(('/Projects'), (req, res)=> res.render('Projects.ejs'))
 
 
                          // Login pages

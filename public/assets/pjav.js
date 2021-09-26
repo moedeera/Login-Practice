@@ -81,3 +81,7 @@ exitBtn.addEventListener('click', (e)=>{
 function myFunction() {
   location.replace("/Portfolio")
 }
+
+function myFunction2() {
+  location.replace("/Projects")
+}
