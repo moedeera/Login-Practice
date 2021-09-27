@@ -110,6 +110,7 @@ animation: serv-logo 800ms ease-in-out;
    top:-100vh;
     transition: 0.85s;
     opacity: 0.85;
+    z-index: 99;
           }
 
  

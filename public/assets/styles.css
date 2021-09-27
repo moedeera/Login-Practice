@@ -192,6 +192,47 @@ button:hover{
     opacity: 0.9;
 }
 
+
+/*profile specific*/
+
+.slide4{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left:0;
+    background: url(dc4.jpg) no-repeat center center/cover;
+    transition: 1s ease-in-out;
+    
+    }
+    .slide5{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left:100%;
+        background: url(dc5.jpg) no-repeat center center/cover;
+        transition: 1s ease-in-out;
+    
+        
+        }
+        .slide6{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left:200%;
+            background: url(dc6.jpg) no-repeat center center/cover;
+            transition: 1s ease-in-out;
+    
+            
+            }
+
+
+
+
+
+
+
+
+
 @keyframes anim1{
 
 
