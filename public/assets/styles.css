@@ -143,12 +143,15 @@ transition: 1s ease-in-out;
     grid-template-columns: 4fr 1fr;
     gap:40px;
     padding:15px;
+    letter-spacing: 2px;
 }
 
 .syno-par{
 
     display: none;
     margin: 5px  0;
+    font-size: 16px;
+  
 }
 .side-synopsis{
     margin: 0 auto;

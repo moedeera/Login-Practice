@@ -201,7 +201,8 @@ letter-spacing: 2px;
     }
 .about{
 
-        background:url(port3.jpg) no-repeat center center/cover;
+        /* background:url(port3.jpg) no-repeat center center/cover; */
+        background: white;
     
         color:#121b2c;
         

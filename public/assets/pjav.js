@@ -120,7 +120,7 @@ function MoveRight (){
   slide[2].style.left = '100%'
   
   Text.innerHTML = "Master HTML, CSS and JavaScript";
-  Text2.innerHTML = "Take an assessment survey and allow our algorithm to find the best path and tutorials to learn HTML, CSS and JavaScript "
+  Text2.innerHTML = "Take an assessment questionnaire and allow our algorithm to find the best path and tutorials to learn HTML, CSS and JavaScript "
  
   } 
   
@@ -147,7 +147,7 @@ function MoveRight (){
     slide[2].style.left = '100%'
 
     Text.innerHTML = "Free Interactive Coding Mentorship"
-    Text2.innerHTML = "A Mentorship program designed to help you learn to code, set up a portfolio, and start find work"
+    Text2.innerHTML = "A Mentorship program designed to help you learn to code, set up a portfolio, and start finding work"
   
     } 
     
@@ -166,7 +166,7 @@ function MoveRight (){
     slide[1].style.left = '0%'
     slide[2].style.left = '100%'
     Text.innerHTML = "Master HTML, CSS and JavaScript";
-    Text2.innerHTML = "Take an assessment survey and allow our algorithm to find the best path and tutorials to learn HTML, CSS and JavaScript "
+    Text2.innerHTML = "Take an assessment questionnaire and allow our algorithm to find the best path and tutorials to learn HTML, CSS and JavaScript "
 
     } 
     
