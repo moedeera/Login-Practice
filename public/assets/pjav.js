@@ -7,6 +7,8 @@
 //     }
 //   }
 
+// const { text } = require("express");
+
 
 //   // slide show ///
 //   var slideIndex = 1;
@@ -85,3 +87,108 @@ function myFunction() {
 function myFunction2() {
   location.replace("/Projects")
 }
+
+// Slides animation
+
+
+const slide = document.querySelectorAll(".slide")
+const circles = [document.getElementById("circle1"),document.getElementById("circle2")
+,document.getElementById("circle3")]
+const Text = document.getElementById("text")
+const Text2 = document.getElementById("info")
+var current= 0;
+let reverse = false;
+
+
+document.querySelector(".slides").addEventListener('click',(e)=>{
+
+e.preventDefault()
+MoveRight()
+
+
+})
+function MoveRight (){
+
+  if (current===0){
+  
+  current = 1;
+  reverse = false;
+
+  
+  slide[0].style.left='-100%'
+  slide[1].style.left = '0%'
+  slide[2].style.left = '100%'
+  
+  Text.innerHTML = "Master HTML, CSS and JavaScript";
+  Text2.innerHTML = "Take an assessment survey and allow our algorithm to find the best path and tutorials to learn HTML, CSS and JavaScript "
+ 
+  } 
+  
+  
+  else if (current===1 && reverse === false ){
+  
+  current =2 ;
+  
+  slide[0].style.left='-100%'
+  slide[1].style.left = '-100%'
+  slide[2].style.left = '0'
+
+  Text.innerHTML = "Find your Coding Rythm"
+  Text2.innerHTML = "Everyone learns differently so find out what works for and get assistance from people who have taken the same tutorials and courses"
+
+  } 
+  
+  else if (current===1 && reverse === true ){
+  
+    current =0 ;
+    
+    slide[0].style.left='0%'
+    slide[1].style.left = '100%'
+    slide[2].style.left = '100%'
+
+    Text.innerHTML = "Free Interactive Coding Mentorship"
+    Text2.innerHTML = "A Mentorship program designed to help you learn to code, set up a portfolio, and start find work"
+  
+    } 
+    
+
+
+
+
+
+  else if (current===2){
+  
+    current = 1 ;
+    reverse = true;
+
+    
+    slide[0].style.left='-100%'
+    slide[1].style.left = '0%'
+    slide[2].style.left = '100%'
+    Text.innerHTML = "Master HTML, CSS and JavaScript";
+    Text2.innerHTML = "Take an assessment survey and allow our algorithm to find the best path and tutorials to learn HTML, CSS and JavaScript "
+
+    } 
+    
+
+ 
+  
+      CircleUpdate()
+  
+  
+  }
+
+
+  //circle function
+  function CircleUpdate(){
+
+    for (var j=0; j<circles.length; j++){
+    
+      circles[j].classList.remove("chosen");
+    if (current===j){
+    circles[j].classList.add("chosen")
+    }
+    }}
+    
+
+    setInterval(MoveRight, 5000);
