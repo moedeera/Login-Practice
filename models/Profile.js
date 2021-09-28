@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 
 
 const ProfileSchema = new mongoose.Schema({
-user:{
+  UserID: {
+    type: String
+  },
 
-type:mongoose.Schema.Types.ObjectId,
-ref:'user'
-},
+
 Proficiency: {
     type: String
   },

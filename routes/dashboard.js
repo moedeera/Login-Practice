@@ -3,6 +3,7 @@ const router = express.Router()
 const bcrypt = require ('bcrypt')
 const mongoose = require ('mongoose')
 const User = require ('../models/Users.js')
+const Profile= require ('../models/Profile.js')
 
 
 
@@ -20,13 +21,8 @@ router.get(('/Projects'), (req, res)=> res.render('Projects.ejs'))
 
 // login get 
 router.get(('/Login'), (req, res)=> res.render('login.ejs'))
-
-
-
 // login post
 router.post('/Login', async (req,res)=> {
-
- 
  
 try {
     
@@ -73,15 +69,32 @@ router.get(('/register'), (req, res)=> res.render('register.ejs'))
 
 router.post(('/register'), async (req, res)=> {
 
+  let rkey = (Math.random() + 1).toString(36).substring(7);
+
 try {
 const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
 
 const Users = await User.create({ name: req.body.name,
 
 email: req.body.email,
-password: hashedPassword
+password: hashedPassword,
+id:r
 
 }).save()
+
+// Create Profile 
+
+const Profile = await Profile.create({ 
+
+
+UserID:rkey
+
+  
+  }).save()
+  
+
+
+
 
 console.log(Users)
 res.json(Users).redirect('./Login')
