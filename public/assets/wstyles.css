@@ -45,7 +45,24 @@ body{
 
 }
 
-/*Navbar */
+/* Glossary
+Welcome   Line 165
+Portfolio
+Projects */
+
+
+/* ////////////////////////////////////////////// Page: Welcome  */
+
+/* Index
+Section 1: Navbar     line 65
+Section 2: Showcase   line 165
+Section 3: About me   line 258
+Section 4: Form       line 346
+*/
+
+
+
+/*Navbar section @ Welcome page */
 .upper-segments{
 position: relative;
     
@@ -145,7 +162,7 @@ font-size: 1rem;
 
 /****/
 
-/*Showcase-Segment**/
+/*Showcase-Segment @ Welcome page*/
 .scg{
 display: flex;
 flex-direction: row;
@@ -238,7 +255,7 @@ letter-spacing: 2px;
 margin-top:auto;
  
 }
-/*About me */
+/*About me segment @ Welcome page/ "/*/
 .about-me{
 
 margin:20px auto;    
@@ -282,7 +299,7 @@ text-decoration: none;;
 
 }
 
-/*Form*/
+/*Form section @Welcome page*/
 .form-control{
 
 max-width: 768px;
@@ -326,7 +343,7 @@ font-size:20px;
 color:#C55A11;
 
  }   
-/*Social*/
+/*Social section @ Welcome page*/
 
 .social{
 
@@ -348,7 +365,11 @@ color:#C55A11;
 
     text-align: center;
 }
-/*Portfolio*/
+
+/* //////////////////////////////////////////////Page: Portfolio */
+
+
+
 
 
 .projectium{
