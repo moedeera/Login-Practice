@@ -28,7 +28,7 @@ try {
     
  const Users = await User.findOne({ email:req.body.email}).exec()
  ///   Match.find(email=>email===req.body.email)
- console.log(Users.password)
+//  console.log(Users.password)
 const auth = await bcrypt.compare(req.body.password, Users.password)
 
 console.log(auth, 'this is out auth request')
@@ -38,13 +38,7 @@ console.log(auth, 'this is out auth request')
 
  res.render('profile.ejs', {name: Users.name} )  }  
 
-    
-  
-
-  
-    
-
-    
+   
     else { res.send('invalid credentials')}
     
     
@@ -78,25 +72,15 @@ const Users = await User.create({ name: req.body.name,
 
 email: req.body.email,
 password: hashedPassword,
-id:r
+id:rkey
 
 }).save()
 
-// Create Profile 
-
-const Profile = await Profile.create({ 
-
-
-UserID:rkey
-
-  
-  }).save()
-  
 
 
 
 
-console.log(Users)
+console.log(Users, Profiles)
 res.json(Users).redirect('./Login')
 } catch{
 res.redirect('/register')
