@@ -135,7 +135,7 @@ res.redirect('/register')
 }
 
 
-
+router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
 
 
 
