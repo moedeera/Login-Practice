@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://kit.fontawesome.com/f52626a245.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/public/assets/styles.css" type="text/css">
     <link rel="stylesheet" href="/public/assets/wstyles.css" type="text/css">
     <title>Document</title>
@@ -20,7 +20,7 @@
         <ul>
           <li><a href="/" >Home</a></li>
           <li><a href="/Portfolio" >Portfolio</a></li>
-          <li><a href="/Projects">Projects </a></li>
+          <li><a style="text-decoration: underline;" href="/Projects">Projects </a></li>
           
         </ul>
         
@@ -39,8 +39,8 @@
          
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/Portfolio">Porfolio</a></li>
-            <li><a href="/Projects">About me </a></li>
+            <li><a href="">Porfolio</a></li>
+            <li><a href="">About me </a></li>
             
           </ul>
           </div>
@@ -51,28 +51,30 @@
 
 
 
-
         <div class="main-block">
+    
          
-          <form action="/Login" method="POST" class="register-form">
-            <div class="title">
-              
-              <h2>Login</h2>
+          <form action="./register" method="POST" class="register-form">
+            <div class="form-title">
+            
+              <h2>Register for DeerMentor<i class="fas fa-chalkboard" style="color: white;"></i></h2>
+            
             </div>
             <div class="info" id="black">
-      
-              <input type="email" name="email" placeholder="Email">
-              <input type="password" name="password" placeholder="Password">
-           
+          
+              <input class="name" type="text" name="name" placeholder="Enter Name">
+              <input type="email" name="email" placeholder="Enter Email">
+              <input type="password" name="password" placeholder="Enter new Password">
+              <input type="password" name="password2" placeholder="Re-enter Password">
              
             </div>
             
-            <button type="submit" href="/Login">Submit</button>
+            <button type="submit" href="./Login">Submit</button>
           </form>
-          <div class="left-part ">
-          
-<h3>Don't have an account? Click here to <a href="/register">Register</a></h3>
-</div>
+          <div class="left-part "><h3> <a href="./Login">Already have an account? Click here to Login</a></h3>
+            
+  </div>
+
         </div>
       </body>
 
