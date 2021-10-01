@@ -8,6 +8,11 @@ type: String,
 required: true
 
 },
+
+
+
+
+
 email: {
 
     type: String,
@@ -56,7 +61,7 @@ date: {
                 type: String
               },
             
-            Progress: [
+            Progress: 
                 {
                   HTML: {
                     type: Boolean,
@@ -85,7 +90,7 @@ date: {
                     type: String
                   }
                 }
-              ],
+              ,
             education: [
                 {
                   school: {

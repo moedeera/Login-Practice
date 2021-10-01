@@ -1,8 +1,15 @@
 const express = require ('express')
 const app = express()
 const mongoose = require ('mongoose')
+const path = require('path')
+const morgan = require('morgan')
 
+app.use(morgan('dev'))
+app.set('view engine', 'ejs')
 
+app.set('views', [path.join(__dirname, 'views'),
+                      path.join(__dirname, 'views/Projects/'), 
+                      path.join(__dirname, 'views/Users/')]);
 
 //DB config
 const db = require ('./config/keys').MongoURI;

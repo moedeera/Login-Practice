@@ -3,7 +3,8 @@ const router = express.Router()
 const bcrypt = require ('bcrypt')
 const mongoose = require ('mongoose')
 const User = require ('../models/Users.js')
-const Profile= require ('../models/Profile.js')
+const Profile = require ('../models/Profile.js')
+const List = require ('../models/List.js')
 
 
 
@@ -36,7 +37,7 @@ console.log(auth, 'this is out auth request')
   
      
 
- res.render('profile.ejs', {name: Users.name} )  }  
+ res.render('profile.ejs', {name: Users.name, progress: Users.progress  } )  }  
 
    
     else { res.send('invalid credentials')}
@@ -59,29 +60,74 @@ router.get(('/profile'), (req, res)=> res.render('profile.ejs'))
 
 
 //register pages
-router.get(('/register'), (req, res)=> res.render('register.ejs'))
+router.get(('/register'), (req, res)=>{
+console.log(User)
+
+res.render('register.ejs')})
 
 router.post(('/register'), async (req, res)=> {
+const {name, email} = req.body
 
-  let rkey = (Math.random() + 1).toString(36).substring(7);
 
+  let key = (Math.random() + 1).toString(36).substring(7);
+  console.log('line 67')
 try {
 const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
-
-const Users = await User.create({ name: req.body.name,
-
-email: req.body.email,
-password: hashedPassword,
-id:rkey
-
-}).save()
+console.log('line 70')
 
 
 
 
+// const Users = await User.create({ name,
 
-console.log(Users, Profiles)
-res.json(Users).redirect('./Login')
+// email,
+// password: hashedPassword,
+// id:key
+
+// })
+
+const user = new User({
+name,
+email,
+password:hashedPassword,
+id:key
+})
+
+
+
+await user.save()
+// res.send(user)
+const profile = new Profile({
+
+  UserID:key
+  })
+  await profile.save()
+
+console.log('line 106', List.userId)
+// List.userId.push(key)
+// await List.save()
+
+
+
+
+
+console.log('line 78')
+// const Profile = await Profile.create({ 
+
+
+//   UserID:rkey
+  
+//   }).save()
+
+
+
+
+
+
+
+
+// console.log('line 39',Users)
+res.redirect('./Login')
 } catch{
 res.redirect('/register')
 
@@ -96,9 +142,9 @@ res.redirect('/register')
 
 })
 
+// access Project
 
-
-
+router.get(('/Folder'), (req, res)=> res.render('Projects/file.ejs'))
 
 
 
