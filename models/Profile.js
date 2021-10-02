@@ -100,4 +100,4 @@ education: [
 
 });
 
-module.exports = mongoose.model('profile', ProfileSchema);
+module.exports = mongoose.model('Profile', ProfileSchema);

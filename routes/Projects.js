@@ -6,24 +6,19 @@ const User = require ('../models/Users.js')
 const Profile = require ('../models/Profile.js')
 const List = require ('../models/List.js')
 
-
-
-
-// welcome page
-
-router.get(('/'), (req, res)=> res.render('welcome.ejs'))
 // Portfolio Page
-router.get(('/Portfolio'), (req, res)=> res.render('Portfolio.ejs'))
-// Portfolio Page
-router.get(('/Projects'), (req, res)=> res.render('Projects.ejs'))
+router.get(('/'), (req, res)=> res.render('Projects/Projects.ejs'))
 
 
-                         // Login pages
+
+                       // Login pages
 
 // login get 
-router.get(('/Login'), (req, res)=> res.render('login.ejs'))
+router.get(('/Login'), (req, res)=> res.render('Projects/login.ejs'))
 // login post
 router.post('/Login', async (req,res)=> {
+
+    
  
 try {
     
@@ -37,7 +32,7 @@ console.log(auth, 'this is out auth request')
   
      
 
- res.render('profile.ejs', {name: Users.name, progress: Users.progress  } )  }  
+ res.render('Projects/profile.ejs', {name: Users.name, progress: Users.progress  } )  }  
 
    
     else { res.send('invalid credentials')}
@@ -55,7 +50,7 @@ console.log(auth, 'this is out auth request')
 
 
 // Profile page
-router.get(('/profile'), (req, res)=> res.render('profile.ejs'))
+router.get(('/profile'), (req, res)=> res.render('Projects/profile.ejs'))
 
 
 
@@ -63,7 +58,7 @@ router.get(('/profile'), (req, res)=> res.render('profile.ejs'))
 router.get(('/register'), (req, res)=>{
 console.log(User)
 
-res.render('register.ejs')})
+res.render('Projects/register.ejs')})
 
 router.post(('/register'), async (req, res)=> {
 const {name, email} = req.body
@@ -147,6 +142,10 @@ router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
 router.get(('/Folder'), (req, res)=> res.render('Projects/file.ejs'))
 
 
+
+
+
+module.exports = router;
 
 
 
