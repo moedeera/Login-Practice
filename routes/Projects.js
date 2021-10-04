@@ -27,7 +27,7 @@ try {
 //  console.log(Users.password)
 const auth = await bcrypt.compare(req.body.password, Users.password)
 
-console.log(auth, 'this is out auth request')
+// console.log(auth, 'this is out auth request')
     if (auth){
   
      
