@@ -65,10 +65,10 @@ const {name, email} = req.body
 
 
   let key = (Math.random() + 1).toString(36).substring(7);
-  console.log('line 67')
+ 
 try {
 const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
-console.log('line 70')
+
 
 
 
@@ -98,7 +98,7 @@ const profile = new Profile({
   })
   await profile.save()
 
-console.log('line 106', List.userId)
+
 // List.userId.push(key)
 // await List.save()
 
@@ -106,7 +106,7 @@ console.log('line 106', List.userId)
 
 
 
-console.log('line 78')
+
 // const Profile = await Profile.create({ 
 
 
