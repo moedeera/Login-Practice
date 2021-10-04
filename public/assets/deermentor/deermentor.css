@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+body{
+
+    background:#fefbd8;
+    color:black;
+    font-family: 'PT Sans', sans-serif;
+    overflow-x: none;
+    margin:0;
+    height:100vh;
+    display: flex;
+    flex-direction:column;
+    
+}
+
+
+.navigation{
+
+    display: flex;
+    
+
+
+}
