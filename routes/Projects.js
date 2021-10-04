@@ -32,7 +32,7 @@ console.log(auth, 'this is out auth request')
   
      
 
- res.render('Projects/profile.ejs', {name: Users.name, progress: Users.progress  } )  }  
+ res.render('Projects/profile.ejs', {name: Users.name, Progress: Users.Progress  } )  }  
 
    
     else { res.send('invalid credentials')}
