@@ -5,6 +5,7 @@ const mongoose = require ('mongoose')
 const User = require ('../models/Users.js')
 const Profile = require ('../models/Profile.js')
 const List = require ('../models/List.js')
+const path = require('path')
 
 
 // welcome page
