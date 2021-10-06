@@ -212,7 +212,10 @@ background:url(port1.jpg) no-repeat center center/cover;
 letter-spacing: 2px;
 
 }
-
+.project{
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 .projects{
 
@@ -381,18 +384,18 @@ margin: 40px auto;
 display: grid;
 grid-template-columns: 1fr;
 background: none;
-overflow: auto;
-gap:20px;
+overflow: hidden;
+gap:10px;
 
 }
             
 .project{
 
-    width: 100%;
+    max-width: 100%;
     margin:5px;
     border:1px solid none;
     display: flex;
-    gap:10px;
+    gap:5px;
     padding-bottom:20px;
 }
 .showbox{
@@ -686,6 +689,7 @@ a{
            .projectium{
             margin-top: 0;;
             max-width: 500px;
+            overflow: hidden;
            }
 }
 @media screen and (max-width: 427px) {
@@ -697,6 +701,7 @@ a{
     
         .projectium{
             margin:0 auto;
+            overflow-x: hidden;
         }
 
 
