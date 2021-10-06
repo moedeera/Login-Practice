@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require ('bcrypt')
 const mongoose = require ('mongoose')
-const User = require ('../models/Users.js')
-const Profile = require ('../models/Profile.js')
-const List = require ('../models/List.js')
+const User = require ('../../models/Users.js')
+const Profile = require ('../../models/Profile.js')
+const List = require ('../../models/List.js')
 
 // Portfolio Page
 router.get(('/'), (req, res)=> res.render('Projects/Projects.ejs'))
@@ -27,7 +27,7 @@ try {
 //  console.log(Users.password)
 const auth = await bcrypt.compare(req.body.password, Users.password)
 
-console.log(auth, 'this is out auth request')
+// console.log(auth, 'this is out auth request')
     if (auth){
   
      
@@ -65,10 +65,10 @@ const {name, email} = req.body
 
 
   let key = (Math.random() + 1).toString(36).substring(7);
-  console.log('line 67')
+ 
 try {
 const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
-console.log('line 70')
+
 
 
 
@@ -98,7 +98,7 @@ const profile = new Profile({
   })
   await profile.save()
 
-console.log('line 106', List.userId)
+
 // List.userId.push(key)
 // await List.save()
 
@@ -106,7 +106,7 @@ console.log('line 106', List.userId)
 
 
 
-console.log('line 78')
+
 // const Profile = await Profile.create({ 
 
 

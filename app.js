@@ -25,9 +25,10 @@ app.use(express.urlencoded({extended: false}))
 
 
 // Page Directory
-app.use('/', require('./routes/welcome'))
-app.use('/Portfolio', require('./routes/portfolio'))
-app.use('/Projects', require('./routes/projects'))
+
+app.use('/', require('./routes/api/welcome'))
+app.use('/Portfolio', require('./routes/api/portfolio'))
+app.use('/Projects', require('./routes/api/projects'))
 // app.use('/', require('./routes/dashboard'))
 
 
