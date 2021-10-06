@@ -7,7 +7,11 @@ const Profile = require ('../../models/Profile.js')
 const List = require ('../../models/List.js')
 
 // Portfolio Page
-router.get(('/'), (req, res)=> res.render('Portfolio.ejs'))
+router.get(('/'), (req, res)=> res.render('Portfolio/Portfolio.ejs'))
+
+
+// Diner Website
+router.get(('/Diner'), (req, res)=> res.render('Portfolio/Diner.ejs'))
 
 
 module.exports = router;
