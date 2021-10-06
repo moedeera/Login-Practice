@@ -14,4 +14,8 @@ router.get(('/'), (req, res)=> res.render('Portfolio/Portfolio.ejs'))
 router.get(('/Diner'), (req, res)=> res.render('Portfolio/Diner.ejs'))
 
 
+// Chess Website
+router.get(('/Chess'), (req, res)=> res.render('Portfolio/Diner.ejs'))
+
+
 module.exports = router;
