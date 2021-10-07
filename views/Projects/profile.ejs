@@ -4,6 +4,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
 
     <link rel="stylesheet" href="/public/assets/DeerMentor/deermentor.css">
+    <link rel="stylesheet" href="/public/assets/DeerMentor/utils.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
@@ -13,12 +14,12 @@
 
 
  <div>
-<h2>DeerMentor<i class="fas fa-chalkboard main-logo"></i></h2>
+<h1>DeerMentor<i class="fas fa-chalkboard main-logo"></i></h1>
  </div> 
 
 
  <div>
-  <i class="fas fa-sign-out-alt fa-3x"></i>
+ <a href="/Projects/login"><i class="fas fa-sign-out-alt fa-3x"></i></a>  </i>
  </div>
 
  
@@ -27,11 +28,31 @@
 </section>
 
 
-.
+
   <% if (Progress.HTML) { %>
     <p> valid!!!</p>
     <%} else { %>
-    <p> Hey <%= name %> Let Start with  HTML learning </p>
+      <form action="">
+      <div class="card">
+        <h3>First Step HTML</h3>
+    <p> Hey <%= name %>, Let Start with  HTML learning 
+    first. HTML is generally the first step of Web Development.
+    It is the text document of a website before
+    anything is applied to it. HTML should be the 
+    quickest to learn. Understand however, HTML
+    is NOT a coding language and is simply syntax 
+    </p>
+    <h3>Lets start with this HTML tutorial by Brad Traversy</h3>
+<div class="video">
+  
+  <iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/UB1O30fR-EE" title="YouTube video player" frameborder="0"
+   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+    </div>
+    </form>
     <% } %>
 
 
