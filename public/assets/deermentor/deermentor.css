@@ -2,8 +2,8 @@
 
 body{
 
-    background:#fefbd8;
-    color:black;
+    background:black;
+    color:white;
     font-family: 'PT Sans', sans-serif;
     overflow-x: none;
     margin:0;
@@ -16,20 +16,47 @@ body{
 
 
 .navigation{
-padding: 0 10px;
+padding: 0px 10px;
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
+align-items: center;
 }
 
 
 .card{
 max-width: 600px;
-margin: 0 auto;
-background: #92a8d1;
-padding: 15px;
+margin: 60px auto;
+background:#4040a1;
+padding: 15px 25px;
 letter-spacing: 2px;
 font-weight: 500;
+color: white;
+border-radius: 5px;
+}
+
+.card ul{
+
+    list-style: none;
+   
+}
+
+.checklist ul{
+
+    background:grey;
+    gap:20px;
+    padding:5px;
+    
+}
+.checklist li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input{
+    width: 2rem;
+    height:2rem;
 }
 
 .video {
