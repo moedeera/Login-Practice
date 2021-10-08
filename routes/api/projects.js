@@ -5,6 +5,13 @@ const mongoose = require ('mongoose')
 const User = require ('../../models/Users.js')
 const Profile = require ('../../models/Profile.js')
 const List = require ('../../models/List.js')
+const sessions = require('express-session')
+var flash = require('connect-flash');
+const session = require('express-session')
+
+// Global variable
+var  Userz ;
+
 
 // Portfolio Page
 router.get(('/'), (req, res)=> res.render('Projects/Projects.ejs'))
@@ -14,7 +21,10 @@ router.get(('/'), (req, res)=> res.render('Projects/Projects.ejs'))
                        // Login pages
 
 // login get 
-router.get(('/Login'), (req, res)=> res.render('Projects/login.ejs'))
+router.get(('/Login'), (req, res)=>{
+console.log('Login Page GET')
+
+res.render('Projects/login.ejs')})
 // login post
 router.post('/Login', async (req,res)=> {
 
@@ -22,17 +32,28 @@ router.post('/Login', async (req,res)=> {
  
 try {
     
- const Users = await User.findOne({ email:req.body.email}).exec()
+ const users = await User.findOne({ email:req.body.email}).exec()
+ 
  ///   Match.find(email=>email===req.body.email)
 //  console.log(Users.password)
-const auth = await bcrypt.compare(req.body.password, Users.password)
+const auth = await bcrypt.compare(req.body.password, users.password)
 
 // console.log(auth, 'this is out auth request')
     if (auth){
   
-     
+      req.session.user = users;
+    
+    
+// console.log(req.flash)
+//  res.render('Projects/profile.ejs', {name: Users.name, Progress: Users.Progress, CSS: Users.CSSbasic  } )  
+ res.redirect('./profile' )  
 
- res.render('Projects/profile.ejs', {name: Users.name, Progress: Users.Progress  } )  }  
+
+
+ 
+
+
+}  
 
    
     else { res.send('invalid credentials')}
@@ -50,7 +71,22 @@ const auth = await bcrypt.compare(req.body.password, Users.password)
 
 
 // Profile page
-router.get(('/profile'), (req, res)=> res.render('Projects/profile.ejs'))
+router.get(('/profile'), (req, res)=>{
+// res.render('Projects/profile.ejs', {name: req.session, Progress: Userz.Progress, CSS: Userz.CSSbasic}
+console.log('Profile page GET')
+res.render('Projects/profile.ejs', {info : req.session.user}
+
+)})
+
+router.post(('/profile'), (req, res)=>{
+
+
+console.log('Profile Page POST', req.body.c0, req.body.c1, req.body)
+
+
+} )
+
+
 
 
 
@@ -137,10 +173,27 @@ router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // access Project
 
 router.get(('/Folder'), (req, res)=> res.render('Projects/file.ejs'))
 
+
+
+
+router.post(('/Projects/Login'))
 
 
 

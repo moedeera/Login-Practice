@@ -37,28 +37,33 @@ date: {
 
             },
       
-            Proficiency: {
-                type: String
+              CHECK1: {
+                type: Boolean,
+                default: false
               },
-              TimeZone: {
-                type: String
+              CHECK2: {
+                type: Boolean,
+                default: false
               },
-              location: {
-                type: String
+              CHECK3: {
+                type: Boolean,
+                default: false
               },
-              status: {
-                type: String,
-                required: false
+              CHECK4: {
+                type: Boolean,
+                default: false
               },
-              skills: {
-                type: [String],
-                required: false
+              CHECK5: {
+                type: Boolean,
+                default: false
               },
-              bio: {
-                type: String
+              CHECK6: {
+                type: Boolean,
+                default: false
               },
-              githubusername: {
-                type: String
+              CHECK7: {
+                type: Boolean,
+                default: false
               },
             
             Progress: 

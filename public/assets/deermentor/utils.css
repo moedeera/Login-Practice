@@ -10,4 +10,22 @@ a:visited{
     color:black;
 }
 
+button{
+margin: 0 auto;
+    width: 50%;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 
+}
+
+
+.input{
+
+    margin: 0 auto;
+    width: 50%;
+    font-size: 14px;
+    height: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
