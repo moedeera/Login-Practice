@@ -10,21 +10,23 @@ required: true
 },
 
 
-
-
-
 email: {
 
     type: String,
     required: true
     
     },
- password: {
+
+
+password: {
 
         type: String,
         required: true
         
         },
+
+
+
 id:{
     type: String,
     required: true
@@ -37,36 +39,36 @@ date: {
 
             },
       
-              CHECK1: {
-                type: Boolean,
-                default: false
-              },
-              CHECK2: {
-                type: Boolean,
-                default: false
-              },
-              CHECK3: {
-                type: Boolean,
-                default: false
-              },
-              CHECK4: {
-                type: Boolean,
-                default: false
-              },
-              CHECK5: {
-                type: Boolean,
-                default: false
-              },
-              CHECK6: {
-                type: Boolean,
-                default: false
-              },
-              CHECK7: {
-                type: Boolean,
+CHECK1: {
+  type: Boolean,
+  default: false
+  },
+CHECK2: {
+ type: Boolean,
+  default: false
+  },              
+  CHECK3: {
+  type: Boolean,
+  default: false
+  },
+  CHECK4: {
+  type: Boolean,
+  default: false
+   },
+   CHECK5: {
+  type: Boolean,
+  default: false
+  },
+  CHECK6: {
+  type: Boolean,
+  default: false
+   },
+   CHECK7: {
+  type: Boolean,
                 default: false
               },
             
-            Progress: 
+ Progress: 
                 {
                   HTML: {
                     type: Boolean,

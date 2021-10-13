@@ -85,7 +85,7 @@ MoveRight();
 
 })
 
-setInterval(MoveRight, 5000);
+setInterval(MoveRight, 7000);
 
 function MoveLeft (){
 
@@ -227,7 +227,7 @@ for(var j=0; j<MenuTargets.length; j++ ){
 if (e.target === MenuTargets[j]){
 
 MenuTables[j].style.bottom = "10%"
-MenuHeaders[j].style.top = "10%"
+MenuHeaders[j].style.top = "30%"
 }
 
 }
