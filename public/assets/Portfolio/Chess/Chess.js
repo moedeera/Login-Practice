@@ -5,8 +5,9 @@ var q =1;
 var q0 =10;
 var k = 2;
 var k0 =20;
-
-
+var one =1;
+var two= 10;
+var Player = 10;
 var state = 0;
 var prev;
 
@@ -130,32 +131,65 @@ function PlayGame(e){
 
   for(var j=0; j<64; j++){
    
+    if (Player===10) {
+         if(e.target===boxes[j]){
 
-         if(e.target===boxes[j]&& Map[j]!==0){
-
-             if(state===0){
+             if(state===0 && Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
                 
                   boxes[j].style.opacity = "0.3"
                   prev = j;
                   state = 1;
-             } else if (state===1){
+
+             } else if (state===1  ){
+
+                if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
                 Clear()
                 boxes[j].innerHTML = boxes[prev].innerHTML
                 boxes[prev].innerHTML = "";
+                boxes[j].style.opacity = "1"
                 Map[j]=Map[prev]
                 Map[prev]=0;
                 console.log(Map)
                 Mapper()
                 state = 0;
-
+                Player =2;
+                }
              }
 
 
            }
+       }
+      else if (Player===2) {
+        if(e.target===boxes[j]){
+
+            if(state===0&& Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
+               
+                 boxes[j].style.opacity = "0.3"
+                 prev = j;
+                 state = 1;
+            } else if (state===1){
+               Clear()
+               if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
+               boxes[j].innerHTML = boxes[prev].innerHTML
+               boxes[prev].innerHTML = "";
+               Map[j]=Map[prev]
+               Map[prev]=0;
+               console.log(Map)
+               Mapper()
+               state = 10;
+               Player =1;
+               }
+            }
+
+
+          }
+      }
+
+
 
 
     } 
-
+console.log(Player, state)
 }
 
 
