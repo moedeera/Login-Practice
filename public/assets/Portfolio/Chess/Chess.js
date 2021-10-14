@@ -1,5 +1,3 @@
-
-
 const boxes = document.querySelectorAll(".box")
 var q =1;
 var q0 =10;
@@ -11,17 +9,51 @@ var Player = 10;
 var state = 0;
 var prev;
 
+
 var Map = [
 
-8,6,4,k,q,4,6,8,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-80,60,40,k0,q0,40,60,80,
-]
+    8,6,4,k,q,4,6,8,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    80,60,40,k0,q0,40,60,80,
+    ]
+
+// 2 player configuration 
+
+const socket = io()
+
+socket.on('message', message => {
+
+console.log(message)
+if (message.map){
+OutPut(message)
+// Mapper()  
+ }
+})
+
+
+// Submit //
+
+
+
+
+
+
+
+const Info = {
+
+player:"",
+state:"",
+map:""
+
+
+}
+
+
 
 // var Map = [
 
@@ -35,7 +67,9 @@ var Map = [
 //     80,60,30,50,40,30,60,80,
 //     ]
     
-
+Info.player =10;
+Info.state = 0;
+Info.map = Map;
 
 
 
@@ -46,7 +80,17 @@ var Map = [
 window.addEventListener('DOMContentLoaded', Mapper);
 
 
-document.querySelector(".board").addEventListener('click', (e)=> {PlayGame(e);})
+document.querySelector(".board").addEventListener('click', (e)=> {PlayGame(e);
+if (state===0){
+
+    
+socket.emit('Info', Info)
+}
+
+
+// OutPut(Info.map)
+// Mapper()
+})
 
 
 
@@ -76,8 +120,12 @@ document.querySelector(".board").addEventListener('click', (e)=> {PlayGame(e);})
 
 
 function Mapper (){
+    console.log('hey')
 
     for (var j=0; j<64; j++){
+        if (Map[j]===0){      
+            boxes[j].innerHTML ="";   
+                       }
      
         
   if (Map[j]===8){      
@@ -131,43 +179,47 @@ function PlayGame(e){
 
   for(var j=0; j<64; j++){
    
-    if (Player===10) {
+    if (Info.player===10) {
          if(e.target===boxes[j]){
 
-             if(state===0 && Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
+             if(Info.state===0 && Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
                 
                   boxes[j].style.opacity = "0.3"
                   prev = j;
-                  state = 1;
+                  Info.state = 1;
 
-             } else if (state===1  ){
-
+             } else if (Info.state===1  ){
+ 
                 if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
+                    console.log('cond 3')
                 Clear()
                 boxes[j].innerHTML = boxes[prev].innerHTML
                 boxes[prev].innerHTML = "";
                 boxes[j].style.opacity = "1"
+                console.log(Map[j],Map[prev])
                 Map[j]=Map[prev]
                 Map[prev]=0;
-                console.log(Map)
+                Info.map = Map
+                console.log(Map[j],Map[prev])
                 Mapper()
-                state = 0;
-                Player =2;
+               
+                Info.state = 0;
+                Info.player =2;
                 }
              }
 
 
            }
        }
-      else if (Player===2) {
+      else if (Info.player===2) {
         if(e.target===boxes[j]){
 
-            if(state===0&& Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
+            if(Info.state===0&& Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
                
                  boxes[j].style.opacity = "0.3"
                  prev = j;
-                 state = 1;
-            } else if (state===1){
+                 Info.state = 1;
+            } else if (Info.state===1){
                Clear()
                if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
                boxes[j].innerHTML = boxes[prev].innerHTML
@@ -176,8 +228,11 @@ function PlayGame(e){
                Map[prev]=0;
                console.log(Map)
                Mapper()
-               state = 0;
-               Player =10;
+               Info.map = Map;
+               Info.state = 0;
+               Info.player =10;
+
+               
                }
             }
 
@@ -189,7 +244,7 @@ function PlayGame(e){
 
 
     } 
-console.log(Player, state)
+
 }
 
 
@@ -200,7 +255,38 @@ function Clear (){
     }
 }
                                  
-                               
+// Info Connection
+
+
+function OutPut(msg){
+
+for (var j=0; j<64; j++){
+
+Map[j]=msg.map[j]
+
+}
+
+Info.player = msg.player;
+Info.state = msg.state;
+Info.map = msg.map;
+    console.log(Map)
+    Mapper()
+
+    // for (var j=0; j<Map.length; j++){
+
+
+    // }
+
+//     for (var j=0; j<64; j++) {
+// Map[j]= Info[j]
+
+
+
+//     }
+
+ 
+
+}
   
 
 

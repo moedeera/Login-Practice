@@ -1,10 +1,40 @@
 const express = require ('express')
 const app = express()
+const http = require('http')
 const mongoose = require ('mongoose')
 const path = require('path')
 const morgan = require('morgan')
 const session = require('express-session')
 const flash = require('express-flash');
+
+const socketio = require('socket.io');
+const server = http.createServer(app);
+const io = socketio(server); 
+
+//run when client connects
+io.on('connection', socket =>{
+
+
+socket.emit('message','welcome to chess game')
+
+socket.broadcast.emit('message', 'a player is spectating')
+
+// Listen for Chess Info
+socket.on('Info', (msg)=>{
+// console.log(msg)
+    io.emit('message',msg)
+})
+
+
+
+socket.on('disconnect', ()=>{
+
+  io.emit('message', 'spectator has left')  
+
+})
+
+})
+
 
 // const MongoStore = require ('connect-mongo')(session);
 
@@ -14,26 +44,7 @@ app.set('view engine', 'ejs')
 app.set('views', [path.join(__dirname, 'views'),
                       path.join(__dirname, 'views/Projects/'), 
                       path.join(__dirname, 'views/Users/')]);
-// Configure flash
-        //  app.use(
-        //                 session({
-        //                   resave: true,
-        //                   saveUninitialized: true,
-        //                   secret:"yash is a super star",
-        //                   cookie: { secure: false, maxAge: 14400000 },
-        //                 })
-        //             );
-        //             app.use(flash());             
 
-
-
-// COnfigure sessions
-// const sessionStore = new MongoStore ({
-
-// mongooseConnection:mongoose.connection,
-// collection:'sessions'
-
-// })
 
 
 
@@ -82,4 +93,4 @@ app.use('/Projects', require('./routes/api/projects'))
 const PORT = process.env.PORT || 8080
 
 
-app.listen(PORT)
+server.listen(PORT)
