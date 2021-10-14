@@ -32,7 +32,7 @@ align-items: center;
     max-width: 600px;
     height: 400px;
     margin: 60px auto;
-    background:#474F66;
+    /* background:#474F66; */
     padding: 0px 0px;
     display: grid;
     grid-template-columns: 5fr 2fr;
@@ -56,26 +56,42 @@ align-items: center;
 .Side-box{
 
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    
+  
+    
     /* padding: 5px; */
 }
 .Side-box ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:10px;
+   
    align-items: center;
-   justify-items: center;  text-align: center;
-    height: 100%;
+     text-align: center;
+    
     list-style: none;
-    padding: 0 5px;
+    padding: 5px 0px;
     cursor: pointer;
+/* border-bottom: 1px solid grey; */
+}
+.ul{
 
+    background:#474F66;
 }
 
 
+.cal{
+display: flex;
+justify-content: center;
+color:#7258E9 ;
+background: white;
+padding:25px 0;
+height: 100%;
+border: 3px solid #7258E9 ;
 
-
-
+}
 
 
 
