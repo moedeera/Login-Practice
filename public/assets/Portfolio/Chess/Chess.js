@@ -1,4 +1,6 @@
 
+
+const boxes = document.querySelectorAll(".box")
 var q =1;
 var q0 =10;
 var k = 2;
@@ -35,51 +37,37 @@ var Map = [
 
 
 
-var Pieces = [
-
-"#9814;","&#9816;","&#9816;","#9814;",
-]
 
 
 window.addEventListener('DOMContentLoaded', Mapper);
 
 
-
-
-
-
-const boxes = document.querySelectorAll(".box")
-
-
-boxes[0].innerHTML ="&#9812;";
-
-document.querySelector(".board").addEventListener('click', (e)=>{
-
-
-e.preventDefault();
+window.addEventListener('click', (e)=> {PlayGame(e);})
 
 
 
 
 
-})
-
-
-
-
-function Mapper(x){
-
-if (x===8){
-
-    boxes[x].innerHTML ="&#9812;";
-
-}
 
 
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Functions 
+
 
 
 
@@ -131,7 +119,19 @@ if (Map[j]===6){
 
 }
 
+function PlayGame(e){
 
+for(var j=0; j<64; j++){
+    
+if(e.target===boxes[j]){
+boxes[j].style.background = "white"
+
+
+}
+
+}
+
+}
 
 
                                  
