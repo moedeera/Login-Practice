@@ -46,7 +46,7 @@ var Map = [
 window.addEventListener('DOMContentLoaded', Mapper);
 
 
-window.addEventListener('click', (e)=> {PlayGame(e);})
+document.querySelector(".board").addEventListener('click', (e)=> {PlayGame(e);})
 
 
 
@@ -176,8 +176,8 @@ function PlayGame(e){
                Map[prev]=0;
                console.log(Map)
                Mapper()
-               state = 10;
-               Player =1;
+               state = 0;
+               Player =10;
                }
             }
 
