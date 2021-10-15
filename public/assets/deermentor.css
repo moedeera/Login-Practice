@@ -27,10 +27,14 @@ justify-content: space-between;
 align-items: center;
 }
 /* upper-portion */
+.dashboard{
 
+
+    height: 70vh;
+}
 .upper{
     max-width: 768px;
-    height: 400px;
+    height: 75%;
     margin: 60px auto;
     /* background:#474F66; */
     padding: 0px 0px;
@@ -52,7 +56,11 @@ align-items: center;
     left: 10;
     cursor: pointer;
 }
+.main-box h2:hover{
 
+transform: scale(1.01);
+
+}
 .Side-box{
 
     height: 100%;
@@ -97,7 +105,13 @@ padding:55px 0;
 height: 100%;
 border: 3px solid #7258E9 ;
 height: 100%;
+cursor: pointer;
 }
+.cal:hover{
+
+    opacity: 0.7;
+}
+
 
 
 

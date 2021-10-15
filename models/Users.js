@@ -3,73 +3,154 @@ const mongoose = require ('mongoose')
 const UserSchema = new mongoose.Schema({
 
 name: {
-
 type: String,
 required: true
-
 },
-
-
 email: {
-
-    type: String,
-    required: true
-    
-    },
-
-
+ type: String,
+ required: true
+  },
 password: {
-
-        type: String,
-        required: true
-        
-        },
-
-
-
+type: String,
+required: true
+ },
 id:{
-    type: String,
-    required: true
+type: String,
+required: true
 },
-
-        
 date: {
-
-    type: Date,
-
-            },
-      
-CHECK1: {
+type: Date,
+ },
+     // HTML 
+CHECKB1: {
   type: Boolean,
   default: false
   },
-CHECK2: {
+CHECKB2: {
  type: Boolean,
   default: false
   },              
-  CHECK3: {
+CHECKB3: {
   type: Boolean,
-  default: false
-  },
-  CHECK4: {
+default: false
+},
+CHECKBF: {
+type: Boolean,
+default: false
+ },
+
+
+
+ // CSS Basic   
+CSSB1: {
   type: Boolean,
   default: false
    },
-   CHECK5: {
-  type: Boolean,
-  default: false
-  },
-  CHECK6: {
+CSSB2: {
+type: Boolean,
+default: false
+      },
+CSSB3: {
   type: Boolean,
   default: false
    },
-   CHECK7: {
+CSSB4: {
+type: Boolean,
+default: false
+      },
+CSSB5: {
   type: Boolean,
-                default: false
-              },
-            
+  default: false
+   },
+CSSBF: {
+type: Boolean,
+default: false
+      },
+ // CSS Intermediate      
+CSSM1: {
+  type: Boolean,
+  default: false
+   },
+CSSM2: {
+type: Boolean,
+default: false
+      },
+CSSM3: {
+  type: Boolean,
+  default: false
+   },
+CSSM4: {
+type: Boolean,
+default: false
+      },
+CSSM5: {
+  type: Boolean,
+  default: false
+   },
+CSSMF: {
+type: Boolean,
+default: false
+      },
+ // CSS Advanced        
+CSSA1: {
+  type: Boolean,
+  default: false
+   },
+CSSA2: {
+type: Boolean,
+default: false
+      },
+
+CSSAF: {
+type: Boolean,
+default: false
+      },
+ // Javascript Basic    
+JSB1: {
+  type: Boolean,
+  default: false
+   },
+JSB2: {
+type: Boolean,
+default: false
+      },
+JSB3: {
+  type: Boolean,
+  default: false
+   },
+JSSB4: {
+type: Boolean,
+default: false
+      },
+
+JSSBF: {
+type: Boolean,
+default: false
+      },      
+ // Javascript InterMediate  
+ JSM1: {
+  type: Boolean,
+  default: false
+   },
+JSM2: {
+type: Boolean,
+default: false
+      },
+JSM3: {
+  type: Boolean,
+  default: false
+   },
+JSSM4: {
+type: Boolean,
+default: false
+      },
+
+JSSMF: {
+type: Boolean,
+default: false
+      },        
  Progress: 
-                {
+ {
                   HTML: {
                     type: Boolean,
                     default: false
@@ -82,7 +163,19 @@ CHECK2: {
                     type: Boolean,
                     default:false
                   },
-                  Javascript: {
+                  CSSAdvanced: {
+                    type: Boolean,
+                    default:false
+                  },
+                  JavascriptB: {
+                    type: Boolean,
+                   default:false
+                  },
+                  JavascriptM: {
+                    type: Boolean,
+                   default:false
+                  },
+                  JavascriptA: {
                     type: Boolean,
                    default:false
                   },

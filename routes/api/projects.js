@@ -77,11 +77,38 @@ console.log('Profile page GET')
 res.render('Projects/profile.ejs', {info : req.session.user}
 
 )})
+// Tutorial page
+router.get(('/tutorials'), (req, res)=>{
+  // res.render('Projects/profile.ejs', {name: req.session, Progress: Userz.Progress, CSS: Userz.CSSbasic}
+  console.log('tutorial page GET')
+  res.render('Projects/tutorials', {info : req.session.user}
+  
+  )})
 
-router.post(('/profile'), (req, res)=>{
+
+
+
+router.post(('/tutorials'), (req, res)=>{
 
 
 console.log('Profile Page POST', req.body.c0, req.body.c1, req.body)
+
+// if (req.body.b1==='on'){
+// req.session.user.CHECK1 = true;
+// }
+// if (req.body.b1==='on'){
+//   req.session.user.CHECK2 = true;
+//   }
+//   if (req.body.c0==='on'){
+//     req.session.user.CHECK1 = true;
+//     }
+     
+
+
+
+
+
+
 
 
 } )
@@ -98,24 +125,15 @@ res.render('Projects/register.ejs')})
 
 router.post(('/register'), async (req, res)=> {
 const {name, email} = req.body
-
+  
 
   let key = (Math.random() + 1).toString(36).substring(7);
- 
-try {
+ const duplicate = await User.findOne({ email:req.body.email}).exec()
+
+
+if(!duplicate){
+  try {
 const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
-
-
-
-
-
-// const Users = await User.create({ name,
-
-// email,
-// password: hashedPassword,
-// id:key
-
-// })
 
 const user = new User({
 name,
@@ -123,6 +141,9 @@ email,
 password:hashedPassword,
 id:key
 })
+
+
+
 
 
 
@@ -134,39 +155,22 @@ const profile = new Profile({
   })
   await profile.save()
 
-
-// List.userId.push(key)
-// await List.save()
-
-
-
-
-
-
-// const Profile = await Profile.create({ 
-
-
-//   UserID:rkey
-  
-//   }).save()
-
-
-
-
-
-
-
-
-// console.log('line 39',Users)
 res.redirect('./Login')
-} catch{
+} catch(err) {
 res.redirect('/register')
+console.log(err)
 
 
+
+
+}}
+
+else {
+
+  res.render('Projects/register.ejs', {msg : 'Email Already in Use'})
 }
 
 
-router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
 
 
 
@@ -175,7 +179,7 @@ router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
 
 
 
-
+// router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
 
 
 
