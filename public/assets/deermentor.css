@@ -31,6 +31,7 @@ align-items: center;
 
 
     height: 70vh;
+    box-shadow: 5px 10px white;
 }
 .upper{
     max-width: 768px;

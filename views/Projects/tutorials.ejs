@@ -62,7 +62,13 @@
 <h3> Check each task off after you are done and press submit</h3>
 <h5>Video Tutorial</h5>
 <ul>
-    <li> <p>First 20 Minutes </p>  <input type="checkbox" name="b1"> </li>
+
+ <% if (info.CHECKB1) { %>
+    <li> <p>First 20 Minutes </p>  <input type="checkbox" name="b1" checked="checked"></li>    
+      
+      <%}  else { %>
+        <li> <p>First 20 Minutes </p>  <input type="checkbox" name="b1" ></li>
+        <% } %>
     <li> <p>Second 20 Minutes </p>   <input type="checkbox" name="b2"> </li>
     <li> <p>Third 20 Minutes </p>  <input type="checkbox" name="b3" > </li>
     <!-- <li class="save"> <input class="input" type="submit" value="Save Progress" id="htmla"></li> -->
@@ -108,10 +114,10 @@
 
       <h3>For this segment, this will be your Gameplan </h3>
       <ul>
-        <li>Watch The Tutorial</li>
-        <li>Do the practices</li>
-        <li>Schedule a chat after you are done</li>
-        <li>Prepare to move on to the next CSS section</li>
+        <li><i class="fas fa-hand-point-right"></i> Watch The Tutorial</li>
+        <li><i class="fas fa-hand-point-right"></i> Do the practices</li>
+        <li><i class="fas fa-hand-point-right"></i> Schedule a chat after you are done</li>
+        <li><i class="fas fa-hand-point-right"></i> Prepare to move on to the next CSS section</li>
       </ul>
       <h3>Lets start with this HTML tutorial by Brad Traversy</h3>
   <div class="video">
@@ -179,10 +185,10 @@
   
         <h3>For this segment, this will be your Gameplan </h3>
         <ul>
-          <li>Watch The Tutorial</li>
-          <li>Do the practices</li>
-          <li>Schedule a chat after you are done</li>
-          <li>Prepare to move on to the next CSS section</li>
+          <li><i class="fas fa-hand-point-right"></i> Watch The Tutorial</li>
+          <li><i class="fas fa-hand-point-right"></i> Do the practices</li>
+          <li><i class="fas fa-hand-point-right"></i> Schedule a chat after you are done</li>
+          <li><i class="fas fa-hand-point-right"></i> Prepare to move on to the next CSS section</li>
         </ul>
         <h3>Lets start with this Grid tutorial by Brad Traversy</h3>
     <div class="video">
@@ -204,17 +210,17 @@
     <h3> Check each task off after you are done and press submit</h3>
     <h5>Video Tutorial</h5>
     <ul>
-        <li> <p>Grid Tutorial </p>  <input type="checkbox" name="c0"> </li>
-        <li> <p>Flexbox Tutorial</p>   <input type="checkbox" name="c1"> </li>
-        <li> <p>Practice 1 </p>  <input type="checkbox" name="c2" > </li>
-        <li> <p>Practice 2</p>  <input type="checkbox" name="c3" > </li>
-        <li> <p>Practice 3</p>  <input type="checkbox" name="c4" > </li>
+        <li> <p>Grid Tutorial </p>  <input type="checkbox" name="I0"> </li>
+        <li> <p>Flexbox Tutorial</p>   <input type="checkbox" name="I1"> </li>
+        <li> <p>Practice 1 </p>  <input type="checkbox" name="I2" > </li>
+        <li> <p>Practice 2</p>  <input type="checkbox" name="I3" > </li>
+        <li> <p>Practice 3</p>  <input type="checkbox" name="I4" > </li>
         <!-- <li class="save"> </li> -->
-        <input class="input "type="submit" value="Save " id="css2a">
+        <input class="input "type="submit" value="Save " id="Int2a">
     </ul>
     <h5>Prepare for an audio Chat</h5>
     <ul>
-      <li> <a href="" id="css2b">Schedule an appointment </a>  <input type="checkbox" name="chat2"> </li>
+      <li> <a href="" id="css2b">Schedule an appointment </a>  <input type="checkbox" name="chat3"> </li>
     
     </ul>
     

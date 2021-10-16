@@ -88,26 +88,38 @@ router.get(('/tutorials'), (req, res)=>{
 
 
 
-router.post(('/tutorials'), (req, res)=>{
+router.post(('/tutorials'), async (req, res)=>{
 
 
-console.log('Profile Page POST', req.body.c0, req.body.c1, req.body)
+console.log('Profile Page POST', req.body.c0, req.body.c1, req.body, req.session.user.CHECKB1)
 
-// if (req.body.b1==='on'){
-// req.session.user.CHECK1 = true;
-// }
-// if (req.body.b1==='on'){
-//   req.session.user.CHECK2 = true;
-//   }
-//   if (req.body.c0==='on'){
-//     req.session.user.CHECK1 = true;
-//     }
-     
+const DataBase = [req.session.user.CHECKB1, req.session.user.CHECKB2, req.session.user.CHECKB3, req.session.user.CHECKBF]
 
+const Update =   [req.body.b1]
 
+if (req.body.b1 === 'on'){
 
+  req.session.user.CHECKB1 = true;
+  
+} else if (req.body.b1 !== 'on'){
 
+  req.session.user.CHECKB1 = false;
+}
 
+console.log('user updated', req.session.user.CHECKB1)
+
+try {
+  const users = await User.findOne({ email:req.session.user.email}).exec()
+
+users.CHECKB1 = req.session.user.CHECKB1
+
+await users.save()
+console.log('success')
+} catch (err) {
+
+  console.log('error',err)
+        
+}
 
 
 
