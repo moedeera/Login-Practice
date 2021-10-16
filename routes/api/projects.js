@@ -167,7 +167,7 @@ console.log(err)
 
 else {
 
-  res.render('Projects/register.ejs', {msg : 'Email Already in Use'})
+  res.render('Projects/file.ejs', {msg : 'Email Already in Use'})
 }
 
 
