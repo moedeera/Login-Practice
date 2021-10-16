@@ -118,12 +118,12 @@ JSB3: {
   type: Boolean,
   default: false
    },
-JSSB4: {
+JSB4: {
 type: Boolean,
 default: false
       },
 
-JSSBF: {
+JSBF: {
 type: Boolean,
 default: false
       },      
