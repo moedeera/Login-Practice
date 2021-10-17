@@ -1,12 +1,37 @@
-const a1 = document.getElementById("htmla");
+// function httpGetAsync(theUrl, callback)
+// {
+//     var xmlHttp = new XMLHttpRequest();
+//     xmlHttp.onreadystatechange = function() { 
+//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+//             callback(xmlHttp.responseText);
+//     }
+//     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+//     xmlHttp.send(null);
+// }
+
+// function cons(text){
+
+// console.log(text)
+
+// }
+// httpGetAsync('./tutorials', cons() )
+
+function Load () {
 
 
-a1.addEventListener('submit', (e)=>{
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './tutorials', true)
 
-e.preventDefault();
+    xhr.onload = function () {
 
-console.log('hey')
+if (this.status===200){
+    console.log(this.responseText)
+}
 
 
-})
+    }
 
+    console.log(xhr)
+}
+
+Load ();
