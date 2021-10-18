@@ -148,7 +148,12 @@ default: false
 JSSMF: {
 type: Boolean,
 default: false
-      },        
+      },  
+      
+      
+
+
+
  Progress: 
  {
                   HTML: {
@@ -191,32 +196,22 @@ default: false
                   }
                 }
               ,
-            education: [
+            Posts: [
                 {
-                  school: {
+                  username: {
                     type: String,
                     required: false
                   },
-                  degree: {
+                  post: {
                     type: String,
                     required: false
                   },
-                  fieldofstudy: {
+                  likes: {
                     type: String,
                     required: false
                   },
-                  from: {
-                    type: Date,
-                    required: false
-                  },
-                  to: {
-                    type: Date
-                  },
-                  current: {
-                    type: Boolean,
-                    default: false
-                  },
-                  description: {
+                  
+                  comments: {
                     type: String
                   }
                 }

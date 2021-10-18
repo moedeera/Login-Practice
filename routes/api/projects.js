@@ -90,8 +90,43 @@ router.get(('/tutorials'), (req, res)=>{
 
 router.post(('/tutorials'), async (req, res)=>{
 
+var bodyData = [req.body.b1]
 
-console.log('Profile Page POST',  req.session.user.CHECKB1, req.body.b1)
+
+  if (bodyData[0]){
+
+    try {
+      const users = await User.findOne({ email:req.session.user.email}).exec() 
+ console.log('Profile Page POST',  req.session.user.CHECKB1, req.body.b1)
+    users.CHECKB1 =true;
+    await users.save()
+
+
+
+
+    } catch (error) {
+      console.log(error)
+    }
+   
+  }
+  else {
+
+try {
+  const users = await User.findOne({ email:req.session.user.email}).exec() 
+ console.log('unchecked',  req.session.user.CHECKB1, req.body.b1)
+    users.CHECKB1 =false;
+    await users.save()
+  
+} catch (error) {
+  console.log(error)
+}
+
+   
+  }
+
+
+
+
 
 
 

@@ -62,7 +62,7 @@
 <h3> Check each task off after you are done and press submit</h3>
 <h5>Video Tutorial</h5>
 <ul>
-    <li> <p>First 20 Minutes </p>  <input type="checkbox" name="b1"> </li>
+    <li> <p>First 20 Minutes </p>  <input type="checkbox" name="b1" id="checkbox"> </li>
     <li> <p>Second 20 Minutes </p>   <input type="checkbox" name="b2"> </li>
     <li> <p>Third 20 Minutes </p>  <input type="checkbox" name="b3" > </li>
     <!-- <li class="save"> <input class="input" type="submit" value="Save Progress" id="htmla"></li> -->
@@ -238,5 +238,17 @@
       <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 
 </body>
+<script>
+  var row =<%-JSON.stringify(info)%>
+var dataRow =[]
 
+  if (row.CHECKB1 === true){ 
+
+    document.getElementById("checkbox").checked = true;
+  } else {
+    document.getElementById("checkbox").checked = false;
+
+  }
+  console.log(row.education[0]);
+</script>
 <script src="/public/assets/main.js"></script>
