@@ -575,7 +575,25 @@ a{
     text-decoration: none;
     border-bottom: 1px transparent;
     }
+#exit{
 
+
+    animation: x-load 1s ease-in-out;
+}
+
+
+
+    @keyframes x-load {
+
+        0%{
+        
+            transform: rotate(-160deg)
+        }
+        
+        100% {
+        
+            transform: rotate(0)
+        }}
 
 
 
@@ -589,10 +607,7 @@ a{
 100% {
 
     transform: translateY(0);
-}
-
-
-}
+}}
 @keyframes serv-logo {
 
     0%{
