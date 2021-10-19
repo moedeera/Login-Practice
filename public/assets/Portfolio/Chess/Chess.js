@@ -10,6 +10,10 @@ var state = 0;
 var prev;
 
 
+
+
+
+
 var Map = [
 
     8,6,4,k,q,4,6,8,

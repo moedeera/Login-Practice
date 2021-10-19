@@ -67,6 +67,35 @@ opacity: 0.8;
 	font-size: 20px;
 	letter-spacing: 3px;
 }
+
+form{
+display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	max-width: 600px;
+	margin:40px auto;
+	gap:40px;
+	border:1px solid white;
+	padding-bottom:50px ;
+}
+select{
+	width: 50%;
+	height: 2rem;
+}
+
+input{
+	height: 3rem;
+	width: 50%;
+	margin: 0 auto;
+	font-weight: 700;
+	font-size: 20px;
+	letter-spacing: 3px;
+
+}
+
+
+
 a{
 	text-decoration: none;
 	cursor: pointer;
