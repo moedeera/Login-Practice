@@ -28,14 +28,14 @@ const io = socketio(server);
 io.on('connection', socket =>{
 
 
-socket.emit('message','welcome to chess game')
-
+socket.emit('message','You are connected as user ')
+turn = true;
 socket.broadcast.emit('message', 'a player is spectating')
 
 // Listen for Chess Info
 socket.on('Info', (msg)=>{
 // console.log(msg)
-    io.emit('message',msg)
+    socket.broadcast.emit('message',msg)
 })
 
 

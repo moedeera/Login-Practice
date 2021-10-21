@@ -13,9 +13,10 @@ const {username, session} =   Qs.parse(location.search, {
 
     ignoreQueryPrefix: true
 })
-
-console.log(username,session)
-
+var start = false ;
+var turn = 1;
+console.log('welcome to the game',username,session)
+var  z = 1
 
 var Map = [
 
@@ -34,10 +35,12 @@ var Map = [
 const socket = io()
 
 socket.on('message', message => {
+let data = socket.id;
 
-console.log(message)
 if (message.map){
 OutPut(message)
+console.log(message)
+changeZ()
 // Mapper()  
  }
 })
@@ -45,8 +48,11 @@ OutPut(message)
 
 // Submit //
 
+function changeZ () {
 
 
+    z===1;
+}
 
 
 
@@ -55,8 +61,8 @@ const Info = {
 
 player:"",
 state:"",
-map:""
-
+map:"",
+turn:""
 
 }
 
@@ -77,21 +83,36 @@ map:""
 Info.player =10;
 Info.state = 0;
 Info.map = Map;
+Info.turn = 1;
 
 
 
 
+function Indicator () {
+if (z===1){
+    document.getElementById("turn").style.background = "green"
+} else if (z===0){
 
+    document.getElementById("turn").style.background = "coral"
+}
+}
 
 
 window.addEventListener('DOMContentLoaded', Mapper);
 
+console.log('current turn is', turn)
 
-document.querySelector(".board").addEventListener('click', (e)=> {PlayGame(e);
-if (state===0){
+document.querySelector(".board").addEventListener('click', (e)=> {
+
+
 
     
+    Indicator()
+    PlayGame(e);
+if (state===0){
+   
 socket.emit('Info', Info)
+
 }
 
 
@@ -198,18 +219,19 @@ function PlayGame(e){
              } else if (Info.state===1  ){
  
                 if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
-                    console.log('cond 3')
+                    // console.log('cond 3')
                 Clear()
                 boxes[j].innerHTML = boxes[prev].innerHTML
                 boxes[prev].innerHTML = "";
                 boxes[j].style.opacity = "1"
-                console.log(Map[j],Map[prev])
+                // console.log(Map[j],Map[prev])
                 Map[j]=Map[prev]
                 Map[prev]=0;
                 Info.map = Map
-                console.log(Map[j],Map[prev])
+                // console.log(Map[j],Map[prev])
                 Mapper()
-               
+               z =0;
+             Indicator()
                 Info.state = 0;
                 Info.player =2;
                 }
@@ -238,7 +260,9 @@ function PlayGame(e){
                Info.map = Map;
                Info.state = 0;
                Info.player =10;
-
+               z =0;
+               Indicator()
+               Info.turn = 1;
                
                }
             }
@@ -276,7 +300,8 @@ Map[j]=msg.map[j]
 Info.player = msg.player;
 Info.state = msg.state;
 Info.map = msg.map;
-    console.log(Map)
+Info.turn = 1;
+    // console.log(Map)
     Mapper()
 
     // for (var j=0; j<Map.length; j++){
