@@ -7,6 +7,19 @@ const morgan = require('morgan')
 const session = require('express-session')
 const flash = require('express-flash');
 
+//manage chess users
+const Users = []
+
+function userJoin(id,username){
+const user = {id, username}
+Users.push(user)
+}
+
+function getCurrentUser(id){
+return Users.find((user)=> user.id === id)
+}
+//
+
 const socketio = require('socket.io');
 const server = http.createServer(app);
 const io = socketio(server); 

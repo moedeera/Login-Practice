@@ -8,10 +8,13 @@ var two= 10;
 var Player = 10;
 var state = 0;
 var prev;
+//get username and room 
+const {username, session} =   Qs.parse(location.search, {
 
+    ignoreQueryPrefix: true
+})
 
-
-
+console.log(username,session)
 
 
 var Map = [
@@ -124,7 +127,7 @@ socket.emit('Info', Info)
 
 
 function Mapper (){
-    console.log('hey')
+    // console.log('hey')
 
     for (var j=0; j<64; j++){
         if (Map[j]===0){      
