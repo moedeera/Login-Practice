@@ -514,7 +514,7 @@ grid-template-columns: 1fr 1fr;
 
 .Menu{
 
-    max-width: 900px;
+    max-width: 1100px;
 }
 .navbar-lg, .main-logo{
     display: block;
@@ -536,7 +536,7 @@ grid-template-columns: 1fr 1fr;
 
 .showcase{
 
-    max-width: 900px;
+    max-width: 1100px;
     grid-template-columns: 6fr 1fr;
 
 }

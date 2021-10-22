@@ -26,7 +26,7 @@ const io = socketio(server);
 
 //run when client connects
 io.on('connection', socket =>{
-
+socket.join('room1')
 
 socket.emit('message','You are connected as user ')
 turn = true;
