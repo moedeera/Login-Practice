@@ -42,13 +42,19 @@ if (message.map){
 // console.log(message)
 console.log(z)
 z = 1;
+
 OutPut(message)
 console.log(z)
 start =true;
 // Mapper()  
  }
 })
-
+socket.on('Call-Info', message => {
+ 
+    console.log(message)  
+     
+    })
+    
 
 // Submit //
 
@@ -56,6 +62,7 @@ function changeZ () {
 
 
     z===1;
+    Info.state =0 ;
     Indicator()
     console.log(start)
 }
@@ -96,13 +103,20 @@ Info.turn = 1;
 
 function Indicator () {
 if (z===1){
-    document.getElementById("turn").style.background = "green"
+    document.getElementById("turn").style.background = "teal"
+
+    if (Info.state === 0){document.getElementById("turn").innerHTML = " Nothing picked"}
+    else if (Info.state === 1){document.getElementById("turn").innerHTML = " Valid Option picked"}
+    else if (Info.state === 2){document.getElementById("turn").innerHTML = " Submitted"}
 } else if (z===0){
 
     document.getElementById("turn").style.background = "coral"
+    if (Info.state === 0){document.getElementById("turn").innerHTML = " Nothing picked"}
+    else if (Info.state === 1){document.getElementById("turn").innerHTML = " Valid Option picked"}
+    else if (Info.state === 2){document.getElementById("turn").innerHTML = " Submitted"}
 }
 }
-
+// var inc =1 ;
 
 window.addEventListener('DOMContentLoaded', Mapper);
 
@@ -110,21 +124,20 @@ console.log('current turn is', turn)
 
 document.querySelector(".board").addEventListener('click', (e)=> {
 
-
+console.log(`z value is ${z}, Info state is ${Info.state} `)
 
 if (z===1 || start === false ){   
      start = true
     Indicator()
     PlayGame(e);
-if (Info.state===0){
+if (Info.state===2){
    
 socket.emit('Info', Info)
-
+// socket.emit('Calls', `public log ${inc}`)
+// inc++;
 z = 0;
   Indicator()
 console.log('z value: ',z, 'start: ', start)
-
-
 
 }
 
@@ -132,7 +145,7 @@ console.log('z value: ',z, 'start: ', start)
 
  else {
     
-    console.log('z value: ',z, 'start: ', start)
+    // console.log('z value: ',z, 'start: ', start)
     alert('not your turn')
 }
 // OutPut(Info.map)
@@ -226,78 +239,127 @@ function PlayGame(e){
 
   for(var j=0; j<64; j++){
    
+
+    // If this is player 1 that is playing 
     if (Info.player===10) {
          if(e.target===boxes[j]){
 
-             if(Info.state===0 && Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
-                
-                  boxes[j].style.opacity = "0.3"
-                  prev = j;
-                  Info.state = 1;
-                  z = 1;
-                  Indicator();
+                 // Condition 1: static 
+                 if(Info.state===0  ){
+                  console.log(' static')
+                        // Condition 1A: static and picks a non conflating number 
+                        if (Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
+                        console.log('condition 1A')
+                        boxes[j].style.opacity = "0.3"
+                        prev = j;
+                         Info.state = 1;
+                         z = 1;
+                        Indicator();
 
-             } else if (Info.state===1  ){
- 
-                if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
-                    // console.log('cond 3')
-                Clear()
-                boxes[j].innerHTML = boxes[prev].innerHTML
-                boxes[prev].innerHTML = "";
-                boxes[j].style.opacity = "1"
-                // console.log(Map[j],Map[prev])
-                Map[j]=Map[prev]
-                Map[prev]=0;
-                Info.map = Map
-                // console.log(Map[j],Map[prev])
-                Mapper()
-               z =1;
-             Indicator()
-                Info.state = 0;
-                Info.player =2;
+                     // Condition 1B: static and picks a conflating number 
+                     } else if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k ){
+                        console.log('its not your piece!')
+                        Info.state = 0;
+                         z = 1;} 
+
+    }
+               
+             
+             
+             // Condition 2: dynamic
+             else if (Info.state===1  ){
+                console.log('dynamic')
+
+                                // Condition 2A: dynamic and picks a non conflating number 
+                                 if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
+
+                                // console.log('cond 3')
+                                 Clear()
+                                 boxes[j].innerHTML = boxes[prev].innerHTML
+                                 boxes[prev].innerHTML = "";
+                                 boxes[j].style.opacity = "1"
+                                 // console.log(Map[j],Map[prev])
+                                 Map[j]=Map[prev]
+                                 Map[prev]=0;
+                                 Info.map = Map
+                                // console.log(Map[j],Map[prev])
+                                 Mapper()
+                                 z =1;
+                                 Indicator()
+                                 Info.state = 2;
+                                 Info.player =2;
+                                console.log('condition 2A')
                 }
-             }
+                          // Condition 2B: dynamic and picks a  conflating number                 
+                                  else if ( Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0) {
+                                Info.state = 0; 
+                                z =1;  
+                                console.log('condition 2B')
 
+                                console.log('its not your piece!') 
 
-           }
-       }
+                 
+            }
+               
+     }}}
+
+        // If this is player 2 that is playing 
       else if (Info.player===2) {
         if(e.target===boxes[j]){
+                       // Condition 1 Static
+                       if(Info.state===0 ){
 
-            if(Info.state===0&& Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
-               
-                 boxes[j].style.opacity = "0.3"
-                 prev = j;
-                 Info.state = 1;
-                 z = 1;
-                  Indicator();
-            } else if (Info.state===1){
-               Clear()
-               if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
-               boxes[j].innerHTML = boxes[prev].innerHTML
-               boxes[prev].innerHTML = "";
-               Map[j]=Map[prev]
-               Map[prev]=0;
-               console.log(Map)
-               Mapper()
-               Info.map = Map;
-               Info.state = 0;
-               Info.player =10;
-               z =1;
-               Indicator()
-               Info.turn = 1;
-               
-               }
-            }
+                                 // Condition 1A: static and picks a non conflating number 
+                                  if (Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
+                                       console.log('condition 2A for player 2')
+                                       boxes[j].style.opacity = "0.3"
+                                       prev = j;
+                                       Info.state = 1;
+                                       z = 1;
+                                       Indicator();
+                            }  
+                                  // Condition 1A: static and picks a non conflating number   
+                            else if (Map[j]===0  || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
 
+                                     console.log('its not your piece!')
+                                     Info.state = 0;
+                                     z = 1;
 
-          }
-      }
+                                } }
+         
+                          // Condition 2 Dynamic
+                         else if (Info.state===1){
 
-
-
-
-    } 
+                         
+                                     console.log('condition 2B')
+                                     Clear()
+                                     // Condition 2 Dynamic and a proper selection
+                               if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
+                                       boxes[j].innerHTML = boxes[prev].innerHTML
+                                       boxes[prev].innerHTML = "";
+                                       Map[j]=Map[prev]
+                                       Map[prev]=0;
+                                       console.log(Map)
+                                       Mapper()
+                                       Info.map = Map;
+                                       Info.state = 2;
+                                       Info.player =10;
+                                       z =1;
+                                       Indicator()
+                                       Info.turn = 1;              
+                                                   }
+                                    // Condition 2 Dynamic and not proper selection
+                            else if(Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k) {
+                                       Info.state = 0;
+                                       z = 1;    
+                                      console.log('condition 2C')
+                                      console.log('its not your piece!')
+                
+                                
+                            }}
+        
+                           }}
+   } 
 
 }
 
@@ -321,10 +383,13 @@ Map[j]=msg.map[j]
 }
 
 Info.player = msg.player;
-Info.state = msg.state;
+Info.state = 2;
 Info.map = msg.map;
-Info.turn = 1;
+
 changeZ()
+const div = document.createElement('p')
+div.innerText = " Your turn "
+document.getElementById("turn").appendChild(div)
     // console.log(Map)
     Mapper()
 

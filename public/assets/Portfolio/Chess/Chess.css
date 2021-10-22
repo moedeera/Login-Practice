@@ -144,6 +144,9 @@ width: 100%;
 .container{
 max-width: 100%;
 overflow-x:hidden;
+display: flex;
+justify-content: center;
+align-items: center;
 
 }
 .board{
@@ -168,10 +171,12 @@ justify-content: center;
 
 
 .player{
-height: 100px;
-width: 100px;
+	padding: 10px;
+height: 200px;
+width: 200px;
 background: coral;
 margin: 40px auto;
+
 
 }
 
@@ -204,6 +209,9 @@ margin: 40px auto;
 		height: 40px;
 		font-size:38px;
 	}
+.container{
+	flex-direction:column;
+}
 
 
 
@@ -211,7 +219,6 @@ margin: 40px auto;
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
 
 
 

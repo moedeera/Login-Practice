@@ -37,8 +37,11 @@ socket.on('Info', (msg)=>{
 // console.log(msg)
     socket.broadcast.emit('message',msg)
 })
-
-
+// Listen for broadcast announcements
+socket.on('Calls', (msg)=>{
+  // console.log(msg)
+      socket.emit('Call-Info',msg)
+  })
 
 socket.on('disconnect', ()=>{
 
