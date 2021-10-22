@@ -16,7 +16,7 @@ const {username, session} =   Qs.parse(location.search, {
 var start = false ;
 var turn = 1;
 console.log('welcome to the game',username,session)
-var  z = 1
+var  z = 0
 
 var Map = [
 
@@ -38,9 +38,13 @@ socket.on('message', message => {
 let data = socket.id;
 
 if (message.map){
+
+// console.log(message)
+console.log(z)
+z = 1;
 OutPut(message)
-console.log(message)
-changeZ()
+console.log(z)
+start =true;
 // Mapper()  
  }
 })
@@ -52,6 +56,8 @@ function changeZ () {
 
 
     z===1;
+    Indicator()
+    console.log(start)
 }
 
 
@@ -106,16 +112,29 @@ document.querySelector(".board").addEventListener('click', (e)=> {
 
 
 
-    
+if (z===1 || start === false ){   
+     start = true
     Indicator()
     PlayGame(e);
-if (state===0){
+if (Info.state===0){
    
 socket.emit('Info', Info)
 
+z = 0;
+  Indicator()
+console.log('z value: ',z, 'start: ', start)
+
+
+
 }
 
+}
 
+ else {
+    
+    console.log('z value: ',z, 'start: ', start)
+    alert('not your turn')
+}
 // OutPut(Info.map)
 // Mapper()
 })
@@ -215,6 +234,8 @@ function PlayGame(e){
                   boxes[j].style.opacity = "0.3"
                   prev = j;
                   Info.state = 1;
+                  z = 1;
+                  Indicator();
 
              } else if (Info.state===1  ){
  
@@ -230,7 +251,7 @@ function PlayGame(e){
                 Info.map = Map
                 // console.log(Map[j],Map[prev])
                 Mapper()
-               z =0;
+               z =1;
              Indicator()
                 Info.state = 0;
                 Info.player =2;
@@ -248,6 +269,8 @@ function PlayGame(e){
                  boxes[j].style.opacity = "0.3"
                  prev = j;
                  Info.state = 1;
+                 z = 1;
+                  Indicator();
             } else if (Info.state===1){
                Clear()
                if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
@@ -260,7 +283,7 @@ function PlayGame(e){
                Info.map = Map;
                Info.state = 0;
                Info.player =10;
-               z =0;
+               z =1;
                Indicator()
                Info.turn = 1;
                
@@ -301,6 +324,7 @@ Info.player = msg.player;
 Info.state = msg.state;
 Info.map = msg.map;
 Info.turn = 1;
+changeZ()
     // console.log(Map)
     Mapper()
 
