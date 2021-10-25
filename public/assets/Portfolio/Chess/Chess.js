@@ -1,6 +1,7 @@
 const boxes = document.querySelectorAll(".box")
 const roomInput = document.getElementById("game-name")
-const room  =  roomInput.value
+const room  =  roomInput.innerText
+
 var q =1;
 var q0 =10;
 var k = 2;
