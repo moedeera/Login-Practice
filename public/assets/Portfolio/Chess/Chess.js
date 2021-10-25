@@ -1,4 +1,6 @@
 const boxes = document.querySelectorAll(".box")
+const roomInput = document.getElementById("game-name")
+const room  =  roomInput.value
 var q =1;
 var q0 =10;
 var k = 2;
@@ -15,7 +17,7 @@ const {username, session} =   Qs.parse(location.search, {
 })
 var start = false ;
 var turn = 1;
-console.log('welcome to the game',username,session)
+console.log('welcome to the game',username,room)
 var  z = 0
 
 var Map = [
@@ -34,7 +36,7 @@ var Map = [
 
 const socket = io()
 
-socket.on('message', message => {
+socket.on('message', (message,room) => {
 let data = socket.id;
 
 if (message.map){
@@ -132,7 +134,7 @@ if (z===1 || start === false ){
     PlayGame(e);
 if (Info.state===2){
    
-socket.emit('Info', Info)
+socket.emit('Info', Info, room)
 // socket.emit('Calls', `public log ${inc}`)
 // inc++;
 z = 0;

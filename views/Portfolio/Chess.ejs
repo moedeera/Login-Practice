@@ -48,32 +48,31 @@
 
 <input type="submit" value="Start" >
 <h2>Or Join a Game</h2>
-<input
-							type="text"
-							name="session"
-							id="session"
-							placeholder="Enter Game name.."
-							
-						/>
 
 
 
 
-<input type="submit" value="Join Room" >
+
+
 <!-- <button><a href="">Join Game</a></button> -->
-</form>
-
-
 
 <div class="sessions">
    <div class="sessions-title">Current Games</div>
 	<div class="game">
-		<div><h4>Game 1</h4></div> 
+		<div id="game-name">Game 1</div> 
 		
-		<div><p>Marco56 vs Darren</p></div>
+		<div id="join-game"><input type="submit" value="join" name="game1"></div>
 
 
   </div>
+
+
+
+</form>
+
+
+
+
 
 
 
@@ -89,4 +88,8 @@
 <body>
     
 </body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/assets/Portfolio/Chess/Logic.js"></script>
+<script src="/public/assets/Portfolio/Chess/Chess.js"></script>
+
 </html>

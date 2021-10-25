@@ -33,8 +33,9 @@ turn = true;
 socket.broadcast.emit('message', 'a player is spectating')
 
 // Listen for Chess Info
-socket.on('Info', (msg)=>{
+socket.on('Info',  (msg, room)=>{
 // console.log(msg)
+     console.log(room)
     socket.broadcast.emit('message',msg)
 })
 // Listen for broadcast announcements
