@@ -8,10 +8,11 @@ const session = require('express-session')
 const flash = require('express-flash');
 
 //manage chess users
-const Users = []
+const Users = ['user1','user2']
+const Rooms = ['room1','room2']
 
-function userJoin(id,username){
-const user = {id, username}
+function userJoin(id,username,room){
+const user = {id, username,room}
 Users.push(user)
 }
 
@@ -26,6 +27,35 @@ const io = socketio(server);
 
 //run when client connects
 io.on('connection', socket =>{
+
+
+
+
+socket.on('JoinGame', ({user,room})=>{
+// broadcast to all the games and users in play  
+socket.emit('Games', Rooms)
+// Create a user every-time a connection is made 
+userJoin(socket.id, user, room)
+// see if the game the user is looking for exists
+const match = Rooms.find((game)=>game===user.room)
+//if it does join that match
+if (match){
+
+socket.join(match)
+}
+//if not 
+else if(!match){
+//create a match
+socket.join(user.room)  
+
+}
+
+
+
+socket.emit('message',`${user} has joined ${room}` )
+
+})
+
 socket.join('room1')
 
 socket.emit('message','You are connected as user ')

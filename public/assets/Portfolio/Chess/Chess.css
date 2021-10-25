@@ -119,9 +119,9 @@ a{
 display: flex;
 flex-direction: column;
 align-items: center;
-border: 1px solid white;
 
-width: 80%;
+
+width: 100%;
 max-width: 600px;
 margin: 0 auto;
 padding: 10px;
@@ -138,7 +138,7 @@ font-size: 18px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-width: 100%;
+width: 80%;
 margin-top: 40px;
 padding: 0 10px;
 
@@ -197,7 +197,13 @@ margin: 40px auto;
 	padding: 0;;
 	
 }
+.join-game{
 
+
+	width: 50%;
+	padding: 0;;
+	
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
