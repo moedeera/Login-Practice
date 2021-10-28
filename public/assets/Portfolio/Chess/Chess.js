@@ -63,10 +63,11 @@ start =true;
 // Mapper()  
  }
 })
-socket.on('Call-Info', message => {
+socket.on('Caller-Info', roomName=> {
  
-    console.log(message)  
-     
+    console.log(roomName)  
+
+   
     })
     
 
@@ -147,6 +148,11 @@ if (z===1 || start === false ){
 if (Info.state===2){
    
 socket.emit('Info', Info, room)
+
+const playerName = username
+const game = 's game'
+const roomName = username.concat(game)
+socket.emit('Call-Info', playerName,roomName, Info)
 // socket.emit('Calls', `public log ${inc}`)
 // inc++;
 z = 0;
@@ -425,7 +431,22 @@ document.getElementById("turn").appendChild(div)
   
 
 
+function DisplayGames (){
 
+    var div = document.createElement("div");
+    div.classList.add("game")
+    const gameName = document.createElement("div")
+    gameName.innerHTML = "new game"
+    const JoinButton = document.createElement("div")
+    JoinButton.innerHTML = "<a> Join </a>"
+    JoinButton.classList.add = "join-game"
+
+div.appendChild(gameName)
+div.appendChild(JoinButton)
+
+    document.getElementById("games").appendChild(div)
+
+}
                                 
         
         

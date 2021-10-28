@@ -6,19 +6,20 @@ const path = require('path')
 const morgan = require('morgan')
 const session = require('express-session')
 const flash = require('express-flash');
+const {
+  userJoin,
+  getCurrentUser,
+  CheckForUser,
+  getALL
+ 
+} = require('./utils/user');
 
 //manage chess users
-const Users = ['user1','user2']
-const Rooms = ['room1','room2']
+// const Users = []
+// const Rooms = ['room1','room2']
 
-function userJoin(id,username,room){
-const user = {id, username,room}
-Users.push(user)
-}
 
-function getCurrentUser(id){
-return Users.find((user)=> user.id === id)
-}
+
 //
 
 const socketio = require('socket.io');
@@ -68,10 +69,29 @@ socket.on('Info',  (msg, room)=>{
      console.log(room)
     socket.broadcast.emit('message',msg)
 })
-// Listen for broadcast announcements
-socket.on('Calls', (msg)=>{
-  // console.log(msg)
-      socket.emit('Call-Info',msg)
+// Testing final message system
+socket.on('Call-Info', (playerName,roomName, Info)=>{
+
+  
+//check for username
+const match =  CheckForUser(socket.id)
+if (!match){
+
+  user = userJoin(socket.id,playerName,roomName)
+
+  socket.join(roomName)
+}
+else if (match){
+
+  user = getCurrentUser(socket.id)
+
+  socket.broadcast.to(user.room).emit 
+}
+
+
+Users =  getALL()
+   console.log(playerName, ` id is ${socket.id} and Users is ${user.id} is match is ${match} and room is ${user.room} and this is all the Users ${Users[0].name}`)
+      socket.emit('Caller-Info',roomName)
   })
 
 socket.on('disconnect', ()=>{

@@ -203,6 +203,28 @@ margin: 40px auto;
 	
 }
 
+.games{
+
+
+	width: 100%;
+}
+
+.join-game{
+
+	background: blanchedalmond;
+	color:black;
+	width: 10rem;
+	height: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.join-game a{
+
+	color:black;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 

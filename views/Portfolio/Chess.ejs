@@ -31,7 +31,7 @@
 
 
 
-<form action="/Portfolio/Chess/Game">
+<form action="/Portfolio/Chess/Game" id="newgame">
 
 
 <!-- <button> <a href="/Portfolio/Chess/Game">New Game</a></button> -->
@@ -61,23 +61,27 @@
 
 <!-- <button><a href="">Join Game</a></button> -->
 <form action="/Portfolio/Chess/Game" id="joinGames">
+	
 <div class="sessions">
    <div class="sessions-title">Current Games</div>
+
+<div class="games" id="games">
+
 	<div class="game">
 		<div id="game-name">Game 1</div> 
 		
-		<div id="join-game1" class = "join-game"><input type="submit" value="join" name="game1"></div>
+	<div id="join-game1" class = "join-game"><a href="">Join</a></div>
 
 
   </div>
   <div class="game">
 	<div id="game-name2">Game 2</div> 
 	
-	<div id="join-game2" class="join-game"><input type="submit" value="join" name="game2"></div>
+	<div id="join-game2" class="join-game"><a href="">Join</a></div>
 
 
 </div>
-
+</div>
 </div>
 
 </form>
@@ -96,8 +100,11 @@
 <body>
     
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" 
+integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/public/assets/Portfolio/Chess/Logic.js"></script>
-<script src="/public/assets/Portfolio/Chess/Chess.js"></script>
+<script src="/public/assets/Portfolio/Chess/Main.js"></script>
 
 </html>
