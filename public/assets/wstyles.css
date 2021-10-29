@@ -15,6 +15,7 @@ padding:0;
 body{
 
     background:#121b2c;
+    background: black;
     /* background: url(dcw1.jpg) no-repeat center center/cover; */
     color:#fff;
     font-family: 'PT Sans', sans-serif;
@@ -100,7 +101,7 @@ animation: serv-logo 800ms ease-in-out;
     list-style: none;
     gap:30px;
     font-size: 18px;
-   
+    padding: 2px;
     letter-spacing:3px;
     transition:1s;
 }
@@ -108,12 +109,15 @@ animation: serv-logo 800ms ease-in-out;
 
     color:white;
     transition: 0.3s ease-in-out;
+      padding-bottom: 10px;
 }
+
+
 
 .services a:hover {
 
     background-color: rgba(128, 128, 128, 0.582);
-    padding: 2px;
+   
 }
 .login-modal{
     background: black;
@@ -199,10 +203,11 @@ margin: 20px auto;
    font-size: 28px;
    transition:0.6s;
    padding:5px;
+   border:1px solid gray;
    animation: serv-serv 1s ease-in-out;
 }
 .sm:hover{
-    transform:scale(1.02)
+    transform:scale(1.01)
 }
 
 
@@ -256,7 +261,9 @@ letter-spacing: 2px;
     display: flex;
     text-transform: uppercase;
     background:#121b2c;
+    background: black;
     font-family: 'PT Sans';
+    letter-spacing: 2px;
 
 margin-top:auto;
  
@@ -338,7 +345,7 @@ input{
 }
 .picture2{
  width:100%;
-    background:url(deeracontact2.jpg) no-repeat center center/cover;
+    background:url(deercontact2.jpg) no-repeat center center/cover;
     }
  .btn{
 border:none;
