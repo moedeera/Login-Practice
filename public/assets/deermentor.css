@@ -160,9 +160,9 @@ grid-template-columns: 1fr 1fr;
 /* width: 768px; */
 width: 100%;
 max-width: 768px;
-
+gap:5px;
 margin: 0 auto;
-background: cornflowerblue;
+
 
 }
 
@@ -208,8 +208,38 @@ input{
     width: 100%;
     height: 100%;
     }
+    #tut{
+        background: url(tutorials.jpg) no-repeat center center/cover;
+    
+    }
+    #chat{
+        background: url(chat.jpg) no-repeat center center/cover;
+    
+    }
+    #proj{
+        background: url(projects.jpg) no-repeat center center/cover;
+    
+    }
+.lbox h1{
+background: white;
+color:black;
+width:100%;
+height:100%;
+
+opacity: 0.85;
+
+}
 
 
+.atag a, .atag a:visited{
+    display:flex;
+justify-content: center;
+align-items: center;
+    width:100%;
+    height:100%;
+  
+    color:black;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

@@ -183,18 +183,23 @@ width: 6rem;
 height: 3rem;
 font-size: 18px;
 background: #7258E9;
+background: #fff;
 font-family: 'Quicksand', sans-serif;
 letter-spacing: 2px;
 padding:5px ;
 /* font-family:  'PT Sans', sans-serif; */
-border-radius: 10px;
+
 border:none;
+
+}
+
+#text{
 
 }
 
 .button a{
 
-    color:white;
+    color:black;
 }
 
 button:hover{
@@ -235,8 +240,14 @@ button:hover{
     
             
             }
+#tut{
+    background: url(dc6.jpg) no-repeat center center/cover;
+
+}
+.proj{
 
 
+}
 
 
 
