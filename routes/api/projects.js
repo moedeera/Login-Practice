@@ -133,6 +133,11 @@ try {
 } )
 
 
+router.get(('/Catalogue'),(req, res)=>{
+
+res.render('Projects/UserProj.ejs')
+
+})
 
 
 
@@ -199,7 +204,12 @@ else {
 
 
 // router.get(('/Diner'), (req, res)=> res.render('Partials/Diner.ejs'))
+router.get(('/Forum'),(req, res)=>{
 
+  res.render('Projects/Forum.ejs')
+  
+  })
+  
 
 
 
