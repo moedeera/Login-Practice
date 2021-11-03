@@ -1,0 +1,256 @@
+
+    <script src="https://kit.fontawesome.com/f52626a245.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/public/assets/deermentor.css">
+    <link rel="stylesheet" href="/public/assets/utils.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+
+<section>
+<div class="navigation">
+
+
+ <div>
+<h1>DeerMentor<i class="fas fa-chalkboard main-logo"></i></h1>
+ </div> 
+
+
+ <div>
+ <a href="/Projects/profile"><i class="fas fa-sign-out-alt fa-2x" style="color: white;"></i></a>  </i>
+ </div>
+
+ 
+</div>
+
+</section >
+
+<section class="HTML">
+    <% if (info.Progress.HTML) { %>
+        <p> valid!!!</p>
+        <%} else { %>
+          <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+          <div class="card">
+            <h3>Section 1: HTML <i class="fab fa-html5"></i></h3>
+        <p> Hey <%= info.name %>, Let Start with  HTML learning 
+        first. HTML is generally the first step of Web Development.
+        It is the text document of a website before
+        anything is applied to it. HTML should be the 
+        quickest to learn. Remember, HTML
+        is NOT a coding language and is simply syntax 
+        </p>
+        <h3>For HTML this will be your Gameplan </h3>
+        <ul>
+          <li>Watch The Tutorial</li>
+          <li>Schedule a chat after you are done</li>
+          <li>Prepare to move on to the CSS section</li>
+        </ul>
+        <h3>Lets start with this HTML tutorial by Brad Traversy</h3>
+    <div class="video">
+      
+      <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/UB1O30fR-EE" title="YouTube video player" frameborder="0"
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <div class="checklist">
+    
+    <h3> Check each task off after you are done and press submit</h3>
+    <h5>Video Tutorial</h5>
+    <ul>
+        <li> <p>First 20 Minutes </p>  <input type="checkbox" name="b1" id="checkbox"> </li>
+        <li> <p>Second 20 Minutes </p>   <input type="checkbox" name="b2"> </li>
+        <li> <p>Third 20 Minutes </p>  <input type="checkbox" name="b3" > </li>
+        <!-- <li class="save"> <input class="input" type="submit" value="Save Progress" id="htmla"></li> -->
+        <input class="input" type="submit" value="Save " id="htmla">
+      </ul>
+    <h5>Prepare for an audio Chat</h5>
+    <ul>
+      <li> <a href="" >Schedule an appointment </a>  <input type="checkbox" name = "chat1"> </li>
+    
+    </ul>
+    
+    
+    
+    
+    </div>
+    <input class="input "type="submit" value="Submit " id="htmlb">
+    
+        </div>
+    
+    
+    
+        </form>
+        <% } %>
+</section>
+
+
+  
+
+    <% if (info.Progress.CSSbasic) { %>
+      <p> valid!!!</p>
+      <%} else { %>
+        <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+        <div class="card">
+          <h3>Section 2: CSS Beginner  <i class="fab fa-css3-alt"></i></h3>
+      <p> Good job <%= info.name %>, You finished the HTML portion.
+         Now it gets a little harder. CSS is the design segment
+         of the web, it allows you to change font, colors, layouts
+        and much more. With CSS there are varying levels of knowledge.
+    
+      </p>
+      <h3>This is the General hierarchy of CSS Knowledge</h3>
+      <ul>
+        <li>Vanilla CSS</li>
+        <li>CSS with SASS(optional)</li>
+        <li>CSS Frameworks (Bootstrap, Tailwind, Materialize)</li>
+      </ul>
+
+      <h3>For this segment, this will be your Gameplan </h3>
+      <ul>
+        <li>Watch The Tutorial</li>
+        <li>Do the practices</li>
+        <li>Schedule a chat after you are done</li>
+        <li>Prepare to move on to the next CSS section</li>
+      </ul>
+      <h3>Lets start with this HTML tutorial by Brad Traversy</h3>
+  <div class="video">
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yfoY53QXEnI?start=2" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+  <div class="checklist">
+  
+  <h3> Check each task off after you are done and press submit</h3>
+  <h5>Video Tutorial</h5>
+  <ul>
+      <li> <p>First 20 Minutes </p>  <input type="checkbox" name="c0"> </li>
+      <li> <p>Second 20 Minutes </p>   <input type="checkbox" name="c1"> </li>
+      <li> <p>Third 20 Minutes </p>  <input type="checkbox" name="c2" > </li>
+      <li> <p>Practice 1</p>  <input type="checkbox" name="c3" > </li>
+      <li> <p>Practice 2</p>  <input type="checkbox" name="c4" > </li>
+      <!-- <li class="save"> </li> -->
+      <input class="input "type="submit" value="Save " id="css2a">
+  </ul>
+  <h5>Prepare for an audio Chat</h5>
+  <ul>
+    <li> <a href="" id="css2b">Schedule an appointment </a>  <input type="checkbox" name="chat2"> </li>
+  
+  </ul>
+  
+  
+  
+  
+  </div>
+  <input class="input "type="submit" value="Submit">
+  
+      </div>
+  
+  
+  
+      </form>
+      <% } %>
+
+
+      <% if (info.Progress.CSSIntermediate) { %>
+        <p> Completed</p>
+        <%} else { %>
+          <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+          <div class="card">
+            <h3>Section 3: CSS Intermediate  <i class="fab fa-css3-alt"></i></h3>
+        <p> Good job <%= info.name %>, You finished the Beginner portion.
+           Now it gets a little harder. This portion of CSS involves dealing with page layouts.
+           Grid and Flexbox are the most widely used layout structures for CSS designs. Make sure
+           you fully understand margins and padding as both Grid and Flexbox modify them.
+           
+           Understand that flexbox and Grid are not higher level concepts in CSS. They are used in almost
+           every Web page you will design with CSS. Every project you do will almost certainly contain one of
+           Grid box or Flex.  <strong style="color:black;">Your understanding of Flexbox and Grid is a direct reflection of how often 
+             you practice coding website designs.
+           </strong>
+      
+        </p>
+        <h3>This is the the list of concepts for the next phase</h3>
+        <ul>
+          <li>CSS Grid</li>
+          <li>CSS Flexbox</li>
+         
+  
+        <h3>For this segment, this will be your Gameplan </h3>
+        <ul>
+          <li>Watch The Tutorial</li>
+          <li>Do the practices</li>
+          <li>Schedule a chat after you are done</li>
+          <li>Prepare to move on to the next CSS section</li>
+        </ul>
+        <h3>Lets start with this Grid tutorial by Brad Traversy</h3>
+    <div class="video">
+      
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/jV8B24rSN5o" 
+      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <h3>Flexbox tutorial by Brad Traversy</h3>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/JJSoEo8JSnc" 
+      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+    </div>
+
+
+    <div class="checklist">
+    
+    <h3> Check each task off after you are done and press submit</h3>
+    <h5>Video Tutorial</h5>
+    <ul>
+        <li> <p>Grid Tutorial </p>  <input type="checkbox" name="cm0"> </li>
+        <li> <p>Flexbox Tutorial</p>   <input type="checkbox" name="cm1"> </li>
+        <li> <p>Practice 1 </p>  <input type="checkbox" name="cm2" > </li>
+        <li> <p>Practice 2</p>  <input type="checkbox" name="cm3" > </li>
+        <li> <p>Practice 3</p>  <input type="checkbox" name="cm4" > </li>
+        <!-- <li class="save"> </li> -->
+        <input class="input "type="submit" value="Save " id="css2a">
+    </ul>
+    <h5>Prepare for an audio Chat</h5>
+    <ul>
+      <li> <a href="" id="css2b">Schedule an appointment </a>  <input type="checkbox" name="chatm2"> </li>
+    
+    </ul>
+    
+    
+    
+    
+    </div>
+    <input class="input "type="submit" value="Submit">
+    
+        </div>
+    
+    
+    
+        </form>
+        <% } %>
+
+
+
+
+
+      <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
+
+</body>
+<script>
+  var row =<%-JSON.stringify(info)%>
+var dataRow =[]
+
+  if (row.CHECKB1 === true){ 
+
+    document.getElementById("checkbox").checked = true;
+  } else {
+    document.getElementById("checkbox").checked = false;
+
+  }
+  console.log(row.education[0]);
+</script>
+<script src="/public/assets/main.js"></script>
