@@ -118,7 +118,8 @@ app.set('views', [path.join(__dirname, 'views'),
 app.use(session({
 key:'user',
 secret:'secret-key',
-resave:false,
+rolling:true,
+resave:true,
 saveUninitialized:false,
 cookie: {
     expires: 600000

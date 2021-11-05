@@ -120,7 +120,7 @@ cursor: pointer;
 
 .card{
 max-width: 600px;
-margin: 60px auto;
+margin: 0px auto;
 background:#474F66;
 padding: 10px 15px;
 letter-spacing: 1px;
@@ -240,6 +240,35 @@ align-items: center;
   
     color:black;
 }
+
+/* complete versus non complete */
+
+.complete-section{
+
+    background-color: blanchedalmond;
+    max-width: 600px;
+    margin: 40px auto;
+  position: relative;
+}
+.check{
+
+    position: absolute;
+    background-color: green;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    transition: 1.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/**/
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
