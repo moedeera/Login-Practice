@@ -34,6 +34,15 @@ CHECKB3: {
   type: Boolean,
 default: false
 },
+CHECKB4: {
+  type: Boolean,
+   default: false
+   },              
+ CHECKB5: {
+   type: Boolean,
+ default: false
+ },
+
 CHECKBF: {
 type: Boolean,
 default: false
@@ -42,115 +51,34 @@ default: false
 
 
  // CSS Basic   
-CSSB1: {
+CSSBasic: {
   type: Boolean,
   default: false
    },
-CSSB2: {
-type: Boolean,
-default: false
-      },
-CSSB3: {
-  type: Boolean,
-  default: false
-   },
-CSSB4: {
-type: Boolean,
-default: false
-      },
-CSSB5: {
-  type: Boolean,
-  default: false
-   },
-CSSBF: {
-type: Boolean,
-default: false
-      },
+
  // CSS Intermediate      
-CSSM1: {
+CSSIntermediate: {
   type: Boolean,
   default: false
-   },
-CSSM2: {
-type: Boolean,
-default: false
-      },
-CSSM3: {
-  type: Boolean,
-  default: false
-   },
-CSSM4: {
-type: Boolean,
-default: false
-      },
-CSSM5: {
-  type: Boolean,
-  default: false
-   },
-CSSMF: {
-type: Boolean,
-default: false
-      },
+},
  // CSS Advanced        
-CSSA1: {
+CSSAdvanced: {
   type: Boolean,
   default: false
    },
-CSSA2: {
-type: Boolean,
-default: false
-      },
 
-CSSAF: {
-type: Boolean,
-default: false
-      },
  // Javascript Basic    
-JSB1: {
+JSBasic: {
   type: Boolean,
   default: false
    },
-JSB2: {
-type: Boolean,
-default: false
-      },
-JSB3: {
-  type: Boolean,
-  default: false
-   },
-JSB4: {
-type: Boolean,
-default: false
-      },
-
-JSBF: {
-type: Boolean,
-default: false
-      },      
+    
  // Javascript InterMediate  
- JSM1: {
+ JSIntermediate: {
   type: Boolean,
   default: false
    },
-JSM2: {
-type: Boolean,
-default: false
-      },
-JSM3: {
-  type: Boolean,
-  default: false
-   },
-JSSM4: {
-type: Boolean,
-default: false
-      },
-
-JSSMF: {
-type: Boolean,
-default: false
-      },  
-      
-      
+ 
 
 
 
