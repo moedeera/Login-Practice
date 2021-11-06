@@ -89,40 +89,97 @@ router.get(('/tutorials'), (req, res)=>{
 
 
 router.post(('/tutorials'), async (req, res)=>{
+//Level Updater 
 
-var bodyData = [req.body.b1]
+function Reset(users){
+
+  
+  users.CHECKB1 =false;
+  users.CHECKB2 =false;
+  users.CHECKB3 =false;
+  users.CHECKB4 =false;
+  users.CHECKB5 =false;
+  users.CHECKBF =false;
+}
 
 
-  if (bodyData[0]){
+function LevelUpdate(User){
+if(User.Value===1){
+  User.Progress.CSSbasic=true;
+  User.HTML = true;  
+        }
+        if(User.Value===2){
+          User.Progress.CSSIntermediate=true;
+          User.CSSBasic = true;  
+                }
+                if(User.Value===3){
+                  User.Progress.CSSAdvanced=true;
+                  User.CSSIntermediate = true;  
+                        }        
+                        if(User.Value===4){
+                          User.Progress.JavascriptB=true;
+                          User.CSSAdvanced = true;  
+                                }        
+                                if(User.Value===5){
+                                  User.Progress.JavascriptM=true;
+                                  User.JSBasic = true;  
+                                        }    
+                                        if(User.Value===6){
+                                          User.Progress.JavascriptA=true;
+                                          User. JSIntermediate = true;  
+                                                }   
 
-    try {
-      const users = await User.findOne({ email:req.session.user.email}).exec() 
- console.log('Profile Page POST',  req.session.user.CHECKB1, req.body.b1)
-    users.CHECKB1 =true;
-    await users.save()
+
+}
 
 
 
+const Data = []
+function GetBodyData(){
+const values = [req.body.b1,req.body.b2,req.body.b3,req.body.b4,req.body.b5,req.body.chat]
 
-    } catch (error) {
-      console.log(error)
-    }
-   
+for (var j=0; j<values.length; j++){
+  if (values[j]==='on'){
+    Data[j]=true;
+  } else{
+    Data[j]=false
   }
-  else {
+}
+}
+GetBodyData()
+
+
+//Get and Update User
 
 try {
   const users = await User.findOne({ email:req.session.user.email}).exec() 
- console.log('unchecked',  req.session.user.CHECKB1, req.body.b1)
-    users.CHECKB1 =false;
-    await users.save()
+  users.CHECKB1 =Data[0];
+  users.CHECKB2 =Data[1];
+  users.CHECKB3 =Data[2];
+  users.CHECKB4 =Data[3];
+  users.CHECKB5 =Data[4];
+  users.CHECKBF =Data[5];
+
+if (users.CHECKBF===true){
+users.Value = users.Value + 1;
+console.log(users.Value)
+LevelUpdate(users)
+Reset(users)
+console.log('true nad her eis the new user', req.session.user.Value, users.Value )
+
+
+}
+
+
+
+
+  await users.save()
+  req.session.user = users;
+  res.render('Projects/tutorials', {info : req.session.user})
   
 } catch (error) {
   console.log(error)
 }
-
-   
-  }
 
 
 

@@ -182,7 +182,7 @@ margin: 0 auto;
 
 
 .lbox:hover{
-opacity: 0.7;
+opacity: 0.5;
 cursor: pointer;
 
 
@@ -265,8 +265,12 @@ align-items: center;
     align-items: center;
 }
 
-
-
+#checkbox4, #checkbox5, .no-show{
+    display: none;
+}
+.no-show{
+    display: none;
+}
 
 /**/
 

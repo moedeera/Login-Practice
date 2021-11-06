@@ -48,6 +48,10 @@ type: Boolean,
 default: false
  },
 
+ HTML: {
+  type: Boolean,
+  default: false
+   },
 
 
  // CSS Basic   
@@ -78,7 +82,12 @@ JSBasic: {
   type: Boolean,
   default: false
    },
- 
+  // Level
+ Value: {
+    type:Number ,
+    default: 0
+     },
+   
 
 
 
@@ -86,7 +95,7 @@ JSBasic: {
  {
                   HTML: {
                     type: Boolean,
-                    default: false
+                    default: true
                   },
                   CSSbasic: {
                     type: Boolean,
