@@ -268,7 +268,12 @@ router.get(('/Forum'),(req, res)=>{
   
   })
   
+  router.get(('/Practice'),(req, res)=>{
 
+    res.render('Projects/Practice.ejs')
+    
+    })
+    
 
 
 

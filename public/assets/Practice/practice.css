@@ -1,0 +1,47 @@
+body{
+
+   
+}
+
+
+.pcard{
+
+   margin:100px auto;
+   width:100%;
+   max-width:900px;
+  
+    display: flex;
+     padding:5px;
+     line-height: 1.6em;
+     letter-spacing:1.75px;
+    
+    
+      
+    }
+
+
+
+.prac{
+
+    border:1px solid rgba(128, 128, 128, 0.356);
+    margin:5px ;
+    padding:5px;
+    background-color:black;
+    background: #1a1a38;
+    cursor: pointer;
+}
+.prac:hover{
+
+opacity:0.9;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+
+.pcard{
+
+    flex-direction: column;
+}
+
+}
