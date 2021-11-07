@@ -162,7 +162,10 @@ line-height: 1.6;
     border-radius: 5px;
     padding:5px 10px;
 }
+.reminder{
 
+    margin:10px 0;
+}
 .lower{
 
 display: grid;
@@ -316,9 +319,15 @@ align-items: center;
 
     display: none;
 }
+.input input{
 
+    font-size: 10px;
+}
 
+input{
 
+    font-size: 10px;
+}
 .lower{
 
     grid-template-columns: 1fr;
