@@ -165,7 +165,7 @@ users.Value = users.Value + 1;
 console.log(users.Value)
 LevelUpdate(users)
 Reset(users)
-console.log('true nad her eis the new user', req.session.user.Value, users.Value )
+console.log(' the updated user', req.session.user.Value, users.Value )
 
 
 }
@@ -175,7 +175,8 @@ console.log('true nad her eis the new user', req.session.user.Value, users.Value
 
   await users.save()
   req.session.user = users;
-  res.render('Projects/tutorials', {info : req.session.user})
+  // res.render('Projects/tutorials', {info : req.session.user})
+  res.redirect('/tutorials')
   
 } catch (error) {
   console.log(error)
