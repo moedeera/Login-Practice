@@ -10,7 +10,8 @@ body{
    width:100%;
    max-width:900px;
   
-    display: flex;
+   display:grid;
+   grid-template-columns: repeat(4,1fr);
      padding:5px;
      line-height: 1.6em;
      letter-spacing:1.75px;
@@ -36,12 +37,22 @@ opacity:0.9;
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 425px) {
 
 
 .pcard{
 
-    flex-direction: column;
+    grid-template-columns: 1fr;
 }
 
 }
+
+@media only screen and (min-width: 425px)and (max-width: 600px) {
+
+
+    .pcard{
+    
+        grid-template-columns: 1fr 1fr
+    }
+    
+    }
