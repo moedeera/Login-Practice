@@ -27,6 +27,66 @@ justify-content: space-between;
 
 }
 /* upper-portion */
+
+
+.dashb{
+
+    background:steelblue;
+    height:75vh;
+    width:70%;
+    max-width: 900px;
+    display:grid;
+    grid-template-columns: 1fr 7fr;
+    margin: 50px auto;
+    padding: 15px;
+}
+
+.sideNav{
+display: flex;
+flex-direction:column;
+justify-content:space-evenly;
+align-items:center;
+background:grey;
+height:500px;
+
+}
+
+.boxArea{
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 5fr;
+background:grey;
+margin:0 10px;
+
+}
+
+.top{
+  height:80%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border: 3px solid red;
+}
+
+.botBox{
+    width: 100%;
+   margin: 5px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    border: 3px solid green;
+}
+
+.unit{
+
+    border: 3px solid black;
+    width: 50%;
+    height:80%;
+    margin:5px auto;
+    background: url(tutorials.jpg) no-repeat center center/cover;
+}
 .dashboard{
 
 max-width: 768px;
