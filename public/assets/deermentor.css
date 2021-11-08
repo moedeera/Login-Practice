@@ -48,8 +48,8 @@ justify-self:center ;
 .main-box h2{
 
     position: absolute;
-    top:10;
-    left: 10;
+    top:15;
+    left: 15;
     cursor: pointer;
 }
 .main-box h2:hover{
