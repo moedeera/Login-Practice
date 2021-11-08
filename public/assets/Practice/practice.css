@@ -21,18 +21,15 @@ body{
     }
 .prac img{
     margin:10px 0;
+    max-width: 100%;
     transition: 1s ease-in-out;
 }
-.prac img:hover{
 
-    transform: scale(1.75);
-    
-}
 
 .prac{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+
+  width: 95%;
+  max-width: 500px;
     border:1px solid rgba(128, 128, 128, 0.356);
     margin:5px ;
     padding:5px;
@@ -64,4 +61,10 @@ opacity:0.9;
         grid-template-columns: 1fr 1fr
     }
     
+.prac ul{
+
+   font-size: small;
+}
+
+
     }
