@@ -12,18 +12,27 @@ body{
   
    display:grid;
    grid-template-columns: repeat(4,1fr);
-     padding:5px;
+     padding:10px;
      line-height: 1.6em;
      letter-spacing:1.75px;
     
     
       
     }
+.prac img{
+    margin:10px 0;
+    transition: 1s ease-in-out;
+}
+.prac img:hover{
 
-
+    transform: scale(1.75);
+    
+}
 
 .prac{
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
     border:1px solid rgba(128, 128, 128, 0.356);
     margin:5px ;
     padding:5px;
