@@ -32,7 +32,8 @@ justify-content: space-between;
 .dashb{
 
     background:steelblue;
-    height:75vh;
+    height:90vh;
+
     width:70%;
     max-width: 900px;
     display:grid;
@@ -47,7 +48,7 @@ flex-direction:column;
 justify-content:space-evenly;
 align-items:center;
 background:grey;
-height:500px;
+height:100%;
 
 }
 
@@ -81,12 +82,28 @@ margin:0 10px;
 
 .unit{
 
-    border: 3px solid black;
-    width: 50%;
-    height:80%;
+    border: 1.5px solid grey;
+    width: 70%;
+    max-width: 300px;
+  height: 150px;
     margin:5px auto;
-    background: url(tutorials.jpg) no-repeat center center/cover;
+    background: white;
+    color:black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.9;
+    padding: 15px;
+    font-weight: lighter;
+    letter-spacing: 1.5px;
+    gap:5px;
+  
 }
+.unit i{
+
+    color:rgba(87, 84, 84, 0.658);
+}
+
 .dashboard{
 
 max-width: 768px;
@@ -350,7 +367,18 @@ align-items: center;
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
+    .dashb{
+        height: 120vh;
+        
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 5fr ;
+      
+    }
+    
+    .botBox{
+        grid-template-columns: 1fr;
+    }
+    
 .dashboard{
 
     grid-template-columns: 1fr;
