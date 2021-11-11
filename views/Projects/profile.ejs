@@ -34,7 +34,7 @@
     <div> <p>Main<p></div>
     
     <div><p>Account</p> </div>
-    <div><p>Logout</p> </div>
+    <div><p>Settings</p> </div>
   </div>
   <div class="boxArea">
   <div class="top">
@@ -42,7 +42,9 @@
     <div><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;"></div>
     
   </div>
-  <div class="botBox">
+  <div class="botBox no-show">
+
+
     <div class="unit">
       <i class="fas fa-chart-line fa-5x" ></i> 
       <h4>Progress</h4>
@@ -66,8 +68,23 @@
       <h4>Roadmap</h4>
      
     </div>
-  </div>
 
+
+    
+  </div>
+  <div class="botBox">
+
+<div>
+  <h3>Account information</h3>
+<div class="Form">
+  <label for="">Name:</label>  <label for=""><%= info.name %></label>
+  <label for="">Email:</label>  <label for=""><%= info.email %></label>
+</div> 
+ </div>
+
+
+    
+  </div>
   </div>
 </div>
 

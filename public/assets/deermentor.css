@@ -139,6 +139,22 @@ margin:0 10px;
     will-change:transform;
 }
 
+
+.Form {
+
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+letter-spacing: 2px;
+line-height: 1.6em;
+}
+.Form input{
+width: 100%;
+
+}
+
+
+
 .dashboard{
 
 max-width: 768px;
