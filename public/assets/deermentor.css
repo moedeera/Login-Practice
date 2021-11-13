@@ -31,7 +31,7 @@ justify-content: space-between;
 
 .dashb{
 background: #22224b;
-    height:100vh;
+    height:fit-content;
 
     width:90%;
     max-width:768px;
@@ -83,14 +83,11 @@ margin:0 10px;
     position: absolute;
     background: cornflowerblue;
     top:10;
-    height: 95%;
+    height: 320px;
     width: 88%;
     left:6%;
     z-index: 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap:25px;
+   grid-template-columns: 1fr 2fr;
     align-items: center;
     transition: 1s ease-in-out;
 }
@@ -103,7 +100,7 @@ progress[value] {
     height: 40px;
   }
 .projects{
-
+   border: 1px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
