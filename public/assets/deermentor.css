@@ -79,32 +79,53 @@ margin:0 10px;
 }
 
 .Progress{
-
+  
     position: absolute;
-    background: cornflowerblue;
+    background: #7258E9 ;
     top:10;
     height: 320px;
     width: 88%;
     left:6%;
     z-index: 4;
-   grid-template-columns: 1fr 2fr;
+
     align-items: center;
     transition: 1s ease-in-out;
 }
+.Progress h1{
+    color:green;
+}
 
+.internal{
+    width: 80%;
+    position: relative;
+    margin:30px auto;
+  margin-left: 15%;
+   
+    display: grid;
+ align-items: center;
+ justify-content: center;
+   grid-template-columns: 1fr 1fr;
+   grid-column-gap: 5px;
+   grid-row-gap:5px;
+    
+}
 .Progress:hover{
     transform: scale(1.005);
 }
 progress[value] {
-    width: 250px;
+    width: 200px;
     height: 40px;
   }
 .projects{
-   border: 1px solid white;
+    background:white;
+    padding: 10px;
+   width:150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    color:black;
 }
 
 
@@ -123,7 +144,7 @@ progress[value] {
 .Appointments{
     padding-top: 20px;
     position: absolute;
-    background: cornflowerblue;
+    background: #7258E9 ;
     top:10;
     height: 95%;
     width: 88%;
@@ -680,15 +701,24 @@ height: 1005px;
 
 .Appointments{
     padding-top: 70px;
-    height: 800px;
+    height: 750px;
 }
 
+.internal{
+  margin-top: 75px;
+    grid-template-columns: 1fr;
+    grid-row-gap:25px;
 }
 
-progress[value] {
-    width: 150px;
-    height: 40px;
-  }
+.Progress{
+
+    height:750px;
+}
+.dashb{
+
+    height:870px;
+}
+}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 

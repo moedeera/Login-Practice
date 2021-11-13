@@ -41,7 +41,7 @@ document.getElementById("close").addEventListener('click',(e)=>{
 
 
 document.getElementById("Progress").addEventListener('click', (e)=>{
-    document.getElementById("mainOpt").style.opacity ='0.1'
+    document.getElementById("mainOpt").style.opacity ='0'
    
     document.getElementById("close").classList.remove("no-show")
     document.getElementById("progress").classList.remove("no-show")
@@ -49,7 +49,7 @@ document.getElementById("Progress").addEventListener('click', (e)=>{
 })
 
 document.getElementById("Appt").addEventListener('click', (e)=>{
-    document.getElementById("mainOpt").style.opacity ='0.1'
+    document.getElementById("mainOpt").style.opacity ='0'
   
     document.getElementById("close").classList.remove("no-show")
     document.getElementById("Appointment").classList.remove("no-show")
@@ -61,6 +61,7 @@ document.getElementById("Appt").addEventListener('click', (e)=>{
 
 
 function Clear (){
+    document.getElementById("mainOpt").style.opacity ='1';
     document.getElementById("mainOpt").classList.add("no-show")
     document.getElementById("accoOpt").classList.add("no-show")
     document.getElementById("settOpt").classList.add("no-show")
