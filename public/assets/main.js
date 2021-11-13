@@ -34,6 +34,7 @@ else if(e.target===settings){
 document.getElementById("close").addEventListener('click',(e)=>{
     document.getElementById("close").classList.add("no-show")
     document.getElementById("progress").classList.add("no-show")
+    document.getElementById("Appointment").classList.add("no-show")
 
 })
 
@@ -43,6 +44,14 @@ document.getElementById("Progress").addEventListener('click', (e)=>{
     document.getElementById("progress").classList.remove("no-show")
 
 })
+
+document.getElementById("Appt").addEventListener('click', (e)=>{
+    document.getElementById("close").classList.remove("no-show")
+    document.getElementById("Appointment").classList.remove("no-show")
+
+})
+
+
 
 
 

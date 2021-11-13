@@ -123,6 +123,47 @@ progress[value] {
 }
 
 
+.Appointments{
+    padding-top: 20px;
+    position: absolute;
+    background: cornflowerblue;
+    top:10;
+    height: 95%;
+    width: 88%;
+    left:6%;
+    z-index: 3;
+
+}
+.App{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:25px;
+}
+.App input{
+    width: 10rem;
+
+
+}
+.apts{
+
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    
+}
+
+.appt{
+    background: grey;
+    border: 1px solid black;
+    height: 2rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /* .BottoM{
 .close{
 
