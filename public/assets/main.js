@@ -1,37 +1,56 @@
-// // function httpGetAsync(theUrl, callback)
-// // {
-// //     var xmlHttp = new XMLHttpRequest();
-// //     xmlHttp.onreadystatechange = function() { 
-// //         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-// //             callback(xmlHttp.responseText);
-// //     }
-// //     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-// //     xmlHttp.send(null);
-// // }
-
-// // function cons(text){
-
-// // console.log(text)
-
-// // }
-// // httpGetAsync('./tutorials', cons() )
-
-// function Load () {
+const main = document.getElementById("main")
+const account = document.getElementById("account")
+const settings = document.getElementById("settings")
+const nav = document.querySelector(".sideNav")
 
 
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('GET', './tutorials', true)
+nav.addEventListener('click', (e)=>{
 
-//     xhr.onload = function () {
+e.preventDefault();
 
-// if (this.status===200){
-//     console.log(this.responseText)
-// }
+if (e.target === main){
+    Clear()
+   console.log('main')
+   document.getElementById("mainOpt").classList.remove("no-show")
+}
+else if (e.target===account){
+    Clear()
+    console.log('account')
+    document.getElementById("accoOpt").classList.remove("no-show")
+}
+
+else if(e.target===settings){
+    Clear()
+    console.log('settings')
+    document.getElementById("settOpt").classList.remove("no-show")
+}
 
 
-//     }
+}
 
-//     console.log(xhr)
-// }
+)
 
-// Load ();
+
+document.getElementById("close").addEventListener('click',(e)=>{
+    document.getElementById("close").classList.add("no-show")
+    document.getElementById("progress").classList.add("no-show")
+
+})
+
+
+document.getElementById("Progress").addEventListener('click', (e)=>{
+    document.getElementById("close").classList.remove("no-show")
+    document.getElementById("progress").classList.remove("no-show")
+
+})
+
+
+
+function Clear (){
+    document.getElementById("mainOpt").classList.add("no-show")
+    document.getElementById("accoOpt").classList.add("no-show")
+    document.getElementById("settOpt").classList.add("no-show")
+    document.getElementById("close").classList.add("no-show")
+    document.getElementById("progress").classList.add("no-show")
+}
+

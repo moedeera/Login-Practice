@@ -31,21 +31,45 @@
 <div class="dashb">
 
   <div class="sideNav">
-    <div> <p>Main<p></div>
+    <div > <p id="main">Main<p></div>
     
-    <div><p>Account</p> </div>
-    <div><p>Settings</p> </div>
+    <div ><p id="account">Account</p> </div>
+    <div ><p id="settings">Settings</p> </div>
   </div>
   <div class="boxArea">
   <div class="top">
     <div>Welcome back <%= info.name %> !</div>
     <div><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;"></div>
     
+
   </div>
-  <div class="botBox no-show">
+<div class="BottoM">
+  <div id="close" class="no-show"><i class="fas fa-chevron-left fa-2x "></i></div>
+<div class="Progress no-show" id="progress">
+
+  <div class="projects">
+    
+     <progress max="100" value="70"></progress>
+     <h3>You have completed 70% of Tutorials</h3>
+  </div>
+  <div class="projects">
+    <progress max="100" value="80"> </progress>
+      <h3>You have completed 80% of practices</h3> 
+   
+ </div>
+ <div class="projects">
+  <progress max="100" value="50"></progress>
+  <h3>You have completed 50% of Portfolio Objectives</h3> 
+</div>
+  
+
+</div>
+
+  
+  <div id="mainOpt" class="botBox ">
 
 
-    <div class="unit">
+    <div class="unit" id="Progress">
       <i class="fas fa-chart-line fa-5x" ></i> 
       <h4>Progress</h4>
      
@@ -53,7 +77,7 @@
     <div class="unit">
       
       <i class="fas fa-chalkboard-teacher fa-5x"></i>
-      <h4>Tutorials</h4>
+      <h4><a href="/Projects/tutorials" style="color: black;">Tutorials</a></h4>
      
     </div>
     <div class="unit">
@@ -72,22 +96,44 @@
 
     
   </div>
-  <div class="botBox">
+ 
 
-<div>
+<div  id="accoOpt" class="account no-show">
   <h3>Account information</h3>
-<div class="Form">
-  <label for="">Name:</label>  <label for=""><%= info.name %></label>
-  <label for="">Email:</label>  <label for=""><%= info.email %></label>
-</div> 
+
+  <form action="" class="Form">
+
+  <label for="">Name:</label>  <label for=""><%= info.name %></label>    
+  <label for="">Email:</label>  <label for=""><%= info.email %></label>  
+  <label for="">Occupation:</label>  <label for=""><%= info.email %></label>  
+  <label for="">Bio:</label>  <label for=""><%= info.email %></label>  
+  <label for="">Avatar:</label>  <label for=""><%= info.email %></label>  
+ 
+  </form>
+
  </div>
 
 
-    
-  </div>
-  </div>
+
+<div id="settOpt"   class="settings no-show ">
+
+<h3>Reset password</h3>
+<form action="" class="Form sett">
+<label for="">Old password</label><input type="text" name="password">
+<label for="">Enter New password</label><input type="text" name="password">
+<label for="">Re-enter password</label><input type="text" name="password">
+<input type="submit" value= submit>
+</form>
+
+
+
+
 </div>
 
+ 
+  </div>
+</div>
+</div>
 
 
 
