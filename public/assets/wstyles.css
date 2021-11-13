@@ -436,8 +436,12 @@ opacity: 0.7;
             
             } 
              #demo4{
-                background:url(demo4.jpg) no-repeat center center/cover;
+                background: #36486b;
                 border:1px solid grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: orange;
                 
                 }
 #demo1:hover{
