@@ -61,5 +61,6 @@ function Clear (){
     document.getElementById("settOpt").classList.add("no-show")
     document.getElementById("close").classList.add("no-show")
     document.getElementById("progress").classList.add("no-show")
+    document.getElementById("Appointment").classList.add("no-show")
 }
 
