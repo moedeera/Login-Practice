@@ -15,15 +15,16 @@ color:black;
 .Create-Post{
 
    
-    background:teal ;
+    background: blanchedalmond;
     padding:5px 10px ;
+   
    
 }
 .Create-Post form{
     display: flex;
     flex-direction: column;
     gap:5px;
-    
+     color:black;
 }
 
 
@@ -97,6 +98,12 @@ color: white;;
    color: #000;
    cursor: pointer;
 }
+
+.Create-Post .Post-Id {
+  
+     color:black;
+}
+
 
 @media only screen and (max-width: 600px) {
 

@@ -297,6 +297,7 @@ display: grid;
 grid-template-columns: 5fr 1fr;
 justify-self:center ;
 
+
 }
 
 .main-box{
@@ -398,6 +399,7 @@ gap:5px;
 margin: 0 auto;
 
 
+
 }
 
 .lbox{
@@ -455,6 +457,12 @@ input{
         background: url(projects.jpg) no-repeat center center/cover;
     
     }
+
+
+    #prac{
+        background: url(dm1.jpg) no-repeat center center/cover;
+    
+    }
 .lbox h1{
 background: white;
 color:black;
@@ -473,7 +481,7 @@ align-items: center;
     width:100%;
     height:100%;
   
-    color:black;
+    color:#411be9;
 }
 /************************************************ Tutorial section ***********************/
 .card{
@@ -557,7 +565,7 @@ align-items: center;
     }
     /**/
     /***************************************/
-
+/************************************************  section ***********************/
 
 
 
