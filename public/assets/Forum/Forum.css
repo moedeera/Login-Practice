@@ -1,0 +1,112 @@
+body{
+}
+
+
+
+.Forum-box{
+padding:0px 0px;
+width: 100%;
+max-width: 1100px;
+
+margin: 50px auto;
+background: white;
+color:black;
+}
+.Create-Post{
+
+   
+    background:teal ;
+    padding:5px 10px ;
+   
+}
+.Create-Post form{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    
+}
+
+
+.Create-Post input{
+    width: 10rem;
+}
+.Create-Post textarea{
+    width: 100%;
+}
+.Forum-select{
+   
+    text-decoration: underline;
+}
+.Forum-box select{
+     font-size: 1rem;
+     }
+
+.Upp-Sec{
+padding: 10px;
+display: flex;
+justify-content: space-evenly;
+border-bottom: 1px solid grey;
+background:#7258E9; 
+color:white;
+}
+
+.Post-Sec{
+
+    border:1px solid black;
+  
+}
+
+.Post{
+   padding-top: 5px;
+    background: #282857;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Post-Id{
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+padding: 0 5px;
+color: white;;
+
+}
+
+.Post-text{
+
+    background: blanchedalmond;
+    letter-spacing: 2px;
+    line-height: 1.8em;
+    padding: 5px 10px;
+}
+
+.Forum-image{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap:5px
+}
+#Post{
+   border: 1px solid white;
+   background: white;
+   color: black;
+   padding: 0 5px;
+   color: #000;
+   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .Post-date, .Post-Topic{
+        display: none;
+    }
+
+
+    #latest,#unread, #most-liked{
+
+        display: none;
+    }
+}

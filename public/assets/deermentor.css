@@ -4,7 +4,7 @@
   margin:0;
     box-sizing: border-box;
 }
-
+/* body  */
 
 body{
 
@@ -19,6 +19,7 @@ body{
     box-sizing: border-box;
     
 }
+/* Navbar section */
 .navigation{
 padding: 0px 10px;
 
@@ -26,7 +27,7 @@ display: flex;
 justify-content: space-between;
 
 }
-/* upper-portion */
+/********************** Main-Dashboard *****************************/
 
 
 .dashb{
@@ -42,196 +43,21 @@ background: #22224b;
     border-radius: 10px;
 }
 
-.sideNav{
- margin: auto 0;
-display: flex;
-flex-direction:column;
-justify-content:space-evenly;
-align-items:center;
-background:white;
-
-height:90%;
-letter-spacing: 1.5px;
-padding: 5px;
-cursor: pointer;
-color:#462db4; 
-border-radius: 5px;
-
-}
-
-.sideNav p:hover{
-    text-decoration: underline;
-  
-}
+/******** Main box Area of dashboard ********/
 
 .boxArea{
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr 5fr;
-
 margin:0 10px;
-
 }
+/* general divs inside boxArea*/
 
-.BottoM{
-
-  position:relative;  
-}
-
-.Progress{
-  
-    position: absolute;
-    background: #7258E9 ;
-    top:10;
-    height: 320px;
-    width: 88%;
-    left:6%;
-    z-index: 4;
-
-    align-items: center;
-    transition: 1s ease-in-out;
-}
-.Progress h1{
-    color:green;
-}
-
-.internal{
-    width: 80%;
-    position: relative;
-    margin:30px auto;
-  margin-left: 15%;
-   
-    display: grid;
- align-items: center;
- justify-content: center;
-   grid-template-columns: 1fr 1fr;
-   grid-column-gap: 5px;
-   grid-row-gap:5px;
-    
-}
-.Progress:hover{
-    transform: scale(1.005);
-}
-progress[value] {
-    width: 200px;
-    height: 40px;
-  }
-.projects{
-    background:white;
-    padding: 10px;
-   width:150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color:black;
-}
-
-
-#close{
-    position: absolute;
-    left:7%;
-
-    color:#462db4; 
-   z-index: 6;
-   top:5%;
-   font-size: 18px;
-   cursor: pointer;
-}
-
-
-.Appointments{
-    padding-top: 20px;
-    position: absolute;
-    background: #7258E9 ;
-    top:10;
-    height: 95%;
-    width: 88%;
-    left:6%;
-    z-index: 3;
-
-}
-.App{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:25px;
-}
-.App input{
-    width: 10rem;
-
-
-}
-.apts{
-
-    display: flex;
-    flex-direction: column;
-    gap:5px;
-    
-}
-
-.appt{
-    background: grey;
-    border: 1px solid black;
-    height: 2rem;
-    width: 15rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-/* .BottoM{
-.close{
-
-
-
-    
-    
-}
-#mainOpt{
-
-    position: absolute;
-    border: 1px solid white;
-    width: 100%;
-    left:0;
-    top:0;
-}
-#accoOpt{
-
-    position: absolute;
-    border: 1px solid white;
-    left:-100%;
-}
-
-#settOpt{
-    position: absolute;
-    border: 1px solid white;
-    width: 100%;
-   left:100%;
-} */
-
-
-.top{
-  height:100%;
-  width: 88%;
-  margin: 0 auto;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding: 5px 15px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    background: white;
-    color:#2e188d ;
-    opacity: 0.9;
-}
-
+/*Main box div*/
 .botBox{
     width: 100%;
 
-   margin: 5px auto;
+     margin: 5px auto;
     display:grid;
     grid-template-columns:1fr 1fr;
     grid-row-gap: 0px;
@@ -239,7 +65,7 @@ progress[value] {
     
   
 }
-
+/* box designs for main-section-navigation */
 .unit{
 
   
@@ -262,23 +88,163 @@ progress[value] {
     transition: 500ms ease-in-out;
     cursor: pointer;
     backface-visibility: hidden;
-    
-  
+ 
 }
 .unit i{
-
     color:rgba(87, 84, 84, 0.658);
     color:#7258E9 
 }
-
 .unit:hover{
-
-
-  
+ 
     opacity: 0.9;
     transform: scale(1.02) translateZ(0);
     will-change:transform;
 }
+
+
+
+
+/*Top Section of Box Area*/
+.top{
+    height:100%;
+    width: 88%;
+    margin: 0 auto;
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding: 5px 15px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      background: white;
+      color:#2e188d ;
+      opacity: 0.9;
+  }
+  
+
+/*Bottom Section of Box Area*/
+
+.BottoM{
+  position:relative;  
+  /*Positioned relatively to adjust (via absolute position) internals modules that appear on click*/
+}
+/*Progress Section of Box Area*/
+       .Progress{
+                 position: absolute;
+                 background: #7258E9 ;
+                 top:10;
+                 height: 320px;
+                 width: 88%;
+                 left:6%;
+                 z-index: 4;
+                 align-items: center;
+                 transition: 400ms ease-in-out;
+                 }
+                 .Progress h1{
+                 color:green;
+                           }
+              /*Internal box div inside Progress Section of Box Area*/
+                          .internal{
+                                    width: 80%;
+                                    position: relative;
+                                    margin:30px auto;
+                                    margin-left: 15%;
+                                    display: grid;
+                                    align-items: center;
+                                    justify-content: center;
+                                    grid-template-columns: 1fr 1fr;
+                                    grid-column-gap: 5px;
+                                    grid-row-gap:5px;
+                                            }
+        .Progress:hover{
+         transform: scale(1.005); 
+                 }
+             /*Projects div inside [Internal box div] inside [Progress div] of Box Area*/
+                                             .projects{
+                                                    background:white;
+                                                    padding: 10px;
+                                                    width:150px;
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                    text-align: center;
+                                                    color:black;
+                                                     }
+
+/*Close Button div that closes modals*/
+#close{
+    position: absolute;
+    left:7%;
+
+    color:white;
+   z-index: 6;
+   top:5%;
+   font-size: 18px;
+   cursor: pointer;
+}
+
+
+/*Appointments Section of Box Area*/
+        .Appointments{
+                   padding-top: 20px;
+                   position: absolute;
+                   background: #7258E9 ;
+                   top:10;
+                   height: 95%;
+                   width: 88%;
+                   left:6%;
+                   z-index: 3;
+                    }
+                    /*Apps Form of Box Area*/
+                            .App{
+
+                               display: flex;
+                               flex-direction: column;
+                               align-items: center;
+                               gap:25px;
+                                  }
+                            .App input{
+                             width: 10rem;
+
+                                         }
+                                        .apts{
+
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap:5px;
+                                           }
+
+                                      .appt{
+                                        background: grey;
+                                        border: 1px solid black;
+                                        height: 2rem;
+                                        width: 15rem;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                         }
+/* Side-bar section of main dashboard  */
+.sideNav{
+    margin: auto 0;
+   display: flex;
+   flex-direction:column;
+   justify-content:space-evenly;
+   align-items:center;
+   background:white;
+   
+   height:90%;
+   letter-spacing: 1.5px;
+   padding: 5px;
+   cursor: pointer;
+   color:#462db4; 
+   border-radius: 5px;
+   
+   }
+   .sideNav p:hover{
+       text-decoration: underline;
+   }
+/* Side Bar Navigation options*/
 
 .settings{
    
@@ -321,6 +287,7 @@ width: 100%;
   
 }
 
+/****************************************** Secondary Dashboard *************************************/
 
 .dashboard{
 
@@ -414,57 +381,12 @@ cursor: pointer;
     opacity: 0.7;
 }
 
-.card h5{
-    display: none;
-}
 
 
-.card{
-max-width: 600px;
-margin: 0px auto;
-background:#474F66;
-background: #1a1a38;
-padding: 10px 15px;
-letter-spacing: 1px;
-/* font-weight: 100; */
-color: white;
 
-line-height: 1.6;
-}
-.card h3{
-    margin:5px;
-}
-.card ul{
 
-    list-style: none;
-   
-}
-.gameplan{
 
-    border:0.5px solid rgba(128, 128, 128, 0.719);
-    padding:10px 5px;
-}
-.checklist ul{
 
-    background:#19192C;
-    gap:20px;
-    padding:5px 15px;
-    border-radius: 5px;
-    
-}
-.checklist li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border:1px solid grey;
-    margin: 10px 0;
-    border-radius: 5px;
-    padding:5px 10px;
-}
-.reminder{
-
-    margin:10px 0;
-}
 .lower{
 
 display: grid;
@@ -553,39 +475,92 @@ align-items: center;
   
     color:black;
 }
-
-/* complete versus non complete */
-
-.complete-section{
-
-    background-color: blanchedalmond;
+/************************************************ Tutorial section ***********************/
+.card{
     max-width: 600px;
-    margin: 40px auto;
-  position: relative;
-}
-.check{
+    margin: 0px auto;
+    background:#474F66;
+    background: #1a1a38;
+    padding: 10px 15px;
+    letter-spacing: 1px;
+    /* font-weight: 100; */
+    color: white;
+    
+    line-height: 1.6;
+    }
+    .card h5{
+        display: none;
+    }
+    
+    .card h3{
+        margin:5px;
+    }
+    .card ul{
+    
+        list-style: none;
+       
+    }
+    .gameplan{
+    
+        border:0.5px solid rgba(128, 128, 128, 0.719);
+        padding:10px 5px;
+    }
+    .checklist ul{
+    
+        background:#19192C;
+        gap:20px;
+        padding:5px 15px;
+        border-radius: 5px;
+        
+    }
+    .checklist li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border:1px solid grey;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding:5px 10px;
+    }
+    .reminder{
+    
+        margin:10px 0;
+    }
+    /* completed versus non completed sections */
+    .complete-section{
 
-    position: absolute;
-    background-color: green;
-    opacity: 0.6;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left:0;
-    transition: 1.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        background-color: blanchedalmond;
+        max-width: 600px;
+        margin: 40px auto;
+      position: relative;
+    }
+    .check{
+    
+        position: absolute;
+        background-color: green;
+        opacity: 0.6;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        transition: 1.5s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #checkbox4, #checkbox5, .no-show{
+        display: none;
+    }
+    .no-show{
+        display: none;
+    }
+    /**/
+    /***************************************/
 
-#checkbox4, #checkbox5, .no-show{
-    display: none;
-}
-.no-show{
-    display: none;
-}
 
-/**/
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -718,6 +693,11 @@ height: 1005px;
 
     height:870px;
 }
+#close{
+    top:3%
+}
+
+
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
