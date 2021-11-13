@@ -674,8 +674,24 @@ height: 500px;
 }
 
 
+.Appointments, Progress{
+width: 100%;
+text-align: center;
+height: 1005px;
+
 }
 
+.Appointments{
+    padding-top: 70px;
+    height: 800px;
+}
+
+}
+
+progress[value] {
+    width: 150px;
+    height: 40px;
+  }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 
