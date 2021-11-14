@@ -201,7 +201,7 @@ router.get(('/Forum'), async (req, res)=>{
 
 try {
   const posts = await Post.find().sort({date:-1})
- console.log(posts[1].PostUser,posts[1].PostSubject)
+
  res.render('Projects/Forum.ejs',{Posts:posts})
 
 } catch (error) { 
@@ -237,7 +237,9 @@ const date  =`${day} ${month} ${year}`
 
 
                 await post.save()
-                console.log('success')
+                const posts = await Post.find().sort({date:-1})
+
+                res.redirect('/Forum')
                 
                 
               } catch (error) {

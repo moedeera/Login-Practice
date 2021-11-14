@@ -53,7 +53,7 @@
 
      <div class="Post-Sec">
 
-                <div class="Create-Post">
+                <div class="Create-Post" id="Create-Post">
                   <form method="POST"  action= "./Forum" target="uploader_iframe">
                     <div class="Post-Id">
                            <div>
@@ -63,11 +63,11 @@
 
                            <div>
                             <label for="">Topic</label>
-                            <select name="selection" id="">
-                              <option value="general">General</option>
-                               <option value="css">CSS</option>
+                            <select name="selection" id="Select">
+                              <option value="General">General</option>
+                               <option value="CSS">CSS</option>
                                <option value="JavaScript">Javascript</option>
-                               <option value="server side">Server side</option>
+                               <option value="Server side">Server side</option>
                              </select>
                             </div>
                             </div>
@@ -84,21 +84,21 @@
 
                  <div class="Post">
                       <div class="Post-Id">
-                        <h4>Problem with Margins</h4> <h4 class="Post-Topic">CSS</h4>
+                        <h4>Welcome to the Forum</h4> <h4 class="Post-Topic">General</h4>
                         
-                        <div class="Post-date"><p>Tuesday November 5th</p></div>
+                        <div class="Post-date"><p>13 November 2021</p></div>
                        <div class="Forum-image">
-                         <p>John Smith</p>
+                         <p>Moderator</p>
                          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;">
                         </div>
                       
                       </div>
 
 
-                       <div class="Post-text">I am having issues with Practice #6 in the CSS section, anyone having the same issue?
-                       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, tempore.                
+                       <div class="Post-text">
+                        Welcome to the DeerMentor Forum, Please keep the Posts on topic and refrain from profanity and argumentative
+                        posts. Posts containing any deragatory language and/or abusive language will not be tolerated and will be deleted.                
                        </div>
-     
     
                       </div>
 
@@ -107,7 +107,7 @@
 
                           <h4 >Event Listeners issue...</h4> <h4 class="Post-Topic">Javascript</h4>
                           
-                          <div class="Post-date"><p>Tuesday November 5th</p></div>
+                          <div class="Post-date"><p>13 November 2021</p></div>
                          <div class="Forum-image">
                            <p>Sarah Jones</p>
                            <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="" srcset="" style="border-radius: 50%; width:50px;">
@@ -137,9 +137,9 @@
 </body>
 <script>
   var posts =<%-JSON.stringify(Posts)%> ;
-  console.log(posts.length)
+ 
 for (var j=0; j<posts.length; j++){
-  console.log(j)
+ 
  Post = document.createElement('div') 
 Post.classList.add("Post") 
 const postID = document.createElement('div')
@@ -155,7 +155,7 @@ postID.classList.add("Post-Id")
 PostSubject.innerHTML = `${posts[j].PostSubject}`
 PostTopic.innerHTML =`${posts[j].PostTopic}`
 PostTopic.classList.add("Post-Topic")
-postDate.innerHTML = `${posts[j.PostDate]}`
+postDate.innerHTML = `${posts[j].PostDate}`
 postDate.classList.add("Post-date")
 Forumimg.innerHTML =`${posts[j].PostUser}<img src="https://www.w3schools.com/howto/img_avatar2.png" alt="" srcset="" style="border-radius: 50%; width:50px;">`
 Forumimg.classList.add("Forum-Image")
@@ -174,6 +174,33 @@ Post.appendChild(Posttext)
 document.getElementById("Forum").appendChild(Post.cloneNode(true));
 
 }
+var j=0;
+
+
+document.getElementById("Post").addEventListener('click',(e)=>{
+console.log('hey')
+e.preventDefault();
+if (j===1){
+  console.log('hey j is 0')
+  document.getElementById("Create-Post").style.display ='none'
+  j=0;
+  document.getElementById("Post").innerText ='Create a Post'
+  
+}
+else if (j===0){
+  console.log('hey j is 1')
+  document.getElementById("Create-Post").style.display ='block'
+  document.getElementById("Post").innerText ='Close  '
+  j=1;
+}})
+
+document.getElementById('Select').addEventListener('change', (e)=>{
+
+e.preventDefault();
+console.log('changed')
+})
+
+
 
 
 </script>
