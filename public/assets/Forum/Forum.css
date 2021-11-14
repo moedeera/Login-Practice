@@ -40,7 +40,16 @@ color:black;
 }
 .Forum-box select{
      font-size: 1rem;
+     border: none;
      }
+ .inpt-button{
+     border: none;
+     text-transform: uppercase;
+     background-color:#7258E9; 
+     color: white;
+     font-weight: 700;
+     cursor: pointer;
+ }    
 
 .Upp-Sec{
 padding: 10px;

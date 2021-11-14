@@ -31,7 +31,7 @@
 
 
 
-<div class="Forum-box">
+<div class="Forum-box" id="Forum">
 
     <div class="Upp-Sec">
            <div>
@@ -54,27 +54,27 @@
      <div class="Post-Sec">
 
                 <div class="Create-Post">
-                  <form action="">
+                  <form method="POST"  action= "./Forum" target="uploader_iframe">
                     <div class="Post-Id">
                            <div>
                            <label for="">Subject</label>
-                           <input type="text">
+                           <input type="text" name="subject">
                            </div>
 
                            <div>
                             <label for="">Topic</label>
-                            <select name="" id="">
-                              <option value="">All Catagories</option>
-                               <option value="">CSS</option>
-                               <option value="">Javascript</option>
-                               <option value="">General</option>
+                            <select name="selection" id="">
+                              <option value="general">General</option>
+                               <option value="css">CSS</option>
+                               <option value="JavaScript">Javascript</option>
+                               <option value="server side">Server side</option>
                              </select>
                             </div>
                             </div>
                             <div>
-                             <textarea name="" id="" cols="30" rows="10"></textarea>  
+                             <textarea name="post" id="" cols="30" rows="10"></textarea>  
                             </div>
-                    <div><input type="submit" value="Create Post"></div>
+                    <div><input type="submit" value="Create Post" class="inpt-button"></div>
                     
 
                  </form>
@@ -133,9 +133,48 @@
   
       
 
-
+<iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 </body>
 <script>
-  
+  var posts =<%-JSON.stringify(Posts)%> ;
+  console.log(posts.length)
+for (var j=0; j<posts.length; j++){
+  console.log(j)
+ Post = document.createElement('div') 
+Post.classList.add("Post") 
+const postID = document.createElement('div')
+postID.classList.add("Post-Id")
+const postDate = document.createElement('div')
+const Posttext = document.createElement('div')
+const PostSubject = document.createElement('h4')
+const PostTopic = document.createElement('h4')
+const Forumimg= document.createElement('div')
+
+
+postID.classList.add("Post-Id")
+PostSubject.innerHTML = `${posts[j].PostSubject}`
+PostTopic.innerHTML =`${posts[j].PostTopic}`
+PostTopic.classList.add("Post-Topic")
+postDate.innerHTML = `${posts[j.PostDate]}`
+postDate.classList.add("Post-date")
+Forumimg.innerHTML =`${posts[j].PostUser}<img src="https://www.w3schools.com/howto/img_avatar2.png" alt="" srcset="" style="border-radius: 50%; width:50px;">`
+Forumimg.classList.add("Forum-Image")
+
+postID.appendChild(PostSubject)
+postID.appendChild(PostTopic)
+postID.appendChild(postDate)
+postID.appendChild(Forumimg)
+
+Posttext.innerHTML = `${posts[j].PostText}`
+Posttext.classList.add("Post-text")
+
+Post.appendChild(postID)
+Post.appendChild(Posttext)
+
+document.getElementById("Forum").appendChild(Post.cloneNode(true));
+
+}
+
+
 </script>
 <script src="/public/assets/main.js"></script>
