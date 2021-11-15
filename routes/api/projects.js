@@ -59,7 +59,7 @@ router.get(('/profile'), (req, res)=>{
 router.post(('/profile'), async (req, res)=>{
 
 //password change request
-if (req.body.npassword===req.body.npassword2)
+if (req.body.password&&req.body.npassword===req.body.npassword2)
 {console.log('password change')
 try {
   // 

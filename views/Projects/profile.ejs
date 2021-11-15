@@ -39,7 +39,7 @@
   <div class="boxArea">
   <div class="top">
     <div>Welcome back <%= info.name %> !</div>
-    <div><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;"></div>
+    <div  id="imgs2" ><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;"></div>
     
 
   </div>
@@ -132,10 +132,10 @@
   <label for="">Occupation:</label>  <label for="">Student</label>  
   
   <label for="">Age:</label>  <label for="">21</label>  
-  <label for="">Avatar:</label> <div id="imgs"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;" id="img"></div>
+  <label for="">Avatar:</label> <div id="imgs" class="image-style"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;" id="img"></div>
  
   </form>
-
+<img src="%= info.name %>" alt="" srcset="">
  </div>
 
 
@@ -231,7 +231,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
   console.log(`hey link is ${User.avatar}`)
   var imgs =  `"${User.avatar}"`
   document.getElementById("img").src = `"${User.avatar}"`;
-  document.getElementById('imgs').innerHTML = '<img src="' + User.avatar + '"/>';
+  document.getElementById('imgs').innerHTML = '<img src="' + User.avatar + '" '+ 'style="border-radius: 50%; width:50px;" >';
+  document.getElementById("imgs2").src = `"${User.avatar}"`;
+  document.getElementById('imgs2').innerHTML = '<img src="' + User.avatar + '" '+ 'style="border-radius: 50%; width:50px;" >';
+ 
+ 
+  // document.getElementById('imgs')
 });
 
 document.getElementById("total").innerText = `${User.Value * 10 }%`
