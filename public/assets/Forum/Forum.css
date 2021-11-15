@@ -9,6 +9,7 @@ width: 100%;
 max-width: 1100px;
 
 margin: 50px auto;
+margin-bottom: 0px;
 background: white;
 color:black;
 }
@@ -16,6 +17,7 @@ color:black;
 
    
     background: blanchedalmond;
+    background-color: #fef2e0 ;
     padding:5px 10px ;
     display: none;
    
@@ -81,8 +83,8 @@ color:white;
 }
 
 .Post-Id{
-display: flex;
-justify-content: space-between;
+display: grid;
+grid-template-columns: repeat(4,1fr);
 align-items: center;
 
 padding: 10px 10px;
@@ -93,9 +95,11 @@ color: white;;
 .Post-text{
 
     background: blanchedalmond;
-    letter-spacing: 2px;
+    background-color: #fef2e0 ;
+    letter-spacing: 1.5px;
     line-height: 1.8em;
     padding: 15px 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .Forum-image{
@@ -117,7 +121,16 @@ color: white;;
   
      color:black;
 }
+.no-top-marg{
+    margin-top: 0px;
+    margin-bottom: 150px;
+}
 
+#Forum{
+    height: fit-content;
+    
+   
+}
 
 @media only screen and (max-width: 600px) {
 

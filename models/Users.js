@@ -18,9 +18,18 @@ id:{
 type: String,
 required: true
 },
+age: {
+  type: Date,
+   },
 date: {
 type: Date,
  },
+ avatar: {
+  type: String,
+   },
+  
+
+
      // HTML 
 CHECKB1: {
   type: Boolean,
@@ -87,8 +96,24 @@ JSBasic: {
     type:Number ,
     default: 0
      },
-   
+   // Practices 
+Practices: {
+    type:Number ,
+    default: 0
+     },
+Objectives:{
+  type:Number ,
+  default: 0
+},
 
+Appointments:{
+  type:Boolean ,
+  default: false
+},
+ApptDate:{
+  type:String ,
+  required:false
+},
 
 
  Progress: 

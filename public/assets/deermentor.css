@@ -249,15 +249,15 @@ margin:0 10px;
 .settings{
    
     grid-column: 1/span 2;
-    height: 330px;
+    height: 310px;
     padding: 5px;
-    padding-top: 25px;
+    padding-top: 15px;
 }
 
 
 .settings input{
 
-    font-size: 18px;
+    font-size: 14px;
     text-transform: uppercase;
 }
 .Form {
@@ -270,9 +270,11 @@ grid-column-gap:35px;
 grid-row-gap:15px;
 letter-spacing: 2px;
 line-height: 1.6em;
+align-items: center;
 }
 .Form input{
 width: 100%;
+letter-spacing: 2px;
 
 }
 .account{

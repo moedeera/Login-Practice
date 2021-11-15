@@ -36,11 +36,13 @@
     <div class="Upp-Sec">
            <div>
              
-   <select name="" id="">
-    <option value="">All Catagories</option>
-     <option value="">CSS</option>
-     <option value="">Javascript</option>
-     <option value="">General</option>
+   <select name=""  id="Select">
+    <option value="All" >All Categories</option>
+  
+     <option value="CSS">CSS</option>
+     <option value="Javascript">Javascript</option>
+     <option value="Server side">Server-Side</option>
+     <option value="General">General</option>
    </select>
            </div>
     
@@ -62,12 +64,15 @@
                            </div>
 
                            <div>
-                            <label for="">Topic</label>
-                            <select name="selection" id="Select">
+                                <label name=for="">Topic</label>
+                         
+                            <select name="selection">
+                              
                               <option value="General">General</option>
                                <option value="CSS">CSS</option>
                                <option value="JavaScript">Javascript</option>
                                <option value="Server side">Server side</option>
+                               
                              </select>
                             </div>
                             </div>
@@ -95,9 +100,17 @@
                       </div>
 
 
-                       <div class="Post-text">
-                        Welcome to the DeerMentor Forum, Please keep the Posts on topic and refrain from profanity and argumentative
-                        posts. Posts containing any deragatory language and/or abusive language will not be tolerated and will be deleted.                
+                       <div class="Post-text" id="sample">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Porro labore deleniti quasi cumque quam aliquid earum amet voluptas eveniet.
+                      Asperiores sequi vitae incidunt rem ea aliquid sunt illo debitis, nulla magni,
+                      sint delectus iste voluptate ipsum nostrum necessitatibus fugit accusamus.
+                      Quibusdam necessitatibus cupiditate voluptatem ea sunt magni, animi id,
+                      consectetur provident officiis ad vitae ullam aliquam nulla corrupti natus
+                      in ipsum quos nihil fugit illo. Aliquam amet deleniti, nobis, maiores possimus,
+                      hic nihil veniam provident laboriosam modi impedit numquam ullam cumque placeat
+                       neque molestias. Eius culpa, nobis vitae qui nulla quia labore vero dicta, quo,
+                        architecto ea similique doloremque fuga?               
                        </div>
     
                       </div>
@@ -129,9 +142,30 @@
 
 
 </div>
+
+<div class="Forum-box no-top-marg">
+
+ <div class="Forum-Bottom"><div class="Upp-Sec">
+  <div>
+         <!-- <select name=""  id="">
+                  <option value="All" >All Categories</option>
+                  <option value="CSS">CSS</option>
+                  <option value="Javascript">Javascript</option>
+                  <option value="Server side">Server-Side</option>
+                  <option value="General">General</option>
+           </select> -->
+  </div>
+
+ <p id="" class="Forum-select"><i class="fas fa-chevron-left"></i> </p>
+ <p id="">Page 1</p>
+ <p id=""><i class="fas fa-chevron-right"></i></p>
+ 
+  </div>
+  </div> 
   
-  
-      
+</div>   
+
+<div style="position: sticky; bottom:0; left:0; opacity: 0;">2019</div>
 
 <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 </body>
@@ -194,11 +228,41 @@ else if (j===0){
   j=1;
 }})
 
-document.getElementById('Select').addEventListener('change', (e)=>{
 
-e.preventDefault();
-console.log('changed')
-})
+var postDivs = document.querySelectorAll(".Post")
+var postTopic = document.querySelectorAll(".Post-Topic")
+
+
+document.getElementById('Select').addEventListener('change',  function() {
+  
+
+Reset()
+  for(var j=0; j<postDivs.length; j++){
+                 if    (postTopic[j].innerHTML!==this.value){
+                           postDivs[j].style.display ='none'
+                  }      
+                            }
+
+                            if  (this.value==='All'){
+
+       for(var j=0; j<postDivs.length; j++){
+         postDivs[j].style.display = 'block'
+       }                       
+
+}
+     
+
+
+}, false)
+
+function Reset(){
+  for(var j=0; j<postDivs.length; j++){
+ 
+   postDivs[j].style.display ='block'
+    }
+
+}
+
 
 
 

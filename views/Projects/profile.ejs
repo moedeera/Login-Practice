@@ -47,10 +47,10 @@
   <div id="close" class="no-show"><i class="fas fa-chevron-left fa-2x "></i></div>
 
 <div class="Appointments no-show" id="Appointment">
-  <form action="" class="App">
+  <form action="" class="App" id="form0">
     <label for="birthdaytime">REQUEST AN AUDIO-CHAT APPOINTMENT</label>
-    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-    <input type="submit" value="REQUEST">
+    <input type="datetime-local" id="birthdaytime" name="value">
+    <input type="submit"  value="REQUEST">
     <div class="apts">
     Current Appointments
 <div class="appt">5pm Tuesday Nov 5th</div>
@@ -67,8 +67,8 @@
 
   <div class="projects">
     
-    <h1>0%</h1>
-     <h3>You completed 0/10 of Tutorials</h3>
+    <h1 id="total">0%</h1>
+     <h3 id="completed">You completed 0/10 of Tutorials</h3>
   </div>
   <div class="projects">
    <h1>0%</h1>
@@ -129,10 +129,10 @@
 
   <label for="">Name:</label>  <label for=""><%= info.name %></label>    
   <label for="">Email:</label>  <label for=""><%= info.email %></label>  
-  <label for="">Occupation:</label>  <label for=""><%= info.email %></label>  
+  <label for="">Occupation:</label>  <label for="">Student</label>  
   
-  <label for="">Bio:</label>  <label for=""><%= info.email %></label>  
-  <label for="">Avatar:</label>  <label for=""><%= info.email %></label>  
+  <label for="">Age:</label>  <label for="">21</label>  
+  <label for="">Avatar:</label> <div><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;"></div>
  
   </form>
 
@@ -143,13 +143,18 @@
 <div id="settOpt"   class="settings no-show ">
 
 <h3>Reset password</h3>
-<form action="" class="Form sett">
+<form method="POST"  action= "./profile" target="uploader_iframe"class="Form sett">
 <label for="">Old password</label><input type="text" name="password">
-<label for="">Enter New password</label><input type="text" name="password">
-<label for="">Re-enter password</label><input type="text" name="password">
+<label for="">Enter New password</label><input type="password" name="npassword">
+<label for="">Re-enter password</label><input type="password" name="npassword2">
+
+
 <input type="submit" value= submit>
 </form>
-
+<form  method="POST"  action= "./profile" target="uploader_iframe"class="Form sett">
+              <label for="">Change Avatar(Enter URL)</label><input type="text" name="url">
+<input type="submit" value= submit>
+</form>
 
 
 
@@ -217,5 +222,34 @@
       <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 
 </body>
+
+<script>
+var User =<%-JSON.stringify(info)%> ;
+
+document.getElementById("total").innerText = `${User.Value * 10 }%`
+document.getElementById("completed").innerText = `You completed ${User.Value}/10 of the Tutorials`
+
+
+document.getElementById("form0").addEventListener('submit', (e)=>{
+
+e.preventDefault()
+var value = document.getElementById("birthdaytime").value
+console.log(value)
+var xhr = new XMLHttpRequest();
+xhr.open("POST", './profile', true);
+
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.send(JSON.stringify({
+    value: value
+}));
+
+})
+
+
+
+
+</script>
+
 
 <script src="/public/assets/main.js"></script>

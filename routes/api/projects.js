@@ -52,6 +52,14 @@ router.get(('/profile'), (req, res)=>{
          console.log('Profile page GET')
          res.render('Projects/profile.ejs', {info : req.session.user}
           )})
+//Profile Page 
+//POST route 
+router.post(('/profile'), async (req, res)=>{
+  console.log('Profile page POST',req.body.value)
+  // req.body.url,
+  // req.body.password, req.body.npassword, req.body.npassword2
+  
+  })         
 ////////////////////// TUTORIAL PAGE//////////////////////////////////////////       
 //Profile Page 
 //GET route         
