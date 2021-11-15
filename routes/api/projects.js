@@ -31,7 +31,9 @@ router.get(('/Login'), (req, res)=>{
 router.post('/Login', async (req,res)=> {
   try {
     const users = await User.findOne({ email:req.body.email}).exec()
+    console.log(req.body.password, users.password)
     const auth = await bcrypt.compare(req.body.password, users.password)
+
            if (auth){
   
                req.session.user = users;
@@ -55,7 +57,44 @@ router.get(('/profile'), (req, res)=>{
 //Profile Page 
 //POST route 
 router.post(('/profile'), async (req, res)=>{
-  console.log('Profile page POST',req.body.value)
+
+//password change request
+if (req.body.npassword===req.body.npassword2)
+{console.log('password change')
+try {
+  // 
+  const users = await User.findOne({ email:req.session.user.email}).exec()
+  const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
+  console.log('old',users.password, req.session.user.password)
+  const auth = 
+  await bcrypt.compare(req.body.password, users.password)
+         if (auth){
+console.log('match')
+
+             users.password = hashedPassword;
+             req.session.user = users;
+
+             console.log('new',users.password, req.session.user.password)
+             await users.save()
+                  }  
+         else { res.send('invalid credentials')}
+    
+         }
+        catch (err) { 
+             console.log('error',err)
+             res.status(500).send('invalid credentials')
+          }
+         
+
+
+
+
+
+
+
+}
+else if (req.body.url){console.log('avatar change')}
+
   // req.body.url,
   // req.body.password, req.body.npassword, req.body.npassword2
   

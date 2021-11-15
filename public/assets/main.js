@@ -70,3 +70,22 @@ function Clear (){
     document.getElementById("Appointment").classList.add("no-show")
 }
 
+document.getElementById("ps2").onfocus = function() {
+    document.getElementById("match").style.display = "block";
+  
+  }
+document.getElementById("ps2").onblur = function() {
+    document.getElementById("match").style.display = "none";
+  }
+
+  document.getElementById("ps2").onkeyup = function() {
+    // Validate lowercase letters
+    var password = document.getElementById("ps1").value
+
+    if(document.getElementById("ps2").value!== password) {  
+        document.getElementById("match").style.color = "red";
+        document.getElementById("match").innerText = "Passwords must match";
+    } else {
+        document.getElementById("match").style.color = "green";
+        document.getElementById("match").innerText = "Passwords match";
+    }}

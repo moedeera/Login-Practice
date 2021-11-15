@@ -141,17 +141,17 @@
 
 
 <div id="settOpt"   class="settings no-show ">
+<div class="match-set"><h3>Reset password</h3> <h3 id="match">Passwords must match</h3></div>
 
-<h3>Reset password</h3>
 <form method="POST"  action= "./profile" target="uploader_iframe"class="Form sett">
-<label for="">Old password</label><input type="text" name="password">
-<label for="">Enter New password</label><input type="password" name="npassword">
-<label for="">Re-enter password</label><input type="password" name="npassword2">
+<label for="">Old password</label><input type="password" name="password">
+<label for="">Enter New password</label><input type="password" name="npassword" id="ps1">
+<label for="">Re-enter password</label><input type="password" name="npassword2" id="ps2">
 
 
 <input type="submit" value= submit>
 </form>
-<form  method="POST"  action= "./profile" target="uploader_iframe"class="Form sett">
+<form  method="POST"  action= "" target="uploader_iframe"class="Form sett">
               <label for="">Change Avatar(Enter URL)</label><input type="text" name="url">
 <input type="submit" value= submit>
 </form>

@@ -249,12 +249,17 @@ margin:0 10px;
 .settings{
    
     grid-column: 1/span 2;
-    height: 310px;
+    height: 330px;
     padding: 5px;
     padding-top: 15px;
 }
-
-
+.match-set{
+    display: flex;
+    justify-content: space-between;
+}
+#match{
+    display: none;
+}
 .settings input{
 
     font-size: 14px;
@@ -263,7 +268,7 @@ margin:0 10px;
 .Form {
     
 width: 100%;
-margin: 0 auto;
+margin: 15px auto;
 display: grid;
 grid-template-columns: 1fr 1fr;
 grid-column-gap:35px;
