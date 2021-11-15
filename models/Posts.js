@@ -26,6 +26,12 @@ const PostSchema = new mongoose.Schema(
                 type: String,
                 required: false
                         }, 
+        PostAvatar: {
+                 type: String,
+                 default:'https://www.w3schools.com/howto/img_avatar.png',
+                 required: false
+                                    },   
+                                
         PostText: {
                    type: String,
                     required: false

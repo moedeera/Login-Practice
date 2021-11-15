@@ -100,7 +100,7 @@
                       </div>
 
 
-                       <div class="Post-text" id="sample">
+                       <div class="Post-text" >
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                       Porro labore deleniti quasi cumque quam aliquid earum amet voluptas eveniet.
                       Asperiores sequi vitae incidunt rem ea aliquid sunt illo debitis, nulla magni,
@@ -191,7 +191,7 @@ PostTopic.innerHTML =`${posts[j].PostTopic}`
 PostTopic.classList.add("Post-Topic")
 postDate.innerHTML = `${posts[j].PostDate}`
 postDate.classList.add("Post-date")
-Forumimg.innerHTML =`${posts[j].PostUser}<img src="https://www.w3schools.com/howto/img_avatar2.png" alt="" srcset="" style="border-radius: 50%; width:50px;">`
+Forumimg.innerHTML =`${posts[j].PostUser}<img src="${posts[j].PostAvatar}" alt="" srcset="" style="border-radius: 50%; width:50px;">`
 Forumimg.classList.add("Forum-Image")
 
 postID.appendChild(PostSubject)
@@ -265,7 +265,7 @@ function Reset(){
 
 
 
-
+console.log()
 
 </script>
 <script src="/public/assets/main.js"></script>

@@ -287,6 +287,7 @@ const date  =`${day} ${month} ${year}`
     PostID:postId,
     PostSubject:req.body.subject,
     PostDate:date,
+    PostAvatar:req.session.user.avatar,
     PostTopic:req.body.selection,
     PostUser:req.session.user.name,
     PostText:req.body.post,

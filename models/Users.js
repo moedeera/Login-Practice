@@ -26,6 +26,7 @@ type: Date,
  },
  avatar: {
   type: String,
+  default:'https://www.w3schools.com/howto/img_avatar.png',
    },
   
 
