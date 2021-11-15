@@ -132,7 +132,7 @@
   <label for="">Occupation:</label>  <label for="">Student</label>  
   
   <label for="">Age:</label>  <label for="">21</label>  
-  <label for="">Avatar:</label> <div><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;"></div>
+  <label for="">Avatar:</label> <div id="imgs"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;" id="img"></div>
  
   </form>
 
@@ -226,6 +226,14 @@
 <script>
 var User =<%-JSON.stringify(info)%> ;
 
+window.addEventListener('DOMContentLoaded', (e) => {
+  e.preventDefault()
+  console.log(`hey link is ${User.avatar}`)
+  var imgs =  `"${User.avatar}"`
+  document.getElementById("img").src = `"${User.avatar}"`;
+  document.getElementById('imgs').innerHTML = '<img src="' + User.avatar + '"/>';
+});
+
 document.getElementById("total").innerText = `${User.Value * 10 }%`
 document.getElementById("completed").innerText = `You completed ${User.Value}/10 of the Tutorials`
 
@@ -245,7 +253,6 @@ xhr.send(JSON.stringify({
 }));
 
 })
-
 
 
 

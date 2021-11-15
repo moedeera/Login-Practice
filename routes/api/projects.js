@@ -93,9 +93,19 @@ console.log('match')
 
 
 }
-else if (req.body.url){console.log('avatar change')}
-
-  // req.body.url,
+else if (req.body.url)
+{console.log('avatar change')
+try {
+  const users = await User.findOne({ email:req.session.user.email}).exec()
+  users.avatar = req.body.url;
+  req.session.user = users;
+  await users.save()
+  
+} catch (error) {
+  console.log(error)
+             res.status(500).send('invalid credentials')
+}
+}  // req.body.url,
   // req.body.password, req.body.npassword, req.body.npassword2
   
   })         
