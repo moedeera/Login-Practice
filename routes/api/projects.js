@@ -259,7 +259,7 @@ router.get(('/Forum'), async (req, res)=>{
 try {
   const posts = await Post.find().sort({date:-1})
 
- res.render('Projects/Forum.ejs',{Posts:posts})
+ res.render('Projects/Forum.ejs',{Posts:posts}, {User:req.body.user})
 
 } catch (error) { 
   console.log(error)
