@@ -709,7 +709,7 @@ a{
         display: none;
     }
 
-    .showbox{
+    .showbox, #demo4{
         display: none;
            }
    

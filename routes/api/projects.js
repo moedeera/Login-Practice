@@ -293,8 +293,7 @@ const date  =`${day} ${month} ${year}`
     PostText:req.body.post,
         })
 
-        if (post.PostSubject === "" || post.PostText===""
-        ||post.PostTopic ===""){
+        if (post.PostSubject === "" || post.PostText===""){
           console.log('post invalid')
         }
 
