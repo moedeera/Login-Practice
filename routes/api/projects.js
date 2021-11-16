@@ -259,7 +259,7 @@ router.get(('/Forum'), async (req, res)=>{
 try {
   const posts = await Post.find().sort({date:-1})
 
- res.render('Projects/Forum.ejs',{Posts:posts}, {User:req.body.user})
+ res.render('Projects/Forum.ejs',{Posts:posts, User:req.body.user})
 
 } catch (error) { 
   console.log(error)
@@ -293,11 +293,20 @@ const date  =`${day} ${month} ${year}`
     PostText:req.body.post,
         })
 
+        if (post.PostSubject === "" || post.PostText===""
+        ||post.PostTopic ===""){
+          console.log('post invalid')
+        }
 
-                await post.save()
+else {
+
+  await post.save()
                 const posts = await Post.find().sort({date:-1})
 
                 res.redirect('/Forum')
+
+}
+              
                 
                 
               } catch (error) {

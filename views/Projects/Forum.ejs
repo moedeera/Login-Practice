@@ -60,7 +60,7 @@
                     <div class="Post-Id">
                            <div>
                            <label for="">Subject</label>
-                           <input type="text" name="subject">
+                           <input type="text" name="subject" id="post-subject">
                            </div>
 
                            <div>
@@ -77,9 +77,10 @@
                             </div>
                             </div>
                             <div>
-                             <textarea name="post" id="" cols="30" rows="10"></textarea>  
+                             <textarea name="post" id="post-textA" cols="30" rows="10"></textarea>  
                             </div>
-                    <div><input type="submit" value="Create Post" class="inpt-button"></div>
+                    <div><input type="submit" value="Create Post" class="inpt-button" id="submission"></div>
+                    <div id="message"></div>
                     
 
                  </form>
@@ -262,10 +263,45 @@ function Reset(){
     }
 
 }
+document.getElementById("submission").addEventListener('click', (e)=>{
+e.preventDefault()
+
+if(document.getElementById("post-textA").value==="")
+{
+  Message (1)
+  setTimeout(function(){document.getElementById("message").innerHTML = ''}, 3000)
+} if (document.getElementById("post-subject").value===""){
+  Message (2)
+  setTimeout(function(){document.getElementById("message").innerHTML = ''}, 3000)
+} else if (document.getElementById("post-subject").value!==""&&
+document.getElementById("post-textA").value!==""){
+
+  Message (3)
+  setTimeout(function(){document.getElementById("message").innerHTML = ''}, 3000)
+}
 
 
+})
 
-console.log()
+
+function Message (x){
+if (x===1){
+  document.getElementById("message").innerHTML = 'Please enter Text'
+} else if (x===2){
+
+  document.getElementById("message").innerHTML = 'Please enter Subject'
+} else if (x===3){
+  document.getElementById("message").innerHTML = 'Post submitted, please refresh page to see'
+}
+
+}
+
+function Clear (){
+console.log('hee')
+  document.getElementById("message").innerHTML = ''
+}
+
+
 
 </script>
 <script src="/public/assets/main.js"></script>
