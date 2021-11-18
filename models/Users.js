@@ -92,6 +92,24 @@ JSBasic: {
   type: Boolean,
   default: false
    },
+ // Javascript Advanced
+ JSAdvanced: {
+  type: Boolean,
+  default: false
+   },
+ // Server Side Basic
+ BackendBasic: {
+  type: Boolean,
+  default: false
+   },
+ // Server Side Advanced
+ BackendAdvanced: {
+  type: Boolean,
+  default: false
+   },
+
+
+
   // Level
  Value: {
     type:Number ,
@@ -144,6 +162,11 @@ ApptDate:{
                    default:false
                   },
                   JavascriptA: {
+                    type: Boolean,
+                   default:false
+                  },
+
+                  ServerSideA: {
                     type: Boolean,
                    default:false
                   },

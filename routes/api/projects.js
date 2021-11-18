@@ -187,12 +187,14 @@ try {
                     }
   await users.save()
   req.session.user = users;
-  res.redirect('/tutorials')
-  
+  res.render('Projects/tutorials', {info : req.session.user})
 } 
  catch (error) {
   console.log(error)
 }
+
+
+
 } )
 //GET route         
 // Tutorial page
@@ -232,7 +234,7 @@ if(!duplicate){
   })
              await profile.save()
 
-               res.redirect('./Login')} 
+             res.redirect('./tutorials' )  } 
             catch(err) {
                  res.redirect('/register')
                  console.log(err)
@@ -240,7 +242,7 @@ if(!duplicate){
 
 else {
 
-  res.render('Projects/file.ejs', {msg : 'Email Already in Use'})
+
 }})
 
 ////////////////////// PRACTICE PAGE//////////////////////////////////////////  

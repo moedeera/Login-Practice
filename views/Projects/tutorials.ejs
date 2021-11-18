@@ -34,7 +34,7 @@
     <div></div>
     <%} else { %>
       <div class="complete-section">
-      <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+      <form  method="POST"  action= "./tutorials" >
       <div class="card">
         <h3>Section 1: HTML <i class="fab fa-html5"></i></h3>
     <p> Hey <%= info.name %>, Let Start with  HTML learning 
@@ -86,7 +86,7 @@
 </div>
 <input class="input "type="submit" value="Submit " id="htmlb">
 <div class="reminder">
-  <p>Refresh page after you press submit to load the next card</p>
+ 
 </div>
 
 
@@ -113,7 +113,7 @@
 <div></div>
 <%} else { %>
   <div class="complete-section">
- <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+ <form  method="POST"  action= "./tutorials">
  <div class="card">
    <h3>Section 2: CSS Beginner  <i class="fab fa-css3-alt"></i></h3>
 <p> Good job <%= info.name %>, You finished the HTML portion.
@@ -168,7 +168,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 </div>
 <input class="input "type="submit" value="Submit">
 <div class="reminder">
-  <p>Refresh page after you press submit to load the next card</p>
+ 
 </div>
 
 
@@ -192,7 +192,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
   <div></div>
   <%} else { %>
     <div class="complete-section">
-    <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+    <form  method="POST"  action= "./tutorials" >
     <div class="card">
       <h3>Section 3: CSS Intermediate  <i class="fab fa-css3-alt"></i></h3>
   <p> Good job <%= info.name %>, You finished the Beginner portion.
@@ -260,7 +260,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 </div>
 <input class="input "type="submit" value="Submit">
 <div class="reminder">
-  <p>Refresh page after you press submit to load the next card</p>
+  
 </div>
 
 
@@ -284,7 +284,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 <div></div>
 <%} else { %>
   <div class="complete-section">
-  <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+  <form  method="POST"  action= "./tutorials" >
   <div class="card">
     <h3>Section 4: CSS Advanced <i class="fab fa-css3-alt"></i></h3>
 <p> Good job <%= info.name %>, You continue the progress.
@@ -343,7 +343,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 </div>
 <input class="input "type="submit" value="Submit">
 <div class="reminder">
-  <p>Refresh page after you press submit to load the next card</p>
+  
 </div>
 
 
@@ -367,7 +367,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 <div></div>
 <%} else { %>
   <div class="complete-section">
-  <form  method="POST"  action= "./tutorials" target="uploader_iframe">
+  <form  method="POST"  action= "./tutorials" >
   <div class="card">
     <h3>Section 5: Javascript  <i class="fab fa-js fa-2x" style="color:yellow"></i></h3>
 <p> Congratulations <%= info.name %>,You have successfully completed HTML and CSS.
@@ -391,7 +391,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
   <li>Watch The Tutorial</li>
   <li>Do the practices</li>
   <li>Schedule a chat after you are done</li>
-  <li>Prepare to move on to the next CSS section</li>
+  <li>Prepare to move on </li>
 </ul>
 <h3>Lets start with this Javascript tutorial by Brad Traversy</h3>
 <div class="video">
@@ -428,7 +428,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 </div>
 <input class="input "type="submit" value="Submit">
 <div class="reminder">
-  <p>Refresh page after you press submit to load the next card</p>
+  
 </div>
 
 
@@ -473,7 +473,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
   <li>Watch The Tutorial</li>
   <li>Do the practices</li>
   <li>Schedule a chat after you are done</li>
-  <li>Prepare to move on to the next CSS section</li>
+  <li>Prepare for the final JS section</li>
 </ul>
 <h3>Lets start with this DOM Manipulation tutorial by WebDevSimplified</h3>
 <div class="video">
@@ -510,7 +510,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 </div>
 <input class="input "type="submit" value="Submit">
 <div class="reminder">
-  <p>Refresh page after you press submit to load the next card</p>
+  
 </div>
 
 
@@ -528,12 +528,106 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 </div>
 <% } %>
 </section>
-     
+
+<section class="JavaScript Advanced"> 
+  <% if (!info.Progress.JavascriptM) { %>
+<div></div>
+<%} else { %>
+  <div class="complete-section">
+  <form  method="POST"  action= "./tutorials">
+  <div class="card">
+    <h3>Section 7: Javascript Advanced <i class="fab fa-js fa-2x" style="color:yellow"></i></h3>
+<p> You have come very far <%= info.name %>.  Javascript is all about understanding algorithms and
+  making programs work as you want them to. One of the tools that make that possible are
+  <strong style="color:orangered">Higher Order Array methods</strong>. They are very powerful
+  and will make a whole list of functions easier for you to achieve. However none of that matters
+  if you are not constantly coding new projects, so before you start learning higher order methods,
+  try to code the following:
+
+</p>
+<h3>3 Projects to tests your JavasScript Knowledge</h3>
+<ul style="font-size: 14px; display: flex; flex-direction: column; 
+gap:10px; border:1px solid white; padding: 5px;">
+  <li>-A simple to-do list that allows you to add or remove a to-do </li>
+  <li>-An app that takes in an Array of users by name, age and gender and 
+    will sort them by age/gender or by name depending on what button is clicked
+  </li>
+  <li>-A table of 4 teams and a form for the game results. After results are submitted
+    the table immediately updates.
+  </li>
+  
+ </ul>
+
+<h3>For this segment, this will be your Gameplan </h3>
+<ul class="gameplan">
+  
+  <li>Do the practices</li>
+  <li>Watch The Tutorial</li>
+  <li>Schedule a chat after you are done</li>
+  <li>Prepare to start Backend Server-side programming</li>
+</ul>
+<h3>Lets start with this DOM Manipulation tutorial by WebDevSimplified</h3>
+<div class="video">
+
+  <iframe width="560" height="315"
+   src="https://www.youtube.com/embed/rRgD1yVwIvE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+
+
+<div class="checklist">
+
+<h3> Check each task off after you are done and press submit</h3>
+<h5>Video Tutorial</h5>
+<ul>
+<li> <p>Practice 1</p>  <input type="checkbox" name="b1" id="checkbox51"> </li>
+<li> <p>Practice 2</p>   <input type="checkbox" name="b2" id="checkbox52"> </li>
+<li> <p>Practice 3</p>  <input type="checkbox" name="b3" id="checkbox53" > </li>
+<li> <p>Tutorial Part 1</p>  <input type="checkbox" name="b4" id="checkbox54" > </li>
+<li> <p>Tutorial Part 2</p>  <input type="checkbox" name="b5" id="checkbox55"> </li>
+<!-- <li class="save"> </li> -->
+<input class="input "type="submit" value="Save " id="css2a">
+</ul>
+<h5>Prepare for an audio Chat</h5>
+<ul>
+<li> <a href="" id="css2b">Schedule an appointment </a>  <input type="checkbox" name="chat" id="checkbox56"> </li>
+
+</ul>
+
+
+
+
+</div>
+<input class="input "type="submit" value="Submit">
+<div class="reminder">
+  
+
+</div>
+
+
+</div>
+
+
+
+</form>
+<% if (info.JSIntermediate) { %>
+<div class="check"><i class="far fa-check-square fa-10x"></i></div>
+<%} else { %>
+
+<div></div>
+<% } %>
+</div>
+<% } %>
+</section>
+
+
 
       <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 
 </body>
 <script>
+ 
   var row =<%-JSON.stringify(info)%> ;
 
 
@@ -597,7 +691,7 @@ if (set.Progress.JavascriptB)
 
 UpdateCheckMarks(dataRow, row)
 
-
+window.scrollTo(0,document.body.scrollHeight - 1500);
 
 
 </script>
