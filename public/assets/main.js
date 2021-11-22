@@ -89,3 +89,32 @@ document.getElementById("ps2").onblur = function() {
         document.getElementById("match").style.color = "green";
         document.getElementById("match").innerText = "Passwords match";
     }}
+
+
+let xhr = new XMLHttpRequest()
+xhr.open('GET', 'http://localhost:8080/Projects/profile', true)
+
+document.getElementById("form0").addEventListener('submit', (e)=>{
+//    axios({
+//         method: 'post',
+//         url: '/Projects/profile',
+//         data: {
+//           firstName: 'Finn',
+//           lastName: 'Williams'
+//         }
+//       });
+
+
+if (xhr.status == 200){
+    console.log('success')
+}
+if (xhr.status == 404){
+    console.log('failure')
+
+}
+
+
+
+})
+
+ 

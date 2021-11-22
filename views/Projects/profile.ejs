@@ -48,8 +48,8 @@
 
 <div class="Appointments no-show" id="Appointment">
   <form action="" class="App" id="form0">
-    <label for="birthdaytime">REQUEST AN AUDIO-CHAT APPOINTMENT</label>
-    <input type="datetime-local" id="birthdaytime" name="value">
+    <!-- <label for="birthdaytime">REQUEST AN AUDIO-CHAT APPOINTMENT</label>
+    <input type="datetime-local" id="birthdaytime" name="value"> -->
     <input type="submit"  value="REQUEST">
     <div class="apts">
     Current Appointments
@@ -143,7 +143,7 @@
 <div id="settOpt"   class="settings no-show ">
 <div class="match-set"><h3>Reset password</h3> <h3 id="match">Passwords must match</h3></div>
 
-<form method="POST"  action= "./profile" target="uploader_iframe"class="Form sett">
+<form method="POST"  action= "" >
 <label for="">Old password</label><input type="password" name="password">
 <label for="">Enter New password</label><input type="password" name="npassword" id="ps1">
 <label for="">Re-enter password</label><input type="password" name="npassword2" id="ps2">
@@ -151,7 +151,7 @@
 
 <input type="submit" value= submit>
 </form>
-<form  method="POST"  action= "" target="uploader_iframe"class="Form sett">
+<form  method="POST"  action= "">
               <label for="">Change Avatar(Enter URL)</label><input type="text" name="url">
 <input type="submit" value= submit>
 </form>
@@ -222,7 +222,7 @@
       <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 
 </body>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 var User =<%-JSON.stringify(info)%> ;
 
@@ -243,21 +243,7 @@ document.getElementById("total").innerText = `${User.Value * 10 }%`
 document.getElementById("completed").innerText = `You completed ${User.Value}/10 of the Tutorials`
 
 
-document.getElementById("form0").addEventListener('submit', (e)=>{
 
-e.preventDefault()
-var value = document.getElementById("birthdaytime").value
-console.log(value)
-var xhr = new XMLHttpRequest();
-xhr.open("POST", './profile', true);
-
-xhr.setRequestHeader('Content-Type', 'application/json');
-
-xhr.send(JSON.stringify({
-    value: value
-}));
-
-})
 
 
 

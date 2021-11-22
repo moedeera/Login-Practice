@@ -64,7 +64,8 @@ if (req.body.password&&req.body.npassword===req.body.npassword2)
 try {
   // 
   const users = await User.findOne({ email:req.session.user.email}).exec()
-  const hashedPassword = await bcrypt.hashSync(req.body.password, 10)
+
+  const hashedPassword = await bcrypt.hashSync(req.body.npassword2, 10)
   console.log('old',users.password, req.session.user.password)
   const auth = 
   await bcrypt.compare(req.body.password, users.password)
@@ -76,6 +77,7 @@ console.log('match')
 
              console.log('new',users.password, req.session.user.password)
              await users.save()
+             
                   }  
          else { res.send('invalid credentials')}
     
@@ -100,14 +102,22 @@ try {
   users.avatar = req.body.url;
   req.session.user = users;
   await users.save()
+  res.render('Projects/profile.ejs',  {info : req.session.user});
   
 } catch (error) {
   console.log(error)
              res.status(500).send('invalid credentials')
 }
-}  // req.body.url,
-  // req.body.password, req.body.npassword, req.body.npassword2
+}  
   
+else if (req.data){
+
+  console.log('appointment')
+}
+
+
+
+
   })         
 ////////////////////// TUTORIAL PAGE//////////////////////////////////////////       
 //Profile Page 
@@ -304,8 +314,7 @@ else {
   await post.save()
                 const posts = await Post.find().sort({date:-1})
 
-                res.redirect('/Forum')
-
+                res.render('Projects/Forum.ejs',{Posts:posts, User:req.body.user})
 }
               
                 
