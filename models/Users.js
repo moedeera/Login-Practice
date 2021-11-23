@@ -166,6 +166,10 @@ ApptDate:{
                    default:false
                   },
 
+                  ServerSideB: {
+                    type: Boolean,
+                   default:false
+                  },
                   ServerSideA: {
                     type: Boolean,
                    default:false
