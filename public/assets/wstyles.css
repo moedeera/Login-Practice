@@ -12,6 +12,13 @@ padding:0;
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
 body{
 
     background:#121b2c;
@@ -112,7 +119,11 @@ animation: serv-logo 800ms ease-in-out;
       padding-bottom: 10px;
 }
 
+.about.sm a {
 
+font-size:32.76px;
+color:black;
+}
 
 .services a:hover {
 
@@ -739,16 +750,20 @@ a{
 }
 
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) and (max-width:768px) {
 
 .showcase-segment{
     display:grid;
     grid-template-columns:1fr 1fr;
     grid-row-gap: 5px;
     grid-column-gap:5px;
-    
+   }
+   #grd3 {
 
+    grid-column: 1 / span 2;
 }
+
+
 
 .sm{
     height: 40vh;
@@ -794,7 +809,7 @@ a{
     min-width:768px;
     max-width: 1000px;
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-columns:1fr 1fr 1fr ;
     grid-row-gap: 5px;
     grid-column-gap:25px;
 

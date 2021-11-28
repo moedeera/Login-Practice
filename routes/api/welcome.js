@@ -11,5 +11,6 @@ const path = require('path')
 // welcome page
 
 router.get(('/'), (req, res)=> res.render('welcome.ejs'))
+router.get(('/contact'), (req, res)=> res.render('Projects/Projects.ejs'))
 
 module.exports = router;
