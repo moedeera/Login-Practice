@@ -12,6 +12,8 @@ router.get(('/'), (req, res)=> res.render('Portfolio/Portfolio.ejs'))
 
 // Diner Website
 router.get(('/Diner'), (req, res)=> res.render('Portfolio/Diner.ejs'))
+// Elearning website Website
+router.get(('/Elearning'), (req, res)=> res.render('Projects/login.ejs'))
 
 
 // Chess Website
