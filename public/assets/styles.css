@@ -30,18 +30,21 @@ body{
 /*Main*/
 .main-block{
 
+display: block;
+max-width: 900px;
+width: 95%;
+margin:0px auto 150px ;
+margin-bottom: 200px !important;
 
-max-width: 600px;
-margin:50px auto 150px ;
 
 }
 /*Demo*/
 .demo-block{
     width: 95%;
-    max-width: 600px;
+    max-width: 900px;
     border: 1px solid grey;
-    height: 75vh;
-    margin: 100px auto 25px;
+  
+    margin: 100px auto 0px;
  
     padding: 25px 5px;
     
@@ -49,6 +52,8 @@ margin:50px auto 150px ;
     background-color: white;
     padding-bottom: 55px;
     border-radius: 10px;
+    border-bottom-right-radius:0 ;
+    border-bottom-left-radius:0 ;
 }
 .demo-block p{
 
@@ -56,6 +61,16 @@ margin:50px auto 150px ;
     font-size: 15px;
     line-height: 1.6em;
 }
+.demo-block h3{
+
+    line-height: 1.6em;
+    letter-spacing: 2px;
+}
+.demo-block h3:hover{
+
+    text-decoration: none;
+}
+
 
 .demo-block > div{
     display: flex;
@@ -92,18 +107,20 @@ color: black;
 
     background-color: #4040a1 ;
     /* background-color: #474F66;; */
-    
+    margin: 0 auto;
     text-align: center;
     padding:10px;
+  
 }  
 .register-form button{
 
-    width: 100%;
+    width: 20%;
     height: 3rem;
     font-family: 'PT Sans', sans-serif;
     font-size: 20px;
     font-weight:700 ;
     cursor: pointer;
+    border-radius:5px ;
 }
 
 
