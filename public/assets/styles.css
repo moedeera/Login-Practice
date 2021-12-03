@@ -27,15 +27,67 @@ body{
     
 }
 
-
+/*Main*/
 .main-block{
 
 
 max-width: 600px;
-margin:150px auto;
+margin:50px auto 150px ;
+
+}
+/*Demo*/
+.demo-block{
+    width: 95%;
+    max-width: 600px;
+    border: 1px solid grey;
+    height: 75vh;
+    margin: 100px auto 25px;
+ 
+    padding: 25px 5px;
+    
+    color:#4040a1 ;
+    background-color: white;
+    padding-bottom: 55px;
+    border-radius: 10px;
+}
+.demo-block p{
+
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.6em;
+}
+
+.demo-block > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap:40px;
+
 
 }
 
+.points {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.355);
+}
+
+.image-svg  {
+
+    margin-top: -40px;
+    text-align: center;
+}
+
+
+.large{
+    display: none;
+}
+
+
+.dm-header{
+text-align: center;
+color: black;
+}
+
+/*Register+Login*/
 .register-form{
 
     background-color: #4040a1 ;
@@ -283,8 +335,17 @@ button:hover{
     .syno-par{
 
         display: block;
-
-    }
+   }
+.image-svg{
+    display: none;
+}
+.demo-block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.large-image{
+    display: block;
+}
 
     }
 @media screen and (min-width: 768px) {

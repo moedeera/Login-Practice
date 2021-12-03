@@ -16,7 +16,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
+a, a:visited{
+    color: white;
+}
 
 
 body{
@@ -447,7 +449,7 @@ opacity: 0.7;
             
             } 
              #demo4{
-                background: #36486b;
+                background: #4040a1 ;
                 border:1px solid grey;
                 display: flex;
                 align-items: center;
@@ -513,12 +515,20 @@ align-items: center;
 
 .opt4{
 
-    background: #36486b;
+    background: #4040a1 ;
 }
 
 #proj1,#proj3{
 
     animation: proj13 800ms ease-in-out;
+
+}
+
+
+#proj3info{
+
+border:1px solid white;
+
 }
 
 #proj2,#proj4{
