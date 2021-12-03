@@ -17,6 +17,7 @@ router.get(('/Elearning'), (req, res)=> res.render('Projects/login.ejs'))
 
 
 // Chess Website
+router.get(('/ChessJS'), (req, res)=> res.render('Portfolio/ChessJS.ejs'))
 router.get(('/Chess'), (req, res)=> res.render('Portfolio/Chess.ejs'))
 router.get(('/Chess/Game'), (req, res)=> res.render('Portfolio/Game.ejs'))
 

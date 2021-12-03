@@ -12,16 +12,21 @@ body{
 	color: white;
 	font-family: 'Roboto', sans-serif;
 }
+a, a:visited{
 
+	color:#1F4E79;
+}
 /* navbar section */
 
 .navbar{
-
-	display: flex;
+    background: #f4e1d2;
+	width: 100%;
+    display: flex;
 	justify-content: space-between;
-	max-width: 600px;
+
+	color:#1F4E79;
 	margin:0 auto;
-	padding:0 10px;
+	padding:0 40px;
 }
 
 .title{
