@@ -78,7 +78,7 @@ margin:50px auto 150px ;
 
 
 .large{
-    display: none;
+    display: none !important;
 }
 
 
@@ -336,18 +336,42 @@ button:hover{
 
         display: block;
    }
-.image-svg{
-    display: none;
-}
-.demo-block{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.large-image{
-    display: block;
-}
+
 
     }
+
+/*{*/
+    @media screen and (max-width: 600px) {
+        .demo-block p{
+
+            text-align: center;
+        }
+
+    }
+
+    @media screen and (min-width: 600px) {
+        .image-svg{
+            display: none;
+        }
+        .demo-block{
+            
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 25px 15px 45px 5px;
+            
+        }
+        .large{
+            display: flex !important;
+          
+           flex-direction: row;
+           justify-content: center;
+           margin-left: -30px;
+        }
+
+    }
+
+
+
 @media screen and (min-width: 768px) {
     
  
