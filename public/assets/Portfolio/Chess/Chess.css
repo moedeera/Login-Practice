@@ -58,7 +58,7 @@ opacity: 0.8;
     max-width: 900px;
     border: 1px solid grey;
   
-    margin: 100px auto 0px;
+    margin: 50px auto 0px;
  
     padding: 25px 5px;
     
@@ -91,10 +91,42 @@ opacity: 0.8;
     flex-direction: column;
     justify-content: space-evenly;
     gap:40px;
-
-
 }
 
+.Info-block{
+
+	width: 95%;
+    max-width: 900px;
+    border: 1px solid grey;
+  
+    margin: 50px auto 0px;
+ 
+    padding: 5px;
+    
+	color:#f4e1d2;
+    background-color: #1F4E79; 
+    padding-bottom: 55px;
+    border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.Game-Info{
+
+	border: 1px solid white;
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr 1fr;
+	align-items: center;
+	padding: 0 5px;
+}
+.base{
+	background-color: white;
+	color: #1F4E79; 
+}
+.set{
+	color:greenyellow;
+}
 .points {
    
 }
