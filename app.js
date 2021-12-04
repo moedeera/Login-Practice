@@ -27,81 +27,27 @@ const server = http.createServer(app);
 const io = socketio(server); 
 
 //run when client connects
-io.on('connection', socket =>{
 
+io.on("connection", (socket) => {
+  // socket.broadcast.emit("hello", "world");
+  console.log('new connection ')
+  //emit to everyone
+  socket.emit('message', `welcome to Chess Game User ${socket.id}`)
+  //emits to everyone a new user on site/ updates counts.
+  socket.broadcast.emit('message',`user ${socket.id} has joined`)
+  // Listen for messages
+  socket.on('data',(msg)=>{
 
+io.emit('message',`${msg}`)
 
-
-socket.on('JoinGame', ({user,room})=>{
-// broadcast to all the games and users in play  
-socket.emit('Games', Rooms)
-// Create a user every-time a connection is made 
-userJoin(socket.id, user, room)
-// see if the game the user is looking for exists
-const match = Rooms.find((game)=>game===user.room)
-//if it does join that match
-if (match){
-
-socket.join(match)
-}
-//if not 
-else if(!match){
-//create a match
-socket.join(user.room)  
-
-}
-
-
-
-socket.emit('message',`${user} has joined ${room}` )
-
-})
-
-socket.join('room1')
-
-socket.emit('message','You are connected as user ')
-turn = true;
-socket.broadcast.emit('message', 'a player is spectating')
-
-// Listen for Chess Info
-socket.on('Info',  (msg, room)=>{
-// console.log(msg)
-     console.log(room)
-    socket.broadcast.emit('message',msg)
-})
-// Testing final message system
-socket.on('Call-Info', (playerName,roomName, Info)=>{
-
-  
-//check for username
-const match =  CheckForUser(socket.id)
-if (!match){
-
-  user = userJoin(socket.id,playerName,roomName)
-
-  socket.join(roomName)
-}
-else if (match){
-
-  user = getCurrentUser(socket.id)
-
-  socket.broadcast.to(user.room).emit 
-}
-
-
-Users =  getALL()
-   console.log(playerName, ` id is ${socket.id} and Users is ${user.id} is match is ${match} and room is ${user.room} and this is all the Users ${Users[0].name}`)
-      socket.emit('Caller-Info',roomName)
   })
-
-socket.on('disconnect', ()=>{
-
-  io.emit('message', 'spectator has left')  
-
-})
-
-})
-
+  
+  
+  //User disconnects
+  socket.on('disconnect',()=>{
+    io.emit('message', `user ${socket.id} has left`)
+  })
+});
 
 // const MongoStore = require ('connect-mongo')(session);
 

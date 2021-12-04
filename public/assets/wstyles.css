@@ -462,7 +462,14 @@ opacity: 0.7;
     background:url(demo1.jpg) no-repeat center center/cover;
     opacity: 1;
 }
-                
+/* #demo4:hover{
+
+    background:url(/public/assets/Portfolio/Elearning/elearning1.png) no-repeat center center/cover;
+    opacity: 0.4;
+}
+ #fashover:hover{
+     display: none;
+ }                    */
 
 .info{
     background-color: black;
