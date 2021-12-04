@@ -52,6 +52,93 @@ opacity: 0.8;
 }
 
 /* main-section */
+/*demo section*/
+.demo-block{
+    width: 95%;
+    max-width: 900px;
+    border: 1px solid grey;
+  
+    margin: 100px auto 0px;
+ 
+    padding: 25px 5px;
+    
+	color:#1F4E79;
+    background-color:  #f4e1d2;
+    padding-bottom: 55px;
+    border-radius: 10px;
+    border-bottom-right-radius:0 ;
+    border-bottom-left-radius:0 ;
+}
+.demo-block p{
+
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.6em;
+}
+.demo-block h3{
+
+    line-height: 1.6em;
+    letter-spacing: 1.5px;
+}
+.demo-block h3:hover{
+
+    text-decoration: none;
+}
+
+
+.demo-block > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap:40px;
+
+
+}
+
+.points {
+   
+}
+
+.image-svg  {
+
+    margin-top: -40px;
+    text-align: center;
+	line-height: 1.6em;
+}
+
+
+.large{
+    display: none !important;
+}
+
+
+.dm-header{
+text-align: left;
+color:#1F4E79;
+letter-spacing: 2px;
+}
+/*form*/
+.form-control	{
+	width: 100%; 
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.form-control input, .form-control label{
+
+height: 2rem;
+border: none;
+color:#1F4E79; 
+font-size:14px;
+line-height: 1.6em;
+font-weight: 700;
+}
+
+.form-control input[type=submit]{
+
+	background-color: #1F4E79; 
+	color:white;
+}
+
 
 .button-holder	{
 
@@ -73,31 +160,7 @@ opacity: 0.8;
 	letter-spacing: 3px;
 }
 
-form{
-display: flex;
-	flex-direction: column;
-	text-align: center;
-	align-items: center;
-	max-width: 600px;
-	margin:40px auto;
-	gap:40px;
-	border:1px solid white;
-	padding-bottom:50px ;
-}
-select{
-	width: 50%;
-	height: 2rem;
-}
 
-input{
-	height: 3rem;
-	width: 50%;
-	margin: 0 auto;
-	font-weight: 700;
-	font-size: 20px;
-	letter-spacing: 3px;
-
-}
 
 
 
@@ -254,7 +317,10 @@ margin: 40px auto;
 .container{
 	flex-direction:column;
 }
-
+.form-control{
+	grid-template-columns: 1fr;
+	grid-gap: 10px;
+}
 
 
 }
@@ -262,7 +328,32 @@ margin: 40px auto;
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 
+	.image-svg{
+		display: none;
+	}
+	.demo-block{
+		
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 25px 15px 45px 5px;
+		
+	}
+	.large{
+		display: flex !important;
+	  
+	   
 
+	   transform: scaleX(-1);
+	  margin-left: -40px;
+
+	 position: relative;
+	}
+.large img{
+
+	position: absolute;
+	right:32;
+
+}
 
 }
 
