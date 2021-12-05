@@ -59,7 +59,7 @@
 							placeholder="Enter username..."
 							required
 						/>
-<input type="submit" value="Start new game" >
+<input type="submit" value="Start new game" id="generate" >
 
                    
 
@@ -76,7 +76,9 @@
  
  
          </div>
-         <div class="Info-block">
+         
+         <div class="Info-block" id="Board">
+           <form action="" id="boardform">
              <div class="Game-Info base" >
                      <h2>Games</h2>
                      <p>Users </p>
@@ -88,14 +90,15 @@
                      <h3>Game #456b</h3>
                      <p>DoubleSpawn1890 vs ChessmasterX92 </p>
                      <p class="set"> In game</p >
-                        <p>Spectate</p>
+                      <input type='submit' value= spectate
+                      name='spec'>
             </div>   
 
             <div class="Game-Info">
                 <h3>Game #866y</h3>
                 <p> GBPackers11 </p>
                 <p > Waiting</p >
-                   <p>Join</p>
+                  <input type='submit' value= Join name='join'>
        </div>   
 
 
@@ -103,7 +106,7 @@
             </div>  
 
 
-
+</form>
 
             </div>
 

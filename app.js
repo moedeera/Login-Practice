@@ -29,7 +29,19 @@ const io = socketio(server);
 //run when client connects
 
 io.on("connection", (socket) => {
-  // socket.broadcast.emit("hello", "world");
+
+  socket.on('create-game',({game,username})=>{
+    var player = userJoin(socket.id,username,game)
+    socket.join(player.game)
+    var count = io.sockets.adapter.rooms.get(player.game).size 
+   var data = {player,count}
+    console.log(player.game, player.name)
+    socket.emit('game-board', (data))
+    // console.log('new game created')
+    } )
+
+
+                    //test emissions
   console.log('new connection ')
   //emit to everyone
   socket.emit('message', `welcome to Chess Game User ${socket.id}`)
@@ -37,11 +49,13 @@ io.on("connection", (socket) => {
   socket.broadcast.emit('message',`user ${socket.id} has joined`)
   // Listen for messages
   socket.on('data',(msg)=>{
-
 io.emit('message',`${msg}`)
-
   })
-  
+
+
+  //               Chess Game Emissions 
+
+
   
   //User disconnects
   socket.on('disconnect',()=>{
