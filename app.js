@@ -29,7 +29,7 @@ const io = socketio(server);
 //run when client connects
 
 io.on("connection", (socket) => {
-
+  //               Chess Game Emissions 
   socket.on('create-game',({game,username})=>{
     var player = userJoin(socket.id,username,game)
     socket.join(player.game)
@@ -53,7 +53,7 @@ io.emit('message',`${msg}`)
   })
 
 
-  //               Chess Game Emissions 
+
 
 
   

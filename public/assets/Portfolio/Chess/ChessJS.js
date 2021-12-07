@@ -22,7 +22,7 @@ e.preventDefault();
 let x = Math.floor((Math.random() * 100) + 1);
 let username = document.getElementById('username').value
 let game = 
-`${document.getElementById('username').value}'s game`
+`${document.getElementById('username').value}`
 
 socket.emit('create-game', { game, username })
 
@@ -41,10 +41,10 @@ socket.on('game-board', (data) => {
 // Managing the form for the board to allow joins or spectates
 
 const BoardForm = document.getElementById('boardform')
-BoardForm.addEventListener('submit', (e)=>{
+BoardForm.addEventListener('click', (e)=>{
 
 e.preventDefault();
-console.log(e.target)
+console.log(e.target.previousElementSibling.innerHTML)
 
 
 })
@@ -64,10 +64,11 @@ console.log(e.target)
 
 const div = document.createElement("div");
 div.innerHTML = `
-<h3>${game}</h3>
+<h3> ${game}'game </h3>
                 <p> ${user} </p>
                 <p > Waiting</p >
-                   <input type='submit' value= Join>
+              
+                   <p>join<p>
 `
 div.classList.add('Game-Info')
 
@@ -75,3 +76,23 @@ board.appendChild(div)
 
 
     }
+
+     
+function add(type) {
+    //Create an input type dynamically.   
+    var element = document.createElement("input");
+    //Assign different attributes to the element. 
+    element.type = type;
+    element.value = type; // Really? You want the default value to be the type string?
+    element.name = type; // And the name too?
+    element.onclick = function() { // Note this is a function
+      alert("blabla");
+    };
+  
+    var foo = document.getElementById("fooBar");
+    //Append the element in page (in span).  
+    foo.appendChild(element);
+  }
+  document.getElementById("btnAdd").onclick = function() {
+    add("text");
+  };
