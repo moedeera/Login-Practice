@@ -45,9 +45,18 @@ if (users){
 
 
 
-} else {
+} else if (!users){
+if(req.body.email==='admin@g'){
+  res.send('Administrator')
+}
+else if (req.body.email==='guest@g'){
+  res.send('Guest')
+}
+else { 
   console.log('condition 1C')
   res.render('Projects/login.ejs', {info:false})
+}
+  
 }
 
   }
