@@ -24,25 +24,35 @@ router.get(('/'), (req, res)=> res.render('Projects/Projects.ejs'))
 //Login Page 
 //GET route
 router.get(('/Login'), (req, res)=>{
-          res.render('Projects/login.ejs')
+          res.render('Projects/login.ejs',{info:''})
         })
 //Login Page 
 //POST route
 router.post('/Login', async (req,res)=> {
   try {
     const users = await User.findOne({ email:req.body.email}).exec()
-    console.log(req.body.password, users.password)
-    const auth = await bcrypt.compare(req.body.password, users.password)
+if (users){
+  const auth = await bcrypt.compare(req.body.password, users.password)
+  if (auth){
+   console.log('condition 1A')
+    req.session.user = users;
+    res.redirect('./profile' )  
 
-           if (auth){
-  
-               req.session.user = users;
-               res.redirect('./profile' )  
-                    }  
-           else { res.send('invalid credentials')}
-      
-           }
-          catch (err) { 
+} else if (!auth){
+  console.log('condition 1B')
+  res.render('Projects/login.ejs', {info:false})
+}
+
+
+
+} else {
+  console.log('condition 1C')
+  res.render('Projects/login.ejs', {info:false})
+}
+
+  }
+  catch (err) { 
+    console.log('condition 2')
                console.log('error',err)
                res.status(500).send('invalid credentials')
             }

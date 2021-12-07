@@ -98,8 +98,18 @@
          
           <form action="./Login" method="POST" class="register-form">
             <div class="title">
+
+            
               
-              <h3>Already have an account? Just Login below</h3>
+              <h3>
+                <% if(info===false){ %>
+                  Incorrect password or email
+                  <% } else { %>
+                    Already have an account? Just Login below
+                  <% } %>
+                
+                
+               </h3>
             </div>
             <div class="info" id="black">  
              
