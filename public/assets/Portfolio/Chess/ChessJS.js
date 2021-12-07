@@ -31,10 +31,16 @@ socket.emit('create-game', { game, username })
 
 // Update board with new games and
 socket.on('game-board', (data) => {
-    console.log(data.player.game, data.player.name, data.count)
+  if (data.length>0){
+console.log('hey', data[0].type)
+  if (data[0].type==='add'){
+    console.log(data[0].player.game, data[0].player.name, data[0].count)
 
-    UpdateBoard (data.player.name,data.player.game)
+    UpdateBoard (data)
+    console.log(data)
 
+  }}
+    
     })
     
 
@@ -60,39 +66,31 @@ console.log(e.target.previousElementSibling.innerHTML)
 
 
 
-    function UpdateBoard (user,game){
+    function UpdateBoard (data){
+
+const elements = document.getElementsByClassName('Game-Info');
+while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+}
+
+for (var j=0; j<data.length; j++ ){
 
 const div = document.createElement("div");
 div.innerHTML = `
-<h3> ${game}'game </h3>
-                <p> ${user} </p>
-                <p > Waiting</p >
-              
-                   <p>join<p>
+<h3> ${data[j].player.game}'game </h3>
+                <p> ${data[j].player.game} </p>
+                <p>Waiting </p >
+                <p> join<p>
 `
 div.classList.add('Game-Info')
 
-board.appendChild(div)
+BoardForm.appendChild(div)
+
+}
+
+
 
 
     }
 
      
-function add(type) {
-    //Create an input type dynamically.   
-    var element = document.createElement("input");
-    //Assign different attributes to the element. 
-    element.type = type;
-    element.value = type; // Really? You want the default value to be the type string?
-    element.name = type; // And the name too?
-    element.onclick = function() { // Note this is a function
-      alert("blabla");
-    };
-  
-    var foo = document.getElementById("fooBar");
-    //Append the element in page (in span).  
-    foo.appendChild(element);
-  }
-  document.getElementById("btnAdd").onclick = function() {
-    add("text");
-  };

@@ -26,17 +26,25 @@ const socketio = require('socket.io');
 const server = http.createServer(app);
 const io = socketio(server); 
 
+// Global variable to set up c
+var Games = []
 //run when client connects
-
 io.on("connection", (socket) => {
   //               Chess Game Emissions 
   socket.on('create-game',({game,username})=>{
+
+   io.emit('message', `A new game was created by ${socket.id}`)
     var player = userJoin(socket.id,username,game)
+   
     socket.join(player.game)
     var count = io.sockets.adapter.rooms.get(player.game).size 
-   var data = {player,count}
-    console.log(player.game, player.name)
-    socket.emit('game-board', (data))
+    var type = 'add';
+   var data = {player,count,type}
+   Games.unshift(data)
+    console.log(Games)
+    var x =1 
+  // Sends to all the users that this game is initiated 
+    io.emit('game-board',(Games))
     // console.log('new game created')
     } )
 
@@ -45,6 +53,7 @@ io.on("connection", (socket) => {
   console.log('new connection ')
   //emit to everyone
   socket.emit('message', `welcome to Chess Game User ${socket.id}`)
+  io.emit('game-board',(Games))
   //emits to everyone a new user on site/ updates counts.
   socket.broadcast.emit('message',`user ${socket.id} has joined`)
   // Listen for messages
@@ -60,6 +69,15 @@ io.emit('message',`${msg}`)
   //User disconnects
   socket.on('disconnect',()=>{
     io.emit('message', `user ${socket.id} has left`)
+Games = Games.filter((x)=>{
+if(x.player.id!==socket.id){
+return x
+}
+
+})
+    console.log(Games)
+
+    io.emit('game-board', (Games))
   })
 });
 
