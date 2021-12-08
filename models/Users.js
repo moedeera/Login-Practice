@@ -129,9 +129,9 @@ Appointments:{
   type:Boolean ,
   default: false
 },
-ApptDate:{
+AppointDate:{
   type:String ,
-  required:false
+  default: "No Appointments to show"
 },
 
 
