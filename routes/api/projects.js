@@ -9,6 +9,7 @@ const List = require ('../../models/List.js')
 const sessions = require('express-session')
 var flash = require('connect-flash');
 const session = require('express-session')
+const Appointment = require('../../models/Appt.js')
 
 // Global variable
 var  Userz ;
@@ -109,13 +110,8 @@ console.log('match')
              console.log('error',err)
              res.status(500).send('invalid credentials')
           }
-         
-
-
-
-
-
-
+        
+// Avatar Change request
 
 }
 else if (req.body.url)
@@ -133,9 +129,34 @@ try {
 }
 }  
   
-else if (req.data){
+else {
 
-  console.log('appointment')
+  console.log(req.body.appointment)
+
+  try {
+    const name = req.session.user.name;
+    const email = req.session.user.email;
+  
+
+    const Appt = new Appointment({
+      name,
+      email,
+      date:req.body.appointment,
+      
+       })
+ await Appt.save()
+ res.render('Projects/profile.ejs',  {info : req.session.user});
+ 
+    
+  } catch (error) {
+
+    console.log(error)
+             res.status(500).send('unable to save Appointment')
+    
+  }
+
+
+
 }
 
 

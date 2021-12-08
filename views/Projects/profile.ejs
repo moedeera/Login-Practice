@@ -54,14 +54,24 @@
   <div id="close" class="no-show"><i class="fas fa-chevron-left fa-2x "></i></div>
 
 <div class="Appointments no-show" id="Appointment">
-  <form action="" class="App" id="form0">
+  <form action="" method ="POST" class="App" id="form0">
     <!-- <label for="birthdaytime">REQUEST AN AUDIO-CHAT APPOINTMENT</label>
     <input type="datetime-local" id="birthdaytime" name="value"> -->
-    <input type="submit"  value="REQUEST">
+    
     <div class="apts">
     Current Appointments
 <div class="appt">5pm Tuesday Nov 5th</div>
 </div>
+<h3>Request another chat appointment</h3>
+
+ <label for="meeting-time">Choose a time for your appointment:</label>
+
+<input type="datetime-local" id="meeting-time"
+       name="appointment" value="2021-26-12T19:30"
+       min="2022-01-01T00:00" max="2022-11-11T00:00">
+
+<input type="submit"  value="REQUEST">
+
   </form>
 
 
