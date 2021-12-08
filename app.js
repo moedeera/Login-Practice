@@ -31,6 +31,7 @@ var Games = []
 //run when client connects
 io.on("connection", (socket) => {
   //               Chess Game Emissions 
+  /////////////////// Creating a game //////////////////////////
   socket.on('create-game',({game,username})=>{
 
    io.emit('message', `A new game was created by ${socket.id}`)
@@ -47,6 +48,20 @@ io.on("connection", (socket) => {
     io.emit('game-board',(Games))
     // console.log('new game created')
     } )
+/////////////////////// Joining a Game /////////////////////////////
+socket.on('join-game',({game,username})=>{
+
+  console.log('join-game-info:',game,username)
+socket.join(game)
+console.log(`${game} room size is now
+${ io.sockets.adapter.rooms.get(game).size }`)
+  io.emit('message', `User ${socket.id} has joined ${game}`)
+   var player = userJoin(socket.id,username,game)
+  
+ // Sends to all the users that this game is initiated 
+   io.emit('game-board',(Games))
+   // console.log('new game created')
+   } )
 
 
                     //test emissions

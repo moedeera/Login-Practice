@@ -16,6 +16,8 @@ console.log(message)
 
 // })
 
+
+// Form for Game Creation
 document.getElementById('form').addEventListener('submit',(e)=>{
 
 e.preventDefault();
@@ -25,6 +27,23 @@ let game =
 `${document.getElementById('username').value}`
 
 socket.emit('create-game', { game, username })
+
+})
+// Form for the board to allow joins or spectates
+
+const BoardForm = document.getElementById('boardform')
+BoardForm.addEventListener('click', (e)=>{
+
+e.preventDefault();
+var username = document.getElementById('username').value;
+if (username===''){
+username = `user${Math.floor((Math.random() * 1000) + 1)}`
+}
+
+console.log(e.target.id, username)
+let game = `${e.target.id}`
+socket.emit('join-game',{game, username})
+
 
 })
 
@@ -44,16 +63,7 @@ console.log('hey', data[0].type)
     })
     
 
-// Managing the form for the board to allow joins or spectates
 
-const BoardForm = document.getElementById('boardform')
-BoardForm.addEventListener('click', (e)=>{
-
-e.preventDefault();
-console.log(e.target.previousElementSibling.innerHTML)
-
-
-})
 
 
 
@@ -78,9 +88,9 @@ for (var j=0; j<data.length; j++ ){
 const div = document.createElement("div");
 div.innerHTML = `
 <h3> ${data[j].player.game}'game </h3>
+                <p  class="status">Waiting </p >
                 <p> ${data[j].player.game} </p>
-                <p>Waiting </p >
-                <p> join<p>
+                <p id=${data[j].player.game} class="join"> join<p>
 `
 div.classList.add('Game-Info')
 

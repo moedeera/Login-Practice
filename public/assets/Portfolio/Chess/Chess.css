@@ -118,7 +118,7 @@ opacity: 0.8;
 
 	border: 1px solid white;
 	display: grid;
-	grid-template-columns: 1fr 3fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 3fr 1fr;
 	align-items: center;
 	padding: 0 5px;
 }
@@ -128,7 +128,7 @@ opacity: 0.8;
 .Game-Info-base{
 	border: 1px solid white;
 	display: grid;
-	grid-template-columns: 1fr 3fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 3fr 1fr;
 	align-items: center;
 	padding: 0 5px;
 
@@ -153,7 +153,14 @@ opacity: 0.8;
 .large{
     display: none !important;
 }
+.join{
 
+	border: 1px solid grey;
+	text-align: center;
+	padding:2px ;
+	background-color: white;
+	color:#1F4E79; 
+}
 
 .dm-header{
 text-align: left;
@@ -344,7 +351,17 @@ margin: 40px auto;
 	display: none;
 }
 
+.Game-Info, .Game-Info-base{
 
+	grid-template-columns: 1fr 2fr 1fr;
+}
+.Game-Info-base h2{
+	font-size: 16px;
+}
+.status{
+
+	display: none;
+}
 
 .menu{
 
