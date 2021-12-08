@@ -136,8 +136,11 @@ else {
   try {
     const name = req.session.user.name;
     const email = req.session.user.email;
-  
-
+    req.session.user.Appointments= true;
+    req.session.user.ApptDate = req.body.appointment
+    const users = await User.findOne({ email:req.session.user.email}).exec()
+    users.Appointments = true;
+    users.ApptDate = req.session.user.appointment
     const Appt = new Appointment({
       name,
       email,
@@ -145,6 +148,7 @@ else {
       
        })
  await Appt.save()
+ await users.save()
  res.render('Projects/profile.ejs',  {info : req.session.user});
  
     
@@ -288,7 +292,7 @@ if(!duplicate){
   })
              await profile.save()
 
-             res.redirect('./tutorials' )  } 
+             res.redirect('./login' )  } 
             catch(err) {
                  res.redirect('/register')
                  console.log(err)
