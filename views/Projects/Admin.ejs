@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
 
-    <link rel="stylesheet" href="/public/assets/deermentor.css">
+    <link rel="stylesheet" href="/public/assets/deermentor/deermentor.css">
     <link rel="stylesheet" href="/public/assets/utils.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,9 +36,15 @@
 </section>
 
 
-<div class="profile-board">
+<div class="profile-board" id="pboard">
+<div class="Sprofile" id="topB">
 
+<div>Name</div>
+<div>email</div>
+<div>Avatar</div>
+<div>info</div>
 
+</div>
 
 
 </div>
@@ -47,14 +53,33 @@
 
 
 <div class="footer">
-  <p> Copyright &copy; 2021 DeeraCode.com</p>
+  <small> Copyright &copy; 2021 DeeraCode.com</small>
    
   
   </div>
-
+<img src="" alt="" srcset="">
 
 
       <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
 
 </body>
 
+<script>
+var Users =<%-JSON.stringify(info)%>
+
+
+for (var j=0; j<Users.length; j++){
+
+  const div = document.createElement('div')
+div.innerHTML =
+`<div>${Users[j].name} </div>
+  <div>${Users[j].email}</div>
+  <div><img src="${Users[j].avatar}" alt="" width=50px> </div>
+  <div>${Users[j].email}</div>`;
+  div.classList.add('Sprofile')
+document.getElementById('pboard').appendChild(div)
+
+}
+
+
+</script>

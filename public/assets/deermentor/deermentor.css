@@ -1,0 +1,216 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    background:#141424;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: none;
+    margin:0;
+    height:100%;
+    display: flex;
+    flex-direction:column;
+    box-sizing: border-box;
+    
+}
+/* Navbar section */
+.navigation{
+padding: 10px 10px;
+background: #7258E9 ;
+display: flex;
+justify-content: space-between;
+position: fixed;
+width: 100%;
+z-index: 8;
+opacity: 0.9;
+
+}
+.nav-int{
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 20%;
+    text-align: center;
+    align-items: center;
+}
+.profile-board{
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 10px;
+    margin: 150px auto;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid white;
+    padding:10px;
+   }
+
+.Sprofile{
+
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 2fr;
+
+}
+#topB{
+
+    font: 900;
+    background: white;
+    color: black;
+    font-size: 18px;
+    padding-top: 10px;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .dashb{
+        height: 110vh;
+        
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 5fr ;
+      
+    }
+    
+    .botBox{
+        grid-template-columns: 1fr;
+    }
+    
+.dashboard{
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+  
+}
+.sideNav{
+    flex-direction: row;
+    padding: 15px 0;
+    margin:0 0;
+}
+
+.top{
+    display: none;
+}
+.unit{
+
+    height: 185px;
+    align-items: center;
+}
+
+.unit:hover{
+    transform: scale(1.00);
+}
+
+.main-box{
+
+    display: none;
+}
+
+
+.Side-box{
+    width: 300px;
+}
+
+.Side-box ul{
+
+    flex-direction:row;
+  justify-content: space-around;
+    padding-bottom: 5px;
+    font-size: 18px;
+  }
+.Side-box p{
+
+    display: none;
+}
+.input input{
+
+    font-size: 10px;
+}
+
+input{
+
+    font-size: 10px;
+}
+.lower{
+
+    grid-template-columns: 1fr;
+}
+
+.lbox{
+
+
+    max-width: 600px;
+}
+.settings, .settings form{
+   
+   display: flex;
+   flex-direction: column;
+   
+    
+}
+.account{
+   
+    grid-row: 1/span 4;
+    height: 700px;
+    align-items: center;
+}
+
+.Form {
+
+
+height: 500px;
+
+
+}
+#settOpt{
+
+    grid-template-columns: 1fr;
+}
+
+
+.Appointments, Progress{
+width: 100%;
+text-align: center;
+height: 1005px;
+
+}
+
+.Appointments{
+    padding-top: 70px;
+    height: 750px;
+}
+
+.internal{
+  margin-top: 75px;
+    grid-template-columns: 1fr;
+    grid-row-gap:25px;
+}
+
+.Progress{
+
+    height:750px;
+}
+.dashb{
+
+    height:870px;
+}
+#close{
+    top:3%
+}
+
+
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

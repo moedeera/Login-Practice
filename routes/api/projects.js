@@ -47,7 +47,11 @@ if (users){
 
 } else if (!users){
 if(req.body.email==='admin@g'){
-  res.send('Administrator')
+
+  const profiles = await User.find().sort({date:-1})
+
+
+  res.render('Projects/Admin.ejs',{info:profiles})
 }
 else if (req.body.email==='guest@g'){
   res.send('Guest')
