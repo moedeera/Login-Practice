@@ -10,6 +10,12 @@ Users.push(user)
 return user
 }
 
+
+
+
+
+
+
 function getCurrentUser(id){
 return Users.find((user)=> user.id === id)
 
