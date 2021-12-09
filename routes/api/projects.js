@@ -137,10 +137,10 @@ else {
     const name = req.session.user.name;
     const email = req.session.user.email;
     req.session.user.Appointments= true;
-    req.session.user.ApptDate = req.body.appointment
+    req.session.user.AppointDate = req.body.appointment
     const users = await User.findOne({ email:req.session.user.email}).exec()
     users.Appointments = true;
-    users.ApptDate = req.session.user.appointment
+    users.AppointDate = req.session.user.AppointDate
     const Appt = new Appointment({
       name,
       email,
@@ -374,9 +374,26 @@ else {
 
 })
 
+////////////////////// MyLearning PAGE//////////////////////////////////////////       
+//MyLearningPage
+//GET route         
+// Tutorial page
+router.get(('/myLearning'), (req, res)=>{
 
+  res.render('Projects/mylearning.ejs', {info : req.session.user}
+  
+  )})
+///////////////////////////////
+////////////////////// MyLearning PAGE//////////////////////////////////////////       
+//MyLearningPage
+//GET route         
+// Tutorial page
+router.get(('/Account'), (req, res)=>{
 
-
+  res.render('Projects/Account.ejs', {info : req.session.user}
+  
+  )})
+///////////////////////////////
 
 
 

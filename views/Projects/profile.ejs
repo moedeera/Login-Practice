@@ -21,7 +21,7 @@
 
  <div class="nav-int">
   <div>
-    <a href=""> MyLearning</a>
+    <a href="/Projects/myLearning"> MyLearning</a>
   </div> 
   
    <div>
@@ -59,11 +59,25 @@
     <input type="datetime-local" id="birthdaytime" name="value"> -->
     
     <div class="apts">
-    Current Appointments
-<div class="appt"> <%= info.AppointDate %></div>
+    Current:
+    <% if (info.Appointments) { %>
+      <div class="appt"> <%= info.AppointDate %></div>
+      <%} else { %>
+        <div > <%= info.AppointDate %></div>
+      <% } %>
+
+
+
 
 </div>
-<h3>Request another chat appointment</h3>
+<% if (info.Appointments) { %>
+  <h3>Request another chat appointment</h3>
+  <%} else { %>
+    <h3>Request a chat appointment</h3>
+  <% } %>
+
+
+
 
  <label for="meeting-time">Choose a time for your appointment:</label>
 
