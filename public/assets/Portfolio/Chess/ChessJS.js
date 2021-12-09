@@ -1,4 +1,6 @@
-
+const host = document.getElementById('host')
+const hostButton = document.getElementById('btn1')
+const HostMessage = document.getElementById('hostmsg').value
 
 const socket = io()
 const board = document.getElementById('Board')
@@ -7,15 +9,10 @@ socket.on('message', message => {
 console.log(message)
 })
 
+socket.on('send-data',(data)=>{
 
-// document.getElementById('form').addEventListener('submit',(e)=>{
-
-// e.preventDefault();
-
-// socket.emit('data',`user:${socket.id} message: ${document.getElementById('username').value}`)
-
-// })
-
+  console.log(data)
+})
 
 // Form for Game Creation
 document.getElementById('form').addEventListener('submit',(e)=>{
@@ -26,10 +23,12 @@ let username = document.getElementById('username').value
 let game = 
 `${document.getElementById('username').value}`
 
+host.innerHTML=username
+
 socket.emit('create-game', { game, username })
 
 })
-// Form for the board to allow joins or spectates
+// Form for the board to allow users to join a game or spectate
 
 const BoardForm = document.getElementById('boardform')
 BoardForm.addEventListener('click', (e)=>{
@@ -44,8 +43,19 @@ console.log(e.target.id, username)
 let game = `${e.target.id}`
 socket.emit('join-game',{game, username})
 
-
 })
+
+// Test concept of sending private messages
+// hostButton.addEventListener('click',(e)=>{
+//   e.preventDefault()
+//   const HostMessage = document.getElementById('hostmsg').value
+//   console.log(HostMessage)
+//   socket.emit('send-data', (HostMessage))
+  
+  
+//   })
+
+
 
 
 // Update board with new games and
@@ -63,8 +73,18 @@ console.log('hey', data[0].type)
     })
     
 
+/////////////////////////////////////////////////
+// Gets move from guest
+
+hostButton.addEventListener('click',(e)=>{
+e.preventDefault()
+const HostMessage = document.getElementById('hostmsg').value
+console.log(HostMessage)
+socket.emit('message', (HostMessage))
+socket.emit('send-data', (HostMessage))
 
 
+})
 
 
 

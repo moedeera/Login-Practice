@@ -295,12 +295,18 @@ justify-content: center;
 
 .player{
 	padding: 10px;
-height: 200px;
-width: 200px;
-background: coral;
+height: 300px;
+width: 300px;
+background: white;
+color: black;
 margin: 40px auto;
-
-
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 1fr 1fr 3fr;
+grid-row-gap:5px;
+}
+.usermove{
+	border: 1px solid grey;
 }
 
 .odd:nth-child(odd),.ev:nth-child(even) {

@@ -42,7 +42,7 @@ io.on("connection", (socket) => {
     var type = 'add';
    var data = {player,count,type}
    Games.unshift(data)
-    console.log(Games)
+    console.log(`room name is ${player.game},and the object for game is ${Games}`)
     var x =1 
   // Sends to all the users that this game is initiated 
     io.emit('game-board',(Games))
@@ -62,12 +62,37 @@ ${ io.sockets.adapter.rooms.get(game).size }`)
    io.emit('game-board',(Games))
    // console.log('new game created')
    } )
+////////////////////////// Sending  Message to specific game ///
+socket.on('send-data',(data)=>{
+console.log(data)
+
+  var CurrentPlayer = getCurrentUser(socket.id,Games)
+ 
+  if (CurrentPlayer){
+
+ var game = CurrentPlayer.player.game
+
+  io.to(game).emit('send-data',(data))}
+else {
+
+  socket.emit('send-data','you are not in a room')
+}
+
+
+}
+
+
+)
+
+
+
 
 
                     //test emissions
   console.log('new connection ')
   //emit to everyone
   socket.emit('message', `welcome to Chess Game User ${socket.id}`)
+  
   io.emit('game-board',(Games))
   //emits to everyone a new user on site/ updates counts.
   socket.broadcast.emit('message',`user ${socket.id} has joined`)

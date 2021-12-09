@@ -16,8 +16,8 @@ return user
 
 
 
-function getCurrentUser(id){
-return Users.find((user)=> user.id === id)
+function getCurrentUser(id, Array){
+return Array.find((user)=> user.player.id === id)
 
 }
 
