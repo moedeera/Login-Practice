@@ -1,4 +1,5 @@
 const host = document.getElementById('host')
+const guest = document.getElementById('guest')
 const hostButton = document.getElementById('btn1')
 const HostMessage = document.getElementById('hostmsg').value
 
@@ -14,6 +15,21 @@ socket.on('send-data',(data)=>{
   console.log(data)
 })
 
+
+socket.on('guest-host-data',(game,username)=>{
+  console.log('some-one joined', game, username)
+
+
+
+
+guest.innerHTML=username
+
+
+
+host.innerHTML=game
+
+
+})
 // Form for Game Creation
 document.getElementById('form').addEventListener('submit',(e)=>{
 
@@ -34,10 +50,8 @@ const BoardForm = document.getElementById('boardform')
 BoardForm.addEventListener('click', (e)=>{
 
 e.preventDefault();
-var username = document.getElementById('username').value;
-if (username===''){
-username = `user${Math.floor((Math.random() * 1000) + 1)}`
-}
+
+username= `user${Math.floor((Math.random() * 1000) + 1)}`
 
 console.log(e.target.id, username)
 let game = `${e.target.id}`
@@ -63,10 +77,10 @@ socket.on('game-board', (data) => {
   if (data.length>0){
 console.log('hey', data[0].type)
   if (data[0].type==='add'){
-    console.log(data[0].player.game, data[0].player.name, data[0].count)
+    // console.log(data[0].player.game, data[0].player.name, data[0].count)
 
     UpdateBoard (data)
-    console.log(data)
+    // console.log(data)
 
   }}
     
@@ -79,7 +93,7 @@ console.log('hey', data[0].type)
 hostButton.addEventListener('click',(e)=>{
 e.preventDefault()
 const HostMessage = document.getElementById('hostmsg').value
-console.log(HostMessage)
+// console.log(HostMessage)
 socket.emit('message', (HostMessage))
 socket.emit('send-data', (HostMessage))
 

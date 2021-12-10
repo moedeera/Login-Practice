@@ -38,11 +38,12 @@ io.on("connection", (socket) => {
     var player = userJoin(socket.id,username,game)
    
     socket.join(player.game)
+    console.log(player.game)
     var count = io.sockets.adapter.rooms.get(player.game).size 
     var type = 'add';
    var data = {player,count,type}
    Games.unshift(data)
-    console.log(`room name is ${player.game},and the object for game is ${Games}`)
+    // console.log(`room name is ${player.game},and the object for game is ${Games}`)
     var x =1 
   // Sends to all the users that this game is initiated 
     io.emit('game-board',(Games))
@@ -50,14 +51,27 @@ io.on("connection", (socket) => {
     } )
 /////////////////////// Joining a Game /////////////////////////////
 socket.on('join-game',({game,username})=>{
-
+  console.log(game)
+  var player = userJoin(socket.id,username,game)
+   var count = io.sockets.adapter.rooms.get(player.game).size 
+    var type = 'join';
+   var data = {player,count,type}
+   Games.unshift(data)
+// Sending back to the socket that joined the information on the host
+var CurrentPlayer = getCurrentUser(socket.id,Games)
+var gameName = CurrentPlayer.player.game
+io.to(CurrentPlayer.player.game).emit('guest-host-data',game,username)
+// socket.emit('guest-host-data',(username,guest))
   console.log('join-game-info:',game,username)
 socket.join(game)
-console.log(`${game} room size is now
-${ io.sockets.adapter.rooms.get(game).size }`)
+// console.log(`${game} room size is now
+// ${ io.sockets.adapter.rooms.get(game).size }`)
   io.emit('message', `User ${socket.id} has joined ${game}`)
-   var player = userJoin(socket.id,username,game)
-  
+   
+   var host = 1
+   var guest = 2
+
+
  // Sends to all the users that this game is initiated 
    io.emit('game-board',(Games))
    // console.log('new game created')
@@ -74,7 +88,7 @@ console.log(data)
 
   io.to(game).emit('send-data',(data))}
 else {
-
+console.log(Games)
   socket.emit('send-data','you are not in a room')
 }
 
