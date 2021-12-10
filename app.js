@@ -60,10 +60,11 @@ socket.on('join-game',({game,username})=>{
 // Sending back to the socket that joined the information on the host
 var CurrentPlayer = getCurrentUser(socket.id,Games)
 var gameName = CurrentPlayer.player.game
-io.to(CurrentPlayer.player.game).emit('guest-host-data',game,username)
+
 // socket.emit('guest-host-data',(username,guest))
   console.log('join-game-info:',game,username)
 socket.join(game)
+io.to(game).emit('guest-host-data',game,username)
 // console.log(`${game} room size is now
 // ${ io.sockets.adapter.rooms.get(game).size }`)
   io.emit('message', `User ${socket.id} has joined ${game}`)
