@@ -35,6 +35,7 @@ else if(e.target===settings){
 document.getElementById("close").addEventListener('click',(e)=>{
     document.getElementById("close").classList.add("no-show")
     document.getElementById("progress").classList.add("no-show")
+    document.getElementById("progress2").classList.add("no-show")
     document.getElementById("Appointment").classList.add("no-show")
     document.getElementById("mainOpt").style.opacity ='1';
    
@@ -48,6 +49,15 @@ document.getElementById("Progress").addEventListener('click', (e)=>{
     document.getElementById("progress").classList.remove("no-show")
 
 })
+//
+document.getElementById("Progress2").addEventListener('click', (e)=>{
+    document.getElementById("mainOpt").style.opacity ='0'
+   
+    document.getElementById("close").classList.remove("no-show")
+    document.getElementById("progress2").classList.remove("no-show")
+
+})
+
 
 document.getElementById("Appt").addEventListener('click', (e)=>{
     document.getElementById("mainOpt").style.opacity ='0'
@@ -68,6 +78,7 @@ function Clear (){
     document.getElementById("settOpt").classList.add("no-show")
     document.getElementById("close").classList.add("no-show")
     document.getElementById("progress").classList.add("no-show")
+    document.getElementById("progress2").classList.add("no-show")
     document.getElementById("Appointment").classList.add("no-show")
 }
 

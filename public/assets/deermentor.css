@@ -55,8 +55,10 @@ background: #22224b;
     grid-template-columns: 1fr 5fr;
     margin: 50px auto;
     padding: 15px;
+  
     margin-top: 80px;
     border-radius: 10px;
+    transition: 1s ease-in-out;
 }
 
 /******** Main box Area of dashboard ********/
@@ -172,8 +174,27 @@ margin:0 10px;
                                     grid-column-gap: 5px;
                                     grid-row-gap:5px;
                                             }
+                              .internal2{
+                                    width: 80%;            
+                                    position: relative;            
+                                    margin:10px auto;            
+                                              
+                                    display: grid;            
+                                    align-items: center;            
+                                    justify-content: center;            
+                                    grid-template-columns: 1fr 1fr 1fr;            
+                                    grid-column-gap: 2px;            
+                                    grid-row-gap:2px; 
+                                    transition: 600ms ease-in-out;          
+                                          } 
+                                .projects2:hover{
+                                    background-color:#7258E9;
+                                    color:white;
+                                    border: 1ps solid grey;
+                                }          
+                                          
         .Progress:hover{
-         transform: scale(1.005); 
+         transform: scale(1.001); 
                  }
              /*Projects div inside [Internal box div] inside [Progress div] of Box Area*/
                                              .projects{
@@ -187,6 +208,18 @@ margin:0 10px;
                                                     text-align: center;
                                                     color:black;
                                                      }
+                                        .projects2{
+                                                background:white;        
+                                                padding: 10px ;  
+                                                height:150px;      
+                                                width:150px;        
+                                                display: flex;        
+                                                flex-direction: column;        
+                                                justify-content: center;        
+                                                 align-items: center;       
+                                                 text-align: center;       
+                                                 color:black;       
+                                                         }             .
 
 /*Close Button div that closes modals*/
 #close{

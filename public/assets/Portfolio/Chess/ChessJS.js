@@ -82,7 +82,14 @@ console.log('hey', data[0].type)
     UpdateBoard (data)
     // console.log(data)
 
-  }}
+  } if (data.type === 'join'){
+
+
+  }
+
+
+
+}
     
     })
     
@@ -116,6 +123,7 @@ const elements = document.getElementsByClassName('Game-Info');
 while(elements.length > 0){
     elements[0].parentNode.removeChild(elements[0]);
 }
+
 
 for (var j=0; j<data.length; j++ ){
 
