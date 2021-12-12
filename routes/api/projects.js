@@ -13,7 +13,66 @@ const Appointment = require('../../models/Appt.js')
 
 // Global variable
 var  Userz ;
+const Guest = {
 
+  name: 'Moderator',
+  email: 'Guest',
+  password: '123',
+  id:'Guest',
+  age: '23',
+  date:'',
+  avatar: 'https://www.w3schools.com/howto/img_avatar.png',
+  // HTML 
+  CHECKB1: false,
+  CHECKB2:false,              
+  CHECKB3: false,
+  CHECKB4:false,              
+  CHECKB5:false,
+  CHECKBF: false,
+  HTML:true,
+  // CSS Basic   
+  CSSBasic:true,
+  // CSS Intermediate      
+  CSSIntermediate: true,
+  // CSS Advanced        
+  CSSAdvanced: false,
+  // Javascript Basic    
+  JSBasic: false,
+  // Javascript InterMediate  
+   JSIntermediate:false,
+  // Javascript Advanced
+   JSAdvanced: false,
+  // Server Side Basic
+   BackendBasic: false,
+  // Server Side Advanced
+   BackendAdvanced: false,
+  // Level
+   Value: 4,
+   // Practices 
+  Practices: 0,
+  Objectives:0,
+  Appointments:false,
+  AppointDate:'no appointments to show',
+   Progress: 
+   {
+                    HTML: true,
+                    CSSbasic: true,
+                    CSSIntermediate: true,
+                    CSSAdvanced:true,
+                    JavascriptB:false,
+                    JavascriptM:false,
+                    JavascriptA:false,
+                    ServerSideB: false,
+                    ServerSideA: false,
+                    
+                  }
+          
+      
+  
+  
+  };
+  
+  module.exports = Guest 
 
 // Portfolio Page
 router.get(('/'), (req, res)=> res.render('Projects/Projects.ejs'))
@@ -30,6 +89,16 @@ router.get(('/Login'), (req, res)=>{
 //Login Page 
 //POST route
 router.post('/Login', async (req,res)=> {
+
+  if (req.body.email==='guest@g'){
+    req.session.user = Guest
+    res.redirect('./profile' )  
+  }
+
+
+else {
+
+
   try {
     const users = await User.findOne({ email:req.body.email}).exec()
 if (users){
@@ -55,7 +124,8 @@ if(req.body.email==='admin@g'){
   res.render('Projects/Admin.ejs',{info:profiles})
 }
 else if (req.body.email==='guest@g'){
-  res.send('Guest')
+  req.session.user = Guest
+  res.redirect('./profile' )  
 }
 else { 
   console.log('condition 1C')
@@ -70,6 +140,8 @@ else {
                console.log('error',err)
                res.status(500).send('invalid credentials')
             }
+
+    }        
            })
 ////////////////////// PROFILE PAGE//////////////////////////////////////////
 //Profile Page 

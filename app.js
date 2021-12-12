@@ -5,6 +5,7 @@ const mongoose = require ('mongoose')
 const path = require('path')
 const morgan = require('morgan')
 const session = require('express-session')
+
 const flash = require('express-flash');
 const {
   userJoin,
@@ -17,7 +18,66 @@ const {
 //manage chess users
 // const Users = []
 // const Rooms = ['room1','room2']
+const Guest = {
 
+  name: 'Moderator',
+  email: 'Guest',
+  password: '123',
+  id:'Guest',
+  age: '23',
+  date:'',
+  avatar: 'https://www.w3schools.com/howto/img_avatar.png',
+  // HTML 
+  CHECKB1: false,
+  CHECKB2:false,              
+  CHECKB3: false,
+  CHECKB4:false,              
+  CHECKB5:false,
+  CHECKBF: false,
+  HTML:false,
+  // CSS Basic   
+  CSSBasic:false,
+  // CSS Intermediate      
+  CSSIntermediate: false,
+  // CSS Advanced        
+  CSSAdvanced: false,
+  // Javascript Basic    
+  JSBasic: false,
+  // Javascript InterMediate  
+   JSIntermediate:false,
+  // Javascript Advanced
+   JSAdvanced: false,
+  // Server Side Basic
+   BackendBasic: false,
+  // Server Side Advanced
+   BackendAdvanced: false,
+  // Level
+   Value: 0,
+   // Practices 
+  Practices: 0,
+  Objectives:0,
+  Appointments:false,
+  AppointDate:'no appointments to show',
+   Progress: 
+   {
+                    HTML: true,
+                    CSSbasic: false,
+                    CSSIntermediate: false,
+                    CSSAdvanced:false,
+                    JavascriptB:false,
+                    JavascriptM:false,
+                    JavascriptA:false,
+                    ServerSideB: false,
+                    ServerSideA: false,
+                    
+                  }
+          
+      
+  
+  
+  };
+  
+  module.exports = Guest 
 
 
 //
