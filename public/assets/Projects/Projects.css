@@ -48,13 +48,16 @@ width: 90%;
     margin: 10px auto;
     transition: 600ms ease-in-out;
     cursor: pointer;
+    
 }
 .upro:hover{
 
 
     transform: scale(1.02);
     }
-    
+    .upro ul{
+        display:none;
+    }
 
 
 
@@ -79,3 +82,10 @@ width: 90%;
     }
     
     }
+    @media only screen and (min-width: 600px) {
+.upro ul{
+
+    display: block;
+}
+
+    }   
