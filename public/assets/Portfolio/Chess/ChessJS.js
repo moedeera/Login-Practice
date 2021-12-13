@@ -76,7 +76,7 @@ socket.emit('join-game',{game, username})
 socket.on('game-board', (data) => {
   if (data.length>0){
 console.log('hey', data[0].type)
-  if (data[0].type==='add'){
+  if (data[0].type==='wait'){
     // console.log(data[0].player.game, data[0].player.name, data[0].count)
 
     UpdateBoard (data)
@@ -127,6 +127,7 @@ while(elements.length > 0){
 
 for (var j=0; j<data.length; j++ ){
 
+  
 const div = document.createElement("div");
 div.innerHTML = `
 <h3> ${data[j].player.game}'game </h3>

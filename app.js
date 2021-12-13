@@ -100,8 +100,8 @@ io.on("connection", (socket) => {
     socket.join(player.game)
     console.log(player.game)
     var count = io.sockets.adapter.rooms.get(player.game).size 
-    var type = 'add';
-   var data = {player,count,type}
+    var type = 'wait';
+   var data = {player,player2:'',count,type}
    Games.unshift(data)
     // console.log(`room name is ${player.game},and the object for game is ${Games}`)
     var x =1 
@@ -111,19 +111,38 @@ io.on("connection", (socket) => {
     } )
 /////////////////////// Joining a Game /////////////////////////////
 socket.on('join-game',({game,username})=>{
+
+  socket.join(game)
   console.log(game)
-  var player = userJoin(socket.id,username,game)
-   var count = io.sockets.adapter.rooms.get(player.game).size 
-    var type = 'join';
-   var data = {player,count,type}
-   Games.unshift(data)
+  const match = Games.some((gamez)=>gamez.player.game===game)
+  console.log(Games[0].player.game, game, match)
+  if (match){
+    const matchedGame = Games.filter((games)=>games.player.game===game)
+var Indexof =0
+for (var j=0; j<Games.length; j++){
+  if(Games[j].type === 'wait'){
+Indexof =j;
+  } else {
+
+    console.log(Games[j].player.id, matchedGame.player.id,Games[j].type)
+  }
+}
+
+    const Index = Games.indexOf((games)=>games.player.id===matchedGame.player.id)
+     console.log('matched game', matchedGame, Indexof)
+  }
+ var player = userJoin(socket.id,username,game)
+ Games[Indexof].player2 = player;
+ Games[Indexof].count = 2;
+  Games[Indexof].type = 'in-game';
+
+
 // Sending back to the socket that joined the information on the host
-var CurrentPlayer = getCurrentUser(socket.id,Games)
-var gameName = CurrentPlayer.player.game
+socket.emit('message',`you have joined ${game}' game`)
 
 // socket.emit('guest-host-data',(username,guest))
   console.log('join-game-info:',game,username)
-socket.join(game)
+
 io.to(game).emit('guest-host-data',game,username)
 // console.log(`${game} room size is now
 // ${ io.sockets.adapter.rooms.get(game).size }`)

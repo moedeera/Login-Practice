@@ -17,7 +17,7 @@ return user
 
 
 function getCurrentUser(id, Array){
-return Array.find((user)=> user.player.id === id)
+return Array.find((user)=> user.player.id === id ||user.player2.id === id)
 
 }
 
