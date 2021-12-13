@@ -7,7 +7,7 @@ body{
 
 width: 100%;
 max-width: 1100px;
-border: 1px solid grey;
+
 margin: 50px auto;
 
 display: grid;
@@ -39,7 +39,7 @@ width: 90%;
 
 .upro{
 
-    border: 1px solid grey;
+ 
     background-color:#356FAD ;
     padding: 10px;
     height: 600px;
@@ -55,37 +55,45 @@ width: 90%;
 
     transform: scale(1.02);
     }
-    .upro ul{
-        display:none;
-    }
+ 
 
 
 
-@media only screen and (max-width: 380px) {
-
-
-    .uprojs {
-    
-        grid-template-columns: 1fr;
-    }
-    
-    }
 
 
 
-@media only screen and (max-width: 425px) and (min-width:380px) {
 
-
-    .uprojs {
-    
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    }
-    @media only screen and (min-width: 600px) {
+    @media only screen and (max-width: 768px) {
 .upro ul{
 
     display: block;
 }
+.uprojs {
+    
+    grid-template-columns: 1fr 1fr;
+}
 
     }   
+
+    @media only screen and (max-width: 425px) {
+
+
+        .uprojs {
+        
+            grid-template-columns: 1fr;
+        }
+        
+        }
+    
+
+
+
+        @media screen and (min-width:768px){
+
+            .upro:hover{
+
+
+                transform: scale(1.02);
+                }
+            
+        }
