@@ -162,6 +162,16 @@ opacity: 0.8;
 	color:#1F4E79; 
 }
 
+.specatate{
+
+	border: 1px solid grey;
+	text-align: center;
+	padding:2px ;
+	background-color: white;
+	color:#1F4E79; 
+
+}
+
 .dm-header{
 text-align: left;
 color:#1F4E79;
@@ -291,7 +301,20 @@ justify-content: center;
 	
 
 }
+.status{
 
+	color:green;
+	
+}
+.status p{
+	background-color: white;
+}
+
+.in-game{
+
+	color:white;
+	background-color: transparent;
+}
 
 .player{
 	padding: 10px;

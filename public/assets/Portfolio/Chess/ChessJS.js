@@ -50,12 +50,16 @@ const BoardForm = document.getElementById('boardform')
 BoardForm.addEventListener('click', (e)=>{
 
 e.preventDefault();
-
+console.log(e.target.className)
 username= `user${Math.floor((Math.random() * 1000) + 1)}`
 
 console.log(e.target.id, username)
-let game = `${e.target.id}`
+
+if (e.target.className==='join'){
+  let game = `${e.target.id}`
 socket.emit('join-game',{game, username})
+
+}
 
 })
 
@@ -76,16 +80,12 @@ socket.emit('join-game',{game, username})
 socket.on('game-board', (data) => {
   if (data.length>0){
 console.log('hey', data[0].type)
-  if (data[0].type==='wait'){
+  
     // console.log(data[0].player.game, data[0].player.name, data[0].count)
 
     UpdateBoard (data)
     // console.log(data)
 
-  } if (data.type === 'join'){
-
-
-  }
 
 
 
@@ -119,6 +119,12 @@ socket.emit('send-data', (HostMessage))
 
     function UpdateBoard (data){
 
+
+      console.log(data[0].type)
+for (var j=0; j<data.length; j++){
+      if (data[j].type==='wait'){
+
+        console.log('condition a')
 const elements = document.getElementsByClassName('Game-Info');
 while(elements.length > 0){
     elements[0].parentNode.removeChild(elements[0]);
@@ -139,11 +145,44 @@ div.classList.add('Game-Info')
 
 BoardForm.appendChild(div)
 
+} }
+
+else if (data[j].type==='in-game'){
+
+const elements = document.getElementsByClassName('Game-Info');
+while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+}
+
+
+for (var j=0; j<data.length; j++ ){
+
+  
+const div = document.createElement("div");
+div.innerHTML = `
+<h3> ${data[j].player.game}'game </h3>
+                <p  class="status">Waiting </p >
+                <p> ${data[j].player.game} </p>
+                <p id=${data[j].player.game} class="spectate"> In Game <p>
+`
+div.classList.add('Game-Info')
+
+BoardForm.appendChild(div)
+
 }
 
 
 
+      }
+
+
+}
+
 
     }
+  
+  
+  
+  
 
      

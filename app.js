@@ -135,6 +135,7 @@ Indexof =j;
  Games[Indexof].player2 = player;
  Games[Indexof].count = 2;
   Games[Indexof].type = 'in-game';
+  console.log(Games)
 
 
 // Sending back to the socket that joined the information on the host
