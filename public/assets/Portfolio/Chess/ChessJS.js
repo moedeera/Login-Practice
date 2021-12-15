@@ -161,7 +161,7 @@ for (var j=0; j<data.length; j++ ){
 const div = document.createElement("div");
 div.innerHTML = `
 <h3> ${data[j].player.game}'game </h3>
-                <p  class="status">Waiting </p >
+                <p  class="status in-game" >In-Game</p >
                 <p> ${data[j].player.game} </p>
                 <p id=${data[j].player.game} class="spectate"> In Game <p>
 `
