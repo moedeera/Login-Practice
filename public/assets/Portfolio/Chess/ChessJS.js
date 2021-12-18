@@ -6,6 +6,10 @@ const HostMessage = document.getElementById('hostmsg').value
 const socket = io()
 const board = document.getElementById('Board')
 
+var guestName = '';
+var gameName = ''; 
+
+
 socket.on('message', message => {
 console.log(message)
 })
@@ -51,12 +55,18 @@ BoardForm.addEventListener('click', (e)=>{
 
 e.preventDefault();
 console.log(e.target.className)
-username= `user${Math.floor((Math.random() * 1000) + 1)}`
+if (document.getElementById('username').value==='') {
+  username= `user${Math.floor((Math.random() * 1000) + 1)}`
+} else {
+  username =document.getElementById('username').value;
+}
 
+console.log(document.getElementById('username').value)
 console.log(e.target.id, username)
 
 if (e.target.className==='join'){
   let game = `${e.target.id}`
+  gameName = game
 socket.emit('join-game',{game, username})
 
 }
@@ -88,6 +98,21 @@ console.log('hey', data[0].type)
 
 
 
+
+} else if(data.length===0){
+
+  const elements = document.getElementsByClassName('Game-Info');
+  while(elements.length > 0){
+      elements[0].parentNode.removeChild(elements[0]);
+
+    ////////////////////////////////
+    guest.innerHTML='User 2'
+
+
+
+host.innerHTML='User 1'
+
+  }
 
 }
     
@@ -162,7 +187,7 @@ const div = document.createElement("div");
 div.innerHTML = `
 <h3> ${data[j].player.game}'game </h3>
                 <p  class="status in-game" >In-Game</p >
-                <p> ${data[j].player.game} </p>
+                <p> ${data[j].player.name} vs ${data[j].player2.name}  </p>
                 <p id=${data[j].player.game} class="spectate"> In Game <p>
 `
 div.classList.add('Game-Info')
@@ -181,6 +206,14 @@ BoardForm.appendChild(div)
 
     }
   
+
+    document.getElementById('closer').addEventListener('click',()=>{
+
+console.log(gameName)
+var disco = ''
+socket.emit('closure', (disco))
+
+    })
   
   
   

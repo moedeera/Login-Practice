@@ -141,7 +141,20 @@ opacity: 0.8;
 .points {
    
 }
+#Game-session{
+/* display: none; */
+}
+.game-option{
 
+display: flex;
+justify-content: space-between;	
+align-items: center;
+}
+
+#closer{
+	color:rgba(255, 0, 0, 0.775);
+	cursor: pointer;
+}
 .image-svg  {
 
     margin-top: -40px;

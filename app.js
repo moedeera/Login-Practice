@@ -196,8 +196,19 @@ console.log(Games)
 io.emit('message',`${msg}`)
   })
 
+// 
+socket.on('closure', (disco)=>{
+console.log(`you have left ${disco}`)
+var CurrentPlayer = getCurrentUser(socket.id,Games)
+ 
+if (CurrentPlayer){
+console.log('true')
+var game = CurrentPlayer.player.game
 
-
+socket.leave(game)
+io.to(game).emit('message',`user ${socket.id} has left`)
+}
+})
 
 
   
