@@ -196,15 +196,35 @@ console.log(Games)
 io.emit('message',`${msg}`)
   })
 
-// 
+// Players leaving rooms //////
+
 socket.on('closure', (disco)=>{
 console.log(`you have left ${disco}`)
 var CurrentPlayer = getCurrentUser(socket.id,Games)
  
 if (CurrentPlayer){
 console.log('true')
-var game = CurrentPlayer.player.game
 
+Games = Games.filter((x)=>{
+  if(x.player.id===socket.id){
+    x.player2 = x.player
+  x.player2 ={id:'',name:'',game:''};
+  x.count =1;
+  x.type ='in-game'
+
+    } else if (x.player2.id===socket.id){
+      x.player2 ={id:'',name:'',game:''};
+  x.count =1;
+  x.type ='in-game'
+
+    }
+  
+  
+  })
+  console.log(Games)
+
+  io.emit('game-board', (Games))
+var game = CurrentPlayer.player.game
 socket.leave(game)
 io.to(game).emit('message',`user ${socket.id} has left`)
 }
