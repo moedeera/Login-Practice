@@ -1,13 +1,13 @@
 const boxes = document.querySelectorAll(".box")
-const roomInput = document.getElementById("game-name")
-const room  =  roomInput.innerText
+// const roomInput = document.getElementById("game-name")
+// const room  =  roomInput.innerText
 
 const socket = io()
 console.log('hey')
 
-socket.on('Games', (Rooms) => {
-console.log(Rooms)
-})
+// socket.on('Games', (Rooms) => {
+// console.log(Rooms)
+// })
 
 
 
@@ -22,10 +22,7 @@ var Player = 10;
 var state = 0;
 var prev;
 //get username and room 
-const {username, session} = Qs.parse(location.search, {
 
-    ignoreQueryPrefix: true
-})
 var start = false ;
 var turn = 1;
 console.log(`welcome to ${room} ${username}`)
@@ -53,7 +50,7 @@ let data = socket.id;
 
 if (message.map){
 
-// console.log(message)
+console.log(message)
 console.log(z)
 z = 1;
 
@@ -94,24 +91,11 @@ turn:""
 
 }
 
-
-
-// var Map = [
-
-//     8,6,3,5,4,3,6,8,
-//     0,0,0,0,0,0,0,0,
-//     0,0,0,0,0,0,0,0,
-//     0,0,0,0,0,0,0,0,
-//     0,0,0,0,0,0,0,0,
-//     0,0,0,0,0,0,0,0,
-//     0,0,0,0,0,0,0,0,
-//     80,60,30,50,40,30,60,80,
-//     ]
-    
 Info.player =10;
 Info.state = 0;
 Info.map = Map;
 Info.turn = 1;
+
 
 
 
@@ -412,20 +396,6 @@ div.innerText = " Your turn "
 document.getElementById("turn").appendChild(div)
     // console.log(Map)
     Mapper()
-
-    // for (var j=0; j<Map.length; j++){
-
-
-    // }
-
-//     for (var j=0; j<64; j++) {
-// Map[j]= Info[j]
-
-
-
-//     }
-
- 
 
 }
   
