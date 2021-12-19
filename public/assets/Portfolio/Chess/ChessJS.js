@@ -143,6 +143,10 @@ socket.emit('send-data', (HostMessage))
 
 
     function UpdateBoard (data){
+const elements = document.getElementsByClassName('Game-Info');
+while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+}
 
 
       console.log(data[0].type)
@@ -150,14 +154,9 @@ for (var j=0; j<data.length; j++){
       if (data[j].type==='wait'){
 
         console.log('condition a')
-const elements = document.getElementsByClassName('Game-Info');
-while(elements.length > 0){
-    elements[0].parentNode.removeChild(elements[0]);
-}
 
 
-for (var j=0; j<data.length; j++ ){
-
+console.log(data[j])
   
 const div = document.createElement("div");
 div.innerHTML = `
@@ -170,17 +169,13 @@ div.classList.add('Game-Info')
 
 BoardForm.appendChild(div)
 
-} }
+ }
 
 else if (data[j].type==='in-game'){
 
-const elements = document.getElementsByClassName('Game-Info');
-while(elements.length > 0){
-    elements[0].parentNode.removeChild(elements[0]);
-}
 
 
-for (var j=0; j<data.length; j++ ){
+
 
   
 const div = document.createElement("div");
@@ -194,7 +189,7 @@ div.classList.add('Game-Info')
 
 BoardForm.appendChild(div)
 
-}
+
 
 
 
