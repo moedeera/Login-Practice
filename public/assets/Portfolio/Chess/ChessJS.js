@@ -161,10 +161,10 @@ for (var j=0; j<data.length; j++ ){
   
 const div = document.createElement("div");
 div.innerHTML = `
-<h3> ${data[j].player.game}'game </h3>
+<h3> ${data[j].gameRoom}'s game </h3>
                 <p  class="status">Waiting </p >
-                <p> ${data[j].player.game} </p>
-                <p id=${data[j].player.game} class="join"> join<p>
+                <p> ${data[j].player.name} </p>
+                <p id=${data[j].gameRoom} class="join"> join<p>
 `
 div.classList.add('Game-Info')
 
@@ -185,10 +185,10 @@ for (var j=0; j<data.length; j++ ){
   
 const div = document.createElement("div");
 div.innerHTML = `
-<h3> ${data[j].player.game}'game </h3>
+<h3> ${data[j].gameRoom}'s game </h3>
                 <p  class="status in-game" >In-Game</p >
                 <p> ${data[j].player.name} vs ${data[j].player2.name}  </p>
-                <p id=${data[j].player.game} class="spectate"> In Game <p>
+                <p id=${data[j].gameRoom} class="spectate"> In Game <p>
 `
 div.classList.add('Game-Info')
 

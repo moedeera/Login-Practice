@@ -77,7 +77,7 @@ const Guest = {
   
   };
   
-  module.exports = Guest 
+ 
 
 
 //
@@ -95,13 +95,13 @@ io.on("connection", (socket) => {
   socket.on('create-game',({game,username})=>{
 
    io.emit('message', `A new game was created by ${socket.id}`)
-    var player = userJoin(socket.id,username,game)
+    var player = userJoin(socket.id,username)
    
-    socket.join(player.game)
-    console.log(player.game)
-    var count = io.sockets.adapter.rooms.get(player.game).size 
+    socket.join(game)
+    console.log(game)
+    var gameRoom = game
     var type = 'wait';
-   var data = {player,player2:'',count,type}
+   var data = {player,player2:'',gameRoom,type}
    Games.unshift(data)
     // console.log(`room name is ${player.game},and the object for game is ${Games}`)
     var x =1 
@@ -113,28 +113,19 @@ io.on("connection", (socket) => {
 socket.on('join-game',({game,username})=>{
 
   socket.join(game)
-  console.log(game)
-  const match = Games.some((gamez)=>gamez.player.game===game)
-  console.log(Games[0].player.game, game, match)
+  // console.log(game)
+  var Index = 0
+  const match = Games.some((games)=>games.gameName===game)
+  // console.log(Games[0].player.game, game, match)
   if (match){
-    const matchedGame = Games.filter((games)=>games.player.game===game)
-var Indexof =0
-for (var j=0; j<Games.length; j++){
-  if(Games[j].type === 'wait'){
-Indexof =j;
-  } else {
+    for(var j=0; j<Games.length; Games++){
+if(Games[j].gameName===game){ Index = j }}
 
-    console.log(Games[j].player.id, matchedGame.player.id,Games[j].type)
   }
-}
+ var player = userJoin(socket.id,username)
+ Games[Index].player2 = player;
 
-    const Index = Games.indexOf((games)=>games.player.id===matchedGame.player.id)
-     console.log('matched game', matchedGame, Indexof)
-  }
- var player = userJoin(socket.id,username,game)
- Games[Indexof].player2 = player;
- Games[Indexof].count = 2;
-  Games[Indexof].type = 'in-game';
+  Games[Index].type = 'in-game';
   console.log(Games)
 
 
@@ -165,7 +156,7 @@ console.log(data)
  
   if (CurrentPlayer){
 
- var game = CurrentPlayer.player.game
+ var game = CurrentPlayer.gameRoom
 
   io.to(game).emit('send-data',(data))}
 else {

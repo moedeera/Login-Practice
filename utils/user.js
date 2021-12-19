@@ -1,11 +1,11 @@
 const Users = []
 
 
-function userJoin(Id,username,Game){
+function userJoin(Id,username){
 const user =
  {id:Id,
   name:username,
-  game:Game}
+ }
 Users.push(user)
 return user
 }
