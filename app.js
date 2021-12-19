@@ -172,7 +172,20 @@ console.log(Games)
 )
 ////////////////////// Send Information on Chess Game
 socket.on('Chess-Game',(data)=>{
-console.log(data,socket.id)
+
+
+  var CurrentPlayer = getCurrentUser(socket.id,Games)
+ 
+  if (CurrentPlayer){
+
+ var game = CurrentPlayer.gameRoom
+
+  io.to(game).emit('Chess-Game',(data))}
+  
+else {
+console.log(Games)
+  socket.emit('send-data','you are not in a room')
+}
 
 
 
