@@ -172,8 +172,8 @@ console.log(Games)
 )
 ////////////////////// Send Information on Chess Game
 socket.on('Chess-Game',(data)=>{
-
-
+console.log(data)
+io.emit(data)
   var CurrentPlayer = getCurrentUser(socket.id,Games)
  
   if (CurrentPlayer){

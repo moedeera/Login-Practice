@@ -2,15 +2,17 @@ const boxes = document.querySelectorAll(".box")
 // const roomInput = document.getElementById("game-name")
 // const room  =  roomInput.innerText
 
-socket.on('start',(start) => {
+// socket.on('start',(start) => {
 
 
 
     
-})
+// })
 
 socket.on('Chess-Game', (data) => {
 console.log(data)
+
+
 })
 
 
