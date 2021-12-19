@@ -135,7 +135,7 @@ if (Info.state===2){
 const playerName = username
 const game = 's game'
 // const roomName = username.concat(game)
-socket.emit('message', Info)
+socket.emit('Chess-Game', Info)
 // socket.emit('Calls', `public log ${inc}`)
 // inc++;
 z = 0;
