@@ -17,9 +17,33 @@ return user
 
 
 function getCurrentUser(id, Array){
+console.log(Array)
+    if (Array.length>0){
 return Array.find((user)=> user.player.id === id ||user.player2.id === id)
-
+} else 
+return false
 }
+
+function getGuest(id, Array){
+
+    if (Array.length>0){
+       return Array.find((user)=> user.player2.id === id) 
+    } else{
+        return false
+    }
+    
+    
+    }
+    
+    function getHost(id, Array){
+        if (Array.length>0){
+return Array.find((user)=> user.player.id === id)
+        } else {
+            return false
+        }
+        
+        
+        }
 
 
 
@@ -42,7 +66,9 @@ module.exports = {
     userJoin,
     getCurrentUser,
     CheckForUser,
-    getALL
+    getALL,
+    getGuest,
+    getHost
     // userLeave,
     // getRoomUsers
   };

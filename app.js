@@ -10,8 +10,8 @@ const flash = require('express-flash');
 const {
   userJoin,
   getCurrentUser,
-  CheckForUser,
-  getALL
+  getGuest,
+    getHost
  
 } = require('./utils/user');
 
@@ -211,34 +211,26 @@ io.emit('message',`${msg}`)
 
 socket.on('closure', (disco)=>{
 console.log(`you have left ${disco}`)
-var CurrentPlayer = getCurrentUser(socket.id,Games)
- 
-if (CurrentPlayer){
-console.log('true')
 
-Games = Games.filter((x)=>{
-  if(x.player.id===socket.id){
-    x.player2 = x.player
-  x.player2 ={id:'',name:'',game:''};
-  x.count =1;
-  x.type ='in-game'
-
-    } else if (x.player2.id===socket.id){
-      x.player2 ={id:'',name:'',game:''};
-  x.count =1;
-  x.type ='in-game'
-
-    }
-  
-  
-  })
-  console.log(Games)
-
-  io.emit('game-board', (Games))
-var game = CurrentPlayer.player.game
-socket.leave(game)
-io.to(game).emit('message',`user ${socket.id} has left`)
+var guest=[]
+var host = []
+for (var j=0; j<Games.length; j++){
+if(Games[j].player.id===socket.id){
+Games.splice(j,1)
+console.log('game removed', Games)
+io.emit('game-board', (Games))
+} else if (Games[j].player2.id===socket.id){
+Games[j].player2=''
+Games[j].type = 'wait'
+console.log('player removed', Games)
+io.emit('game-board', (Games))
 }
+
+}
+
+
+
+
 })
 
 
