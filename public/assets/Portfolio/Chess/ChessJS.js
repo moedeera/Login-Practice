@@ -1,7 +1,7 @@
-const host = document.getElementById('host')
-const guest = document.getElementById('guest')
-const hostButton = document.getElementById('btn1')
-const HostMessage = document.getElementById('hostmsg').value
+// const host = document.getElementById('host')
+// const guest = document.getElementById('guest')
+// const hostButton = document.getElementById('btn1')
+// const HostMessage = document.getElementById('hostmsg').value
 
 const socket = io()
 const board = document.getElementById('Board')
@@ -106,11 +106,11 @@ console.log('hey', data[0].type)
       elements[0].parentNode.removeChild(elements[0]);
 
     ////////////////////////////////
-    guest.innerHTML='User 2'
+//     guest.innerHTML='User 2'
 
 
 
-host.innerHTML='User 1'
+// host.innerHTML='User 1'
 
   }
 
@@ -122,15 +122,15 @@ host.innerHTML='User 1'
 /////////////////////////////////////////////////
 // Gets move from guest
 
-hostButton.addEventListener('click',(e)=>{
-e.preventDefault()
-const HostMessage = document.getElementById('hostmsg').value
-// console.log(HostMessage)
-socket.emit('message', (HostMessage))
-socket.emit('send-data', (HostMessage))
+// hostButton.addEventListener('click',(e)=>{
+// e.preventDefault()
+// const HostMessage = document.getElementById('hostmsg').value
+// // console.log(HostMessage)
+// socket.emit('message', (HostMessage))
+// socket.emit('send-data', (HostMessage))
 
 
-})
+// })
 
 
 

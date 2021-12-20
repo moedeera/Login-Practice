@@ -1,4 +1,14 @@
+
+
 const boxes = document.querySelectorAll(".box")
+var connection = false
+console.log('HELLO')
+
+socket.on('start',(data)=>{
+
+    connection = data;
+    
+    })
 
 
 socket.on('Chess-Game', (data) => {
@@ -12,7 +22,6 @@ OutPut(data)
 start =true;
 
 })
-
 
 
 var q =1;
@@ -44,7 +53,31 @@ var Map = [
     ]
 
 // 2 player configuration 
+socket.on('reset', (msg)=>{
 
+    console.log(msg)
+     connection = false
+     start = false ;
+     turn = 1;
+    
+     z = 0
+    
+    Map = [
+    
+        8,6,4,k,q,4,6,8,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        80,60,40,k0,q0,40,60,80,
+        ]
+        Mapper ()
+            
+
+  })  
+    
 
 
 
@@ -128,6 +161,9 @@ document.querySelector(".board").addEventListener('click', (e)=> {
 
 console.log(`z value is ${z}, Info state is ${Info.state} `)
 
+
+if (connection===true){
+
 if (z===1 || start === false ){   
      start = true
     Indicator()
@@ -152,14 +188,15 @@ console.log('z value: ',z, 'start: ', start)
 
  else {
     
-    // console.log('z value: ',z, 'start: ', start)
+    console.log('z value: ',z, 'start: ', start)
     alert('not your turn')
+}} else {
+
+    console.log('wait for a connection')
 }
 // OutPut(Info.map)
 // Mapper()
 })
-
-
 
 
 
@@ -404,23 +441,7 @@ document.getElementById("turn").appendChild(div)
   
 
 
-function DisplayGames (){
-
-    var div = document.createElement("div");
-    div.classList.add("game")
-    const gameName = document.createElement("div")
-    gameName.innerHTML = "new game"
-    const JoinButton = document.createElement("div")
-    JoinButton.innerHTML = "<a> Join </a>"
-    JoinButton.classList.add = "join-game"
-
-div.appendChild(gameName)
-div.appendChild(JoinButton)
-
-    document.getElementById("games").appendChild(div)
-
-}
-                                
+                           
         
         
 

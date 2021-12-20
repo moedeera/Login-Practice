@@ -136,6 +136,8 @@ socket.emit('message',`you have joined ${game}' game`)
   console.log('join-game-info:',game,username)
 
 io.to(game).emit('guest-host-data',game,username)
+
+io.to(game).emit('start', true)
 // console.log(`${game} room size is now
 // ${ io.sockets.adapter.rooms.get(game).size }`)
   io.emit('message', `User ${socket.id} has joined ${game}`)
@@ -146,6 +148,8 @@ io.to(game).emit('guest-host-data',game,username)
 
  // Sends to all the users that this game is initiated 
    io.emit('game-board',(Games))
+
+   
    // console.log('new game created')
    } )
 ////////////////////////// Sending  Message to specific game ///
@@ -173,14 +177,14 @@ console.log(Games)
 ////////////////////// Send Information on Chess Game
 socket.on('Chess-Game',(data)=>{
 console.log(data)
-io.emit(data)
+// io.emit(data)
   var CurrentPlayer = getCurrentUser(socket.id,Games)
  
   if (CurrentPlayer){
 
  var game = CurrentPlayer.gameRoom
 
-  io.to(game).emit('Chess-Game',(data))}
+  socket.to(game).emit('Chess-Game',(data))}
   
 else {
 console.log(Games)
@@ -224,6 +228,7 @@ Games[j].player2=''
 Games[j].type = 'wait'
 console.log('player removed', Games)
 io.emit('game-board', (Games))
+io.to(Games[j].gameRoom).emit('reset', 'guest exited')
 }
 
 }
