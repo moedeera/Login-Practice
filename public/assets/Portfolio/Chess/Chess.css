@@ -167,8 +167,8 @@ align-items: center;
 }
 
 #closer{
-	color:rgba(255, 0, 0, 0.775);
-	cursor: pointer;
+	color:rgba(255, 0, 0, 0.775) !important;
+	cursor: pointer !important;
 }
 .image-svg  {
 
@@ -311,12 +311,39 @@ justify-content: center;
 align-items: center;
 
 }
+.users{
+
+
+display: flex;
+justify-content: space-between;
+width: 100%;
+max-width: 500px;
+margin: 50px auto 0px;
+border:1px solid grey;
+background: cornsilk;
+color: black;
+padding:10px 10px ;
+
+
+
+}
+
+.GameDisplay{
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+
 .board{
 
     max-width: 600px;
-	margin:90px auto;
+	margin:10px auto;
 	display: grid;
 	grid-template-columns: repeat(8,1fr);
+	
 }
 .box{
     background: steelblue;
