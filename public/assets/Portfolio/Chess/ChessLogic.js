@@ -38,6 +38,8 @@ document.getElementById('host').addEventListener('click',()=>{
 RedAlert=== !RedAlert
 console.log(RedAlert)
 
+EndGame(3)
+
 })
 
 
@@ -114,7 +116,7 @@ function changeZ () {
     z===1;
     Info.state =0 ;
     Indicator()
-    console.log(start)
+    
 }
 
 
