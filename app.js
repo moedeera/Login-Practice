@@ -162,11 +162,20 @@ console.log(data)
 
  var game = CurrentPlayer.gameRoom
 
-  socket.to(game).emit('send-data',(data))}
+var name =''
+if(CurrentPlayer.player.id===socket.id){
+  name=CurrentPlayer.player.name
+} else {
+  name=CurrentPlayer.player2.name
+}
+
+
+
+  socket.to(game).emit('send-data',`${name} said '${data}'`)}
   
 else {
 console.log(Games)
-  socket.emit('send-data','you are not in a room')
+  socket.emit('send-data','you are not in a game')
 }
 
 
