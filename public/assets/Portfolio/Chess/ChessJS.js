@@ -12,11 +12,14 @@ var gameName = '';
 
 socket.on('message', message => {
 console.log(message)
+
+
 })
 
 socket.on('send-data',(data)=>{
 
   console.log(data)
+  document.getElementById('userdata').innerText = `${data}`
 })
 
 

@@ -162,7 +162,7 @@ console.log(data)
 
  var game = CurrentPlayer.gameRoom
 
-  io.to(game).emit('send-data',(data))}
+  socket.to(game).emit('send-data',(data))}
   
 else {
 console.log(Games)
