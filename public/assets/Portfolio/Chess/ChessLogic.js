@@ -232,43 +232,43 @@ function Mapper (){
                        }
      
         
-  if (Map[j]===8){      
+  if (Map[j]===80){      
      boxes[j].innerHTML ="&#9814;";   
                 }
 
-if (Map[j]===6){  
+if (Map[j]===60){  
     boxes[j].innerHTML ="&#9816;";  
     boxes[j].style.color ="white";                 
          }                                         
-    if (Map[j]===4){                        
+    if (Map[j]===40){                        
          boxes[j].innerHTML ="&#9815;";
          boxes[j].style.color ="white";                          
             }                                       
-         if (Map[j]===k){                               
+         if (Map[j]===k0){                               
             boxes[j].innerHTML ="&#9813;";
             boxes[j].style.color ="white";                                   
             }                                             
-            if (Map[j]===q){                                        
+            if (Map[j]===q0){                                        
                 boxes[j].innerHTML ="&#9812;";
-                boxes[j].style.color ="white";       
+                boxes[j].style.color ="white";     //   
             }
-                if (Map[j]===80){                                                        
+                if (Map[j]===8){                                                        
                     boxes[j].innerHTML ="&#9820;";  
                     boxes[j].style.color ="black";                                     
                         }                                            
-                    if (Map[j]===60){                                
+                    if (Map[j]===6){                                
                        boxes[j].innerHTML ="&#9822;";  
                        boxes[j].style.color ="black";                                           
                          }                                                
-                        if (Map[j]===40){                                                               
+                        if (Map[j]===4){                                                               
                             boxes[j].innerHTML ="&#9821;"
                             boxes[j].style.color ="black";                                                   
                              }                                                            
-                             if (Map[j]===k0){                                                                      
+                             if (Map[j]===k){                                                                      
                                 boxes[j].innerHTML ="&#9819;";  
                                 boxes[j].style.color ="black";                                                          
                                   }                                                                  
-                                if (Map[j]===q0){                                                                        
+                                if (Map[j]===q){                                                                        
                                     boxes[j].innerHTML ="&#9818;"; 
                                     boxes[j].style.color ="black";                                                                  
                                     }                                                                         
@@ -299,7 +299,7 @@ function PlayGame(e){
                          Info.state = 1;
                          z = 1;
                         Indicator();
-
+                 // Option Lighter 
                      // Condition 1B: static and picks a conflating number 
                      } else if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k ){
                         console.log('its not your piece!')
@@ -316,7 +316,7 @@ function PlayGame(e){
 
                                 // Condition 2A: dynamic and picks a non conflating number 
                                  if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
-
+// 2 conditions 
                                 // console.log('cond 3')
                                  Clear()
                                  boxes[j].innerHTML = boxes[prev].innerHTML
@@ -441,9 +441,41 @@ document.getElementById("turn").appendChild(div)
   
 
 
-                           
-        
-        
+          function MoveCalculator (Piece,Position,choice){
 
+
+
+console.log('hello')
+
+
+          }                 
+        
+        
+// Game over 
+
+function EndGame(x){
+
+
+if (x===1){
+
+   console.log('checkmate') 
+}
+else if (x===2){
+
+    console.log('stalemate')
+} else if (x==3){
+
+   console.log('no valid movements left')
+
+} else if (x==4){
+console.log('too much repetition')
+
+}
+
+
+socket.emit('closure', (disco))
+
+
+}
 
 
