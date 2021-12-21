@@ -220,9 +220,13 @@ var guest=[]
 var host = []
 for (var j=0; j<Games.length; j++){
 if(Games[j].player.id===socket.id){
+  io.to(Games[j].gameRoom).emit('reset', 'guest exited')
 Games.splice(j,1)
 console.log('game removed', Games)
 io.emit('game-board', (Games))
+
+
+
 } else if (Games[j].player2.id===socket.id){
 Games[j].player2=''
 Games[j].type = 'wait'
