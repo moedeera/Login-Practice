@@ -225,11 +225,10 @@ io.emit('message',`${msg}`)
 socket.on('closure', (disco)=>{
 console.log(`you have left ${disco}`)
 
-var guest=[]
-var host = []
+
 for (var j=0; j<Games.length; j++){
 if(Games[j].player.id===socket.id){
-  io.to(Games[j].gameRoom).emit('reset', 'guest exited')
+  io.to(Games[j].gameRoom).emit('reset', 'Host ended game')
 Games.splice(j,1)
 console.log('game removed', Games)
 io.emit('game-board', (Games))
@@ -250,8 +249,41 @@ io.to(Games[j].gameRoom).emit('reset', 'guest exited')
 
 
 })
+// Checkmate/Game over situation 
+socket.on('checkmate',()=>{
+
+  for (var j=0; j<Games.length; j++){
+    if(Games[j].player.id===socket.id||Games[j].player2.id===socket.id){
+      io.to(Games[j].gameRoom).emit('reset', 'Game is over')
+    Games.splice(j,1)
+    console.log('game removed', Games)
+    io.emit('game-board', (Games))
+    
+    
+    
+    }}
+
+})
+// Sending a checked message
+socket.on('checked',(msg)=>{
+
+if (msg!=='xyz'){
+  for (var j=0; j<Games.length; j++){
+    if(Games[j].player.id===socket.id||Games[j].player2.id===socket.id){
+      socket.to(Games[j].gameRoom).emit('checked',(msg) )
+  }}}
+else if (msg==='xyz'){
+
+  for (var j=0; j<Games.length; j++){
+    if(Games[j].player.id===socket.id||Games[j].player2.id===socket.id){
+      socket.to(Games[j].gameRoom).emit('alert',(msg) )
+  }}
+
+}
 
 
+
+})
   
   //User disconnects
   socket.on('disconnect',()=>{

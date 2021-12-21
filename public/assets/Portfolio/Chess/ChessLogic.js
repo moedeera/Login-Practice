@@ -1,5 +1,5 @@
 
-
+var RedAlert = false 
 const boxes = document.querySelectorAll(".box")
 var connection = false
 console.log('HELLO')
@@ -10,18 +10,36 @@ socket.on('start',(data)=>{
     
     })
 
-
+// Receives movement information on the Chess Game from other player
 socket.on('Chess-Game', (data) => {
 console.log(data)
-
-
 z = 1;
-
 OutPut(data)
-
 start =true;
+})
+// Receives Check information on the Chess Game from other player
+socket.on('checked', (msg)=>{
+alert(msg)
+})
+// Receives Alert information on the Chess Game from other player
+socket.on('alert', (msg)=>{
+    if(msg==='xyz' && RedAlert === false ){
+
+        console.log('Opponent can no longer win ')
+    } else if (msg==='xyz' && RedAlert ===true){
+EndGame(3)
+
+    }
+    
+    })
+// This is intended only for testing purposes
+document.getElementById('host').addEventListener('click',()=>{
+
+RedAlert=== !RedAlert
+console.log(RedAlert)
 
 })
+
 
 
 var q =1;
@@ -59,7 +77,11 @@ socket.on('reset', (msg)=>{
      connection = false
      start = false ;
      turn = 1;
-    
+     Info.state = 0;
+
+     document.getElementById("turn").style.background = "white"
+     document.getElementById("turn").innerHTML = ""
+
      z = 0
     
     Map = [
@@ -81,34 +103,14 @@ socket.on('reset', (msg)=>{
 
 
 
-socket.on('message', (message,room) => {
-let data = socket.id;
 
-if (message.map){
-
-console.log(message)
-console.log(z)
-z = 1;
-
-OutPut(message)
-console.log(z)
-start =true;
-// Mapper()  
- }
-})
-// socket.on('Caller-Info', roomName=> {
- 
-//     console.log(roomName)  
-
-   
-//     })
-    
-
-// Submit //
-
+// -------------------------------------changeZ() Function------------------------------
+// This function is intended to change a Value Z to rotate between turns
+// This takes advantage of socket.emit feature
+//  Socket.emit sends information from player 1 to player 2
+// The first player to make a move, locks his z value at 1(meaning he can't move)
+// This is unlocked as soon as he gets a successful transmission from player 2 
 function changeZ () {
-
-
     z===1;
     Info.state =0 ;
     Indicator()
@@ -456,26 +458,52 @@ console.log('hello')
 function EndGame(x){
 
 
+ if (x===0){
+
+console.log('You were Checkmated') 
+
+ socket.emit('checked','You win via Checkmate')
+ socket.emit('checkmate')
+
+}
+
 if (x===1){
 
-   console.log('checkmate') 
+   console.log('No valid movements for you') 
+   socket.emit('checked','Opponent has no valid moves left: Stalemate')
+   socket.emit('checkmate')
+
+
 }
 else if (x===2){
 
-    console.log('stalemate')
+    console.log('not enough pieces for you to win')
+    socket.emit('checked','xyz')
+    RedAlert = true;
+
+
 } else if (x==3){
 
-   console.log('no valid movements left')
+   console.log('Not enough pieces for you OR them')
+   socket.emit('checked','Stalemate')
+   socket.emit('checkmate')
 
 } else if (x==4){
 console.log('too much repetition')
+socket.emit('checkmate')
+}
+
+
+
+
 
 }
 
 
-socket.emit('closure', (disco))
+document.getElementById('exiter').addEventListener('click',()=>{
 
 
-}
+EndGame(2)
 
 
+})
