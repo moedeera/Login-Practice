@@ -2,14 +2,14 @@
 var RedAlert = false 
 const boxes = document.querySelectorAll(".box")
 var connection = false
-console.log('HELLO')
+
 
 socket.on('start',(data)=>{
 
     connection = data;
     
     })
-
+///////////////////////GAME RELATED TRANSMISSIONS FROM SOCKET.IO/////////////////
 // Receives movement information on the Chess Game from other player
 socket.on('Chess-Game', (data) => {
 console.log(data)
@@ -43,7 +43,7 @@ EndGame(3)
 })
 
 
-
+/////////////////////////////////// VARIABLES FOR MAP ////////////////////
 var q =1;
 var q0 =10;
 var k = 2;
@@ -53,29 +53,72 @@ var two= 10;
 var Player = 10;
 var state = 0;
 var prev;
-//get username and room 
+var Map = [
+
+    8,6,4,q,k,4,6,8,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    80,60,40,q0,k0,40,60,80,
+    ]
+//////////////////////////// VARIABLES FOR TURN-CONTROL ////////////////////
 
 var start = false ;
 var turn = 1;
-
 var  z = 0
+/////////////////// INFO OBJECT CONTROLS GAME LOGISTIC
+const Info = {
 
-var Map = [
+    player:"",
+    state:"",
+    map:"",
+    turn:""
+    
+    }
+    
+    Info.player =10;
+    Info.state = 0;
+    Info.map = Map;
+    Info.turn = 1;
+////////////////////////// VARIABLE TO CONTROL  GAME FLOW //////////////
 
-    8,6,4,k,q,4,6,8,
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
-    80,60,40,k0,q0,40,60,80,
-    ]
-
-// 2 player configuration 
+// Castle variables
+var WhiteRookMovement10 = 0;
+var WhiteKingMovement10 = 0; 
+var BlackRookMovement1 = 0;
+var BlackKingMovement1 = 0; 
+// Pinned Variables
+var WhitePinned10 = []
+var BlackedPinned1 = []
+// PieceMovements
+var PieceMovements =[]
+var PieceKills =[]
+//Check Control
+let UnderCheck = false 
+// Game Board 
+let GameCounter = {
+WR10 : WhiteKingMovement10,
+WK10 : WhiteRookMovement10,
+BR10 : BlackKingMovement1,
+BR1  : BlackRookMovement1,
+WPinned10 : WhitePinned10,
+BPinned1: BlackedPinned1,
+PM : PieceMovements,
+PK : PieceKills,
+Check: false,
+}
+//////////////////////////////// RESET OF GAME CONFIGURATION /////////////////////
+/// THIS IS FOR WHEN THE GAME NEEDS TO BE RESET
 socket.on('reset', (msg)=>{
 
     console.log(msg)
+if(msg==='guest exited'){
+    guest.innerHTML = 'waiting.....'
+    guest.style.color='green'
+}
      connection = false
      start = false ;
      turn = 1;
@@ -102,42 +145,22 @@ socket.on('reset', (msg)=>{
 
   })  
     
-
-
-
-
 // -------------------------------------changeZ() Function------------------------------
 // This function is intended to change a Value Z to rotate between turns
 // This takes advantage of socket.emit feature
 //  Socket.emit sends information from player 1 to player 2
 // The first player to make a move, locks his z value at 1(meaning he can't move)
-// This is unlocked as soon as he gets a successful transmission from player 2 
+// The second player to make a move gets a transmission that locks him from moving
+//   the team player 1 already moved. 
+// Player 1 is unlocked as soon as he gets a successful transmission from player 2 
 function changeZ () {
     z===1;
     Info.state =0 ;
     Indicator()
-    
-}
+    }
 
-
-
-
-const Info = {
-
-player:"",
-state:"",
-map:"",
-turn:""
-
-}
-
-Info.player =10;
-Info.state = 0;
-Info.map = Map;
-Info.turn = 1;
-
-
-
+/////////////////////////// TESTING-RELATED-FUNCTION ///////////////
+// This function is for the sole purpose of testing in development stages
 
 
 function Indicator () {
@@ -146,24 +169,28 @@ if (z===1){
 
     if (Info.state === 0){document.getElementById("turn").innerHTML = " Nothing picked"}
     else if (Info.state === 1){document.getElementById("turn").innerHTML = " Valid Option picked"}
-    else if (Info.state === 2){document.getElementById("turn").innerHTML = " Submitted"}
+    else if (Info.state === 2){document.getElementById("turn").innerHTML = `
+    <div>submitted<div> <div> ${Map} <div>`}
 } else if (z===0){
 
     document.getElementById("turn").style.background = "coral"
     if (Info.state === 0){document.getElementById("turn").innerHTML = " Nothing picked"}
     else if (Info.state === 1){document.getElementById("turn").innerHTML = " Valid Option picked"}
-    else if (Info.state === 2){document.getElementById("turn").innerHTML = " Submitted"}
+    else if (Info.state === 2){document.getElementById("turn").innerHTML = `submitted ${Map}`}
 }
 }
-// var inc =1 ;
+/////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+/////////////// LOADS CHESS MAP ON LOADING OF PAGE ///////////////////
 window.addEventListener('DOMContentLoaded', Mapper);
 
-console.log('current turn is', turn)
+
 
 document.querySelector(".board").addEventListener('click', (e)=> {
 
-console.log(`z value is ${z}, Info state is ${Info.state} `)
+// console.log(`z value is ${z}, Info state is ${Info.state} `)
 
 
 if (connection===true){
@@ -174,17 +201,16 @@ if (z===1 || start === false ){
     PlayGame(e);
 if (Info.state===2){
    
-// socket.emit('Info', Info, room)
+
 
 const playerName = username
 const game = 's game'
 // const roomName = username.concat(game)
 socket.emit('Chess-Game', Info)
-// socket.emit('Calls', `public log ${inc}`)
-// inc++;
+
 z = 0;
   Indicator()
-console.log('z value: ',z, 'start: ', start)
+
 
 }
 
@@ -198,8 +224,7 @@ console.log('z value: ',z, 'start: ', start)
 
     console.log('wait for a connection')
 }
-// OutPut(Info.map)
-// Mapper()
+
 })
 
 
@@ -249,11 +274,11 @@ if (Map[j]===60){
          boxes[j].style.color ="white";                          
             }                                       
          if (Map[j]===k0){                               
-            boxes[j].innerHTML ="&#9813;";
+            boxes[j].innerHTML ="&#9812;";
             boxes[j].style.color ="white";                                   
             }                                             
             if (Map[j]===q0){                                        
-                boxes[j].innerHTML ="&#9812;";
+                boxes[j].innerHTML =" &#9813;";
                 boxes[j].style.color ="white";     //   
             }
                 if (Map[j]===8){                                                        
@@ -269,11 +294,11 @@ if (Map[j]===60){
                             boxes[j].style.color ="black";                                                   
                              }                                                            
                              if (Map[j]===k){                                                                      
-                                boxes[j].innerHTML ="&#9819;";  
+                                boxes[j].innerHTML ="&#9818";  
                                 boxes[j].style.color ="black";                                                          
                                   }                                                                  
                                 if (Map[j]===q){                                                                        
-                                    boxes[j].innerHTML ="&#9818;"; 
+                                    boxes[j].innerHTML ="&#9819;"; 
                                     boxes[j].style.color ="black";                                                                  
                                     }                                                                         
                                  }  
@@ -297,7 +322,16 @@ function PlayGame(e){
                   console.log(' static')
                         // Condition 1A: static and picks a non conflating number 
                         if (Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
-                        console.log('condition 1A')
+                        
+                      var Piece = PieceMovement(Map[j],j, 'move') 
+                      var PieceMovements = Piece.ValidMovements
+                      var PieceKills = Piece.ValidKills
+                      console.log('Valid Moves: ',PieceMovements,'Valid Kills:', PieceKills )
+
+
+
+                      
+                     
                         boxes[j].style.opacity = "0.3"
                         prev = j;
                          Info.state = 1;
@@ -316,12 +350,12 @@ function PlayGame(e){
              
              // Condition 2: dynamic
              else if (Info.state===1  ){
-                console.log('dynamic')
+                
 
                                 // Condition 2A: dynamic and picks a non conflating number 
                                  if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
-// 2 conditions 
-                                // console.log('cond 3')
+
+                                
                                  Clear()
                                  boxes[j].innerHTML = boxes[prev].innerHTML
                                  boxes[prev].innerHTML = "";
@@ -336,7 +370,7 @@ function PlayGame(e){
                                  Indicator()
                                  Info.state = 2;
                                  Info.player =2;
-                                console.log('condition 2A')
+                                // PieceMovement(Map[j],j) 
                 }
                           // Condition 2B: dynamic and picks a  conflating number                 
                                   else if ( Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0) {
@@ -356,10 +390,15 @@ function PlayGame(e){
         if(e.target===boxes[j]){
                        // Condition 1 Static
                        if(Info.state===0 ){
-
+                       
                                  // Condition 1A: static and picks a non conflating number 
                                   if (Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
-                                       console.log('condition 2A for player 2')
+                                    //    console.log('condition 2A for player 2')
+
+                                    var Piece = PieceMovement(Map[j],j, 'move') 
+                      var PieceMovements = Piece.ValidMovements
+                      var PieceKills = Piece.ValidKills
+                      console.log('Valid Moves: ',PieceMovements,'Valid Kills:', PieceKills )
                                        boxes[j].style.opacity = "0.3"
                                        prev = j;
                                        Info.state = 1;
@@ -383,18 +422,23 @@ function PlayGame(e){
                                      Clear()
                                      // Condition 2 Dynamic and a proper selection
                                if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
+                                       
+
+                                       
                                        boxes[j].innerHTML = boxes[prev].innerHTML
                                        boxes[prev].innerHTML = "";
                                        Map[j]=Map[prev]
                                        Map[prev]=0;
-                                       console.log(Map)
+                                    //    console.log(Map)
                                        Mapper()
                                        Info.map = Map;
                                        Info.state = 2;
                                        Info.player =10;
                                        z =1;
                                        Indicator()
-                                       Info.turn = 1;              
+                                       Info.turn = 1;    
+                                       
+                                       
                                                    }
                                     // Condition 2 Dynamic and not proper selection
                             else if(Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k) {
@@ -509,3 +553,47 @@ EndGame(2)
 
 
 })
+
+
+
+
+function PieceMovement(Piece,MapSpot,action){
+
+if (Piece === 10){
+WhiteKingMovement10++
+console.log(WhiteKingMovement10)
+}
+else if (Piece === 1){
+BlackKingMovement1++ 
+console.log(BlackKingMovement1)   
+}
+else if (Piece === 80){
+ WhiteRookMovement10++
+ console.log(WhiteRookMovement10)   
+}
+else if (Piece===8){
+BlackRookMovement1++
+console.log(BlackRookMovement1)
+}
+
+    console.log(Piece,MapSpot)
+
+PieceInfo=  {
+    WR10 : 0,
+    WK10 : 0,
+    BR10 : 0,
+    BR1  : 0,
+    WPinned10 : WhitePinned10,
+    BPinned1: BlackedPinned1,
+    ValidMovements :Actuator(Piece,MapSpot,action,'hello') ,
+    ValidKills : [10,11],
+    Check: false,
+    }
+
+
+return PieceInfo
+    //////// PieceIncrement //////
+
+
+
+}
