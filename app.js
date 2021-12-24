@@ -301,6 +301,7 @@ else if (msg==='xyz'){
         console.log('player removed', Games)
         io.emit('game-board', (Games))
         io.to(Games[j].gameRoom).emit('reset', 'guest exited')
+        io.to(Games[j].gameRoom).emit('send-data','Guest Exited')
  }}
  
   
