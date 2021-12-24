@@ -56,12 +56,12 @@ var prev;
 var Map = [
 
     8,0,0,0,k,0,0,8,
+    0,0,0,0,40,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,
+    0,0,0,6,4,0,0,0,
     80,0,0,0,k0,0,0,80,
     ]
 
@@ -112,10 +112,13 @@ const Info = {
 ////////////////////////// VARIABLE TO CONTROL  GAME FLOW //////////////
 
 // Castle variables
-var WhiteRookMovement10 = 0;
-var WhiteKingMovement10 = 0; 
-var BlackRookMovement1 = 0;
-var BlackKingMovement1 = 0; 
+var WhiteRookMovement20 = 0;
+var WhiteRookMovement20F = 0;
+var WhiteKingMovement20 = 0; 
+
+var BlackRookMovement2 = 0;
+var BlackRookMovement2F = 0;
+var BlackKingMovement2 = 0; 
 // Pinned Variables
 var WhitePinned10 = []
 var BlackedPinned1 = []
@@ -126,10 +129,10 @@ var PieceKills =[]
 let UnderCheck = false 
 // Game Board 
 let GameCounter = {
-WR10 : WhiteKingMovement10,
-WK10 : WhiteRookMovement10,
-BR10 : BlackKingMovement1,
-BR1  : BlackRookMovement1,
+WR10 : WhiteKingMovement20,
+WK10 : WhiteRookMovement20,
+BR10 : BlackKingMovement2,
+BR1  : BlackRookMovement2,
 WPinned10 : WhitePinned10,
 BPinned1: BlackedPinned1,
 PM : PieceMovements,
@@ -396,6 +399,20 @@ function PlayGame(e){
                                  Indicator()
                                  Info.state = 2;
                                  Info.player =2;
+
+                                 // King Castle Management White
+                                 if (Map[j]===20){
+                                     WhiteKingMovement20++
+                                 }
+                                 else if (Map[j]===80 && prev===63){
+                                   WhiteRookMovement20++
+                                } 
+                                else if (Map[j]===80 && prev===56){
+                                    console.log('it happened')
+                                    WhiteRookMovement20F++
+                                 } 
+
+
                                 // PieceMovement(Map[j],j) 
                 }
                           // Condition 2B: dynamic and picks a  conflating number                 
@@ -462,7 +479,19 @@ function PlayGame(e){
                                        Info.player =10;
                                        z =1;
                                        Indicator()
-                                       Info.turn = 1;    
+                                       Info.turn = 1;  
+                                          // King Castle Management White
+                                 if (Map[j]===2){
+                                   BlackKingMovement2++;
+                                }
+                                else if (Map[j]===8 && prev===7){
+                                  BlackRookMovement2++
+                               } 
+                               else if (Map[j]===8 && prev===0){
+                                   
+                                   BlackRookMovement2F++
+                                } 
+ 
                                        
                                        
                                                    }
@@ -585,31 +614,17 @@ EndGame(2)
 
 function PieceMovement(Piece,MapSpot,action){
 
-if (Piece === 10){
-WhiteKingMovement10++
-console.log(WhiteKingMovement10)
-}
-else if (Piece === 1){
-BlackKingMovement1++ 
-console.log(BlackKingMovement1)   
-}
-else if (Piece === 80){
- WhiteRookMovement10++
- console.log(WhiteRookMovement10)   
-}
-else if (Piece===8){
-BlackRookMovement1++
-console.log(BlackRookMovement1)
-}
 
     console.log(Piece,MapSpot)
 var solution= Actuator(Piece,MapSpot,action,'hello')
 
 PieceInfo=  {
-    WR10 : 0,
-    WK10 : 0,
-    BR10 : 0,
-    BR1  : 0,
+    WK20 : WhiteKingMovement20,
+    WR80 : WhiteRookMovement20,
+    WR82: WhiteRookMovement20F,
+    BK2 : BlackKingMovement2,
+    BK8  : BlackRookMovement2,
+    BK82  : BlackRookMovement2F,
     WPinned10 : WhitePinned10,
     BPinned1: BlackedPinned1,
     ValidMovements : solution.move,

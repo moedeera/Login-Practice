@@ -2,6 +2,10 @@ console.log('movements')
 
 
 
+var CheckSpotsW = []
+var CheckSpotsB = []
+
+
 var Matrix =[
     [1,8],[2,8],[3,8],[4,8],[5,8],[6,8],[7,8],[8,8],
     [1,7],[2,7],[3,7],[4,7],[5,7],[6,7],[7,7],[8,7],
@@ -37,8 +41,8 @@ else if (piece===80||piece===8){
 
 
 
-else 
-solution = [5,6,8,33,45]
+
+
 
 
 const solution =  {move:Transfer, kills:Kills}
@@ -61,13 +65,33 @@ return solution
     var x = Matrix[z][0];
     var y = Matrix[z][1];
 var Transfer =[]
-var Killspot =[5,11]
+var Killspot =[]
+var ChessMap = Map
 if (action==='move') {
       
 
 if (piece===20){
+    //Near-Side Castle
+ if (
+     ChessMap[62]===0 &&
+      ChessMap[61]===0 &&
+       WhiteKingMovement20===0 &&
+       WhiteRookMovement20===0
+       ){  Transfer.push(62)}   
+       //Far Side Castle
+       if (
+        ChessMap[59]===0 &&
+        ChessMap[58]===0 &&
+        ChessMap[57]===0 &&
+         
+          WhiteKingMovement20===0 &&
+          WhiteRookMovement20F===0
+          ){  Transfer.push(58)}   
+
+
+// Valid Movements and Kills
   for (var j=0; j<64; j++){
-   
+  
 
 if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y-1&& Matrix[j][0]===x ||
@@ -78,12 +102,40 @@ if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y+1 && Matrix[j][0]===x-1||
     Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
 
-         {if (Map[j]===0){
-                                    Transfer.push(j)
-                                }}
+         {if (Map[j]===0)
+            {Transfer.push(j)}
+          if(ChessMap[j]===6||ChessMap[j]===5||ChessMap[j]===4||ChessMap[j]===3||ChessMap[j]===8)
+          { Killspot.push(j)}                                        
+                             
+                            
+                            
+                            
+                            }
 
  }}        
 else if (piece===2){
+    //Near-Side Castle
+    if (
+        ChessMap[6]===0 &&
+         ChessMap[5]===0 &&
+         BlackKingMovement2===0 &&
+         BlackRookMovement2===0
+          ){  Transfer.push(6)}   
+          //Far Side Castle
+          if (
+           ChessMap[1]===0 &&
+           ChessMap[2]===0 &&
+           ChessMap[3]===0 &&
+            
+            BlackKingMovement2===0 &&
+             BlackRookMovement2F===0
+             ){  Transfer.push(2)}   
+   
+
+
+
+
+
     for (var j=0; j<64; j++){
    
 
@@ -96,9 +148,12 @@ else if (piece===2){
         Matrix[j][1]===y+1 && Matrix[j][0]===x-1||
         Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
     
-             {if (Map[j]===0){
-                                        Transfer.push(j)
-                                    }}
+             {if (Map[j]===0)
+                { Transfer.push(j) }
+            else if(ChessMap[j]===60||ChessMap[j]===50||ChessMap[j]===40||ChessMap[j]===30||ChessMap[j]===80)
+                { Killspot.push(j)}                     
+                                       
+                                   }
 
 
 
