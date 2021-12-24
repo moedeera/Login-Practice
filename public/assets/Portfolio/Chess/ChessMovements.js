@@ -12,43 +12,62 @@ var Matrix =[
     [1,2],[2,2],[3,2],[4,2],[5,2],[6,2],[7,2],[8,2],
     [1,1],[2,1],[3,1],[4,1],[5,1],[6,1],[7,1],[8,1]
     ]
-    
+
 function Actuator (piece,position,action,information){
-var solution = []
+
+
+    
+    var Transfer = []
+    var Kills= [5,11]
+// King Movements    
 if (piece===20||piece===2){
- var solution = kingMovement(piece,position, action, information)
-   
-} else 
+
+var options =kingMovement(piece,position, action, information)
+
+ Transfer =  options.Transfer
+ Kills = options.Kills
+}
+// Rook Movements
+else if (piece===80||piece===8){
+
+  var options  =  RookMovement(piece,position,action,information)
+    Transfer= options.Transfer
+     Kills =options.Kills
+}
+
+
+
+else 
 solution = [5,6,8,33,45]
 
 
-return  solution
+const solution =  {move:Transfer, kills:Kills}
+
+return solution
 }
 
 
 
 
 
-// Movement Functions
 
 
 
-////// Functions Kings
-
-    function kingMovement(piece,position, action, Information){
-
-// var CheckSpotsW  = GetCheckSpots.white()
-// var CheckSpotsW  = GetCheckSpots.black()
 
 
+////////////////////////////////////////////// Functions //////////////////////
+//////Kings
+ function kingMovement(piece,z, action, Information){
+    var x = Matrix[z][0];
+    var y = Matrix[z][1];
 var Transfer =[]
+var Killspot =[5,11]
 if (action==='move') {
       
 
 if (piece===20){
   for (var j=0; j<64; j++){
-    var x = Matrix[position][0];
-    var y = Matrix[position][1];
+   
 
 if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y-1&& Matrix[j][0]===x ||
@@ -66,8 +85,7 @@ if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
  }}        
 else if (piece===2){
     for (var j=0; j<64; j++){
-    var x = Matrix[position][0];
-    var y = Matrix[position][1];
+   
 
     if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
         Matrix[j][1]===y-1&& Matrix[j][0]===x ||
@@ -85,26 +103,70 @@ else if (piece===2){
 
 
 
-}}
-        }                               
+
+
+}} } 
+       const solution =   {Transfer:Transfer, Kills:Killspot}                     
+return solution
+    }
+
+/////////////////////////Rook Movement Function ////////////////////////
+function RookMovement (piece,z,action,Information){
+var Transfer =[]
+var Killspot = [5,11]
+    var brk  = 0 ;  
+    var brk2 = 0 ;
+    var brk3 = 0 ;
+    var brk4 = 0;
+
+    var x = Matrix[z][0];
+    var y = Matrix[z][1];
+
+
+    if (action==='move'){
+
+///////////////////////[MOVEMENT TYPE 1:  TOWARDS RIGHT]
+for (var j=z; j<64; j++){
+    if(brk===1){break;}
+    
+    
+     for (var n=1; n<8; n++) {
+    if (Matrix[j][0]===x+n && Matrix[j][1]===y)
+    {
+     if (Map[j]!==0){
+     Killspot.push(j)    
+     brk = 1;
+     break;
+        }
+    if(Map[j]===0){Transfer.push(j)}}
+    }
+    }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-return Transfer
 
 
     }
+
+    const solution =   {Transfer:Transfer, Kills:Killspot}                     
+    return solution
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

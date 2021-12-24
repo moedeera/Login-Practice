@@ -55,15 +55,41 @@ var state = 0;
 var prev;
 var Map = [
 
-    8,6,4,q,k,4,6,8,
+    8,0,0,0,k,0,0,8,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
-    80,60,40,q0,k0,40,60,80,
+    80,0,0,0,k0,0,0,80,
     ]
+
+var CheckSpots = [
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,
+]
+
+    // var Map = [
+
+    //     8,6,4,q,k,4,6,8,
+    //     0,0,0,0,0,0,0,0,
+    //     0,0,0,0,0,0,0,0,
+    //     0,0,0,0,0,0,0,0,
+    //     0,0,0,0,0,0,0,0,
+    //     0,0,0,0,0,0,0,0,
+    //     0,0,0,0,0,0,0,0,
+    //     80,60,40,q0,k0,40,60,80,
+    //     ]
+
+
+
 //////////////////////////// VARIABLES FOR TURN-CONTROL ////////////////////
 
 var start = false ;
@@ -577,6 +603,7 @@ console.log(BlackRookMovement1)
 }
 
     console.log(Piece,MapSpot)
+var solution= Actuator(Piece,MapSpot,action,'hello')
 
 PieceInfo=  {
     WR10 : 0,
@@ -585,8 +612,8 @@ PieceInfo=  {
     BR1  : 0,
     WPinned10 : WhitePinned10,
     BPinned1: BlackedPinned1,
-    ValidMovements :Actuator(Piece,MapSpot,action,'hello') ,
-    ValidKills : [10,11],
+    ValidMovements : solution.move,
+    ValidKills : solution.kills ,
     Check: false,
     }
 
