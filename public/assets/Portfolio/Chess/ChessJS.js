@@ -21,12 +21,13 @@ socket.on('send-data',(data)=>{
 
 
 socket.on('guest-host-data',(game,username)=>{
-  console.log('some-one joined', game, username)
+  // console.log('some-one joined', game, username)
 
 
 
 
 guest.innerHTML=username
+guest.style.color='black';
 
 
 
@@ -44,6 +45,8 @@ let game =
 `${document.getElementById('username').value}`
 
 host.innerHTML=username
+guest.innerHTML = 'waiting.....'
+guest.style.color='green'
 
 socket.emit('create-game', { game, username })
 
@@ -61,8 +64,8 @@ if (document.getElementById('username').value==='') {
   username =document.getElementById('username').value;
 }
 
-console.log(document.getElementById('username').value)
-console.log(e.target.id, username)
+// console.log(document.getElementById('username').value)
+// console.log(e.target.id, username)
 
 if (e.target.className==='join'){
   let game = `${e.target.id}`
@@ -89,7 +92,7 @@ socket.emit('join-game',{game, username})
 // Update board with new games and
 socket.on('game-board', (data) => {
   if (data.length>0){
-console.log('hey', data[0].type)
+// console.log('hey', data[0].type)
   
     // console.log(data[0].player.game, data[0].player.name, data[0].count)
 
