@@ -12,11 +12,14 @@ var gameName = '';
 
 socket.on('message', message => {
 console.log(message)
+
+
 })
 
 socket.on('send-data',(data)=>{
 
   console.log(data)
+  document.getElementById('userdata').innerText = `${data}`
 })
 
 
@@ -214,40 +217,6 @@ socket.emit('closure', (disco))
     })
   
   
-    document.querySelector(".board").addEventListener('click', (e)=> {
-
-      console.log(`z value is ${z}, Info state is ${Info.state} `)
-      
-      if (z===1 || start === false ){   
-           start = true
-          Indicator()
-          PlayGame(e);
-      if (Info.state===2){
-         
-      socket.emit('Info', Info, room)
-      
-      const playerName = username
-      const game = 's game'
-      const roomName = username.concat(game)
-      socket.emit('Call-Info', playerName,roomName, Info)
-      // socket.emit('Calls', `public log ${inc}`)
-      // inc++;
-      z = 0;
-        Indicator()
-      console.log('z value: ',z, 'start: ', start)
-      
-      }
-      
-      }
-      
-       else {
-          
-          // console.log('z value: ',z, 'start: ', start)
-          alert('not your turn')
-      }
-      // OutPut(Info.map)
-      // Mapper()
-      })
-      
+  
 
      
