@@ -162,7 +162,7 @@ for (var j=0; j<data.length; j++){
         console.log('condition a')
 
 
-console.log(data[j])
+
   
 const div = document.createElement("div");
 div.innerHTML = `

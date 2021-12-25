@@ -122,12 +122,15 @@ if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y+1 && Matrix[j][0]===x-1||
     Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
 
-         {if (Map[j]===0)
-            {  const NoGo = CheckSpotsW.Bishop.some((unit)=>unit===j)
-                if (!NoGo){ Transfer.push(j)}
+         {const NoGo = CheckSpotsW.Bishop.some((unit)=>unit===j)
+               
+             
+            if (Map[j]===0)
+            {   if (!NoGo){ Transfer.push(j)}
                }
           if(ChessMap[j]===6||ChessMap[j]===5||ChessMap[j]===4||ChessMap[j]===3||ChessMap[j]===8)
-          { Killspot.push(j)}                                        
+          { if (!NoGo){ Killspot.push(j)}
+             }                                        
                              
                             
                             
@@ -155,11 +158,12 @@ else if (piece===2){
    
 
 
-
-
+           
 
     for (var j=0; j<64; j++){
    
+  const NoGo2 = CheckSpotsB.Bishop.some((unit)=>unit===j)
+               
 
     if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
         Matrix[j][1]===y-1&& Matrix[j][0]===x ||
@@ -171,9 +175,15 @@ else if (piece===2){
         Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
     
              {if (Map[j]===0)
-                { Transfer.push(j) }
+                {
+                    if (!NoGo2){
+                    Transfer.push(j) }}
             else if(ChessMap[j]===60||ChessMap[j]===50||ChessMap[j]===40||ChessMap[j]===30||ChessMap[j]===80)
-                { Killspot.push(j)}                     
+                { 
+                    if (!NoGo2){
+                       Killspot.push(j)  
+                    }
+                   }                     
                                        
                                    }
 
