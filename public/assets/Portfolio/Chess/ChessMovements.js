@@ -2,9 +2,29 @@ console.log('movements')
 
 
 
-var CheckSpotsW = []
-var CheckSpotsB = []
+var CheckSpotsW = 
+{
 
+    Rooks:[8,16,24,32,40,48,56,7,15,23,31,39,47,55],
+    Queens:[],
+    Knight:[],
+    Bishop:[61,59],
+    Pawn:[],
+    
+    
+    }
+    
+
+var CheckSpotsB = {
+
+    Rooks:[8,16,24,32,40,48,56,7,15,23,31,39,47,55],
+    Queens:[],
+    Knight:[],
+    Bishop:[3,5],
+    Pawn:[],
+    
+    
+    }
 
 var Matrix =[
     [1,8],[2,8],[3,8],[4,8],[5,8],[6,8],[7,8],[8,8],
@@ -103,7 +123,9 @@ if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
 
          {if (Map[j]===0)
-            {Transfer.push(j)}
+            {  const NoGo = CheckSpotsW.Bishop.some((unit)=>unit===j)
+                if (!NoGo){ Transfer.push(j)}
+               }
           if(ChessMap[j]===6||ChessMap[j]===5||ChessMap[j]===4||ChessMap[j]===3||ChessMap[j]===8)
           { Killspot.push(j)}                                        
                              
