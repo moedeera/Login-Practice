@@ -203,11 +203,7 @@ console.log(Games)
 
 
 })
-
-
-
-
-                    //test emissions
+                   //test emissions
   console.log('new connection ')
   //emit to everyone
   socket.emit('message', `welcome to Chess Game User ${socket.id}`)
@@ -287,19 +283,30 @@ else if (msg==='xyz'){
   
   //User disconnects
   socket.on('disconnect',()=>{
+
+
     io.emit('message', `user ${socket.id} has left`)
-Games = Games.filter((x)=>{
-if(x.player.id!==socket.id){
-return x
-}
 
-})
-    console.log(Games)
+    for (var j=0; j<Games.length; j++){
+      if(Games[j].player.id===socket.id){
+        io.to(Games[j].gameRoom).emit('reset', 'Host ended game')
+      Games.splice(j,1)
+      console.log('game removed', Games)
+      io.emit('game-board', (Games))   
+      }
 
-    io.emit('game-board', (Games))
-  })
+ else if (Games[j].player2.id===socket.id){
+        Games[j].player2=''
+        Games[j].type = 'wait'
+        console.log('player removed', Games)
+        io.emit('game-board', (Games))
+        io.to(Games[j].gameRoom).emit('reset', 'guest exited')
+        io.to(Games[j].gameRoom).emit('send-data','Guest Exited')
+ }}
+ 
+  
 });
-
+})
 // const MongoStore = require ('connect-mongo')(session);
 
 app.use(morgan('dev'))
