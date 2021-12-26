@@ -564,6 +564,7 @@ function EndGame(x){
 console.log('You were Checkmated') 
 
  socket.emit('checked','You win via Checkmate')
+ alert('You were Checkmated')
  socket.emit('checkmate')
 
 }
@@ -571,6 +572,7 @@ console.log('You were Checkmated')
 if (x===1){
 
    console.log('No valid movements for you') 
+   alert('No movements for you: Stalemate')
    socket.emit('checked','Opponent has no valid moves left: Stalemate')
    socket.emit('checkmate')
 

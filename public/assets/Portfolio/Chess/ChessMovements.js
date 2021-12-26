@@ -10,6 +10,10 @@ var CheckSpotsW =
     Knight:[],
     Bishop:[61,59],
     Pawn:[],
+    Count:4,
+    UnderCheck:false,
+    EnoughPiecesToCheckMate:true,
+    CastlePreventer:false
     
     
     }
@@ -22,6 +26,10 @@ var CheckSpotsB = {
     Knight:[],
     Bishop:[3,5],
     Pawn:[],
+    Count:0,
+    UnderCheck:false,
+    EnoughPiecesToCheckMate:true,
+    CastlePreventer:false
     
     
     }
@@ -87,7 +95,25 @@ return solution
 var Transfer =[]
 var Killspot =[]
 var ChessMap = Map
-if (action==='move') {
+
+
+//If its only piece left 
+if (piece===20 && CheckSpotsW.Count===1
+||  piece===2   && CheckSpotsB.Count===1
+    ){
+    EndGame(2)
+}
+// If neither team has enough to win
+else if (piece===20 && CheckSpotsW.Count===1
+    ||  piece===2   && CheckSpotsB.Count===1
+        ){
+
+    EndGame(3)
+}
+
+
+
+else if (action==='move') {
       
 
 if (piece===20){
@@ -96,7 +122,8 @@ if (piece===20){
      ChessMap[62]===0 &&
       ChessMap[61]===0 &&
        WhiteKingMovement20===0 &&
-       WhiteRookMovement20===0
+       WhiteRookMovement20===0 &&
+       CheckSpotsW.CastlePreventer===false
        ){  Transfer.push(62)}   
        //Far Side Castle
        if (
@@ -105,7 +132,8 @@ if (piece===20){
         ChessMap[57]===0 &&
          
           WhiteKingMovement20===0 &&
-          WhiteRookMovement20F===0
+          WhiteRookMovement20F===0 &&
+          CheckSpotsB.CastlePreventer===false
           ){  Transfer.push(58)}   
 
 
@@ -122,7 +150,8 @@ if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y+1 && Matrix[j][0]===x-1||
     Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
 
-         {const NoGo = CheckSpotsW.Bishop.some((unit)=>unit===j)
+         {const NoGo = CheckSpots(j,20)
+            
                
              
             if (Map[j]===0)
@@ -162,7 +191,7 @@ else if (piece===2){
 
     for (var j=0; j<64; j++){
    
-  const NoGo2 = CheckSpotsB.Bishop.some((unit)=>unit===j)
+        const NoGo = CheckSpots(j,2)
                
 
     if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
@@ -193,6 +222,24 @@ else if (piece===2){
 
 
 }} } 
+
+
+
+if (Transfer.length===0){
+//If it is under check with no valid moves left 
+if (piece===20 && CheckSpotsW.UnderCheck===true
+  ||piece===2  && CheckSpotsB.UnderCheck===true  
+    ){
+    EndGame(0)
+}
+//If its not under check but no valid moves options 
+else if (piece===20||piece===2){
+    EndGame(1)
+}
+}
+
+
+
        const solution =   {Transfer:Transfer, Kills:Killspot}                     
 return solution
     }
@@ -267,4 +314,38 @@ for (var j=z; j<64; j++){
 
 
         return true
+    }
+
+
+
+// The below function takes in a spot (x) and white/black king piece
+// and returns true if the spot is under direct fire from an 
+// opposing piece
+    function CheckSpots(x,piece){
+var spot  = false 
+
+if(piece===20){
+
+    spot = 
+    CheckSpotsW.Pawn.some((num)=>num===x)   ||
+    CheckSpotsW.Bishop.some((num)=>num===x) ||
+    CheckSpotsW.Knight.some((num)=>num===x) ||  
+    CheckSpotsW.Rooks.some((num)=>num===x)  ||  
+    CheckSpotsW.Queens.some((num)=>num===x)           
+
+} else if (piece===2){
+    spot = 
+    CheckSpotsB.Pawn.some((num)=>num===x)   ||
+    CheckSpotsB.Bishop.some((num)=>num===x) ||
+    CheckSpotsB.Knight.some((num)=>num===x) ||  
+    CheckSpotsB.Rooks.some((num)=>num===x)  ||  
+    CheckSpotsB.Queens.some((num)=>num===x)           
+
+
+}
+
+
+
+return spot
+
     }
