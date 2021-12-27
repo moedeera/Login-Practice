@@ -274,7 +274,7 @@ var Killspot =[]
 var ChessMap = Map
 for (var j=0; j<64; j++){
 ////////////////////////////////////////////////////////////////////////// White pawn movement//////////////////////////////////////////////////////
-if (ChessMap[z]===p0) { 
+if (ChessMap[z]===p) { 
     
     if (z>47&&ChessMap[z-8]===0){
         if (Matrix[j][1]===y+1&& Matrix[j][0]===x||Matrix[j][1]===y+2&& Matrix[j][0]===x){
@@ -290,7 +290,7 @@ if (ChessMap[z]===p0) {
     }
 //////////////////////////////////////////////////////////////////////////// Player 2 pawn//////////////////////////////////////////////////////
 
-    else if (ChessMap[z]===p) { 
+    else if (ChessMap[z]===p0) { 
      
     if (z<16&&ChessMap[z+8]===0){
     if (Matrix[j][1]===y-1&& Matrix[j][0]===x||Matrix[j][1]===y-2&& Matrix[j][0]===x){
