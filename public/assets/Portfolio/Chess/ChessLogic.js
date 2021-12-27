@@ -52,17 +52,20 @@ var one =1;
 var two= 10;
 var Player = 10;
 var state = 0;
+var p= 3;
+var p0 =30;
+
 var prev;
 var Map = [
 
-    8,0,0,0,k,0,0,8,
-    0,0,0,0,40,0,0,0,
+    8,0,3,0,k,0,0,8,
+    0,0,0,40,40,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,
-    0,0,0,6,4,0,0,0,
-    80,0,0,6,k0,0,0,80,
+    0,0,6,6,4,0,0,0,
+    80,0,30,6,k0,0,0,80,
     ]
 
 var CheckSpots = [
@@ -288,10 +291,11 @@ function Mapper (){
         if (Map[j]===0){      
             boxes[j].innerHTML ="";   
                        }
-     
-        
-  if (Map[j]===80){      
-     boxes[j].innerHTML ="&#9814;";   
+                       if (Map[j]===80){      
+                        boxes[j].innerHTML ="&#9814;";   
+                                   }
+    if (Map[j]===p0){      
+     boxes[j].innerHTML ="&#9817;";   
                 }
 
 if (Map[j]===60){  
@@ -310,6 +314,10 @@ if (Map[j]===60){
                 boxes[j].innerHTML =" &#9813;";
                 boxes[j].style.color ="white";     //   
             }
+            if (Map[j]===p){      
+                boxes[j].innerHTML ="&#9823;";   
+                boxes[j].style.color ="black";     
+                           }
                 if (Map[j]===8){                                                        
                     boxes[j].innerHTML ="&#9820;";  
                     boxes[j].style.color ="black";                                     
@@ -350,7 +358,8 @@ function PlayGame(e){
                  if(Info.state===0  ){
                   console.log(' static')
                         // Condition 1A: static and picks a non conflating number 
-                        if (Map[j]!==0 && Map[j]!==8 && Map[j]!==6  && Map[j]!==4  && Map[j]!==q  && Map[j]!==k ){
+                        if (Map[j]!==0 && Map[j]!==8 && Map[j]!==6  &&
+                             Map[j]!==4  && Map[j]!==q  && Map[j]!==k ||  Map[j]!==p ){
                         
                       var Piece = PieceMovement(Map[j],j, 'move') 
                       var PieceMovements = Piece.ValidMovements
@@ -368,7 +377,8 @@ function PlayGame(e){
                         Indicator();
                  // Option Lighter 
                      // Condition 1B: static and picks a conflating number 
-                     } else if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k ){
+                     } else if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || 
+                        Map[j]===q  || Map[j]===k ||  Map[j]===p){
                         console.log('its not your piece!')
                         Info.state = 0;
                          z = 1;} 
@@ -382,7 +392,9 @@ function PlayGame(e){
                 
 
                                 // Condition 2A: dynamic and picks a non conflating number 
-                                 if (Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k){
+                                 if (Map[j]===0 || Map[j]===8 || Map[j]===6
+                                 || Map[j]===4  || Map[j]===q  || Map[j]===k 
+                                 || Map[j]===p ||  Map[j]===p){
 
                                 
                                  Clear()
@@ -416,7 +428,9 @@ function PlayGame(e){
                                 // PieceMovement(Map[j],j) 
                 }
                           // Condition 2B: dynamic and picks a  conflating number                 
-                                  else if ( Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0) {
+                                  else if ( Map[j]===80 || Map[j]===60  ||
+                                     Map[j]===40  || Map[j]===q0  ||
+                                      Map[j]===k0  ||  Map[j]===p0) {
                                 Info.state = 0; 
                                 z =1;  
                                 console.log('condition 2B')
@@ -435,7 +449,10 @@ function PlayGame(e){
                        if(Info.state===0 ){
                        
                                  // Condition 1A: static and picks a non conflating number 
-                                  if (Map[j]!==0  && Map[j]!==80 && Map[j]!==60  && Map[j]!==40  && Map[j]!==q0  && Map[j]!==k0){
+                                  if (Map[j]!==0  && Map[j]!==80 && 
+                                    Map[j]!==60  && Map[j]!==40  && 
+                                    Map[j]!==q0  && Map[j]!==k0
+                                    &&  Map[j]!==p0){
                                     //    console.log('condition 2A for player 2')
 
                                     var Piece = PieceMovement(Map[j],j, 'move') 
@@ -449,7 +466,7 @@ function PlayGame(e){
                                        Indicator();
                             }  
                                   // Condition 1A: static and picks a non conflating number   
-                            else if (Map[j]===0  || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
+                            else if (Map[j]===0  || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0 ||  Map[j]===p0){
 
                                      console.log('its not your piece!')
                                      Info.state = 0;
@@ -464,7 +481,9 @@ function PlayGame(e){
                                      console.log('condition 2B')
                                      Clear()
                                      // Condition 2 Dynamic and a proper selection
-                               if (Map[j]===0 || Map[j]===80 || Map[j]===60  || Map[j]===40  || Map[j]===q0  || Map[j]===k0){
+                               if (Map[j]===0 || Map[j]===80 || Map[j]===60 
+                                 || Map[j]===40  || Map[j]===q0 
+                                  || Map[j]===k0 ||  Map[j]===p0){
                                        
 
                                        
@@ -496,7 +515,8 @@ function PlayGame(e){
                                        
                                                    }
                                     // Condition 2 Dynamic and not proper selection
-                            else if(Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4  || Map[j]===q  || Map[j]===k) {
+                            else if(Map[j]===0 || Map[j]===8 || Map[j]===6  || Map[j]===4 
+                                 || Map[j]===q  || Map[j]===k ||  Map[j]===p) {
                                        Info.state = 0;
                                        z = 1;    
                                       console.log('condition 2C')

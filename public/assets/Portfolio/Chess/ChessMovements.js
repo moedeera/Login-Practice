@@ -46,9 +46,7 @@ var Matrix =[
     ]
 
 function Actuator (piece,position,action,information){
-
-
-    
+ 
     var Transfer = []
     var Kills= [5,11]
 // King Movements    
@@ -59,6 +57,24 @@ var options =kingMovement(piece,position, action, information)
  Transfer =  options.Transfer
  Kills = options.Kills
 }
+// Pawn Movements
+if (piece===p||piece===p0){
+console.log('chosen pawn')
+var options = PawnMovement(piece,position,action,information)
+Transfer =  options.Transfer
+     Kills = options.Kills
+}
+
+
+if (piece===20||piece===2){
+
+    var options =kingMovement(piece,position, action, information)
+    
+     Transfer =  options.Transfer
+     Kills = options.Kills
+    }
+
+
 // Rook Movements
 else if (piece===80||piece===8){
 
@@ -88,6 +104,12 @@ return solution
 
 
 ////////////////////////////////////////////// Functions //////////////////////
+//// glossary
+//1.Kings function
+//2.Pawns function
+//3.Rooks function
+
+
 //////Kings
  function kingMovement(piece,z, action, Information){
     var x = Matrix[z][0];
@@ -243,6 +265,53 @@ else if (piece===20||piece===2){
        const solution =   {Transfer:Transfer, Kills:Killspot}                     
 return solution
     }
+///// Pawns
+function PawnMovement(piece,z,action,Information){
+    var x = Matrix[z][0];
+    var y = Matrix[z][1];
+var Transfer =[]
+var Killspot =[]
+var ChessMap = Map
+for (var j=0; j<64; j++){
+////////////////////////////////////////////////////////////////////////// White pawn movement//////////////////////////////////////////////////////
+if (ChessMap[z]===p0) { 
+    
+    if (z>47&&ChessMap[z-8]===0){
+        if (Matrix[j][1]===y+1&& Matrix[j][0]===x||Matrix[j][1]===y+2&& Matrix[j][0]===x){
+    if (ChessMap[j]===0){Transfer.push(j)}}
+    if (Matrix[j][1]===y+1&&Matrix[j][0]===x+1||Matrix[j][1]===y+1&&Matrix[j][0]===x-1){ if(ChessMap[j]===6||ChessMap[j]===8||ChessMap[j]===4||ChessMap[j]===3||ChessMap[j]===5){Killspot.push(j)}  }
+    
+    }
+    else {   
+        if (Matrix[j][1]===y+1&& Matrix[j][0]===x)
+      { if (ChessMap[j]===0){ Transfer.push(j)}}
+      if (Matrix[j][1]===y+1&&Matrix[j][0]===x+1||Matrix[j][1]===y+1&&Matrix[j][0]===x-1){ if(ChessMap[j]===6||ChessMap[j]===8||ChessMap[j]===4||ChessMap[j]===3||ChessMap[j]===5){Killspot.push(j)}  }
+        }
+    }
+//////////////////////////////////////////////////////////////////////////// Player 2 pawn//////////////////////////////////////////////////////
+
+    else if (ChessMap[z]===p) { 
+     
+    if (z<16&&ChessMap[z+8]===0){
+    if (Matrix[j][1]===y-1&& Matrix[j][0]===x||Matrix[j][1]===y-2&& Matrix[j][0]===x){
+    if (ChessMap[j]===0){Transfer.push(j)}}
+    if (Matrix[j][1]===y-1&&Matrix[j][0]===x+1||Matrix[j][1]===y-1&&Matrix[j][0]===x-1){ if(ChessMap[j]===60||ChessMap[j]===80||ChessMap[j]===40||ChessMap[j]===30||ChessMap[j]===50){Killspot.push(j)}  }     
+            }
+    else {   
+                if (Matrix[j][1]===y-1&& Matrix[j][0]===x)
+              { if (ChessMap[j]===0){ Transfer.push(j)}}
+    if (Matrix[j][1]===y-1&&Matrix[j][0]===x-1||Matrix[j][1]===y-1&&Matrix[j][0]===x+1){ if(ChessMap[j]===60||ChessMap[j]===80||ChessMap[j]===40||ChessMap[j]===30||ChessMap[j]===50){Killspot.push(j)}  }      
+                }
+        
+    }
+    
+ /////////   
+}
+
+const solution =   {Transfer:Transfer, Kills:Killspot}                     
+return solution
+
+}
 
 /////////////////////////Rook Movement Function ////////////////////////
 function RookMovement (piece,z,action,Information){
