@@ -173,6 +173,7 @@ if (Matrix[j][1]===y+1&& Matrix[j][0]===x ||
     Matrix[j][1]===y-1 && Matrix[j][0]===x+1)
 
          {const NoGo = CheckSpots(j,20)
+            // const MoveIsValid = (20,Map,j)
             
                
              
@@ -376,14 +377,6 @@ for (var j=z; j<64; j++){
 
 
 
-    function getClearSpots (){
-
-
-
-
-
-        return true
-    }
 
 
 
@@ -416,5 +409,26 @@ if(piece===20){
 
 
 return spot
+
+    }
+
+
+function CheckIfMoveValid(piece,map,destination){
+    
+    var x = Matrix[destination][0];
+    var y = Matrix[destination][1];
+
+if (Map[j]===8 || Map[j]===6  || Map[j]===4  || 
+Map[j]===q  || Map[j]===k ||  Map[j]===p){
+
+if (map[j]===){}
+
+}
+
+
+
+
+
+return true
 
     }
