@@ -55,14 +55,16 @@ function MainLogic(spot, piece) {
 }
 
 function CheckValidity(piece, destination, set) {
-  var truth = false;
+  var truth = true;
 
   var TestMap = [...Map];
 
   var kingSpot;
-  if (set === k) {
+
+  ///// black king
+  if (set === 2) {
     for (var j = 0; j < 64; j++) {
-      if (TestMap[j] === 20) {
+      if (TestMap[j] === 2) {
         kingSpot = j;
       }
     }
@@ -73,11 +75,13 @@ function CheckValidity(piece, destination, set) {
       //Checking for pawn checks
       if (
         (Matrix[j][1] === y - 1 && Matrix[j][0] == x - 1) ||
-        (Matrix[j][1] === y - 2 && Matrix[j][0] == x + 1)
+        (Matrix[j][1] === y - 1 && Matrix[j][0] == x + 1)
       ) {
-        console.log("truth");
+
+        if (TestMap[j] ===30){
+        console.log("condition 1 met", kingSpot,j);
         return false;
-        break;
+        break;}
       }
     }
   } else if (set === 20) {
@@ -91,12 +95,17 @@ function CheckValidity(piece, destination, set) {
     for (var j = 0; j < 64; j++) {
       //Checking for pawn checks
       if (
-        (Matrix[j][1] === y - 1 && Matrix[j][0] == x - 1) ||
-        (Matrix[j][1] === y - 2 && Matrix[j][0] == x + 1)
+        (Matrix[j][1] === y + 1 && Matrix[j][0] == x - 1) ||
+        (Matrix[j][1] === y + 1 && Matrix[j][0] == x + 1)
       ) {
-        console.log("truth");
+
+        if (TestMap[j]===3){
+            console.log("condition 2 met", kingSpot,j);
+       
         return false;
         break;
+        }
+      
       }
     }
   }

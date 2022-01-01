@@ -136,7 +136,7 @@ function Actuator(piece, position, action, information) {
   }
 
   const solution = { move: Transfer, kills: Kills };
-
+console.log(Map)
   return solution;
 }
 
@@ -315,8 +315,10 @@ function PawnMovement(piece, z, action, Information) {
         ) {
           if (ChessMap[j] === 0) {
             const viable = CheckValidity(p0, j, 20);
+            console.log(`spot ${j} viability is ${viable} `)
+              
             if (viable) {
-              Transfer.push(j);
+            Transfer.push(j);
             }
           }
         }
@@ -332,18 +334,23 @@ function PawnMovement(piece, z, action, Information) {
             ChessMap[j] === 1
           ) {
             const viable = CheckValidity(p0, j, 20);
+            console.log(`spot ${j} viability is ${viable} `)
+              
             if (viable) {
+              
               Transfer.push(j);
             }
           }
         }
       } else {
-        console.log("condition 2");
+        
         if (Matrix[j][1] === y + 1 && Matrix[j][0] === x) {
-          console.log("condition 2A");
+        
           if (ChessMap[j] === 0) {
-            console.log("condition 2AA");
+            
             const viable = CheckValidity(p0, j, 20);
+            console.log(`spot ${j} viability is ${viable} `)
+              
             if (viable) {
               Transfer.push(j);
             }
@@ -361,8 +368,11 @@ function PawnMovement(piece, z, action, Information) {
             ChessMap[j] === 1
           ) {
             const viable = CheckValidity(p0, j, 20);
+            console.log(`spot ${j} viability is ${viable} `)
+              
+            
             if (viable) {
-              console.log("condition 2BB");
+              
               Transfer.push(j);
             }
           }
@@ -372,17 +382,19 @@ function PawnMovement(piece, z, action, Information) {
   }
   //////////////////////////////////////////////////////////////////////////// Player 2 pawn//////////////////////////////////////////////////////
   else if (ChessMap[z] === p) {
-    console.log("Black pawn selected");
+    
     for (var j = 0; j < 64; j++) {
       // CheckIfMoveValid(piece, 34);
       if (z < 16 && ChessMap[z + 8] === 0) {
-        console.log("-16 condition ");
+        
         if (
           (Matrix[j][1] === y - 1 && Matrix[j][0] === x) ||
           (Matrix[j][1] === y - 2 && Matrix[j][0] === x)
         ) {
           if (ChessMap[j] === 0) {
             const viable = CheckValidity(p, j, 2);
+            console.log(`spot ${j} viability is ${viable} `)
+              
             if (viable) {
               Transfer.push(j);
             }
@@ -400,16 +412,20 @@ function PawnMovement(piece, z, action, Information) {
             ChessMap[j] === 10
           ) {
             const viable = CheckValidity(p, j, 2);
+            console.log(`spot ${j} viability is ${viable} `)
+              
             if (viable) {
               Transfer.push(j);
             }
           }
         }
       } else {
-        console.log("+16 condition ");
+       
         if (Matrix[j][1] === y - 1 && Matrix[j][0] === x) {
           if (ChessMap[j] === 0) {
             const viable = CheckValidity(p, j, 2);
+            console.log(`spot ${j} viability is ${viable} `)
+              
             if (viable) {
               Transfer.push(j);
             }
@@ -417,7 +433,10 @@ function PawnMovement(piece, z, action, Information) {
           if (
             (Matrix[j][1] === y - 1 && Matrix[j][0] === x - 1) ||
             (Matrix[j][1] === y - 1 && Matrix[j][0] === x + 1)
-          ) {
+          ) 
+          console.log(`spot ${j}`)
+          
+          {
             if (
               ChessMap[j] === 60 ||
               ChessMap[j] === 80 ||
@@ -426,6 +445,8 @@ function PawnMovement(piece, z, action, Information) {
               ChessMap[j] === 10
             ) {
               const viable = CheckValidity(p, j, 2);
+              console.log(`spot ${j} viability is ${viable} ** `)
+              
               if (viable) {
                 Transfer.push(j);
               }
@@ -437,10 +458,12 @@ function PawnMovement(piece, z, action, Information) {
 
     /////////
 
-    const solution = { Transfer: Transfer, Kills: Killspot };
-    return solution;
+   
   }
 
+  const solution = { Transfer: Transfer, Kills: Killspot };
+  return solution;
+}
   /////////////////////////Rook Movement Function ////////////////////////
   function RookMovement(piece, z, action, Information) {
     var Transfer = [];
@@ -503,4 +526,4 @@ function PawnMovement(piece, z, action, Information) {
 
     return spot;
   }
-}
+
