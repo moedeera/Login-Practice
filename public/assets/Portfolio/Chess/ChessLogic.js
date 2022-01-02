@@ -359,7 +359,7 @@ document.querySelector(".board").addEventListener("click", (e) => {
 // Functions
 
 function Mapper() {
-  // console.log('hey')
+  console.log("hey");
 
   for (var j = 0; j < 64; j++) {
     if (Map[j] === 0) {
@@ -486,22 +486,28 @@ function PlayGame(e) {
             Map[j] = Map[prev];
             Map[prev] = 0;
             Info.map = Map;
+            console.log(Map[j], j);
+            if (Map[j] === p0 && j === 4) {
+              console.log("protocol initiated");
+              Pawn();
+            } else {
+              Mapper();
+              z = 1;
+              Indicator();
+              Info.state = 2;
+              Info.player = 2;
+              if (Map[j] === 20) {
+                WhiteKingMovement20++;
+              } else if (Map[j] === 80 && prev === 63) {
+                WhiteRookMovement20++;
+              } else if (Map[j] === 80 && prev === 56) {
+                console.log("it happened");
+                WhiteRookMovement20F++;
+              }
+            }
             // console.log(Map[j],Map[prev])
-            Mapper();
-            z = 1;
-            Indicator();
-            Info.state = 2;
-            Info.player = 2;
 
             // King Castle Management White
-            if (Map[j] === 20) {
-              WhiteKingMovement20++;
-            } else if (Map[j] === 80 && prev === 63) {
-              WhiteRookMovement20++;
-            } else if (Map[j] === 80 && prev === 56) {
-              console.log("it happened");
-              WhiteRookMovement20F++;
-            }
 
             // PieceMovement(Map[j],j)
           }
@@ -711,4 +717,44 @@ function PieceMovement(Piece, MapSpot, action) {
 
   return PieceInfo;
   //////// PieceIncrement //////
+}
+
+/// Pawn  completed ////
+const PawnFinish = document.querySelector(".pawn-selection");
+const choice = document.querySelectorAll(".choice");
+const spot = 4;
+const spot0 = 60;
+
+PawnFinish.addEventListener("click", (e) => {
+  if (e.target === choice[0]) {
+    PawnSelection(q0, spot0);
+    console.log("queen was selected");
+  } else if (e.target === choice[1]) {
+    console.log("Rook was selected");
+    PawnSelection(80, spot0);
+  } else if (e.target === choice[2]) {
+    console.log("Bishop was selected");
+    PawnSelection(4, spot);
+  } else if (e.target === choice[3]) {
+    console.log("Knight  was selected");
+    PawnSelection(6, spot);
+  }
+  z = 1;
+  Indicator();
+  Info.state = 2;
+  Info.player = 2;
+});
+
+function PawnSelection(choice, spot) {
+  console.log(choice, spot, Map[spot]);
+
+  Map[spot] = choice;
+  console.log(choice, spot, Map[spot]);
+  PawnFinish.classList.add("no-show");
+  Mapper();
+  console.log(Map);
+}
+
+function Pawn() {
+  PawnFinish.classList.remove("no-show");
 }

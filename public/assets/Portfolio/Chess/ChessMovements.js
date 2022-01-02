@@ -136,7 +136,7 @@ function Actuator(piece, position, action, information) {
   }
 
   const solution = { move: Transfer, kills: Kills };
-console.log(Map)
+  console.log(Map);
   return solution;
 }
 
@@ -315,10 +315,10 @@ function PawnMovement(piece, z, action, Information) {
         ) {
           if (ChessMap[j] === 0) {
             const viable = CheckValidity(p0, j, 20);
-            console.log(`spot ${j} viability is ${viable} `)
-              
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
-            Transfer.push(j);
+              Transfer.push(j);
             }
           }
         }
@@ -334,23 +334,19 @@ function PawnMovement(piece, z, action, Information) {
             ChessMap[j] === 1
           ) {
             const viable = CheckValidity(p0, j, 20);
-            console.log(`spot ${j} viability is ${viable} `)
-              
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
-              
               Transfer.push(j);
             }
           }
         }
       } else {
-        
         if (Matrix[j][1] === y + 1 && Matrix[j][0] === x) {
-        
           if (ChessMap[j] === 0) {
-            
             const viable = CheckValidity(p0, j, 20);
-            console.log(`spot ${j} viability is ${viable} `)
-              
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
               Transfer.push(j);
             }
@@ -368,33 +364,30 @@ function PawnMovement(piece, z, action, Information) {
             ChessMap[j] === 1
           ) {
             const viable = CheckValidity(p0, j, 20);
-            console.log(`spot ${j} viability is ${viable} `)
-              
-            
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
-              
-              Transfer.push(j);
+              Killspot.push(j);
             }
           }
         }
       }
     }
   }
-  //////////////////////////////////////////////////////////////////////////// Player 2 pawn//////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////// Player 2 pawn//////////////////////////////////////////////////////
   else if (ChessMap[z] === p) {
-    
+    console.log("Black pawn selected");
     for (var j = 0; j < 64; j++) {
       // CheckIfMoveValid(piece, 34);
       if (z < 16 && ChessMap[z + 8] === 0) {
-        
         if (
           (Matrix[j][1] === y - 1 && Matrix[j][0] === x) ||
           (Matrix[j][1] === y - 2 && Matrix[j][0] === x)
         ) {
           if (ChessMap[j] === 0) {
             const viable = CheckValidity(p, j, 2);
-            console.log(`spot ${j} viability is ${viable} `)
-              
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
               Transfer.push(j);
             }
@@ -412,118 +405,112 @@ function PawnMovement(piece, z, action, Information) {
             ChessMap[j] === 10
           ) {
             const viable = CheckValidity(p, j, 2);
-            console.log(`spot ${j} viability is ${viable} `)
-              
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
               Transfer.push(j);
             }
           }
         }
       } else {
-       
         if (Matrix[j][1] === y - 1 && Matrix[j][0] === x) {
           if (ChessMap[j] === 0) {
             const viable = CheckValidity(p, j, 2);
-            console.log(`spot ${j} viability is ${viable} `)
-              
+            console.log(`spot ${j} viability is ${viable} `);
+
             if (viable) {
               Transfer.push(j);
             }
           }
-          if (
-            (Matrix[j][1] === y - 1 && Matrix[j][0] === x - 1) ||
-            (Matrix[j][1] === y - 1 && Matrix[j][0] === x + 1)
-          ) 
-          console.log(`spot ${j}`)
-          
-          {
-            if (
-              ChessMap[j] === 60 ||
-              ChessMap[j] === 80 ||
-              ChessMap[j] === 40 ||
-              ChessMap[j] === 30 ||
-              ChessMap[j] === 10
-            ) {
-              const viable = CheckValidity(p, j, 2);
-              console.log(`spot ${j} viability is ${viable} ** `)
-              
-              if (viable) {
-                Transfer.push(j);
-              }
-            }
+        }
+      }
+      if (
+        (Matrix[j][1] === y - 1 && Matrix[j][0] === x - 1) ||
+        (Matrix[j][1] === y - 1 && Matrix[j][0] === x + 1)
+      ) {
+        console.log(`spot ${Matrix[j][0]} ${Matrix[j]}`);
+        if (
+          ChessMap[j] === 60 ||
+          ChessMap[j] === 80 ||
+          ChessMap[j] === 40 ||
+          ChessMap[j] === 30 ||
+          ChessMap[j] === 10
+        ) {
+          const viable = CheckValidity(p, j, 2);
+          console.log(`spot ${j} viability is ${viable} ** `);
+
+          if (viable) {
+            Killspot.push(j);
           }
         }
       }
     }
 
     /////////
-
-   
   }
 
   const solution = { Transfer: Transfer, Kills: Killspot };
   return solution;
 }
-  /////////////////////////Rook Movement Function ////////////////////////
-  function RookMovement(piece, z, action, Information) {
-    var Transfer = [];
-    var Killspot = [5, 11];
-    var brk = 0;
-    var brk2 = 0;
-    var brk3 = 0;
-    var brk4 = 0;
+/////////////////////////Rook Movement Function ////////////////////////
+function RookMovement(piece, z, action, Information) {
+  var Transfer = [];
+  var Killspot = [5, 11];
+  var brk = 0;
+  var brk2 = 0;
+  var brk3 = 0;
+  var brk4 = 0;
 
-    var x = Matrix[z][0];
-    var y = Matrix[z][1];
+  var x = Matrix[z][0];
+  var y = Matrix[z][1];
 
-    if (action === "move") {
-      ///////////////////////[MOVEMENT TYPE 1:  TOWARDS RIGHT]
-      for (var j = z; j < 64; j++) {
-        if (brk === 1) {
-          break;
-        }
+  if (action === "move") {
+    ///////////////////////[MOVEMENT TYPE 1:  TOWARDS RIGHT]
+    for (var j = z; j < 64; j++) {
+      if (brk === 1) {
+        break;
+      }
 
-        for (var n = 1; n < 8; n++) {
-          if (Matrix[j][0] === x + n && Matrix[j][1] === y) {
-            if (Map[j] !== 0) {
-              Killspot.push(j);
-              brk = 1;
-              break;
-            }
-            if (Map[j] === 0) {
-              Transfer.push(j);
-            }
+      for (var n = 1; n < 8; n++) {
+        if (Matrix[j][0] === x + n && Matrix[j][1] === y) {
+          if (Map[j] !== 0) {
+            Killspot.push(j);
+            brk = 1;
+            break;
+          }
+          if (Map[j] === 0) {
+            Transfer.push(j);
           }
         }
       }
     }
-
-    const solution = { Transfer: Transfer, Kills: Killspot };
-    return solution;
   }
 
-  // The below function takes in a spot (x) and white/black king piece
-  // and returns true if the spot is under direct fire from an
-  // opposing piece
-  function CheckSpots(x, piece) {
-    var spot = false;
+  const solution = { Transfer: Transfer, Kills: Killspot };
+  return solution;
+}
 
-    if (piece === 20) {
-      spot =
-        CheckSpotsW.Pawn.some((num) => num === x) ||
-        CheckSpotsW.Bishop.some((num) => num === x) ||
-        CheckSpotsW.Knight.some((num) => num === x) ||
-        CheckSpotsW.Rooks.some((num) => num === x) ||
-        CheckSpotsW.Queens.some((num) => num === x);
-    } else if (piece === 2) {
-      spot =
-        CheckSpotsB.Pawn.some((num) => num === x) ||
-        CheckSpotsB.Bishop.some((num) => num === x) ||
-        CheckSpotsB.Knight.some((num) => num === x) ||
-        CheckSpotsB.Rooks.some((num) => num === x) ||
-        CheckSpotsB.Queens.some((num) => num === x);
-    }
+// The below function takes in a spot (x) and white/black king piece
+// and returns true if the spot is under direct fire from an
+// opposing piece
+function CheckSpots(x, piece) {
+  var spot = false;
 
-    return spot;
+  if (piece === 20) {
+    spot =
+      CheckSpotsW.Pawn.some((num) => num === x) ||
+      CheckSpotsW.Bishop.some((num) => num === x) ||
+      CheckSpotsW.Knight.some((num) => num === x) ||
+      CheckSpotsW.Rooks.some((num) => num === x) ||
+      CheckSpotsW.Queens.some((num) => num === x);
+  } else if (piece === 2) {
+    spot =
+      CheckSpotsB.Pawn.some((num) => num === x) ||
+      CheckSpotsB.Bishop.some((num) => num === x) ||
+      CheckSpotsB.Knight.some((num) => num === x) ||
+      CheckSpotsB.Rooks.some((num) => num === x) ||
+      CheckSpotsB.Queens.some((num) => num === x);
   }
 
+  return spot;
+}
