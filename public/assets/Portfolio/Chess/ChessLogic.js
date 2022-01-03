@@ -326,11 +326,19 @@ function Indicator() {
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////
-
+var pawnAlert = false;
+var MapPrevious = 0;
 /////////////// LOADS CHESS MAP ON LOADING OF PAGE ///////////////////
 window.addEventListener("DOMContentLoaded", Mapper);
-
+////// Game Starts with click
 document.querySelector(".board").addEventListener("click", (e) => {
+  var indexOfBox;
+  for (var j = 0; j < 64; j++) {
+    if (e.target === boxes[j]) {
+      console.log(`box ${j} and previous piece is ${MapPrevious}`);
+      indexOfBox = j;
+    }
+  }
   // console.log(`z value is ${z}, Info state is ${Info.state} `)
 
   if (connection === true) {
@@ -338,7 +346,9 @@ document.querySelector(".board").addEventListener("click", (e) => {
       start = true;
       Indicator();
       PlayGame(e);
+
       if (Info.state === 2) {
+        console.log("condition");
         const playerName = username;
         const game = "s game";
         // const roomName = username.concat(game)
@@ -433,6 +443,7 @@ function PlayGame(e) {
               Map[j] !== k) ||
             Map[j] !== p
           ) {
+            MapPrevious = Map[j];
             var Piece = PieceMovement(Map[j], j, "move");
             var PieceMovements = Piece.ValidMovements;
             var PieceKills = Piece.ValidKills;
@@ -728,15 +739,15 @@ const spot0 = 60;
 PawnFinish.addEventListener("click", (e) => {
   if (e.target === choice[0]) {
     PawnSelection(q0, spot0);
-    console.log("queen was selected");
+    console.log("white queen was selected");
   } else if (e.target === choice[1]) {
-    console.log("Rook was selected");
+    console.log("white Rook was selected");
     PawnSelection(80, spot0);
   } else if (e.target === choice[2]) {
-    console.log("Bishop was selected");
+    console.log("black Bishop was selected");
     PawnSelection(4, spot);
   } else if (e.target === choice[3]) {
-    console.log("Knight  was selected");
+    console.log("black Knight  was selected");
     PawnSelection(6, spot);
   }
   z = 1;
