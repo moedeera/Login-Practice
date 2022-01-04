@@ -1,3 +1,7 @@
+/// Paw VARIABLE SPOTS
+var spot = 4;
+var spot0 = 60;
+
 var RedAlert = false;
 const boxes = document.querySelectorAll(".box");
 var connection = false;
@@ -328,6 +332,7 @@ function Indicator() {
 /////////////////////////////////////////////////////////////////////////////////////////
 var pawnAlert = false;
 var MapPrevious = 0;
+
 /////////////// LOADS CHESS MAP ON LOADING OF PAGE ///////////////////
 window.addEventListener("DOMContentLoaded", Mapper);
 ////// Game Starts with click
@@ -348,17 +353,45 @@ document.querySelector(".board").addEventListener("click", (e) => {
       PlayGame(e);
 
       if (Info.state === 2) {
-        console.log("condition");
-        const playerName = username;
-        const game = "s game";
-        // const roomName = username.concat(game)
-        socket.emit("Chess-Game", Info);
+        // First Condition is for Pawns
+        if (
+          (indexOfBox === 0 && MapPrevious === 30) ||
+          (indexOfBox === 1 && MapPrevious === 30) ||
+          (indexOfBox === 2 && MapPrevious === 30) ||
+          (indexOfBox === 3 && MapPrevious === 30) ||
+          (indexOfBox === 4 && MapPrevious === 30) ||
+          (indexOfBox === 5 && MapPrevious === 30) ||
+          (indexOfBox === 6 && MapPrevious === 30) ||
+          (indexOfBox === 7 && MapPrevious === 30)
+        ) {
+          spot = indexOfBox;
+          Pawn();
+        }
+        if (
+          (indexOfBox === 63 && MapPrevious === 3) ||
+          (indexOfBox === 62 && MapPrevious === 3) ||
+          (indexOfBox === 61 && MapPrevious === 3) ||
+          (indexOfBox === 60 && MapPrevious === 3) ||
+          (indexOfBox === 59 && MapPrevious === 3) ||
+          (indexOfBox === 58 && MapPrevious === 3) ||
+          (indexOfBox === 57 && MapPrevious === 3) ||
+          (indexOfBox === 56 && MapPrevious === 3)
+        ) {
+          spot0 = indexOfBox;
+          PawnB();
+        } else {
+          // console.log("condition");
+          const playerName = username;
+          const game = "s game";
+          // const roomName = username.concat(game)
+          socket.emit("Chess-Game", Info);
 
-        z = 0;
-        Indicator();
+          z = 0;
+          Indicator();
+        }
       }
     } else {
-      console.log("z value: ", z, "start: ", start);
+      // console.log("z value: ", z, "start: ", start);
       alert("not your turn");
     }
   } else {
@@ -377,9 +410,11 @@ function Mapper() {
     }
     if (Map[j] === 80) {
       boxes[j].innerHTML = "&#9814;";
+      boxes[j].style.color = "white";
     }
     if (Map[j] === p0) {
       boxes[j].innerHTML = "&#9817;";
+      boxes[j].style.color = "white";
     }
 
     if (Map[j] === 60) {
@@ -486,7 +521,6 @@ function PlayGame(e) {
             Map[j] === 4 ||
             Map[j] === q ||
             Map[j] === k ||
-            Map[j] === p ||
             Map[j] === p
           ) {
             Clear();
@@ -557,7 +591,7 @@ function PlayGame(e) {
             Map[j] !== p0
           ) {
             //    console.log('condition 2A for player 2')
-
+            MapPrevious = Map[j];
             var Piece = PieceMovement(Map[j], j, "move");
             var PieceMovements = Piece.ValidMovements;
             var PieceKills = Piece.ValidKills;
@@ -731,29 +765,42 @@ function PieceMovement(Piece, MapSpot, action) {
 }
 
 /// Pawn  completed ////
-const PawnFinish = document.querySelector(".pawn-selection");
+const PawnFinish = document.getElementById("white-pawns");
+const PawnFinishBlack = document.getElementById("black-pawns");
 const choice = document.querySelectorAll(".choice");
-const spot = 4;
-const spot0 = 60;
 
+// ////////// White Pawn
 PawnFinish.addEventListener("click", (e) => {
   if (e.target === choice[0]) {
-    PawnSelection(q0, spot0);
+    PawnSelection(q0, spot);
     console.log("white queen was selected");
   } else if (e.target === choice[1]) {
     console.log("white Rook was selected");
-    PawnSelection(80, spot0);
+    PawnSelection(80, spot);
   } else if (e.target === choice[2]) {
-    console.log("black Bishop was selected");
-    PawnSelection(4, spot);
+    console.log("White Bishop was selected");
+    PawnSelection(40, spot);
   } else if (e.target === choice[3]) {
-    console.log("black Knight  was selected");
-    PawnSelection(6, spot);
+    console.log("White Knight  was selected");
+    PawnSelection(60, spot);
   }
-  z = 1;
-  Indicator();
-  Info.state = 2;
-  Info.player = 2;
+});
+
+//////////////////Black Pawn
+PawnFinishBlack.addEventListener("click", (e) => {
+  if (e.target === choice[4]) {
+    PawnSelection(q, spot0);
+    console.log("Black queen was selected");
+  } else if (e.target === choice[5]) {
+    console.log("Black Rook was selected");
+    PawnSelection(8, spot0);
+  } else if (e.target === choice[6]) {
+    console.log("Black Bishop was selected");
+    PawnSelection(4, spot0);
+  } else if (e.target === choice[7]) {
+    console.log("Black Knight  was selected");
+    PawnSelection(6, spot0);
+  }
 });
 
 function PawnSelection(choice, spot) {
@@ -761,11 +808,51 @@ function PawnSelection(choice, spot) {
 
   Map[spot] = choice;
   console.log(choice, spot, Map[spot]);
-  PawnFinish.classList.add("no-show");
+
   Mapper();
+  z = 1;
+
+  Info.state = 2;
+  if (
+    spot === 0 ||
+    spot === 1 ||
+    spot === 2 ||
+    spot === 3 ||
+    spot === 4 ||
+    spot === 5 ||
+    spot === 6 ||
+    spot === 7
+  ) {
+    Info.player = 2;
+    PawnFinish.classList.add("no-show");
+  } else if (
+    spot0 === 63 ||
+    spot0 === 62 ||
+    spot0 === 61 ||
+    spot0 === 60 ||
+    spot0 === 59 ||
+    spot0 === 58 ||
+    spot0 === 57 ||
+    spot0 === 56
+  ) {
+    Info.player = 10;
+
+    PawnFinishBlack.classList.add("no-show");
+  }
+
+  socket.emit("Chess-Game", Info);
+
+  z = 0;
+  Indicator();
+
   console.log(Map);
 }
 
 function Pawn() {
   PawnFinish.classList.remove("no-show");
+}
+
+function PawnB() {
+  console.log("initiated");
+  PawnFinishBlack.classList.remove("no-show");
 }

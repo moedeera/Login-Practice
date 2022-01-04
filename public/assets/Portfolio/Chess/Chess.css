@@ -394,7 +394,9 @@ a {
   border: 1px solid grey;
   line-height: 100%;
 }
-
+.black {
+  color: black;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .options,
