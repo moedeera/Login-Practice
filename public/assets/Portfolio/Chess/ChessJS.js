@@ -85,9 +85,9 @@ socket.on("game-board", (data) => {
       elements[0].parentNode.removeChild(elements[0]);
 
       ////////////////////////////////
-      guest.innerHTML = "User 2";
+      guest.innerHTML = "User2";
 
-      host.innerHTML = "User 1";
+      host.innerHTML = "User1";
     }
   }
 });
@@ -110,6 +110,7 @@ function UpdateBoard(data) {
   }
 
   console.log(data[0].type);
+
   for (var j = 0; j < data.length; j++) {
     if (data[j].type === "wait") {
       console.log("condition a");
@@ -136,6 +137,10 @@ function UpdateBoard(data) {
 
       BoardForm.appendChild(div);
     }
+  }
+  if (host.innerHTML !== "User1") {
+    console.log("A host is present", host.innerHTML);
+    board.classList.add("no-show");
   }
 }
 
