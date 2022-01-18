@@ -294,6 +294,7 @@ socket.on("reset", (msg) => {
     60,
     80,
   ];
+  console.log(Map)
   Mapper();
 });
 
@@ -410,7 +411,7 @@ document.querySelector(".board").addEventListener("click", (e) => {
 // Functions
 
 function Mapper() {
-  console.log("hey");
+ 
 
   for (var j = 0; j < 64; j++) {
     if (Map[j] === 0) {

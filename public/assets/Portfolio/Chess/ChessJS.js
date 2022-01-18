@@ -109,7 +109,7 @@ function UpdateBoard(data) {
     elements[0].parentNode.removeChild(elements[0]);
   }
 
-  console.log(data[0].type);
+  
 
   for (var j = 0; j < data.length; j++) {
     if (data[j].type === "wait") {
