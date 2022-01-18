@@ -213,6 +213,7 @@ socket.on("reset", (msg) => {
     guest.innerHTML = "waiting.....";
     guest.style.color = "green";
   }
+  board.classList.remove("no-show");
   connection = false;
   start = false;
   turn = 1;
