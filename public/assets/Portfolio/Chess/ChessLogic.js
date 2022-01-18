@@ -209,11 +209,15 @@ let GameCounter = {
 /// THIS IS FOR WHEN THE GAME NEEDS TO BE RESET
 socket.on("reset", (msg) => {
   console.log(msg);
-  if (msg === "guest exited") {
+
+  board.classList.remove("no-show");
+
+  if (msg === "guest exited" && host.innerHTML === username.innerHTML) {
     guest.innerHTML = "waiting.....";
     guest.style.color = "green";
+    board.classList.add("no-show");
   }
-  board.classList.remove("no-show");
+
   connection = false;
   start = false;
   turn = 1;
@@ -224,15 +228,23 @@ socket.on("reset", (msg) => {
 
   z = 0;
 
-  Map = [
+  var Map = [
     8,
     6,
     4,
-    k,
     q,
+    k,
     4,
     6,
     8,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
     0,
     0,
     0,
@@ -265,27 +277,19 @@ socket.on("reset", (msg) => {
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
     80,
     60,
     40,
-    k0,
     q0,
+    k0,
     40,
     60,
     80,
