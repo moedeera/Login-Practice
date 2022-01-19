@@ -77,11 +77,11 @@ function CheckValidity(piece, destination, set) {
         (Matrix[j][1] === y - 1 && Matrix[j][0] == x - 1) ||
         (Matrix[j][1] === y - 1 && Matrix[j][0] == x + 1)
       ) {
-
-        if (TestMap[j] ===30){
-        console.log("condition 1 met", kingSpot,j);
-        return false;
-        break;}
+        if (TestMap[j] === 30) {
+          console.log("condition 1 met", kingSpot, j);
+          return false;
+          break;
+        }
       }
     }
   } else if (set === 20) {
@@ -98,14 +98,12 @@ function CheckValidity(piece, destination, set) {
         (Matrix[j][1] === y + 1 && Matrix[j][0] == x - 1) ||
         (Matrix[j][1] === y + 1 && Matrix[j][0] == x + 1)
       ) {
+        if (TestMap[j] === 3) {
+          console.log("condition 2 met", kingSpot, j);
 
-        if (TestMap[j]===3){
-            console.log("condition 2 met", kingSpot,j);
-       
-        return false;
-        break;
+          return false;
+          break;
         }
-      
       }
     }
   }

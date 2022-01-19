@@ -269,7 +269,7 @@ function kingMovement(piece, z, action, Information) {
             ChessMap[j] === 30 ||
             ChessMap[j] === 80
           ) {
-            if (!NoGo2) {
+            if (!NoGo) {
               Killspot.push(j);
             }
           }
@@ -287,7 +287,10 @@ function kingMovement(piece, z, action, Information) {
       EndGame(0);
     }
     //If its not under check but no valid moves options
-    else if (piece === 20 || piece === 2) {
+    else if (
+      (piece === 20 && CheckSpotsW.UnderCheck === true) ||
+      (piece === 2 && CheckSpotsB.UnderCheck === true)
+    ) {
       EndGame(1);
     }
   }
