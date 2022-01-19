@@ -2,6 +2,7 @@ const host = document.getElementById("host");
 const guest = document.getElementById("guest");
 const hostButton = document.getElementById("btn1");
 const HostMessage = document.getElementById("hostmsg").value;
+let username = document.getElementById("username").value;
 
 const socket = io();
 const board = document.getElementById("Board");
@@ -30,7 +31,7 @@ socket.on("guest-host-data", (game, username) => {
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
   let x = Math.floor(Math.random() * 100 + 1);
-  let username = document.getElementById("username").value;
+  username = document.getElementById("username").value;
   let game = `${document.getElementById("username").value}`;
 
   host.innerHTML = username;
@@ -88,6 +89,7 @@ socket.on("game-board", (data) => {
       guest.innerHTML = "User2";
 
       host.innerHTML = "User1";
+      console.log("no games");
     }
   }
 });
@@ -108,8 +110,6 @@ function UpdateBoard(data) {
   while (elements.length > 0) {
     elements[0].parentNode.removeChild(elements[0]);
   }
-
-  
 
   for (var j = 0; j < data.length; j++) {
     if (data[j].type === "wait") {

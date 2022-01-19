@@ -209,13 +209,18 @@ let GameCounter = {
 /// THIS IS FOR WHEN THE GAME NEEDS TO BE RESET
 socket.on("reset", (msg) => {
   console.log(msg);
-
+  console.log(host.innerHTML, username);
   board.classList.remove("no-show");
 
-  if (msg === "guest exited" && host.innerHTML === username.innerHTML) {
+  if (msg === "guest exited" && host.innerHTML === username) {
+    console.log("condition hit");
     guest.innerHTML = "waiting.....";
     guest.style.color = "green";
     board.classList.add("no-show");
+  } else {
+    guest.innerHTML = "User2";
+
+    host.innerHTML = "User1";
   }
 
   connection = false;
@@ -228,7 +233,7 @@ socket.on("reset", (msg) => {
 
   z = 0;
 
-  var Map = [
+  Map = [
     8,
     6,
     4,
@@ -294,7 +299,8 @@ socket.on("reset", (msg) => {
     60,
     80,
   ];
-  console.log(Map)
+
+  console.log(Map, Info.map);
   Mapper();
 });
 
@@ -411,8 +417,6 @@ document.querySelector(".board").addEventListener("click", (e) => {
 // Functions
 
 function Mapper() {
- 
-
   for (var j = 0; j < 64; j++) {
     if (Map[j] === 0) {
       boxes[j].innerHTML = "";
