@@ -546,7 +546,7 @@ function PlayGame(e) {
             Info.map = Map;
             console.log(Map[j], j);
             if (Map[j] === p0 && j === 4) {
-              console.log("protocol initiated");
+             
               Pawn();
             } else {
               Mapper();
@@ -559,7 +559,7 @@ function PlayGame(e) {
               } else if (Map[j] === 80 && prev === 63) {
                 WhiteRookMovement20++;
               } else if (Map[j] === 80 && prev === 56) {
-                console.log("it happened");
+               
                 WhiteRookMovement20F++;
               }
             }
