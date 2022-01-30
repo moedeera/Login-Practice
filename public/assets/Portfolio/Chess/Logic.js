@@ -119,11 +119,31 @@ function UpdateCheckPoints(piece, depart, dest, array) {
 
     if (Map[j] === p0) {
       console.log("white pawn moved");
+      const solution = PawnMovement(piece, dest, "kill", Map);
+      console.log(solution);
+      const info = { spot: j, alerts: solution.Kills };
+      CheckSpotsW.Pawn.push({ info });
+
+      console.log(prev);
+      CheckSpotsW.Pawn = CheckSpotsW.Pawn.filter(
+        (unit) => unit.info.spot !== prev
+      );
+      console.log("CheckSpots for white", CheckSpotsW.Pawn);
     }
   } else if (array === CheckSpotsB) {
     console.log("Black Piece", Map[j], j, prev);
     if (Map[j] === p) {
       console.log("Black pawn moved");
+      const solution = PawnMovement(piece, dest, "kill", Map);
+      console.log(solution);
+      const info = { spot: j, alerts: solution.Kills };
+      CheckSpotsB.Pawn.push({ info });
+
+      console.log(prev);
+      CheckSpotsB.Pawn = CheckSpotsB.Pawn.filter(
+        (unit) => unit.info.spot !== prev
+      );
+      console.log("CheckSpots for black", CheckSpotsB.Pawn);
     }
   }
 }

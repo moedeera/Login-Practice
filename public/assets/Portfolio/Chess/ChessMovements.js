@@ -306,7 +306,7 @@ function PawnMovement(piece, z, action, Information) {
   var Killspot = [];
   var ChessMap = [...Map];
 
-  ////////////////////////////////////////////////////////////////////////// White pawn movement//////////////////////////////////////////////////////
+  //////////////////////////////////////////////////White pawn movement//////////////////////////////////////////////////////
   if (ChessMap[z] === p0) {
     console.log("White pawn selected");
     // CheckIfMoveValid(piece, 34);
@@ -329,6 +329,9 @@ function PawnMovement(piece, z, action, Information) {
           (Matrix[j][1] === y + 1 && Matrix[j][0] === x + 1) ||
           (Matrix[j][1] === y + 1 && Matrix[j][0] === x - 1)
         ) {
+          if (action === "kill") {
+            Killspot.push(j);
+          }
           if (
             ChessMap[j] === 6 ||
             ChessMap[j] === 8 ||
@@ -359,6 +362,10 @@ function PawnMovement(piece, z, action, Information) {
           (Matrix[j][1] === y + 1 && Matrix[j][0] === x - 1)
         ) {
           console.log("condition 2B");
+          if (action === "kill") {
+            Killspot.push(j);
+          }
+
           if (
             ChessMap[j] === 6 ||
             ChessMap[j] === 8 ||
@@ -377,7 +384,7 @@ function PawnMovement(piece, z, action, Information) {
       }
     }
   }
-  ////////////////////////////////////////////////////////// Player 2 pawn//////////////////////////////////////////////////////
+  //////////////////////////////////////////////////Black pawn movement//////////////////////////////////////////////////////
   else if (ChessMap[z] === p) {
     console.log("Black pawn selected");
     for (var j = 0; j < 64; j++) {
@@ -400,6 +407,9 @@ function PawnMovement(piece, z, action, Information) {
           (Matrix[j][1] === y - 1 && Matrix[j][0] === x + 1) ||
           (Matrix[j][1] === y - 1 && Matrix[j][0] === x - 1)
         ) {
+          if (action === "kill") {
+            Killspot.push(j);
+          }
           if (
             ChessMap[j] === 60 ||
             ChessMap[j] === 80 ||
@@ -409,10 +419,6 @@ function PawnMovement(piece, z, action, Information) {
           ) {
             const viable = CheckValidity(p, j, 2);
             console.log(`spot ${j} viability is ${viable} `);
-
-            if (viable) {
-              Transfer.push(j);
-            }
           }
         }
       } else {
@@ -431,6 +437,9 @@ function PawnMovement(piece, z, action, Information) {
         (Matrix[j][1] === y - 1 && Matrix[j][0] === x - 1) ||
         (Matrix[j][1] === y - 1 && Matrix[j][0] === x + 1)
       ) {
+        if (action === "kill") {
+          Killspot.push(j);
+        }
         console.log(`spot ${Matrix[j][0]} ${Matrix[j]}`);
         if (
           ChessMap[j] === 60 ||
