@@ -1,10 +1,10 @@
 console.log("movements");
 
 var CheckSpotsW = {
-  Rooks: [8, 16, 24, 32, 40, 48, 56, 7, 15, 23, 31, 39, 47, 55],
+  Rooks: [],
   Queens: [],
   Knight: [],
-  Bishop: [61, 59],
+  Bishop: [],
   Pawn: [],
   Count: 4,
   UnderCheck: false,
@@ -13,10 +13,10 @@ var CheckSpotsW = {
 };
 
 var CheckSpotsB = {
-  Rooks: [8, 16, 24, 32, 40, 48, 56, 7, 15, 23, 31, 39, 47, 55],
+  Rooks: [],
   Queens: [],
   Knight: [],
-  Bishop: [3, 5],
+  Bishop: [],
   Pawn: [],
   Count: 0,
   UnderCheck: false,
