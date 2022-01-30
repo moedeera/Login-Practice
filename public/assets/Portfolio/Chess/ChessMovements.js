@@ -173,7 +173,6 @@ function kingMovement(piece, z, action, Information) {
       if (
         ChessMap[62] === 0 &&
         ChessMap[61] === 0 &&
-        WhiteKingMovement20 === 0 &&
         WhiteRookMovement20 === 0 &&
         CheckSpotsW.CastlePreventer === false
       ) {
@@ -184,7 +183,6 @@ function kingMovement(piece, z, action, Information) {
         ChessMap[59] === 0 &&
         ChessMap[58] === 0 &&
         ChessMap[57] === 0 &&
-        WhiteKingMovement20 === 0 &&
         WhiteRookMovement20F === 0 &&
         CheckSpotsB.CastlePreventer === false
       ) {
@@ -226,12 +224,7 @@ function kingMovement(piece, z, action, Information) {
       }
     } else if (piece === 2) {
       //Near-Side Castle
-      if (
-        ChessMap[6] === 0 &&
-        ChessMap[5] === 0 &&
-        BlackKingMovement2 === 0 &&
-        BlackRookMovement2 === 0
-      ) {
+      if (ChessMap[6] === 0 && ChessMap[5] === 0 && BlackKingMovement2 === 0) {
         Transfer.push(6);
       }
       //Far Side Castle
@@ -239,7 +232,6 @@ function kingMovement(piece, z, action, Information) {
         ChessMap[1] === 0 &&
         ChessMap[2] === 0 &&
         ChessMap[3] === 0 &&
-        BlackKingMovement2 === 0 &&
         BlackRookMovement2F === 0
       ) {
         Transfer.push(2);
