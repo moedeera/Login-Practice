@@ -355,7 +355,6 @@ document.querySelector(".board").addEventListener("click", (e) => {
   var indexOfBox;
   for (var j = 0; j < 64; j++) {
     if (e.target === boxes[j]) {
-      console.log(`box ${j} and previous piece is ${MapPrevious}`);
       indexOfBox = j;
     }
   }
@@ -543,10 +542,10 @@ function PlayGame(e) {
             // console.log(Map[j],Map[prev])
             Map[j] = Map[prev];
             Map[prev] = 0;
+            UpdateCheckPoints(Map[j], prev, j, CheckSpotsW);
             Info.map = Map;
-            console.log(Map[j], j);
+
             if (Map[j] === p0 && j === 4) {
-             
               Pawn();
             } else {
               Mapper();
@@ -559,7 +558,6 @@ function PlayGame(e) {
               } else if (Map[j] === 80 && prev === 63) {
                 WhiteRookMovement20++;
               } else if (Map[j] === 80 && prev === 56) {
-               
                 WhiteRookMovement20F++;
               }
             }
@@ -603,7 +601,6 @@ function PlayGame(e) {
             Map[j] !== k0 &&
             Map[j] !== p0
           ) {
-            //    console.log('condition 2A for player 2')
             MapPrevious = Map[j];
             var Piece = PieceMovement(Map[j], j, "move");
             var PieceMovements = Piece.ValidMovements;
@@ -654,7 +651,7 @@ function PlayGame(e) {
             boxes[prev].innerHTML = "";
             Map[j] = Map[prev];
             Map[prev] = 0;
-            //    console.log(Map)
+            UpdateCheckPoints(Map[j], prev, j, CheckSpotsB);
             Mapper();
             Info.map = Map;
             Info.state = 2;

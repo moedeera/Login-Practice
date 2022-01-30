@@ -110,3 +110,20 @@ function CheckValidity(piece, destination, set) {
 
   return truth;
 }
+
+function UpdateCheckPoints(piece, depart, dest, array) {
+  var j = dest;
+  var prev = depart;
+  if (array === CheckSpotsW) {
+    console.log("White piece", Map[j], j, prev);
+
+    if (Map[j] === p0) {
+      console.log("white pawn moved");
+    }
+  } else if (array === CheckSpotsB) {
+    console.log("Black Piece", Map[j], j, prev);
+    if (Map[j] === p) {
+      console.log("Black pawn moved");
+    }
+  }
+}
