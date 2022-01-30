@@ -607,6 +607,16 @@ function PlayGame(e) {
             // console.log(Map[j],Map[prev])
             Map[j] = Map[prev];
             Map[prev] = 0;
+            if (Map[j] === k0 && prev === 60 && j === 62) {
+              Map[63] = 0;
+              Map[61] = 80;
+              WhiteKingMovement20++;
+            }
+            if (Map[j] === k0 && prev === 60 && j === 58) {
+              Map[56] = 0;
+              Map[59] = 80;
+              WhiteKingMovement20++;
+            }
             UpdateCheckPoints(Map[j], prev, j, CheckSpotsW);
             Info.map = Map;
 
@@ -716,6 +726,16 @@ function PlayGame(e) {
             boxes[prev].innerHTML = "";
             Map[j] = Map[prev];
             Map[prev] = 0;
+            if (Map[j] === k && prev === 4 && j === 6) {
+              Map[7] = 0;
+              Map[5] = 8;
+              BlackKingMovement2++;
+            }
+            if (Map[j] === k && prev === 4 && j === 2) {
+              Map[0] = 0;
+              Map[3] = 8;
+              BlackKingMovement2++;
+            }
             UpdateCheckPoints(Map[j], prev, j, CheckSpotsB);
             Mapper();
             Info.map = Map;
