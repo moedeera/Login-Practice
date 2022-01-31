@@ -542,12 +542,24 @@ function PlayGame(e) {
             // console.log(Map[j],Map[prev])
             Map[j] = Map[prev];
             Map[prev] = 0;
-            if (Map[j] === k0 && prev === 60 && j === 62) {
+            if (
+              Map[j] === k0 &&
+              prev === 60 &&
+              j === 62 &&
+              WhiteKingMovement20 === 0 &&
+              WhiteRookMovement20 === 0
+            ) {
               Map[63] = 0;
               Map[61] = 80;
               WhiteKingMovement20++;
             }
-            if (Map[j] === k0 && prev === 60 && j === 58) {
+            if (
+              Map[j] === k0 &&
+              prev === 60 &&
+              j === 58 &&
+              WhiteKingMovement20 === 0 &&
+              WhiteRookMovement20F === 0
+            ) {
               Map[56] = 0;
               Map[59] = 80;
               WhiteKingMovement20++;
@@ -661,12 +673,24 @@ function PlayGame(e) {
             boxes[prev].innerHTML = "";
             Map[j] = Map[prev];
             Map[prev] = 0;
-            if (Map[j] === k && prev === 4 && j === 6) {
+            if (
+              Map[j] === k &&
+              prev === 4 &&
+              j === 6 &&
+              BlackKingMovement2 === 0 &&
+              BlackRookMovement2 === 0
+            ) {
               Map[7] = 0;
               Map[5] = 8;
               BlackKingMovement2++;
             }
-            if (Map[j] === k && prev === 4 && j === 2) {
+            if (
+              Map[j] === k &&
+              prev === 4 &&
+              j === 2 &&
+              BlackKingMovement2 === 0 &&
+              BlackRookMovement2F === 0
+            ) {
               Map[0] = 0;
               Map[3] = 8;
               BlackKingMovement2++;
