@@ -1,7 +1,8 @@
 console.log("movements");
-
+const infoFromB = { spot: 2, alerts: [10, 18, 26, 34, 42, 50, 58] };
+const infoFromW = { spot: 56, alerts: [0, 8, 16, 24, 32, 40, 48] };
 var CheckSpotsW = {
-  Rooks: [],
+  Rooks: [infoFromB],
   Queens: [],
   Knight: [],
   Bishop: [],
@@ -13,7 +14,7 @@ var CheckSpotsW = {
 };
 
 var CheckSpotsB = {
-  Rooks: [],
+  Rooks: [infoFromW],
   Queens: [],
   Knight: [],
   Bishop: [],
