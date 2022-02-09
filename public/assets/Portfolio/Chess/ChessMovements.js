@@ -472,7 +472,7 @@ function RookMovement(piece, z, action, Information) {
   if (action === "move") {
     ///////////////////////[MOVEMENT TYPE 1:  TOWARDS RIGHT]
     for (var j = z; j < 64; j++) {
-      var MainBreaker = 0;
+      var MainBreaker;
       if (MainBreaker === 1) {
         break;
       }
@@ -490,7 +490,21 @@ function RookMovement(piece, z, action, Information) {
         }
 
         if (Matrix[j][0] === x + n && Matrix[j][1] === y) {
-          if (Map[j] !== 0) {
+          var viable;
+          if (Map[j] === 0) {
+            if (piece === 80) {
+              viable = CheckValidity(piece, j, k0);
+            }
+            if (piece === 8) {
+              viable = CheckValidity(piece, j, k);
+            }
+
+            if (viable) {
+              console.log("viability of move ", j, " is ", viable);
+              Transfer.push(j);
+            } // End of condition one to check when spot is empty (HCL-0)
+          } // End of condition one to check when spot is empty (HCL-0)
+          else if (Map[j] !== 0) {
             if (piece === 80) {
               if (
                 Map[j] === 80 ||
@@ -500,10 +514,12 @@ function RookMovement(piece, z, action, Information) {
                 Map[j] === k0 ||
                 Map[j] === 30
               ) {
+                console.log("80-HCL-1-SP breaker initiated", j);
+                MainBreaker = 1;
+                InternalBreaker = 1;
                 break;
-              }
-
-              if (
+              } // End of 80-HCL-1 SAME PIECE BREAKER
+              else if (
                 Map[j] === 8 ||
                 Map[j] === 6 ||
                 Map[j] === 4 ||
@@ -515,20 +531,56 @@ function RookMovement(piece, z, action, Information) {
                 if (viable) {
                   Killspot.push(j);
 
-                  console.log("breaker initiated", j);
+                  console.log("80-HCL-1-OP breaker initiated", j);
                 }
-              }
+                MainBreaker = 1;
+                InternalBreaker = 1;
+              } // End of 80-HCL-1 OPPONENT PIECE BREAKER
               InternalBreaker = 1;
-              break;
-            }
-          }
-          ///
-        }
-      }
-    } // End of a
-    ///////////////////////// [MOVEMENT TYPE 2: TOWARDS LEFT]
-  } /// End of (action === move) condition
 
+              break;
+            } //End of HCL-1 for 80 (80-HCL-1)
+            else if (piece === 8) {
+              if (
+                Map[j] === 8 ||
+                Map[j] === 6 ||
+                Map[j] === 4 ||
+                Map[j] === q ||
+                Map[j] === k ||
+                Map[j] === 3
+              ) {
+                console.log("8-HCL-1-SP breaker initiated", j);
+                MainBreaker = 1;
+                break;
+              } // End of 80-HCL-1 SAME PIECE BREAKER
+              else if (
+                Map[j] === 80 ||
+                Map[j] === 60 ||
+                Map[j] === 40 ||
+                Map[j] === q0 ||
+                Map[j] === k0 ||
+                Map[j] === 30
+              ) {
+                const viable = CheckValidity(piece, j, piece);
+                if (viable) {
+                  Killspot.push(j);
+
+                  console.log("8-HCL-1-OP breaker initiated", j);
+                }
+                MainBreaker = 1;
+              } // End of 80-HCL-1 OPPONENT PIECE BREAKER
+              InternalBreaker = 1;
+
+              break;
+            } //End of HCL-1 for 8 (8-HCL-1)
+            InternalBreaker === 1;
+            MainBreaker = 1;
+          } // End of condition one to check when spot is not empty (HCL-1)
+        } // End of horizontal checker loop (HCL)
+      } // End of 8max iteration loop
+    } // End of 64max iteration loop
+  } /// End of (action === move) condition
+  ///////////////////////// [MOVEMENT TYPE 2: TOWARDS LEFT]
   const solution = { Transfer: Transfer, Kills: Killspot };
   return solution;
 }
