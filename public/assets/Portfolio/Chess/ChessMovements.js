@@ -479,16 +479,24 @@ function RookMovement(piece, z, action, Information) {
       for (var n = 1; n < 8; n++) {
         if (Matrix[j][0] === x + n && Matrix[j][1] === y) {
           if (Map[j] !== 0) {
-            Killspot.push(j);
-            brk = 1;
-            break;
+            const viable = CheckValidity(piece, j, piece);
+            if (viable) {
+              Killspot.push(j);
+
+              console.log("breaker initiated");
+              break;
+            }
           }
           if (Map[j] === 0) {
-            Transfer.push(j);
+            const viable = CheckValidity(piece, j, piece);
+            if (viable) {
+              Transfer.push(j);
+            }
           }
         }
       }
     }
+    ///////////////////////// [MOVEMENT TYPE 2: TOWARDS LEFT]
   }
 
   const solution = { Transfer: Transfer, Kills: Killspot };

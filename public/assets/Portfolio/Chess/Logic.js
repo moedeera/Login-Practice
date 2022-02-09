@@ -58,7 +58,7 @@ function CheckValidity(piece, destination, set) {
   var truth = true;
 
   var TestMap = [...Map];
-
+  TestMap[destination] = piece;
   var kingSpot;
 
   ///// black king
