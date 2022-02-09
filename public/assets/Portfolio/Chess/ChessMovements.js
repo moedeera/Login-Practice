@@ -472,32 +472,62 @@ function RookMovement(piece, z, action, Information) {
   if (action === "move") {
     ///////////////////////[MOVEMENT TYPE 1:  TOWARDS RIGHT]
     for (var j = z; j < 64; j++) {
-      if (brk === 1) {
+      var MainBreaker = 0;
+      if (MainBreaker === 1) {
         break;
       }
-
+      if (Matrix[z][0] === 8) {
+        MainBreaker = 1;
+        break;
+      }
+      // This loop scans the next 1-7 squares to the right of the spot
+      // If the X value on the square reaches 8, stop the loop with the
+      // Internal breaker
       for (var n = 1; n < 8; n++) {
+        var InternalBreaker = 0;
+        if (InternalBreaker === 1) {
+          break;
+        }
+
         if (Matrix[j][0] === x + n && Matrix[j][1] === y) {
           if (Map[j] !== 0) {
-            const viable = CheckValidity(piece, j, piece);
-            if (viable) {
-              Killspot.push(j);
+            if (piece === 80) {
+              if (
+                Map[j] === 80 ||
+                Map[j] === 60 ||
+                Map[j] === 40 ||
+                Map[j] === q0 ||
+                Map[j] === k0 ||
+                Map[j] === 30
+              ) {
+                break;
+              }
 
-              console.log("breaker initiated");
+              if (
+                Map[j] === 8 ||
+                Map[j] === 6 ||
+                Map[j] === 4 ||
+                Map[j] === q ||
+                Map[j] === k ||
+                Map[j] === 3
+              ) {
+                const viable = CheckValidity(piece, j, piece);
+                if (viable) {
+                  Killspot.push(j);
+
+                  console.log("breaker initiated", j);
+                }
+              }
+              InternalBreaker = 1;
               break;
             }
           }
-          if (Map[j] === 0) {
-            const viable = CheckValidity(piece, j, piece);
-            if (viable) {
-              Transfer.push(j);
-            }
-          }
+          ///
         }
       }
-    }
+    } // End of a
     ///////////////////////// [MOVEMENT TYPE 2: TOWARDS LEFT]
-  }
+  } /// End of (action === move) condition
 
   const solution = { Transfer: Transfer, Kills: Killspot };
   return solution;
