@@ -2,7 +2,7 @@ console.log("movements");
 const infoFromB = { spot: 2, alerts: [10, 18, 26, 34, 42, 50, 58] };
 const infoFromW = { spot: 56, alerts: [0, 8, 16, 24, 32, 40, 48] };
 var CheckSpotsW = {
-  Rooks: [infoFromB],
+  Rooks: [],
   Queens: [],
   Knight: [],
   Bishop: [],
@@ -14,7 +14,7 @@ var CheckSpotsW = {
 };
 
 var CheckSpotsB = {
-  Rooks: [infoFromW],
+  Rooks: [],
   Queens: [],
   Knight: [],
   Bishop: [],
@@ -104,7 +104,7 @@ var Matrix = [
 
 function Actuator(piece, position, action, information) {
   var Transfer = [];
-  var Kills = [5, 11];
+  var Kills = [];
   // King Movements
   if (piece === 20 || piece === 2) {
     var options = kingMovement(piece, position, action, information);
@@ -460,7 +460,7 @@ function PawnMovement(piece, z, action, Information) {
 /////////////////////////Rook Movement Function ////////////////////////
 function RookMovement(piece, z, action, Information) {
   var Transfer = [];
-  var Killspot = [5, 11];
+  var Killspot = [];
   var brk = 0;
   var brk2 = 0;
   var brk3 = 0;

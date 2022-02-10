@@ -115,11 +115,8 @@ function UpdateCheckPoints(piece, depart, dest, array) {
   var j = dest;
   var prev = depart;
   if (array === CheckSpotsW) {
-    /// white piece
     if (Map[j] === p0) {
-      console.log("white pawn moved");
       const solution = PawnMovement(piece, dest, "kill", Map);
-      console.log(solution);
       const info = { spot: j, alerts: solution.Kills };
       CheckSpotsW.Pawn.push({ info });
 
@@ -127,9 +124,25 @@ function UpdateCheckPoints(piece, depart, dest, array) {
       CheckSpotsW.Pawn = CheckSpotsW.Pawn.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for white", CheckSpotsW.Pawn);
-    }
-  } else if (array === CheckSpotsB) {
+      console.log("CheckSpots for white", CheckSpotsW);
+    } /// End of white pawn Condition
+    if (Map[j] === 80) {
+      console.log("white rook moved");
+      const solution = RookMovement(piece, j, "move", Map);
+      console.log(solution);
+      const alerts = solution.Kills.concat(solution.Transfer);
+
+      const info = { spot: j, alerts: alerts };
+      CheckSpotsW.Rooks.push({ info });
+
+      console.log(prev);
+      CheckSpotsW.Rooks = CheckSpotsW.Rooks.filter(
+        (unit) => unit.info.spot !== prev
+      );
+      console.log("CheckSpots for white", CheckSpotsW.Pawn, CheckSpotsW.Rooks);
+    } /// End of white Rook Condition
+  } /// End of White piece Condition
+  else if (array === CheckSpotsB) {
     if (Map[j] === p) {
       console.log("Black pawn moved");
       const solution = PawnMovement(piece, dest, "kill", Map);
@@ -141,38 +154,53 @@ function UpdateCheckPoints(piece, depart, dest, array) {
       CheckSpotsB.Pawn = CheckSpotsB.Pawn.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for black", CheckSpotsB.Pawn);
+      console.log("CheckSpots for black", CheckSpotsB);
+    } // End of Black Pawn condition
+    if (Map[j] === 8) {
+      console.log("Black rook moved");
+      const solution = RookMovement(piece, j, "move", Map);
+      console.log(solution);
+      const alerts = solution.Kills.concat(solution.Transfer);
+
+      const info = { spot: j, alerts: alerts };
+      CheckSpotsB.Rooks.push({ info });
+
+      console.log(prev);
+      CheckSpotsB.Rooks = CheckSpotsB.Rooks.filter(
+        (unit) => unit.info.spot !== prev
+      );
+      console.log("CheckSpots for black", CheckSpotsB);
     }
-  }
+  } /// End of Black piece Condition
 }
 
 function CheckCastleBlock(piece, array) {
   if (piece === "white") {
     for (var j = 0; j < array.Rooks.length; j++) {
-      for (var k = 0; k < array.Rooks[j].alerts.length; k++) {
-        if (array.Rooks[j].alerts[k] === 10) {
+      for (var k = 0; k < array.Rooks[j].info.alerts.length; k++) {
+        if (array.Rooks[j].info.alerts[k] === 10) {
           console.log("true");
           array.CastlePreventer = true;
           break;
         }
         console.log(
           `loop ${j}, alert iteration ${k}`,
-          array.Rooks[j].alerts[k]
+          array.Rooks[j].info.alerts[k]
         );
       }
     }
   }
   if (piece === "black") {
     for (var j = 0; j < array.Rooks.length; j++) {
-      for (var k = 0; k < array.Rooks[j].alerts.length; k++) {
-        if (array.Rooks[j].alerts[k] === 24) {
+      for (var k = 0; k < array.Rooks[j].info.alerts.length; k++) {
+        if (array.Rooks[j].info.alerts[k] === 24) {
           console.log("true");
           array.CastlePreventer = true;
           break;
         }
         console.log(
           `loop ${j}, alert iteration ${k}`,
-          array.Rooks[j].alerts[k]
+          array.Rooks[j].info.alerts[k]
         );
       }
     }
