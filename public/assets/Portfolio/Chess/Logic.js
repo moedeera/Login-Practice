@@ -139,7 +139,7 @@ function UpdateCheckPoints(piece, depart, dest, array) {
       CheckSpotsW.Rooks = CheckSpotsW.Rooks.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for white", CheckSpotsW.Pawn, CheckSpotsW.Rooks);
+      console.log("CheckSpots for white", CheckSpotsW);
     } /// End of white Rook Condition
   } /// End of White piece Condition
   else if (array === CheckSpotsB) {

@@ -145,7 +145,6 @@ var Map = [
 //   0,
 //   0,
 //   0,
-//   30,
 //   0,
 //   0,
 //   0,
@@ -156,7 +155,8 @@ var Map = [
 //   0,
 //   0,
 //   0,
-//   3,
+//   0,
+//   0,
 //   0,
 //   0,
 //   0,
@@ -187,13 +187,13 @@ var Map = [
 //   0,
 //   0,
 //   80,
-//   0,
+//   80,
 //   0,
 //   0,
 //   k0,
 //   0,
 //   0,
-//   80,
+//   0,
 // ];
 
 CheckSpots = [
@@ -472,6 +472,9 @@ document.querySelector(".board").addEventListener("click", (e) => {
 // Functions
 
 function Mapper() {
+  CheckSpotsW.Count = 0;
+  CheckSpotsB.Count = 0;
+
   for (var j = 0; j < 64; j++) {
     if (Map[j] === 0) {
       boxes[j].innerHTML = "";
@@ -479,19 +482,23 @@ function Mapper() {
     if (Map[j] === 80) {
       boxes[j].innerHTML = "&#9814;";
       boxes[j].style.color = "white";
+      CheckSpotsW.Count++;
     }
     if (Map[j] === p0) {
       boxes[j].innerHTML = "&#9817;";
       boxes[j].style.color = "white";
+      CheckSpotsW.Count++;
     }
 
     if (Map[j] === 60) {
       boxes[j].innerHTML = "&#9816;";
       boxes[j].style.color = "white";
+      CheckSpotsW.Count++;
     }
     if (Map[j] === 40) {
       boxes[j].innerHTML = "&#9815;";
       boxes[j].style.color = "white";
+      CheckSpotsW.Count++;
     }
     if (Map[j] === k0) {
       boxes[j].innerHTML = "&#9812;";
@@ -500,22 +507,27 @@ function Mapper() {
     if (Map[j] === q0) {
       boxes[j].innerHTML = " &#9813;";
       boxes[j].style.color = "white"; //
+      CheckSpotsW.Count++;
     }
     if (Map[j] === p) {
       boxes[j].innerHTML = "&#9823;";
       boxes[j].style.color = "black";
+      CheckSpotsB.Count++;
     }
     if (Map[j] === 8) {
       boxes[j].innerHTML = "&#9820;";
       boxes[j].style.color = "black";
+      CheckSpotsB.Count++;
     }
     if (Map[j] === 6) {
       boxes[j].innerHTML = "&#9822;";
       boxes[j].style.color = "black";
+      CheckSpotsB.Count++;
     }
     if (Map[j] === 4) {
       boxes[j].innerHTML = "&#9821;";
       boxes[j].style.color = "black";
+      CheckSpotsB.Count++;
     }
     if (Map[j] === k) {
       boxes[j].innerHTML = "&#9818";
@@ -524,12 +536,25 @@ function Mapper() {
     if (Map[j] === q) {
       boxes[j].innerHTML = "&#9819;";
       boxes[j].style.color = "black";
+      CheckSpotsB.Count++;
     }
   }
 }
 
 function PlayGame(e) {
+  var whiteKingSpot;
+  var blackKingSpot;
+  var found1 = false;
+  var found2 = false;
   for (var j = 0; j < 64; j++) {
+    if (Map[j] === 20) {
+      whiteKingSpot = j;
+      found1 = true;
+    }
+    if (Map[j] === 2) {
+      blackKingSpot = j;
+      found2 = true;
+    }
     // If this is player 1 that is playing
     if (Info.player === 10) {
       if (e.target === boxes[j]) {
@@ -667,8 +692,8 @@ function PlayGame(e) {
             console.log("its not your piece!");
           }
         }
-      }
-    }
+      } // End of Main Movements
+    } // End of Player one
 
     // If this is player 2 that is playing
     else if (Info.player === 2) {
@@ -797,8 +822,35 @@ function PlayGame(e) {
           }
         }
       }
-    }
+    } // End of Main Movements
   }
+  Mapper();
+  // If neither team has enough to win
+  if (CheckSpotsW.Count === 0 && CheckSpotsB.Count === 0) {
+    EndGame(3);
+  }
+  //// White last piece with no move (LPNM-1)
+  if (found1) {
+    const solutions = kingMovement(20, whiteKingSpot, "move", Map);
+    if (
+      CheckSpotsW.Count === 0 &&
+      solutions.Transfer.length === 0 &&
+      solutions.Kills.length === 0
+    ) {
+      EndGame(1);
+    }
+  } /// End of (LPNM-1)
+  //// Black last piece with no move (LPNM-2)
+  if (found2) {
+    const solutions = kingMovement(2, blackKingSpot, "move", Map);
+    if (
+      CheckSpotsB.Count === 0 &&
+      solutions.Transfer.length === 0 &&
+      solutions.Kills.length === 0
+    ) {
+      EndGame(1);
+    }
+  } /// End of (LPNM-1)
 }
 
 function Clear() {

@@ -13,6 +13,8 @@ var CheckSpotsW = {
   CastlePreventer: false,
 };
 
+var TotalNoGo = [];
+
 var CheckSpotsB = {
   Rooks: [],
   Queens: [],
@@ -155,20 +157,7 @@ function kingMovement(piece, z, action, Information) {
   var Killspot = [];
   var ChessMap = Map;
 
-  //If its only piece left
-  if (
-    (piece === 20 && CheckSpotsW.Count === 1) ||
-    (piece === 2 && CheckSpotsB.Count === 1)
-  ) {
-    EndGame(2);
-  }
-  // If neither team has enough to win
-  else if (
-    (piece === 20 && CheckSpotsW.Count === 1) ||
-    (piece === 2 && CheckSpotsB.Count === 1)
-  ) {
-    EndGame(3);
-  } else if (action === "move") {
+  if (action === "move") {
     if (piece === 20) {
       //Near-Side Castle
       if (
@@ -288,6 +277,7 @@ function kingMovement(piece, z, action, Information) {
     }
   }
 
+  console.log(TotalNoGo);
   const solution = { Transfer: Transfer, Kills: Killspot };
   return solution;
 }
@@ -589,21 +579,38 @@ function RookMovement(piece, z, action, Information) {
 // and returns true if the spot is under direct fire from an
 // opposing piece
 function CheckSpots(x, piece) {
+  TotalNoGo = [];
   var spot = false;
+
+  if (CheckSpotsW.Rooks.length > 0) {
+    for (var j = 0; j < CheckSpotsW.Rooks.length; j++) {
+      for (var k = 0; k < CheckSpotsW.Rooks[j].info.alerts.length; k++) {
+        TotalNoGo.push(CheckSpotsW.Rooks[j].info.alerts[k]);
+      }
+    } //End of Loop that Checks all the white rook NoGos
+  } /// End of Condition that Checks all the white rook NoGos
+
+  if (CheckSpotsB.Rooks.length > 0) {
+    for (var j = 0; j < CheckSpotsB.Rooks.length; j++) {
+      for (var k = 0; k < CheckSpotsB.Rooks[j].info.alerts.length; k++) {
+        TotalNoGo.push(CheckSpotsB.Rooks[j].info.alerts[k]);
+      }
+    } //End of Loop that Checks all the black rook NoGos
+  } /// End of Condition that Checks all the black rook NoGos
 
   if (piece === 20) {
     spot =
       CheckSpotsW.Pawn.some((num) => num === x) ||
       CheckSpotsW.Bishop.some((num) => num === x) ||
       CheckSpotsW.Knight.some((num) => num === x) ||
-      CheckSpotsW.Rooks.some((num) => num === x) ||
+      TotalNoGo.some((num) => num === x) ||
       CheckSpotsW.Queens.some((num) => num === x);
   } else if (piece === 2) {
     spot =
       CheckSpotsB.Pawn.some((num) => num === x) ||
       CheckSpotsB.Bishop.some((num) => num === x) ||
       CheckSpotsB.Knight.some((num) => num === x) ||
-      CheckSpotsB.Rooks.some((num) => num === x) ||
+      TotalNoGo.some((num) => num === x) ||
       CheckSpotsB.Queens.some((num) => num === x);
   }
 
