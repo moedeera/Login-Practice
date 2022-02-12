@@ -1,31 +1,6 @@
 console.log("movements");
 const infoFromB = { spot: 2, alerts: [10, 18, 26, 34, 42, 50, 58] };
 const infoFromW = { spot: 56, alerts: [0, 8, 16, 24, 32, 40, 48] };
-var CheckSpotsW = {
-  Rooks: [],
-  Queens: [],
-  Knight: [],
-  Bishop: [],
-  Pawn: [],
-  Count: 4,
-  UnderCheck: false,
-  EnoughPiecesToCheckMate: true,
-  CastlePreventer: false,
-};
-
-var TotalNoGo = [];
-
-var CheckSpotsB = {
-  Rooks: [],
-  Queens: [],
-  Knight: [],
-  Bishop: [],
-  Pawn: [],
-  Count: 0,
-  UnderCheck: false,
-  EnoughPiecesToCheckMate: true,
-  CastlePreventer: false,
-};
 
 // var Matrix =[
 //     [1,8],[2,8],[3,8],[4,8],[5,8],[6,8],[7,8],[8,8],
@@ -139,7 +114,7 @@ function Actuator(piece, position, action, information) {
   }
 
   const solution = { move: Transfer, kills: Kills };
-  console.log(Map);
+
   return solution;
 }
 
@@ -277,7 +252,25 @@ function kingMovement(piece, z, action, Information) {
     }
   }
 
-  console.log(TotalNoGo);
+  ///CLIPBOARD
+  if (piece === 80) {
+    console.log(`This is the clipboard:data:
+1.King Under Check status: ${CheckSpotsW.UnderCheck},
+2.NoGo Spot list: ${TotalNoGo},
+3.Viable Transfers: ${Transfer},
+4.Viable Transfers: ${Killspot},
+ `);
+  }
+
+  if (piece === 8) {
+    console.log(`This is the clipboard:data:
+1.King Under Check status: ${CheckSpotsB.UnderCheck},
+2.NoGo Spot list: ${TotalNoGo},
+3.Viable Transfers: ${Transfer},
+4.Viable Transfers: ${Killspot},
+  `);
+  }
+
   const solution = { Transfer: Transfer, Kills: Killspot };
   return solution;
 }
@@ -449,6 +442,12 @@ function PawnMovement(piece, z, action, Information) {
 }
 /////////////////////////Rook Movement Function ////////////////////////
 function RookMovement(piece, z, action, Information) {
+  console.log(
+    "UCP: White Before",
+    CheckSpotsW.Rooks,
+    "UCP: Black Before",
+    CheckSpotsB.Rooks
+  );
   var Transfer = [];
   var Killspot = [];
   var brk = 0;
@@ -490,7 +489,6 @@ function RookMovement(piece, z, action, Information) {
             }
 
             if (viable) {
-              console.log("viability of move ", j, " is ", viable);
               Transfer.push(j);
             } // End of condition one to check when spot is empty (HCL-0)
           } // End of condition one to check when spot is empty (HCL-0)
@@ -571,7 +569,33 @@ function RookMovement(piece, z, action, Information) {
     } // End of 64max iteration loop
   } /// End of (action === move) condition
   ///////////////////////// [MOVEMENT TYPE 2: TOWARDS LEFT]
+
+  ///CLIPBOARD
+  if (piece === 80) {
+    console.log(`This is the clipboard:data:
+1.King Under Check status: ${CheckSpotsW.UnderCheck},
+2.NoGo Spot list: ${TotalNoGo},
+3.Viable Transfers: ${Transfer},
+4.Viable Kills: ${Killspot},
+ `);
+  }
+
+  if (piece === 8) {
+    console.log(`This is the clipboard:data:
+1.King Under Check status: ${CheckSpotsB.UnderCheck},
+2.NoGo Spot list: ${TotalNoGo},
+3.Viable Transfers: ${Transfer},
+4.Viable kills: ${Killspot},
+  `);
+  }
+
   const solution = { Transfer: Transfer, Kills: Killspot };
+  console.log(
+    "UCP: White After",
+    CheckSpotsW.Rooks,
+    "UCP: Black After",
+    CheckSpotsB.Rooks
+  );
   return solution;
 }
 

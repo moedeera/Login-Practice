@@ -196,12 +196,6 @@ var Map = [
 //   0,
 // ];
 
-CheckSpots = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-];
-
 // var Map = [
 
 //     8,6,4,q,k,4,6,8,
@@ -219,18 +213,48 @@ CheckSpots = [
 var start = false;
 var turn = 1;
 var z = 0;
-/////////////////// INFO OBJECT CONTROLS GAME LOGISTIC
+/////////////////// INFO OBJECTS CONTROLS GAME
+
+var CheckSpotsW = {
+  Rooks: [],
+  Queens: [],
+  Knight: [],
+  Bishop: [],
+  Pawn: [],
+  Count: 4,
+  UnderCheck: false,
+  EnoughPiecesToCheckMate: true,
+  CastlePreventer: false,
+};
+
+var TotalNoGo = [];
+
+var CheckSpotsB = {
+  Rooks: [],
+  Queens: [],
+  Knight: [],
+  Bishop: [],
+  Pawn: [],
+  Count: 0,
+  UnderCheck: false,
+  EnoughPiecesToCheckMate: true,
+  CastlePreventer: false,
+};
+
 const Info = {
   player: "",
   state: "",
   map: "",
   turn: "",
+  CheckSpotsW: CheckSpotsW,
+  CheckSpotsB: CheckSpotsB,
 };
 
 Info.player = 10;
 Info.state = 0;
 Info.map = Map;
 Info.turn = 1;
+
 ////////////////////////// VARIABLE TO CONTROL  GAME FLOW //////////////
 
 // Castle variables
@@ -651,7 +675,9 @@ function PlayGame(e) {
               Map[59] = 80;
               WhiteKingMovement20++;
             }
+            console.log(CheckSpotsW.Rooks);
             UpdateCheckPoints(Map[j], prev, j, CheckSpotsW);
+            console.log(CheckSpotsW.Rooks);
             Info.map = Map;
             // The below is for when the pawn reaches its final destination
             if (Map[j] === p0 && j === 4) {
@@ -662,6 +688,8 @@ function PlayGame(e) {
               Indicator();
               Info.state = 2;
               Info.player = 2;
+              Info.CheckSpotsW = CheckSpotsW;
+              Info.CheckSpotsB = CheckSpotsB;
               if (Map[j] === 20) {
                 WhiteKingMovement20++;
               } else if (Map[j] === 80 && prev === 63) {
@@ -788,11 +816,15 @@ function PlayGame(e) {
               Map[3] = 8;
               BlackKingMovement2++;
             }
+            console.log(CheckSpotsB.Rooks);
             UpdateCheckPoints(Map[j], prev, j, CheckSpotsB);
+            console.log(CheckSpotsB.Rooks);
             Mapper();
             Info.map = Map;
             Info.state = 2;
             Info.player = 10;
+            Info.CheckSpotsW = CheckSpotsW;
+            Info.CheckSpotsB = CheckSpotsB;
             z = 1;
             Indicator();
             Info.turn = 1;
@@ -851,6 +883,7 @@ function PlayGame(e) {
       EndGame(1);
     }
   } /// End of (LPNM-1)
+  console.log("PF: White", CheckSpotsW.Rooks, "UCP: Black", CheckSpotsB.Rooks);
 }
 
 function Clear() {
@@ -862,6 +895,13 @@ function Clear() {
 // Info Connection
 
 function OutPut(msg) {
+  console.log(
+    "black rook",
+    Info.CheckSpotsB.Rooks,
+    "White rooks",
+    Info.CheckSpotsW.Rooks
+  );
+
   for (var j = 0; j < 64; j++) {
     Map[j] = msg.map[j];
   }
@@ -869,6 +909,14 @@ function OutPut(msg) {
   Info.player = msg.player;
   Info.state = 2;
   Info.map = msg.map;
+  CheckSpotsW = msg.CheckSpotsW;
+  CheckSpotsB = msg.CheckSpotsB;
+  console.log(
+    "black rook",
+    msg.CheckSpotsB.Rooks,
+    "White rooks",
+    msg.CheckSpotsW.Rooks
+  );
 
   changeZ();
   const div = document.createElement("p");
@@ -917,7 +965,6 @@ document.getElementById("exiter").addEventListener("click", () => {
 });
 
 function PieceMovement(Piece, MapSpot, action) {
-  console.log(Piece, MapSpot);
   var solution = Actuator(Piece, MapSpot, action, "hello");
 
   PieceInfo = {

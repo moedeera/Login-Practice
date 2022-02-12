@@ -78,7 +78,6 @@ function CheckValidity(piece, destination, set) {
         (Matrix[j][1] === y - 1 && Matrix[j][0] == x + 1)
       ) {
         if (TestMap[j] === 30) {
-          console.log("condition 1 met", kingSpot, j);
           return false;
           break;
         }
@@ -99,8 +98,6 @@ function CheckValidity(piece, destination, set) {
         (Matrix[j][1] === y + 1 && Matrix[j][0] == x + 1)
       ) {
         if (TestMap[j] === 3) {
-          console.log("condition 2 met", kingSpot, j);
-
           return false;
           break;
         }
@@ -124,27 +121,22 @@ function UpdateCheckPoints(piece, depart, dest, array) {
       CheckSpotsW.Pawn = CheckSpotsW.Pawn.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for white", CheckSpotsW);
     } /// End of white pawn Condition
     if (Map[j] === 80) {
-      console.log("white rook moved");
       const solution = RookMovement(piece, j, "move", Map);
-      console.log(solution);
+
       const alerts = solution.Kills.concat(solution.Transfer);
 
       const info = { spot: j, alerts: alerts };
       CheckSpotsW.Rooks.push({ info });
 
-      console.log(prev);
       CheckSpotsW.Rooks = CheckSpotsW.Rooks.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for white", CheckSpotsW);
     } /// End of white Rook Condition
   } /// End of White piece Condition
   else if (array === CheckSpotsB) {
     if (Map[j] === p) {
-      console.log("Black pawn moved");
       const solution = PawnMovement(piece, dest, "kill", Map);
       console.log(solution);
       const info = { spot: j, alerts: solution.Kills };
@@ -154,10 +146,8 @@ function UpdateCheckPoints(piece, depart, dest, array) {
       CheckSpotsB.Pawn = CheckSpotsB.Pawn.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for black", CheckSpotsB);
     } // End of Black Pawn condition
     if (Map[j] === 8) {
-      console.log("Black rook moved");
       const solution = RookMovement(piece, j, "move", Map);
       console.log(solution);
       const alerts = solution.Kills.concat(solution.Transfer);
@@ -169,9 +159,9 @@ function UpdateCheckPoints(piece, depart, dest, array) {
       CheckSpotsB.Rooks = CheckSpotsB.Rooks.filter(
         (unit) => unit.info.spot !== prev
       );
-      console.log("CheckSpots for black", CheckSpotsB);
     }
   } /// End of Black piece Condition
+  console.log("UCP: White", CheckSpotsW.Rooks, "UCP: Black", CheckSpotsB.Rooks);
 }
 
 function CheckCastleBlock(piece, array) {
@@ -179,14 +169,9 @@ function CheckCastleBlock(piece, array) {
     for (var j = 0; j < array.Rooks.length; j++) {
       for (var k = 0; k < array.Rooks[j].info.alerts.length; k++) {
         if (array.Rooks[j].info.alerts[k] === 10) {
-          console.log("true");
           array.CastlePreventer = true;
           break;
         }
-        console.log(
-          `loop ${j}, alert iteration ${k}`,
-          array.Rooks[j].info.alerts[k]
-        );
       }
     }
   }
@@ -194,14 +179,9 @@ function CheckCastleBlock(piece, array) {
     for (var j = 0; j < array.Rooks.length; j++) {
       for (var k = 0; k < array.Rooks[j].info.alerts.length; k++) {
         if (array.Rooks[j].info.alerts[k] === 24) {
-          console.log("true");
           array.CastlePreventer = true;
           break;
         }
-        console.log(
-          `loop ${j}, alert iteration ${k}`,
-          array.Rooks[j].info.alerts[k]
-        );
       }
     }
   }
