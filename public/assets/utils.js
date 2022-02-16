@@ -1,103 +1,28 @@
-const main = document.getElementById("main")
-const account = document.getElementById("account")
-const settings = document.getElementById("settings")
-const nav = document.querySelector(".sideNav")
-var prev =  0;
+const dashboard = document.getElementById("mainDashboard");
+const progressBtn = document.getElementById("Progress");
+const ObjectiveBtn = document.getElementById("ObjectivesBtn");
 
+const Progress = document.getElementById("ProgressDashboard");
+const Objectives = document.getElementById("ObjectivesDashBoard");
+const ExitBtn1 = document.getElementById("exitProg");
+const ExitBtn2 = document.getElementById("exitObj");
 
-nav.addEventListener('click', (e)=>{
+progressBtn.addEventListener("click", () => {
+  Progress.classList.remove("no-show");
+  dashboard.classList.add("no-show");
+});
 
-e.preventDefault();
+ObjectiveBtn.addEventListener("click", () => {
+  Objectives.classList.remove("no-show");
+  dashboard.classList.add("no-show");
+});
 
-if (e.target === main){
-    Clear()
-   console.log('main')
-   document.getElementById("mainOpt").classList.remove("no-show")
-}
-else if (e.target===account){
-    Clear()
-    console.log('account')
-    document.getElementById("accoOpt").classList.remove("no-show")
-}
+ExitBtn1.addEventListener("click", () => {
+  Progress.classList.add("no-show");
+  dashboard.classList.remove("no-show");
+});
 
-else if(e.target===settings){
-    Clear()
-    console.log('settings')
-    document.getElementById("settOpt").classList.remove("no-show")
-}
-
-
-}
-
-)
-
-
-document.getElementById("close").addEventListener('click',(e)=>{
-    document.getElementById("close").classList.add("no-show")
-    document.getElementById("progress").classList.add("no-show")
-    document.getElementById("progress2").classList.add("no-show")
-    document.getElementById("Appointment").classList.add("no-show")
-    document.getElementById("mainOpt").style.opacity ='1';
-   
-})
-
-
-document.getElementById("Progress").addEventListener('click', (e)=>{
-    document.getElementById("mainOpt").style.opacity ='0'
-   
-    document.getElementById("close").classList.remove("no-show")
-    document.getElementById("progress").classList.remove("no-show")
-
-})
-//
-document.getElementById("Progress2").addEventListener('click', (e)=>{
-    document.getElementById("mainOpt").style.opacity ='0'
-   
-    document.getElementById("close").classList.remove("no-show")
-    document.getElementById("progress2").classList.remove("no-show")
-
-})
-
-
-document.getElementById("Appt").addEventListener('click', (e)=>{
-    document.getElementById("mainOpt").style.opacity ='0'
-  
-    document.getElementById("close").classList.remove("no-show")
-    document.getElementById("Appointment").classList.remove("no-show")
-
-})
-
-
-
-
-
-function Clear (){
-    document.getElementById("mainOpt").style.opacity ='1';
-    document.getElementById("mainOpt").classList.add("no-show")
-    document.getElementById("accoOpt").classList.add("no-show")
-    document.getElementById("settOpt").classList.add("no-show")
-    document.getElementById("close").classList.add("no-show")
-    document.getElementById("progress").classList.add("no-show")
-    document.getElementById("progress2").classList.add("no-show")
-    document.getElementById("Appointment").classList.add("no-show")
-}
-
-document.getElementById("ps2").onfocus = function() {
-    document.getElementById("match").style.display = "block";
-  
-  }
-document.getElementById("ps2").onblur = function() {
-    document.getElementById("match").style.display = "none";
-  }
-
-  document.getElementById("ps2").onkeyup = function() {
-    // Validate lowercase letters
-    var password = document.getElementById("ps1").value
-
-    if(document.getElementById("ps2").value!== password) {  
-        document.getElementById("match").style.color = "red";
-        document.getElementById("match").innerText = "Passwords must match";
-    } else {
-        document.getElementById("match").style.color = "green";
-        document.getElementById("match").innerText = "Passwords match";
-    }}
+ExitBtn2.addEventListener("click", () => {
+  Objectives.classList.add("no-show");
+  dashboard.classList.remove("no-show");
+});

@@ -1,800 +1,708 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
-*{
-  margin:0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 /* body  */
 
-body{
-
-    background:#141424;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    overflow-x: none;
-    margin:0;
-    height:100vh;
-    display: flex;
-    flex-direction:column;
-    box-sizing: border-box;
-    
+body {
+  background: #141424;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  overflow-x: none;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 /* Navbar section */
-.navigation{
-padding: 10px 10px;
-background: #7258E9 ;
-display: flex;
-justify-content: space-between;
-position: fixed;
-width: 100%;
-z-index: 8;
-opacity: 0.9;
-
+.navigation {
+  padding: 10px 10px;
+  background: #7258e9;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 8;
+  opacity: 0.9;
 }
-.nav-int{
+.nav-int {
+  display: flex;
+  justify-content: space-between;
 
-    display: flex;
-    justify-content: space-between;
-
-    width: 20%;
-    text-align: center;
-    align-items: center;
+  width: 20%;
+  text-align: center;
+  align-items: center;
 }
-
 
 /********************** Main-Dashboard *****************************/
 
+.dashb {
+  background: #22224b;
+  height: fit-content;
 
-.dashb{
-background: #22224b;
-    height:fit-content;
+  width: 90%;
+  max-width: 768px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 50px auto;
+  padding: 15px;
 
-    width:90%;
-    max-width:768px;
-    display:grid;
-    grid-template-columns: 1fr 5fr;
-    margin: 50px auto;
-    padding: 15px;
-  
-    margin-top: 80px;
-    border-radius: 10px;
-    transition: 1s ease-in-out;
+  margin-top: 80px;
+  border-radius: 10px;
+  transition: 1s ease-in-out;
 }
 
 /******** Main box Area of dashboard ********/
 
-.boxArea{
-display: grid;
-grid-template-columns: 1fr;
-grid-template-rows: 1fr 5fr;
-margin:0 10px;
-
+.boxArea {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr;
+  margin: 0 10px;
 }
 /* general divs inside boxArea*/
 
 /*Main box div*/
-.botBox{
-    width: 100%;
+.botBox {
+  width: 100%;
 
-     margin: 5px auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-row-gap: 0px;
-    grid-column-gap: 0px;
-    
-  
+  margin: 5px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 0px;
+  grid-column-gap: 0px;
 }
 /* box designs for main-section-navigation */
-.unit{
-
-  
-    width: 75%;
-    max-width: 300px;
-    height: 150px;
-    margin:5px auto;
-    background: #7258E9 ;
-    color:white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.9;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: lighter;
-    letter-spacing: 1.75px;
-    gap:5px;
-    transition: 500ms ease-in-out;
-    cursor: pointer;
-    backface-visibility: hidden;
- 
+.unit {
+  width: 75%;
+  max-width: 300px;
+  height: 150px;
+  margin: 5px auto;
+  background: #7258e9;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 1.75px;
+  gap: 5px;
+  transition: 500ms ease-in-out;
+  cursor: pointer;
+  backface-visibility: hidden;
 }
-.unit i{
-    color:rgba(87, 84, 84, 0.658);
-    color:white;
-}
-.unit:hover{
- 
-    opacity: 0.9;
-    transform: scale(1.02) translateZ(0);
-    will-change:transform;
+.prog {
+  background: chocolate;
+  line-height: 1.6em;
 }
 
-
-
+.unit i {
+  color: rgba(87, 84, 84, 0.658);
+  color: white;
+}
+.unit.prog i {
+  color: rgb(38, 206, 38);
+}
 
 /*Top Section of Box Area*/
-.top{
-    height:100%;
-    width: 88%;
-    margin: 0 auto;
-      display: flex;
-      justify-content:space-between;
-      align-items: center;
-      padding: 5px 15px;
-      font-size: 18px;
-      letter-spacing: 2px;
-      background: white;
-      color:#2e188d ;
-      opacity: 0.9;
-  }
-  
+.top {
+  height: 100%;
+  width: 88%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  background: white;
+  color: #2e188d;
+  opacity: 0.9;
+}
 
 /*Bottom Section of Box Area*/
 
-.BottoM{
-  position:relative;  
+.BottoM {
+  position: relative;
   /*Positioned relatively to adjust (via absolute position) internals modules that appear on click*/
 }
 /*Progress Section of Box Area*/
-       .Progress{
-                 position: absolute;
-                 background: #7258E9 ;
-                 top:10;
-                 height: 320px;
-                 width: 88%;
-                 left:6%;
-                 z-index: 4;
-                 align-items: center;
-                 transition: 400ms ease-in-out;
-                 }
-                 .Progress h1{
-                 color:green;
-                           }
-              /*Internal box div inside Progress Section of Box Area*/
-                          .internal{
-                                    width: 80%;
-                                    position: relative;
-                                    margin:30px auto;
-                                    margin-left: 15%;
-                                    display: grid;
-                                    align-items: center;
-                                    justify-content: center;
-                                    grid-template-columns: 1fr 1fr;
-                                    grid-column-gap: 5px;
-                                    grid-row-gap:5px;
-                                            }
-                              .internal2{
-                                    width: 80%;            
-                                    position: relative;            
-                                    margin:10px auto;            
-                                              
-                                    display: grid;            
-                                    align-items: center;            
-                                    justify-content: center;            
-                                    grid-template-columns: 1fr 1fr 1fr;            
-                                    grid-column-gap: 2px;            
-                                    grid-row-gap:2px; 
-                                    transition: 600ms ease-in-out;          
-                                          } 
-                                .projects2:hover{
-                                    background-color:#7258E9;
-                                    color:white;
-                                    border: 1ps solid grey;
-                                }          
-                                          
-        .Progress:hover{
-         transform: scale(1.001); 
-                 }
-             /*Projects div inside [Internal box div] inside [Progress div] of Box Area*/
-                                             .projects{
-                                                    background:white;
-                                                    padding: 10px ;
-                                                    width:150px;
-                                                    display: flex;
-                                                    flex-direction: column;
-                                                    justify-content: center;
-                                                    align-items: center;
-                                                    text-align: center;
-                                                    color:black;
-                                                     }
-                                        .projects2{
-                                                background:white;        
-                                                padding: 10px ;  
-                                                height:150px;      
-                                                width:150px;        
-                                                display: flex;        
-                                                flex-direction: column;        
-                                                justify-content: center;        
-                                                 align-items: center;       
-                                                 text-align: center;       
-                                                 color:black;       
-                                                         }             .
+.Progress {
+  position: absolute;
+  background: #7258e9;
+  top: 10;
+  height: 320px;
+  width: 88%;
+  left: 6%;
+  z-index: 4;
+  align-items: center;
+  transition: 400ms ease-in-out;
+}
+.Progress h1 {
+  color: green;
+}
+/*Internal box div inside Progress Section of Box Area*/
+.internal {
+  width: 80%;
+  position: relative;
+  margin: 30px auto;
+  margin-left: 15%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+.internal2 {
+  width: 80%;
+  position: relative;
+  margin: 10px auto;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  transition: 600ms ease-in-out;
+}
+.projects2:hover {
+  background-color: #7258e9;
+  color: white;
+  border: 1ps solid grey;
+}
+
+.Progress:hover {
+  transform: scale(1.001);
+}
+/*Projects div inside [Internal box div] inside [Progress div] of Box Area*/
+.projects {
+  background: white;
+  padding: 10px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+.projects2 {
+  background: white;
+  padding: 10px;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+.
 
 /*Close Button div that closes modals*/
-#close{
-    position: absolute;
-    left:7%;
+#close {
+  position: absolute;
+  left: 7%;
 
-    color:white;
-   z-index: 6;
-   top:5%;
-   font-size: 18px;
-   cursor: pointer;
+  color: white;
+  z-index: 6;
+  top: 5%;
+  font-size: 18px;
+  cursor: pointer;
 }
-
 
 /*Appointments Section of Box Area*/
-        .Appointments{
-                   padding-top: 20px;
-                   position: absolute;
-                   background: #7258E9 ;
-                   top:10;
-                   height: 95%;
-                   width: 88%;
-                   left:6%;
-                   z-index: 3;
-                    }
-                    /*Apps Form of Box Area*/
-                            .App{
+.Appointments {
+  padding-top: 20px;
+  position: absolute;
+  background: #7258e9;
+  top: 10;
+  height: 95%;
+  width: 88%;
+  left: 6%;
+  z-index: 3;
+}
+/*Apps Form of Box Area*/
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.App input {
+  width: 10rem;
+}
+.apts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-                               display: flex;
-                               flex-direction: column;
-                               align-items: center;
-                               gap:25px;
-                                  }
-                            .App input{
-                             width: 10rem;
-
-                                         }
-                                        .apts{
-
-                                        display: flex;
-                                        flex-direction: column;
-                                        gap:5px;
-                                           }
-
-                                      .appt{
-                                        background: grey;
-                                        border: 1px solid black;
-                                        height: 2rem;
-                                        width: 15rem;
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: center;
-                                        align-items: center;
-                                         }
+.appt {
+  background: grey;
+  border: 1px solid black;
+  height: 2rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* Side-bar section of main dashboard  */
-.sideNav{
-    margin: auto 0;
-   display: flex;
-   flex-direction:column;
-   justify-content:space-evenly;
-   align-items:center;
-   background:white;
-   
-   height:90%;
-   letter-spacing: 1.5px;
-   padding: 5px;
-   cursor: pointer;
-   color:#462db4; 
-   border-radius: 5px;
-   
-   }
-   .sideNav p:hover{
-       text-decoration: underline;
-   }
+.sideNav {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: white;
+
+  height: 90%;
+  letter-spacing: 1.5px;
+  padding: 5px;
+  cursor: pointer;
+  color: #462db4;
+  border-radius: 5px;
+}
+.sideNav p:hover {
+  text-decoration: underline;
+}
 /* Side Bar Navigation options*/
 
-.settings{
-   
-    grid-column: 1/span 2;
-    height: 330px;
-    padding: 5px;
-    padding-top: 15px;
+.settings {
+  grid-column: 1 / span 2;
+  height: 330px;
+  padding: 5px;
+  padding-top: 15px;
 }
-.match-set{
-    display: flex;
-    justify-content: space-between;
+.match-set {
+  display: flex;
+  justify-content: space-between;
 }
-#match{
-    display: none;
+#match {
+  display: none;
 }
-.settings input{
-
-    font-size: 14px;
-    width: 100%;
-    max-width: 300px;
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: column;
-    gap:10px;
+.settings input {
+  font-size: 14px;
+  width: 100%;
+  max-width: 300px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
- .no-show{
-    display: none !important;
+.no-show {
+  display: none !important;
 }
-
 
 .Form {
-    
-width: 100%;
-margin: 15px auto;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-column-gap:35px;
-grid-row-gap:15px;
-letter-spacing: 2px;
-line-height: 1.6em;
-align-items: center;
+  width: 100%;
+  margin: 15px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 35px;
+  grid-row-gap: 15px;
+  letter-spacing: 2px;
+  line-height: 1.6em;
+  align-items: center;
 }
-.Form input{
-width: 100%;
-letter-spacing: 2px;
-
+.Form input {
+  width: 100%;
+  letter-spacing: 2px;
 }
-.account{
-  
-    width: 100%;
-    padding:15px  20px;
-    margin: 15px auto;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-  
+.account {
+  width: 100%;
+  padding: 15px 20px;
+  margin: 15px auto;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /****************************************** Secondary Dashboard *************************************/
 
-.dashboard{
-
-max-width: 768px;
-margin:60px auto;
-display: grid;
-grid-template-columns: 5fr 1fr;
-justify-self:center ;
-
-
+.dashboard {
+  max-width: 768px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  justify-self: center;
 }
 
-.main-box{
+.main-box {
   position: relative;
   width: 100%;
   height: 100%;
-    border-right: 1px solid grey;
-    background: url(dm1.jpg) no-repeat center center/cover;
-    
+  border-right: 1px solid grey;
+  background: url(dm1.jpg) no-repeat center center/cover;
 }
-.main-box h2{
-
-    position: absolute;
-    top:15;
-    left: 15;
-    cursor: pointer;
+.main-box h2 {
+  position: absolute;
+  top: 15;
+  left: 15;
+  cursor: pointer;
 }
-.main-box h2:hover{
-
-transform: scale(1.01);
-
+.main-box h2:hover {
+  transform: scale(1.01);
 }
-.Side-box{
- width: 200px;
-    height: 60vh;
-    display: grid;
+.Side-box {
+  width: 200px;
+  height: 60vh;
+  display: grid;
   display: flex;
   flex-direction: column;
-    
-    
-  
-    
-    /* padding: 5px; */
-}
-.Side-box ul{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   
-   align-items: center;
-     text-align: center;
-    
-    list-style: none;
-    padding: 5px 0px;
-    cursor: pointer;
-    height: 100%;
-/* border-bottom: 1px solid grey; */
-}
-.ul{
 
-    background:#474F66;
-    height: 100%;
-    
+  /* padding: 5px; */
 }
-.Side-box ul:hover{
-    cursor: pointer;
+.Side-box ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+  text-align: center;
+
+  list-style: none;
+  padding: 5px 0px;
+  cursor: pointer;
+  height: 100%;
+  /* border-bottom: 1px solid grey; */
+}
+.ul {
+  background: #474f66;
+  height: 100%;
+}
+.Side-box ul:hover {
+  cursor: pointer;
 }
 
-.sideOpt li{
-    height: 100%;
-display: flex;
-flex-direction: row;
-align-items: center;
+.sideOpt li {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-gap:15px;
+  gap: 15px;
 }
 
-.cal{
-display: flex;
-justify-content: center;
-color:#7258E9 ;
-background: white;
-padding:55px 0;
-height: 100%;
-border: 3px solid #7258E9 ;
-height: 100%;
-cursor: pointer;
+.cal {
+  display: flex;
+  justify-content: center;
+  color: #7258e9;
+  background: white;
+  padding: 55px 0;
+  height: 100%;
+  border: 3px solid #7258e9;
+  height: 100%;
+  cursor: pointer;
 }
-.cal:hover{
-
-    opacity: 0.7;
-}
-
-
-
-
-
-
-
-.lower{
-
-display: grid;
-grid-template-columns: 1fr 1fr;
-/* width: 768px; */
-width: 100%;
-max-width: 768px;
-gap:5px;
-margin: 0 auto;
-
-
-
+.cal:hover {
+  opacity: 0.7;
 }
 
-.lbox{
-
-
-   width: 100%;
-    max-width: 384px;
-    height: 300px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-   
+.lower {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* width: 768px; */
+  width: 100%;
+  max-width: 768px;
+  gap: 5px;
+  margin: 0 auto;
 }
 
-
-.lbox:hover{
-opacity: 0.5;
-cursor: pointer;
-
-
-}
-.red{
-
-    background: coral;
+.lbox {
+  width: 100%;
+  max-width: 384px;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-input{
-    width: 2rem;
-    height:2rem;
-   
+.lbox:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.red {
+  background: coral;
+}
+
+input {
+  width: 2rem;
+  height: 2rem;
 }
 
 .video {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */ 
-    }
-    iframe{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    }
-    #tut{
-        background: url(tutorials.jpg) no-repeat center center/cover;
-    
-    }
-    #chat{
-        background: url(chat.jpg) no-repeat center center/cover;
-    
-    }
-    #proj{
-        background: url(projects.jpg) no-repeat center center/cover;
-    
-    }
-
-
-    #prac{
-        background: url(dm1.jpg) no-repeat center center/cover;
-    
-    }
-.lbox h1{
-background: white;
-color:black;
-width:100%;
-height:100%;
-
-opacity: 0.773;
-
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+}
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#tut {
+  background: url(tutorials.jpg) no-repeat center center/cover;
+}
+#chat {
+  background: url(chat.jpg) no-repeat center center/cover;
+}
+#proj {
+  background: url(projects.jpg) no-repeat center center/cover;
 }
 
+#prac {
+  background: url(dm1.jpg) no-repeat center center/cover;
+}
+.lbox h1 {
+  background: white;
+  color: black;
+  width: 100%;
+  height: 100%;
 
-.atag a, .atag a:visited{
-    display:flex;
-justify-content: center;
-align-items: center;
-    width:100%;
-    height:100%;
-  
-    color:#411be9;
+  opacity: 0.773;
+}
+
+.atag a,
+.atag a:visited {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  color: #411be9;
 }
 /************************************************ Tutorial section ***********************/
-.card{
-    max-width: 600px;
-    margin: 0px auto;
-    background:#474F66;
-    background: #1a1a38;
-    padding: 10px 15px;
-    letter-spacing: 1px;
-    /* font-weight: 100; */
-    color: white;
-    
-    line-height: 1.6;
-    }
-    .card h5{
-        display: none;
-    }
-    
-    .card h3{
-        margin:5px;
-    }
-    .card ul{
-    
-        list-style: none;
-       
-    }
-    .gameplan{
-    
-        border:0.5px solid rgba(128, 128, 128, 0.719);
-        padding:10px 5px;
-    }
-    .checklist ul{
-    
-        background:#19192C;
-        gap:20px;
-        padding:5px 15px;
-        border-radius: 5px;
-        
-    }
-    .checklist li{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border:1px solid grey;
-        margin: 10px 0;
-        border-radius: 5px;
-        padding:5px 10px;
-    }
-    .reminder{
-    
-        margin:10px 0;
-    }
-    /* completed versus non completed sections */
-    .complete-section{
+.card {
+  max-width: 600px;
+  margin: 0px auto;
+  background: #474f66;
+  background: #1a1a38;
+  padding: 10px 15px;
+  letter-spacing: 1px;
+  /* font-weight: 100; */
+  color: white;
 
-        background-color: blanchedalmond;
-        max-width: 600px;
-        margin: 40px auto;
-      position: relative;
-    }
-    .check{
-    
-        position: absolute;
-        background-color: green;
-        opacity: 0.6;
-        width: 100%;
-        height: 100%;
-        top:0;
-        left:0;
-        transition: 1.5s ease-in-out;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    #checkbox4, #checkbox5, .no-show{
-        display: none;
-    }
-    .no-show{
-        display: none;
-    }
-    /**/
-    /***************Footer************************/
+  line-height: 1.6;
+}
+.card h5 {
+  display: none;
+}
 
+.card h3 {
+  margin: 5px;
+}
+.card ul {
+  list-style: none;
+}
+.gameplan {
+  border: 0.5px solid rgba(128, 128, 128, 0.719);
+  padding: 10px 5px;
+}
+.checklist ul {
+  background: #19192c;
+  gap: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+.checklist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid grey;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.reminder {
+  margin: 10px 0;
+}
+/* completed versus non completed sections */
+.complete-section {
+  background-color: blanchedalmond;
+  max-width: 600px;
+  margin: 40px auto;
+  position: relative;
+}
+.check {
+  position: absolute;
+  background-color: green;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 1.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+#checkbox4,
+#checkbox5,
+.no-show {
+  display: none;
+}
+.no-show {
+  display: none;
+}
+.Accountbox {
+  margin: 150px auto;
+  max-width: 1300px;
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+.AccMenue {
+  border: 1px solid coral;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.AccountOptions {
+  border: 1px solid white;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+}
+.PublicProfile {
+  border: 1px solid greenyellow;
+  padding: 50px;
+}
+.PublicProfile form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+  margin-top: 20px;
+}
+/**/
+/***************Footer************************/
 
 /************************************************  section ***********************/
 
-
-
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .dashb{
-        height: 110vh;
-        
-        grid-template-columns: 1fr ;
-        grid-template-rows: 1fr 5fr ;
-      
-    }
-    
-    .botBox{
-        grid-template-columns: 1fr;
-    }
-    
-.dashboard{
+  .AccountOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Accountbox {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+  }
+
+  .dashb {
+    height: 110vh;
 
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr;
+  }
+
+  .botBox {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
-  
-}
-.sideNav{
+  }
+  .sideNav {
     flex-direction: row;
     padding: 15px 0;
-    margin:0 0;
-}
+    margin: 0 0;
+  }
 
-.top{
+  .top {
     display: none;
-}
-.unit{
-
+  }
+  .unit {
     height: 185px;
     align-items: center;
-}
+  }
 
-.unit:hover{
-    transform: scale(1.00);
-}
+  .unit:hover {
+    transform: scale(1);
+  }
 
-.main-box{
-
+  .main-box {
     display: none;
-}
+  }
 
-
-.Side-box{
+  .Side-box {
     width: 300px;
-}
+  }
 
-.Side-box ul{
-
-    flex-direction:row;
-  justify-content: space-around;
+  .Side-box ul {
+    flex-direction: row;
+    justify-content: space-around;
     padding-bottom: 5px;
     font-size: 18px;
   }
-.Side-box p{
-
+  .Side-box p {
     display: none;
-}
-.input input{
-
+  }
+  .input input {
     font-size: 10px;
-}
+  }
 
-input{
-
+  input {
     font-size: 10px;
-}
-.lower{
-
+  }
+  .lower {
     grid-template-columns: 1fr;
-}
+  }
 
-.lbox{
-
-
+  .lbox {
     max-width: 600px;
-}
-.settings, .settings form{
-   
-   display: flex;
-   flex-direction: column;
-   
-    
-}
-.account{
-   
-    grid-row: 1/span 4;
-    height: 700px;
-    align-items: center;
+  }
 }
 
-.Form {
-
-
-height: 500px;
-
-
-}
-#settOpt{
-
-    grid-template-columns: 1fr;
-}
-
-
-.Appointments, Progress{
-width: 100%;
-text-align: center;
-height: 1005px;
-
-}
-
-.Appointments{
-    padding-top: 70px;
-    height: 750px;
-}
-
-.internal{
-  margin-top: 75px;
-    grid-template-columns: 1fr;
-    grid-row-gap:25px;
-}
-.internal2{
-grid-template-columns: 1fr;
-grid-column-gap: 0px;            
-grid-row-gap:0px; 
-}
-.Progress{
-
-    height:750px;
-}
-.dashb{
-
-    height:870px;
-}
-#close{
-    top:3%
-}
-
-
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
-
-
+  .AccMenue {
+    border: 1px solid coral;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+  .unit:hover {
+    opacity: 0.9;
+    transform: scale(1.02) translateZ(0);
+    will-change: transform;
+    background: coral;
+  }
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}

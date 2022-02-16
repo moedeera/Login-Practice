@@ -38,7 +38,46 @@
 color:black; width: 100%; max-width: 900px; height: 300px; display: flex;
 align-items: center; justify-content: center; ">
     
-<h1>Under Construction for now!</h1>
+    <div class="Appointments " id="Appointment">
+      <form action="" method ="POST" class="App" id="form0">
+        <!-- <label for="birthdaytime">REQUEST AN AUDIO-CHAT APPOINTMENT</label>
+        <input type="datetime-local" id="birthdaytime" name="value"> -->
+        
+        <div class="apts">
+        Current:
+        <% if (info.Appointments) { %>
+          <div class="appt"> <%= info.AppointDate %></div>
+          <%} else { %>
+            <div > <%= info.AppointDate %></div>
+          <% } %>
+    
+    
+    
+    
+    </div>
+    <% if (info.Appointments) { %>
+      <h3>Request another chat appointment</h3>
+      <%} else { %>
+        <h3>Request a chat appointment</h3>
+      <% } %>
+    
+    
+      <div class="appt" style="background-color:crimson;"> Cancel Appointment</div>
+    
+     <label for="meeting-time">Choose a time for your appointment:</label>
+    
+    <input type="datetime-local" id="meeting-time"
+           name="appointment" value="2021-26-12T19:30"
+           min="2022-01-01T00:00" max="2022-11-11T00:00">
+    
+    <input type="submit"  value="REQUEST">
+    
+      </form>
+    
+    
+    
+    
+    </div>
 
 </div>
 
