@@ -38,7 +38,18 @@
 color:black; width: 100%; max-width: 900px; height: 300px; display: flex;
 align-items: center; justify-content: center; ">
     
-<h1>Under Construction for now!</h1>
+    <h3>Account information</h3>
+
+    <form action="./profile.ejs" method ="POST" class="Form">
+  
+    <label for="">Name:</label>  <label for=""><%= info.name %></label>    
+    <label for="">Email:</label>  <label for=""><%= info.email %></label>  
+    <label for="">Occupation:</label>  <label for="">Student</label>  
+    <label for="">Location:</label>  <label for="">London</label>  
+    <label for="">Age:</label>  <label for="">21</label>  
+    <label for="">Avatar:</label> <div id="imgs" class="image-style"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;" id="img"></div>
+   
+    </form>
 
 </div>
 

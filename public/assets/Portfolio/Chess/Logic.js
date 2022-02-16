@@ -61,8 +61,33 @@ function CheckValidity(piece, destination, set) {
   TestMap[destination] = piece;
   var kingSpot;
 
+  /// White king
+  if (set === 20) {
+    // This Loop finds out where the king is
+    for (var j = 0; j < 64; j++) {
+      if (TestMap[j] === 20) {
+        kingSpot = j;
+      }
+    } // End of King Finding Loop
+
+    var x = Matrix[kingSpot][0];
+    var y = Matrix[kingSpot][1];
+    for (var j = 0; j < 64; j++) {
+      //Checking for pawn checks
+      if (
+        (Matrix[j][1] === y + 1 && Matrix[j][0] == x - 1) ||
+        (Matrix[j][1] === y + 1 && Matrix[j][0] == x + 1)
+      ) {
+        if (TestMap[j] === 3) {
+          return false;
+          break;
+        }
+      }
+    } // End of WKC Loop
+  } // End of White King Condition
+
   ///// black king
-  if (set === 2) {
+  else if (set === 2) {
     for (var j = 0; j < 64; j++) {
       if (TestMap[j] === 2) {
         kingSpot = j;
@@ -81,25 +106,8 @@ function CheckValidity(piece, destination, set) {
           return false;
           break;
         }
-      }
-    }
-  } else if (set === 20) {
-    for (var j = 0; j < 64; j++) {
-      if (TestMap[j] === 20) {
-        kingSpot = j;
-      }
-    }
-    var x = Matrix[kingSpot][0];
-    var y = Matrix[kingSpot][1];
-    for (var j = 0; j < 64; j++) {
-      //Checking for pawn checks
-      if (
-        (Matrix[j][1] === y + 1 && Matrix[j][0] == x - 1) ||
-        (Matrix[j][1] === y + 1 && Matrix[j][0] == x + 1)
-      ) {
-        if (TestMap[j] === 3) {
-          return false;
-          break;
+        //Checking for Rook checks
+        if (Matrix[j][1]) {
         }
       }
     }

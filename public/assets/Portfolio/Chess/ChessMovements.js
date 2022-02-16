@@ -574,7 +574,7 @@ function RookMovement(piece, z, action, Information) {
   if (piece === 80) {
     console.log(`This is the clipboard:data:
 1.King Under Check status: ${CheckSpotsW.UnderCheck},
-2.NoGo Spot list: ${TotalNoGo},
+2.NoGo Spot list: ${TotalNoGoB},
 3.Viable Transfers: ${Transfer},
 4.Viable Kills: ${Killspot},
  `);
@@ -604,6 +604,7 @@ function RookMovement(piece, z, action, Information) {
 // opposing piece
 function CheckSpots(x, piece) {
   TotalNoGo = [];
+  TotalNoGoB = [];
   var spot = false;
 
   if (CheckSpotsW.Rooks.length > 0) {
@@ -617,7 +618,7 @@ function CheckSpots(x, piece) {
   if (CheckSpotsB.Rooks.length > 0) {
     for (var j = 0; j < CheckSpotsB.Rooks.length; j++) {
       for (var k = 0; k < CheckSpotsB.Rooks[j].info.alerts.length; k++) {
-        TotalNoGo.push(CheckSpotsB.Rooks[j].info.alerts[k]);
+        TotalNoGoB.push(CheckSpotsB.Rooks[j].info.alerts[k]);
       }
     } //End of Loop that Checks all the black rook NoGos
   } /// End of Condition that Checks all the black rook NoGos
@@ -627,7 +628,7 @@ function CheckSpots(x, piece) {
       CheckSpotsW.Pawn.some((num) => num === x) ||
       CheckSpotsW.Bishop.some((num) => num === x) ||
       CheckSpotsW.Knight.some((num) => num === x) ||
-      TotalNoGo.some((num) => num === x) ||
+      TotalNoGoB.some((num) => num === x) ||
       CheckSpotsW.Queens.some((num) => num === x);
   } else if (piece === 2) {
     spot =
