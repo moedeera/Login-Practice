@@ -13,6 +13,10 @@ PublicBtn.addEventListener("click", () => {
   SettingsBtn.style.color = "white";
   DeleteBtn.style.color = "white";
 
+  PublicBtn.style.background = "white";
+  SettingsBtn.style.background = "none";
+  DeleteBtn.style.background = "none";
+
   PublicPage.classList.remove("no-show");
   PublicEdit.classList.add("no-show");
   SettingsPage.classList.add("no-show");
@@ -24,6 +28,10 @@ SettingsBtn.addEventListener("click", () => {
   SettingsBtn.style.color = "black";
   DeleteBtn.style.color = "white";
 
+  PublicBtn.style.background = "none";
+  SettingsBtn.style.background = "white";
+  DeleteBtn.style.background = "none";
+
   PublicPage.classList.add("no-show");
   PublicEdit.classList.add("no-show");
   SettingsPage.classList.remove("no-show");
@@ -33,6 +41,10 @@ DeleteBtn.addEventListener("click", () => {
   PublicBtn.style.color = "white";
   SettingsBtn.style.color = "white";
   DeleteBtn.style.color = "black";
+
+  PublicBtn.style.background = "none";
+  SettingsBtn.style.background = "none";
+  DeleteBtn.style.background = "white";
 
   PublicPage.classList.add("no-show");
   PublicEdit.classList.add("no-show");

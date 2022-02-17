@@ -565,19 +565,22 @@ iframe {
 .Accountbox {
   background: #7358e9da;
   margin: 150px auto;
-  max-width: 1300px;
+  max-width: 1100px;
   border: 1px solid white;
   display: grid;
   grid-template-columns: 1fr 4fr;
   height: 80vh;
+  border-radius: 10px;
+  padding: 10px;
 }
 .AccMenue {
-  border: 1px solid coral;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   padding: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
 .AccountOptions {
   padding: 5px;
@@ -588,9 +591,11 @@ iframe {
 }
 .AccountOptions > div {
   cursor: pointer;
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 10px;
 }
 .PublicProfile {
-  border: 1px solid greenyellow;
   padding: 50px;
 }
 .PublicProfile form {
@@ -601,8 +606,11 @@ iframe {
   margin-top: 20px;
 }
 .PublicProfile input {
-  width: 100%;
-  height: 2rem;
+  width: 70%;
+  height: 2.5rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .PublicProfile input [type="button"],
@@ -707,7 +715,6 @@ input[type="submit"] {
 
 @media only screen and (min-width: 600px) {
   .AccMenue {
-    border: 1px solid coral;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
