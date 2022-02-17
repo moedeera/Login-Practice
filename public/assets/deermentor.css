@@ -563,11 +563,13 @@ iframe {
   display: none;
 }
 .Accountbox {
+  background: #7358e9da;
   margin: 150px auto;
   max-width: 1300px;
   border: 1px solid white;
   display: grid;
   grid-template-columns: 1fr 4fr;
+  height: 80vh;
 }
 .AccMenue {
   border: 1px solid coral;
@@ -575,14 +577,17 @@ iframe {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  padding: 10px;
 }
 .AccountOptions {
-  border: 1px solid white;
   padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 50px;
+}
+.AccountOptions > div {
+  cursor: pointer;
 }
 .PublicProfile {
   border: 1px solid greenyellow;
@@ -595,6 +600,27 @@ iframe {
   grid-row-gap: 50px;
   margin-top: 20px;
 }
+.PublicProfile input {
+  width: 100%;
+  height: 2rem;
+}
+
+.PublicProfile input [type="button"],
+input[type="submit"] {
+  background-color: #19192c;
+  width: 55%;
+  height: 2.5rem;
+  color: white;
+  border-radius: 5px;
+}
+
+.PubProfileHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 50px;
+}
+
 /**/
 /***************Footer************************/
 

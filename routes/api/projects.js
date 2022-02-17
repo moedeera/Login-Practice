@@ -15,7 +15,9 @@ const Appointment = require("../../models/Appt.js");
 var Userz;
 const Guest = {
   name: "Guest",
-  email: "Guest",
+  email: "Guest@gmail.com",
+  occupation: "student",
+  location: "London",
   password: "123",
   id: "Guest",
   age: "23",
@@ -429,6 +431,40 @@ router.get("/Account", (req, res) => {
   res.render("Projects/Account.ejs", { info: req.session.user });
 });
 ///////////////////////////////
+//MyLearningPage
+//GET route
+// Tutorial page
+
+router.post("/account", async (req, res) => {
+  //password change request
+
+  if (req.session.user.name === "Guest") {
+    console.log("its a guest");
+    if (req.body.opassword) {
+      console.log("password change request");
+      if (
+        req.body.opassword === req.session.user.password &&
+        req.body.npassword === req.body.password2
+      ) {
+        req.session.user.password = req.body.npassword;
+        res.render("Projects/Account.ejs", { info: req.session.user });
+      }
+    } else if (req.body.deletePass) {
+      console.log("Account Delete Request");
+    } else if (req.body.name) {
+      console.log("Public Info Change request");
+
+      req.session.user.name = req.body.name;
+      req.session.user.occupation = req.body.occupation;
+      req.session.user.location = req.body.location;
+      req.session.user.age = req.body.age;
+
+      res.render("Projects/Account.ejs", { info: req.session.user });
+    }
+  } else {
+    console.log("its not a guest");
+  }
+});
 
 // access Project
 

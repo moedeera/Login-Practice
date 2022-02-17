@@ -20,10 +20,7 @@
 
 
  <div class="nav-int">
-  <div>
-    <a href="/Projects/myLearning"> MyLearning</a>
-  </div> 
-  
+
    <div>
     <a href="/Projects/profile">Home</a>
   </div>  
@@ -39,41 +36,89 @@
   <div class="AccMenue">  <h1>Account </h1>
 
     <div class="AccountOptions">
-<div>Public Profile</div>
-<div>Account Settings</div>
-<div>Delete Account</div>
+<div id="Public">Public Profile</div>
+<div id="Settings">Account Settings</div>
+<div id="Delete">Delete Account</div>
     </div></div>
 
    
-<div class="PublicProfile">
-  <h3>Public Profile </h3>
+<div class="PublicProfile" id="PublicPage">
+  <div class="PubProfileHeader"> 
+     <h2>Public Profile </h2> 
+    <div id="PublicEditBtn" style="cursor: pointer;">Edit</div>
+</div>
   <form action="./profile.ejs" method ="POST">
   
-    <label for="">Name:<%= info.name %></label>  <a href="">Edit</a>  
-    <label for="">Email:<%= info.email %></label>  <a href="">Edit</a>  
-    <label for="">Occupation: Student</label> <a href="">Edit</a>  
-    <label for="">Location: London</label> <a href="">Edit</a>  
-    <label for="">Age: 23</label>  <a href="">Edit</a>  
-    <label for="">Avatar:  <div id="imgs" class="image-style"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;" id="img"></div>
+    <label for="">Name </label>  <a href="" id="edit1"><%= info.name %></a>  
+    <label for="">Email address </label>  <a href=""><%= info.email %></a>  
+    <label for="">Occupation: </label> <a href=""><%= info.occupation %></a>  
+    <label for="">Location </label> <a href=""><%= info.location %></a>  
+    <label for="">Age: </label>  <a href=""><%= info.age %></a>  
+    <label for="">Avatar: 
     </label> 
- <a href="">Edit</a> 
+ <a href=""> <div id="imgs" class="image-style"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" srcset="" style="border-radius: 50%; width:50px;" id="img"></div></a> 
     </form></div>
- 
+    <div class="PublicProfile no-show" id="DeletePage">
+      <div class="PubProfileHeader"> 
+         <h2>Delete Profile </h2> 
+        <div></div>
+    </div>
+    <p>Are you sure? Understand this action is permanent and cannot be undone </p>
+    
+    <form action="./account" method ="POST">
+      
+      <label for="">Password </label><input type="password" name="deletePass">
+        <label for="">Enter New password</label><input type="password" name="deletePass1" id="ps1">
+        <label for="">Re-enter password</label><input type="password" name="deletePass2" id="ps2">
+        <input type="submit" value='Delete'>
+    
+    
+      </form></div>
 
-    <form method="POST"  action= "" class="no-show" >
-      <label for="">Old password</label><input type="password" name="password">
-      <label for="">Enter New password</label><input type="password" name="npassword" id="ps1">
-      <label for="">Re-enter password</label><input type="password" name="npassword2" id="ps2">
-      
-      
-      <input type="submit" value= submit>
-      </form>
-      <form  method="POST"  action= "" class="no-show">
-                    <label for="">Change Avatar(Enter URL)</label><input type="text" name="url">
-      <input type="submit" value= submit>
-      </form>
+      <div class="PublicProfile no-show" id="PublicEdit">
+        <div class="PubProfileHeader"> 
+           <h2>Public Profile </h2> 
+          <div></div>
+      </div>
+      <form method="POST"  action="./account">
+        <label for="">Name</label><input type="text" name="name" value=<%= info.name %>>
+       
+        <label for="">Occupation</label><input type="text" name="occupation" value=<%= info.occupation %>>
+        <label for="">Location</label><input type="text" name="location" value=<%= info.location %>>
+        <label for="">Age</label><input type="number" min="16" max="80" name="age" value=<%= info.age %>>
+        <label for="">Change Avatar(Enter URL)</label><input type="text" name="url">
+        <input type="submit" value= 'Save'>
+        </form>
+        <form  method="POST"  action= "" class="no-show">
+                    
+          <input type="submit" value= 'Save'>
+        </form></div>
+
+        <div class="PublicProfile no-show" id="SettingsPage">
+          <div class="PubProfileHeader"> 
+             <h2>Account Settings</h2> 
+            <div></div>
+        </div>
+          <form action="./account" method ="POST">
+          
+            <label for="">Enter Old Password (123 for Guests)</label><input type="password" name="opassword">
+              <label for="">Enter New password</label><input type="password" name="npassword" >
+              <label for="">Re-enter password</label><input type="password" name="npassword2">
+              <input type="submit" value= save pass>
+        
+            </form></div>
+
+
 
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -86,4 +131,4 @@
 
 
 <script src="/public/assets/main.js"></script>
-<script src="/public/assets/utils.js"></script>
+<script src="/public/assets/account.js"></script>
