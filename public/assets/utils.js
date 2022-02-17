@@ -27,17 +27,3 @@ ExitBtn2.addEventListener("click", () => {
   dashboard.classList.remove("no-show");
 });
 
-const PublicBtn = document.getElementById("Public");
-const SettingsBtn = document.getElementById("Settings");
-const DeleteBtn = document.getElementById("Delete");
-
-PublicBtn.addEventListener("click", () => {
-  console.log("you clicked public button");
-});
-
-SettingsBtn.addEventListener("click", () => {
-  console.log("you clicked settings button");
-});
-DeleteBtn.addEventListener("click", () => {
-  console.log("you clicked public button");
-});
