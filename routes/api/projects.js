@@ -268,7 +268,7 @@ router.post("/tutorials", async (req, res) => {
   GetBodyData();
   //Get and Update User
 
-  if (req.session.user.email === "Guest") {
+  if (req.session.user.email === "Guest@gmail.com") {
     var users = req.session.user;
     users.CHECKB1 = Data[0];
     users.CHECKB2 = Data[1];
