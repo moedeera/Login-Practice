@@ -47,9 +47,9 @@ var Profiles = [
       },
     ],
 
-    Friends: [2, 3, 4],
+    Friends: [2, 3, 4, 6, 11],
     followers: [5, 6, 9],
-    following: [7, 9],
+    following: [5, 7, 9],
     Posts: [6, 5, 1],
   },
   {
@@ -82,7 +82,7 @@ var Profiles = [
   },
   {
     id: 3,
-    status: "private",
+
     status: "private",
     name: "Matthew Russo",
     nickname: "Matt",
@@ -313,7 +313,7 @@ var Profiles = [
   },
   {
     id: 11,
-    status: "public",
+    status: "private",
     name: "Nicholas Janovic",
     nickname: "Nick",
     location: "Calgary, Alberta",
@@ -381,4 +381,179 @@ var Profiles = [
   },
 ];
 
-module.exports = { Profiles };
+var Posts = [
+  {
+    id: 1,
+    status: "public",
+    Poster: 4,
+    PosterName: "Jamie",
+    PosterPic:
+      "https://images.pexels.com/photos/1693085/pexels-photo-1693085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+
+    postPic:
+      "https://images.pexels.com/photos/1842182/pexels-photo-1842182.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    text: "Teddy was just enjoying the sun",
+    date: "March 1 2022 at 5:12pm",
+    comments: [3],
+    likes: 2,
+    likers: [1, 2],
+    datePosted: new Date("2022-03-01"),
+  },
+  {
+    id: 2,
+    status: "public",
+    Poster: 7,
+    PosterName: "Dr Silva",
+    PosterPic:
+      "https://cdn.pixabay.com/photo/2021/02/09/06/45/doctor-5997504_960_720.jpg",
+
+    postPic:
+      "https://cdn.pixabay.com/photo/2020/12/15/14/38/covid-19-5833844_960_720.png",
+    text: "Booster shots now available across Canada",
+    date: "Jan 10 2022 at 1:25am ",
+    comments: [],
+    likes: 2,
+    likers: [1, 2],
+    datePosted: new Date("2022-01-10"),
+  },
+  {
+    id: 3,
+    status: "friends",
+    Poster: 11,
+    PosterName: "Nick",
+    PosterPic:
+      "https://cdn.pixabay.com/photo/2016/03/26/22/13/man-1281562_1280.jpg",
+
+    postPic:
+      "https://cdn.pixabay.com/photo/2017/05/09/03/46/alberta-2297204_960_720.jpg",
+    text: "Banff is offering free ski lessons from March 10 to the 16th, I am a newbie myself but would love it if anyone joined me ",
+    date: "January 10 2022 at 8:45pm",
+    comments: [],
+    likes: 2,
+    likers: [],
+    datePosted: new Date("2022-01-10"),
+  },
+  {
+    id: 4,
+    status: "friends",
+    Poster: 11,
+    PosterName: "Nick",
+    PosterPic:
+      "https://cdn.pixabay.com/photo/2016/03/26/22/13/man-1281562_1280.jpg",
+
+    postPic:
+      "https://cdn.pixabay.com/photo/2017/10/28/07/47/woman-2896389_960_720.jpg",
+    text: "We already have 4 people attending, I will be driving so we can all car-pool, anyone care to join  ",
+    date: "January 14 2022 at 8:45pm",
+    comments: [],
+    likes: 2,
+    likers: [],
+    datePosted: new Date("2022-01-14"),
+  },
+
+  {
+    id: 5,
+    status: "followers",
+    Poster: 5,
+    PosterName: "Matt",
+    PosterPic:
+      "https://images.pexels.com/photos/1819483/pexels-photo-1819483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+
+    postPic:
+      "https://images.pexels.com/photos/463734/pexels-photo-463734.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    text: "Enjoying some quite time at the cabin",
+    comments: [1, 5],
+    date: "March 2 2022 at 2:15pm",
+    likes: 2,
+    likers: [2, 5],
+    datePosted: new Date("2022-03-02"),
+  },
+  {
+    id: 6,
+    status: "friends",
+    Poster: 6,
+    PosterName: "Mitch Wiz",
+    PosterPic:
+      "https://cdn.pixabay.com/photo/2019/11/10/11/13/couple-4615557_960_720.jpg",
+    postPic:
+      "https://cdn.pixabay.com/photo/2019/11/10/11/13/couple-4615557_960_720.jpg",
+    text: "Happy Anniversary Babe",
+    date: "Feb 22 2022 at 11:45pm",
+    comments: [2, 4],
+    likes: 4,
+    likers: [1, 2, 3, 4],
+    datePosted: new Date("2022-02-22"),
+  },
+  {
+    id: 7,
+    status: "unlisted",
+    Poster: 6,
+    PosterName: "Mitch Wiz",
+    PosterPic:
+      "https://cdn.pixabay.com/photo/2019/11/10/11/13/couple-4615557_960_720.jpg",
+    postPic:
+      "https://cdn.pixabay.com/photo/2019/11/10/11/13/couple-4615557_960_720.jpg",
+    text: "Private message",
+    date: "Feb 2 2022 at 8:45pm",
+    comments: [],
+    likes: 4,
+    likers: [1, 2, 3, 4],
+    datePosted: new Date("2022-02-22"),
+  },
+];
+
+var Comments = [
+  {
+    id: 1,
+    author: 6,
+    name: "Mitch Wiz",
+    picture:
+      "https://cdn.pixabay.com/photo/2019/11/10/11/13/couple-4615557_960_720.jpg",
+    date: "Feb 1",
+    post: 5,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+  },
+  {
+    id: 2,
+    author: 5,
+    name: "Jimmy",
+    picture:
+      "https://images.pexels.com/photos/1693085/pexels-photo-1693085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    date: "Feb 11",
+    post: 6,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+  },
+
+  {
+    id: 3,
+    author: 1,
+    name: "Jenny",
+    picture:
+      "https://images.pexels.com/photos/1090387/pexels-photo-1090387.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    date: "Jan 1",
+    post: 1,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+  },
+  {
+    id: 4,
+    author: 4,
+    name: "James",
+    picture:
+      "https://images.pexels.com/photos/1693085/pexels-photo-1693085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    date: "Feb 11",
+    post: 6,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+  },
+  {
+    id: 5,
+    author: 4,
+    name: "Matt",
+    picture:
+      "https://images.pexels.com/photos/1819483/pexels-photo-1819483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    date: "Feb 4",
+    post: 5,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+  },
+];
+
+module.exports = { Profiles, Posts };

@@ -5,9 +5,12 @@ const mongoose = require("mongoose");
 const path = require("path");
 const morgan = require("morgan");
 const session = require("express-session");
-const cors = require("cors");
-app.use(cors());
 
+const cors = require("cors");
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(cors());
 app.use(function (req, res, next) {
   //Enabling CORS
   res.header("Access-Control-Allow-Origin", "*");
@@ -317,6 +320,7 @@ app.use("/Portfolio", require("./routes/api/portfolio"));
 app.use("/Projects", require("./routes/api/projects"));
 app.use("/Contact", require("./routes/api/contact"));
 app.use("/posts", require("./routes/api/posts"));
+app.use("/profiles", require("./routes/api/profiles"));
 // app.use('/', require('./routes/dashboard'))
 
 const PORT = process.env.PORT || 8080;
