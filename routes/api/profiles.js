@@ -5,9 +5,11 @@ const mongoose = require("mongoose");
 const { Profiles } = require("./Database");
 
 //Route
-//type  : GetAllPosts
+//type  : GetAllProfiles
 // access : public
 router.get("/", (req, res) => {
+  console.log("profile get request received");
+
   var PublicProfiles = Profiles.filter(
     (profile) => profile.status !== "unlisted"
   );
