@@ -11,7 +11,7 @@ const checkFileCount = async (req, res, next) => {
   const files = await fsp.readdir("routes/api/post-images", {
     withFileTypes: true,
   });
-  if (files.length > 8) {
+  if (files.length > 38) {
     res.status(409);
     res.send("Too many files");
   }
@@ -86,10 +86,15 @@ router.post("/", (req, res) => {
 //Route
 //type  : CreatePosts
 // access : private
-router.post("/create", [checkFileCount, upload.single("file")], (req, res) => {
-  console.log("create post request made", req.file);
-
+router.post("/upload", [checkFileCount, upload.single("file")], (req, res) => {
+  console.log("upload file request made", req.file);
   res.send("thank you for the post");
 });
+
+router.post("/create", (req, res) => {
+  console.log("create post request made again",req.body );
+  res.send("thank you for the post");
+});
+
 
 module.exports = router;
