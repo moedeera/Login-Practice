@@ -22,7 +22,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-const flash = require("express-flash");
 const { userJoin, getCurrentUser, getGuest, getHost } = require("./utils/user");
 
 //manage chess users
@@ -321,7 +320,7 @@ app.use("/Projects", require("./routes/api/projects"));
 app.use("/Contact", require("./routes/api/contact"));
 app.use("/posts", require("./routes/api/posts"));
 app.use("/profiles", require("./routes/api/profiles"));
-app.use('/images', express.static('./routes/api/post-images'))
+app.use("/images", express.static("./routes/api/post-images"));
 // app.use('/', require('./routes/dashboard'))
 
 const PORT = process.env.PORT || 8080;
