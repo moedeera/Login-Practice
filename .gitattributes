@@ -1,4 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 # dependencies
-
+/node_modules
+/.pnp
+.pnp.js
